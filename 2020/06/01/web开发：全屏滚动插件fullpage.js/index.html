@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>web开发：全屏滚动插件fullpage.js - 沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-06-01 08:00">
+                    2020年6月1日 早上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.4k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    19
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>随着前端的飞速发展，现在制作界面时出现了非常多的好看的样式，比如说全屏滚动效果，能够带来很舒服的视觉体验。先来看一下什么是全屏滚动：</p>
+<p><img src="/image/v2-432af4e9a4a61d6a7d615dca0b11e98c_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<p>这是<code>fullpage.js</code>的官网，只需要滑动一下滚轮，就能实现翻页的效果。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/chinese#fullpagejs" target="_blank" rel="noopener">fullPage.js中文文档github</a></p>
+<p>如何安装其实文档上面已经说得很清楚了，即：</p>
+<pre><code class="hljs powershell">// 使用 bower
+bower install fullpage.js
+
+// 使用 npm
+npm install fullpage.js</code></pre>
+
+<p>包含文件：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"fullpage.css"</span> /&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 以下行是可选的。 只有在使用选项 css3:false ，并且您希望使用其他缓动效果，而非 linear 、 swing 或 easeInOutCubic 时才有必要。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"vendors/easings.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 以下行仅在使用选项 scrollOverflow:true 的情况下是必需的 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"vendors/scrolloverflow.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"fullpage.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<p>因为现在的单页面应用几乎都是使用的webpack打包工具，所以直接看一下webpack怎么引入，如果有使用其它工具，可以直接到下面的网址进行查看如何引入。</p>
+<p><a href="https://github.com/alvarotrigo/fullPage.js/wiki/Use-module-loaders-for-fullPage.js" target="_blank" rel="noopener">https://github.com/alvarotrigo/fullPage.js/wiki/Use-module-loaders-for-fullPage.js</a></p>
+<pre><code class="hljs js"><span class="hljs-comment">// Optional. When using fullPage extensions</span>
+<span class="hljs-comment">//import scrollHorizontally from './fullpage.scrollHorizontally.min';</span>
+
+<span class="hljs-comment">// Optional. When using scrollOverflow:true</span>
+<span class="hljs-comment">//import IScroll from 'fullpage.js/vendors/scrolloverflow';</span>
+
+<span class="hljs-comment">// Importing fullpage.js</span>
+<span class="hljs-keyword">import</span> fullpage <span class="hljs-keyword">from</span> <span class="hljs-string">'fullpage.js'</span>;
+
+<span class="hljs-comment">// When using fullPage extensions replace the previous import</span>
+<span class="hljs-comment">// of fullpage.js for this file</span>
+<span class="hljs-comment">//import fullpage from 'fullpage.js/dist/fullpage.extensions.min';</span>
+
+<span class="hljs-comment">// Initializing it</span>
+<span class="hljs-keyword">var</span> fullPageInstance = <span class="hljs-keyword">new</span> fullpage(<span class="hljs-string">'#myFullpage'</span>, &#123;
+    navigation: <span class="hljs-literal">true</span>,
+    sectionsColor:[<span class="hljs-string">'#ff5f45'</span>, <span class="hljs-string">'#0798ec'</span>, <span class="hljs-string">'#fc6c7c'</span>, <span class="hljs-string">'grey'</span>]
+&#125;);</code></pre>
+
+<h1 id="应用于React"><a href="#应用于React" class="headerlink" title="应用于React"></a>应用于React</h1><p>根据上面的方法，我们很容易就可以在React中进行使用<code>fullpage.js</code>，只需要创建：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myFullpage"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+componentDidMount() &#123;
+  let fullPageInstance = new fullpage('#myFullpage', &#123;
+    navigation: true,
+    sectionsColor:['#ff5f45', '#0798ec', '#fc6c7c', 'grey']
+  &#125;);
+&#125;</code></pre>
+
+<p><img src="https://pic1.zhimg.com/v2-a5cb4934a0e9c2bc6ea72850bf96f494_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<p>可以看到通过上面的集成后，初步效果已经出来了，剩下的就是填充自己的内容，并且根据需要进行配置。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> myFullpage = <span class="hljs-keyword">new</span> fullpage(<span class="hljs-string">'#fullpage'</span>, &#123;
+	<span class="hljs-comment">//导航</span>
+	menu: <span class="hljs-string">'#menu'</span>,
+	lockAnchors: <span class="hljs-literal">false</span>,
+	anchors:[<span class="hljs-string">'firstPage'</span>, <span class="hljs-string">'secondPage'</span>],
+	navigation: <span class="hljs-literal">false</span>,
+	navigationPosition: <span class="hljs-string">'right'</span>,
+	navigationTooltips: [<span class="hljs-string">'firstSlide'</span>, <span class="hljs-string">'secondSlide'</span>],
+	showActiveTooltip: <span class="hljs-literal">false</span>,
+	slidesNavigation: <span class="hljs-literal">false</span>,
+	slidesNavPosition: <span class="hljs-string">'bottom'</span>,
+
+	<span class="hljs-comment">//滚动</span>
+	css3: <span class="hljs-literal">true</span>,
+	scrollingSpeed: <span class="hljs-number">700</span>,
+	autoScrolling: <span class="hljs-literal">true</span>,
+	fitToSection: <span class="hljs-literal">true</span>,
+	fitToSectionDelay: <span class="hljs-number">1000</span>,
+	scrollBar: <span class="hljs-literal">false</span>,
+	easing: <span class="hljs-string">'easeInOutCubic'</span>,
+	easingcss3: <span class="hljs-string">'ease'</span>,
+	loopBottom: <span class="hljs-literal">false</span>,
+	loopTop: <span class="hljs-literal">false</span>,
+	loopHorizontal: <span class="hljs-literal">true</span>,
+	continuousVertical: <span class="hljs-literal">false</span>,
+	continuousHorizontal: <span class="hljs-literal">false</span>,
+	scrollHorizontally: <span class="hljs-literal">false</span>,
+	interlockedSlides: <span class="hljs-literal">false</span>,
+	dragAndMove: <span class="hljs-literal">false</span>,
+	offsetSections: <span class="hljs-literal">false</span>,
+	resetSliders: <span class="hljs-literal">false</span>,
+	fadingEffect: <span class="hljs-literal">false</span>,
+	normalScrollElements: <span class="hljs-string">'#element1, .element2'</span>,
+	scrollOverflow: <span class="hljs-literal">false</span>,
+	scrollOverflowReset: <span class="hljs-literal">false</span>,
+	scrollOverflowOptions: <span class="hljs-literal">null</span>,
+	touchSensitivity: <span class="hljs-number">15</span>,
+	bigSectionsDestination: <span class="hljs-literal">null</span>,
+
+	<span class="hljs-comment">//可访问</span>
+	keyboardScrolling: <span class="hljs-literal">true</span>,
+	animateAnchor: <span class="hljs-literal">true</span>,
+	recordHistory: <span class="hljs-literal">true</span>,
+
+	<span class="hljs-comment">//布局</span>
+	controlArrows: <span class="hljs-literal">true</span>,
+	verticalCentered: <span class="hljs-literal">true</span>,
+	sectionsColor : [<span class="hljs-string">'#ccc'</span>, <span class="hljs-string">'#fff'</span>],
+	paddingTop: <span class="hljs-string">'3em'</span>,
+	paddingBottom: <span class="hljs-string">'10px'</span>,
+	fixedElements: <span class="hljs-string">'#header, .footer'</span>,
+	responsiveWidth: <span class="hljs-number">0</span>,
+	responsiveHeight: <span class="hljs-number">0</span>,
+	responsiveSlides: <span class="hljs-literal">false</span>,
+	parallax: <span class="hljs-literal">false</span>,
+	parallaxOptions: &#123;<span class="hljs-attr">type</span>: <span class="hljs-string">'reveal'</span>, <span class="hljs-attr">percentage</span>: <span class="hljs-number">62</span>, <span class="hljs-attr">property</span>: <span class="hljs-string">'translate'</span>&#125;,
+	cards: <span class="hljs-literal">false</span>,
+	cardsOptions: &#123;<span class="hljs-attr">perspective</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">fadeContent</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">fadeBackground</span>: <span class="hljs-literal">true</span>&#125;,
+
+
+	<span class="hljs-comment">//自定义选择器</span>
+	sectionSelector: <span class="hljs-string">'.section'</span>,
+	slideSelector: <span class="hljs-string">'.slide'</span>,
+
+	lazyLoading: <span class="hljs-literal">true</span>,
+
+	<span class="hljs-comment">//事件</span>
+	onLeave: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">origin, destination, direction</span>)</span>&#123;&#125;,
+	afterLoad: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">origin, destination, direction</span>)</span>&#123;&#125;,
+	afterRender: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;,
+	afterResize: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">width, height</span>)</span>&#123;&#125;,
+	afterReBuild: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;,
+	afterResponsive: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">isResponsive</span>)</span>&#123;&#125;,
+	afterSlideLoad: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">section, origin, destination, direction</span>)</span>&#123;&#125;,
+	onSlideLeave: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">section, origin, destination, direction</span>)</span>&#123;&#125;
+&#125;);</code></pre>
+
+<p><strong>如果你想将一个页面设置为默认页，只需要给它添加<code>active</code>类，例如<code>&lt;div class=&quot;section active&quot;&gt;Some section&lt;/div&gt;</code>。</strong></p>
+<h1 id="导航小圆点"><a href="#导航小圆点" class="headerlink" title="导航小圆点"></a>导航小圆点</h1><p><img src="https://pic3.zhimg.com/v2-f5d2b9a8deb690dc4c796bdb2182484a_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<p>这种导航小圆点是非常实用的一个功能，引入也很简单，</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-string">'fullpage.js/dist/fullpage.min.css'</span>; <span class="hljs-comment">//引入CSS样式，如果不引入是无法显示小圆点。</span>
+
+<span class="hljs-keyword">new</span> fullpage(<span class="hljs-string">'#fullpage'</span>, &#123;
+  navigation:<span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启小圆点</span>
+&#125;);</code></pre>
+
+<h1 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h1><p>通常我们都需要一些锚点，点击锚点直接进行切换页面：</p>
+<p>根据官方文档，如果要使用锚点功能只需要在HTML标签中使用属性<code>data-anchor</code>，例：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slide"</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">"slide1"</span>&gt;</span> slide 1 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slide"</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">"slide2"</span>&gt;</span> slide 2 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slide"</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">"slide3"</span>&gt;</span> slide 3 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slide"</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">"slide4"</span>&gt;</span> slide 4 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<p>或者也可以直接在声明时进行初始化：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> fullpage(<span class="hljs-string">'#fullpage'</span>, &#123;
+	anchors:[<span class="hljs-string">'firstPage'</span>, <span class="hljs-string">'secondPage'</span>, <span class="hljs-string">'thirdPage'</span>]
+&#125;);</code></pre>
+
+<p>但是我发现了一个新问题：在<code>react-router</code>的<code>HashRouter</code>中会把<code>#</code>当做是hash来处理。也就是说<strong>锚点在<code>HashRouter</code>中无法使用。</strong><code>HashRouter</code>即地址栏中包含<code>#</code>的模式，例如：<code>https://www.xxx.cn/#/</code>这种地址，既然这种地址这么丑，为什么还要使用呢？</p>
+<p>因为项目部署到服务器后，如果没有后端进行转发或者重定向，不使用<code>HashRouter</code>模式就可能存在你<strong>刷新一下页面会出现页面未找到的情况，但是我没有找到太好的解决办法。</strong>目前仅想到了使用<code>fullpage_api.moveTo();</code>方法来进行控制，但是远远没有锚点方便。</p>
+<h1 id="react-fullpage"><a href="#react-fullpage" class="headerlink" title="react-fullpage"></a>react-fullpage</h1><p>都写到这里了，我才发现原来这个插件有React版本的，不仅有React版本，甚至还有Vue和Angular，不过应该仅仅是在该插件的基础上做了封装。</p>
+<p><a href="https://github.com/alvarotrigo/react-fullpage" target="_blank" rel="noopener">react-fullpagegithub</a></p>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><pre><code class="hljs powershell">npm install @fullpage/react<span class="hljs-literal">-fullpage</span></code></pre>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用方法大体相同，如果将上面的例子改为<code>react-fullpage</code>写法即为：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> React, &#123;Component&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactFullpage <span class="hljs-keyword">from</span> <span class="hljs-string">'@fullpage/react-fullpage'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>&#123;
+  render() &#123;
+    <span class="hljs-keyword">return</span> (
+      &lt;ReactFullpage
+        <span class="hljs-comment">//上面的参数设置都写在这里，不用再写在构造函数里面</span>
+        navigation=&#123;<span class="hljs-literal">true</span>&#125;
+        sectionsColor=&#123;[<span class="hljs-string">'#ff5f45'</span>, <span class="hljs-string">'#0798ec'</span>, <span class="hljs-string">'#fc6c7c'</span>, <span class="hljs-string">'grey'</span>]&#125;
+
+        render=&#123;(&#123;state, fullpageApi&#125;) =&gt; &#123;
+          <span class="hljs-keyword">return</span> (
+            &lt;ReactFullpage.Wrapper&gt;
+              &lt;div className=<span class="hljs-string">"section"</span>&gt;Some section&lt;<span class="hljs-regexp">/div&gt;</span>
+<span class="hljs-regexp">              &lt;div className="section"&gt;Some section&lt;/</span>div&gt;
+              &lt;div className=<span class="hljs-string">"section"</span>&gt;Some section&lt;<span class="hljs-regexp">/div&gt;</span>
+<span class="hljs-regexp">              &lt;div className="section"&gt;Some section&lt;/</span>div&gt;
+            &lt;<span class="hljs-regexp">/ReactFullpage.Wrapper&gt;</span>
+<span class="hljs-regexp">          );</span>
+<span class="hljs-regexp">        &#125;&#125;</span>
+<span class="hljs-regexp">      /</span>&gt;
+    );
+  &#125;
+&#125;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Test;</code></pre>
+
+<h1 id="视频推荐"><a href="#视频推荐" class="headerlink" title="视频推荐"></a>视频推荐</h1><p><a href="https://www.bilibili.com/video/BV1Xx411d7rc" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Xx411d7rc</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/HTML5/">HTML5</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/02/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%88%A9%E7%94%A8background%E5%88%B6%E4%BD%9C%E6%8B%89%E7%AA%97%E5%B8%98%E6%95%88%E6%9E%9C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">web开发：利用background制作拉窗帘效果</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/28/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%B2%B9%E7%8C%B4Tampermonkey%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/">
+                        <span class="hidden-mobile">强大的油猴Tampermonkey：简单的脚本制作</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "web开发：全屏滚动插件fullpage.js&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>心血来潮：做一个网页游戏，飞机大战 - 沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-05-04 08:00">
+                    2020年5月4日 早上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    886 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    10
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h1><p>体验地址：<a href="https://qflyb.github.io/airplanewar/" target="_blank" rel="noopener">https://qflyb.github.io/airplanewar/</a></p>
+<p>飞机大战小游戏主体还是比较简单的，但是看似简单的外壳下面有着很多细节。如果要将细节做到极致，那需要花大量的功夫，我这里只是大体实现了飞机大战。</p>
+<h2 id="体验地址"><a href="#体验地址" class="headerlink" title="体验地址"></a><strong>体验地址</strong></h2><p>整个游戏是使用cocos实现，先看一下游戏画面截图：</p>
+<p><img src="/image/v2-925afa52377468925f88c892cccf7a54_720w.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>这篇文章不准备针对所有代码去讲解，只挑选制作过程中印象比较深的踩坑之处，代码都是用的TypeScript，TypeScript在JavaScript的基础上面加了很多限制，那么为什么还要使用TypeScript？因为TypeScript的类，更像Java，C#这种语言，用着更顺手一些。</p>
+<h2 id="飞机的移动"><a href="#飞机的移动" class="headerlink" title="飞机的移动"></a><strong>飞机的移动</strong></h2><h2 id="玩家飞机"><a href="#玩家飞机" class="headerlink" title="玩家飞机"></a><strong>玩家飞机</strong></h2><p>玩家飞机操控根据上图也能看出来，是依据触摸屏幕的点进行判断，cocos里面提供了一个<code>cc.Node.EventType.TOUCH_MOVE</code>方法，可以在监听玩家手指在屏幕上面滑动。同时还提供了<code>getPreviousLocation</code>可以获取到上一帧手指所在的位置，而<code>getLocation</code>可以获取到当前帧手指所在的位置，然后通过两帧位置的差值，再将飞机的位置减去这个差值，就可以实现飞机的移动。</p>
+<pre><code class="hljs cs"><span class="hljs-comment">// 控制</span>
+<span class="hljs-keyword">this</span>.node.<span class="hljs-keyword">on</span>(
+  cc.Node.EventType.TOUCH_MOVE,
+  function (<span class="hljs-keyword">event</span>) &#123;
+    <span class="hljs-keyword">if</span> (GameMode.gameOver) &#123;
+      <span class="hljs-keyword">return</span>;
+    &#125;
+    <span class="hljs-keyword">this</span>.player.x -= <span class="hljs-keyword">event</span>.getPreviousLocation().x - <span class="hljs-keyword">event</span>.getLocation().x;
+    <span class="hljs-keyword">this</span>.player.y -= <span class="hljs-keyword">event</span>.getPreviousLocation().y - <span class="hljs-keyword">event</span>.getLocation().y;
+  &#125;,
+  <span class="hljs-keyword">this</span>
+);</code></pre>
+
+<h2 id="敌方飞机"><a href="#敌方飞机" class="headerlink" title="敌方飞机"></a><strong>敌方飞机</strong></h2><p>敌方飞机的生成是使用一个随机数，让它在屏幕外面随机生成，同时不断的改变飞机的y轴值就可以实现一直向下移动。</p>
+<pre><code class="hljs typescript">creatEnemy(enemyCount: <span class="hljs-built_in">number</span>, enemyList: <span class="hljs-built_in">Array</span>&lt;cc.Node&gt;, hp: <span class="hljs-built_in">number</span>) &#123;
+  <span class="hljs-keyword">let</span> enemy = enemyList[enemyCount];
+  <span class="hljs-keyword">let</span> enemyS: Enemy = enemy.getComponent(<span class="hljs-string">"Enemy"</span>);
+  enemyS.death = <span class="hljs-literal">false</span>;
+  enemyS.hp = hp;
+  enemy.setPosition(
+    <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">570</span> - <span class="hljs-number">285</span>), <span class="hljs-comment">// 位置随机</span>
+    <span class="hljs-keyword">this</span>.enemyPos.getPosition().y
+  );
+  enemy.active = <span class="hljs-literal">true</span>;
+&#125;</code></pre>
+
+<h2 id="动画系统"><a href="#动画系统" class="headerlink" title="动画系统"></a><strong>动画系统</strong></h2><p>飞机的爆炸都是通过cocos的动画系统来实现，在飞机判断死亡时，就开始播放动画，等到动画结束，就将敌方飞机的<strong>渲染关闭</strong>。这里使用的是关闭渲染而不是进行销毁对象，因为对象的动态创建是非常消耗性能的，所以我选择在游戏加载的时候就将敌方的几十架飞机全部创建，然后要使用时对它们进行初始化。</p>
+<pre><code class="hljs reasonml">init<span class="hljs-constructor">Enemy(<span class="hljs-params">enemyList</span>: Array&lt;<span class="hljs-params">cc</span>.Node&gt;, <span class="hljs-params">enemy</span>: <span class="hljs-params">cc</span>.Node, <span class="hljs-params">count</span>: <span class="hljs-params">number</span>)</span> &#123;
+  <span class="hljs-comment">//生成敌人</span>
+  for (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; count; i++) &#123;
+    <span class="hljs-keyword">let</span> ene = cc.instantiate(enemy);
+    this.node.add<span class="hljs-constructor">Child(<span class="hljs-params">ene</span>)</span>;
+    ene.active = <span class="hljs-literal">false</span>;
+    enemyList<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span> = ene;
+  &#125;
+&#125;</code></pre>
+
+<h2 id="击中目标"><a href="#击中目标" class="headerlink" title="击中目标"></a><strong>击中目标</strong></h2><p>cocos自带了碰撞功能，只需要在初始化时开启碰撞，并且在组件上面添加了碰撞盒子，就可以通过<code>onCollisionEnter</code>方法监听到碰撞。</p>
+<pre><code class="hljs nix"><span class="hljs-keyword">let</span> <span class="hljs-attr">manager</span> = cc.director.getCollisionManager();
+manager.<span class="hljs-attr">enabled</span> = <span class="hljs-literal">true</span>; // 开启碰撞</code></pre>
+
+<p><img src="/image/v2-52a8b33cdc7502577843ab7fa6a6b6ab_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<h2 id="细节部分"><a href="#细节部分" class="headerlink" title="细节部分"></a><strong>细节部分</strong></h2><h2 id="重新开始"><a href="#重新开始" class="headerlink" title="重新开始"></a><strong>重新开始</strong></h2><p>使用cocos提供的方法<code>cc.director.loadScene(&quot;Game&quot;);</code>就可以重置场景，但是这里我遇到了一个坑，不管是通过该方法提供的回调函数，还是直接写在下面，重置时都无法再次拿到当前脚本上的对象。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h2><p>生成不同等级的敌方飞机这是一个非常需要考虑细节的地方。制作游戏的时候你需要考虑再加入一种类型的飞机，那么需要怎么加才最方便，而不是需要加一种敌方飞机，就又重新全部写一次代码。当然，因为偷懒，所以这部分我基本没有怎么考虑了。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/HTML/">HTML</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Cocos-Creator/">Cocos Creator</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/04/%E5%AD%A6%E4%B9%A0C++%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%8E%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B8%8E%E9%9A%BE%E7%82%B9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习C++时遇到的与其它编程语言中的不同与难点</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/22/nodejs%E4%B8%ADmodule.exports%E5%92%8Cexports%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                        <span class="hidden-mobile">nodejs中module.exports和exports的区别</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "心血来潮：做一个网页游戏，飞机大战&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

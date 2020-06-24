@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/22/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/">Vue服务器渲染优秀项目：Nuxt.js</a>
+
+      <a href="/2020/06/22/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/" class="index-excerpt">
+        
+        
+          
+        
+        <div>1. 服务器渲染1. 1 什么是服务器渲染Vue.js 服务器端渲染指南 
+Vue官网已经对服务器渲染讲解的很详细了，可以直接参考上面的文档。不过就是因为讲解的太过于全面，所以有时候可能看的一头雾水。
+1.2 为什么需要服务器渲染更好的 SEO，搜索引擎的爬虫抓取工具可以直接查看完全渲染的页面。
+这段话是什么意思呢，大家可以打开自己的Vue项目，右键查看源代码：
+
+可以看到，不管你的Vue项目有多</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-22
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/vue/">vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/">服务端渲染</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/15/web%E5%89%8D%E7%AB%AF%EF%BC%9AViewer.js%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">web前端：Viewer.js图片查看器</a>
+
+      <a href="/2020/06/15/web%E5%89%8D%E7%AB%AF%EF%BC%9AViewer.js%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/" class="index-excerpt">
+        
+        
+          
+        
+        <div>做界面时可能会需要图片查看的功能，就比如QQ空间查看照片的功能。
+虽然这个功能自己实现也不是太难，但是直接引入第三方库有个最大的好处是第三方库一般都经过很多个版本的更新迭代，不管是性能还是体验上一般都优于自己动手写（大佬除外）。
+Viewer.js几乎是开源出来的图片查看器中功能最全的库。 
+1. 安装1.1 npmnpm install viewerjs
+
+1.2 browser&lt;link</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-15
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Viewer-js/">Viewer.js</a>
+            
+              <a href="/tags/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">图片查看器</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/15/web%E5%BC%80%E5%8F%91%EF%BC%9A%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C%E6%8F%92%E4%BB%B6Typed.js/">web开发：打字机效果插件Typed.js</a>
+
+      <a href="/2020/06/15/web%E5%BC%80%E5%8F%91%EF%BC%9A%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C%E6%8F%92%E4%BB%B6Typed.js/" class="index-excerpt">
+        
+        
+          
+        
+        <div>打字机效果是非常酷的文字显示效果，视觉表现极佳，而通过Typed.js可以很简单的在web开发中实现打字机效果。
+1. 官网JavaScript Animated Typing with Typed.jsmattboldt
+2. 安装# With NPM
+npm install typed.js
+
+# With Yarn
+yarn add typed.js
+
+# With Bower
+bower </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-15
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/">游戏制作</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+            
+              <a href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
+            
+              <a href="/tags/%E6%89%93%E5%AD%97%E6%9C%BA/">打字机</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/12/HTML%E4%B8%AD%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%A8Vue%E4%B8%AD%E5%BA%94%E7%94%A8/">HTML中的瀑布流masonry在Vue中应用</a>
+
+      <a href="/2020/06/12/HTML%E4%B8%AD%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%A8Vue%E4%B8%AD%E5%BA%94%E7%94%A8/" class="index-excerpt">
+        
+        
+          
+        
+        <div>
+瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。最早采用此布局的网站是Pinterest，逐渐在国内流行开来。国内大多数清新站基本为这类风格。
+
+
+可以说作为图片的一种展示风格，是非常的好看了，那么在HTML中怎么进行实现呢？
+纯CSS实现https://www.bilibili.com/v</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-12
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML/">HTML</a>
+            
+              <a href="/tags/Vue-js/">Vue.js</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/11/IOS%E7%B3%BB%E7%BB%9F%E8%B6%8A%E7%8B%B1%E5%90%8E%E7%9A%84%E8%87%AA%E7%94%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB/">IOS系统越狱后的自用插件分享</a>
+
+      <a href="/2020/06/11/IOS%E7%B3%BB%E7%BB%9F%E8%B6%8A%E7%8B%B1%E5%90%8E%E7%9A%84%E8%87%AA%E7%94%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB/" class="index-excerpt">
+        
+        
+          
+        
+        <div>为什么要越狱？众所周知，IOS系统的封闭性要远远高于安卓，虽然现在安卓的很多衍生系统都已经不支持Root了。
+正因为IOS的封闭性，所以IOS比起安卓来讲要安全很多，不会因为在滑动APP界面时点到广告就开始下载软件（以前我在用安卓时，那个年代流量还只有不到1G/月时，点到贴吧上面的广告瞬间开始下载软件，花掉不少流量…这个故事告诉我们，4G的速度还是挺快的）。
+总之，越狱是为了实现IOS不具备的某些</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-11
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/IOS/">IOS</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%B6%8A%E7%8B%B1/">越狱</a>
+            
+              <a href="/tags/IOS/">IOS</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/06/web%E5%BC%80%E5%8F%91%EF%BC%9A%E7%94%A8Vue%E5%81%9A%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8/">web开发：用Vue做一个播放器</a>
+
+      <a href="/2020/06/06/web%E5%BC%80%E5%8F%91%EF%BC%9A%E7%94%A8Vue%E5%81%9A%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8/" class="index-excerpt">
+        
+        
+          
+        
+        <div>之前在B站上面看到一个视频：
+https://www.bilibili.com/video/BV1Yz411z7An?t=16
+感觉它的这个播放器挺好看的，原作者是用的PPT制作。
+我的设计灵感一向很差，叫我自己设计UI一般会非常难看，于是就准备仿照他这个，用Vue通过web的形式，参照他的界面，做一款播放器玩玩。
+
+目标制作一个简单的播放器，拥有播放，暂停，上一首，下一首，歌曲列表等功能。音乐数</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-06
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/unity3d/">unity3d</a>
+            
+              <a href="/tags/%E6%92%AD%E6%94%BE%E5%99%A8/">播放器</a>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/03/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/">GSAP（GreenSock）：最健全的web动画库之一</a>
+
+      <a href="/2020/06/03/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/" class="index-excerpt">
+        
+        
+          
+        
+        <div>官方的介绍
+GreenSock动画平台（GSAP）可以对JavaScript可以操作的所有内容进行动画处理（CSS属性，SVG，React，画布，通用对象等），同时解决了不同浏览器上存在的兼容性问题，而且速度极快（比jQuery 快20倍）。大约有1000万个站点和许多主要品牌都使用 GSAP。
+
+官网https://greensock.com/greensock.com
+动画其实是每秒多次改变元</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-03
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+            
+              <a href="/tags/HTML5/">HTML5</a>
+            
+              <a href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/02/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%88%A9%E7%94%A8background%E5%88%B6%E4%BD%9C%E6%8B%89%E7%AA%97%E5%B8%98%E6%95%88%E6%9E%9C/">web开发：利用background制作拉窗帘效果</a>
+
+      <a href="/2020/06/02/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%88%A9%E7%94%A8background%E5%88%B6%E4%BD%9C%E6%8B%89%E7%AA%97%E5%B8%98%E6%95%88%E6%9E%9C/" class="index-excerpt">
+        
+        
+          
+        
+        <div>往往利用CSS可以做出一些意想不到的效果，比如说下面的这个示例：
+
+为了演示随手做的，官网并不是这样
+滚动鼠标滚轮，就有一种背景图被覆盖的错觉，之所以说是错觉，并不是背景图真的被覆盖了，其实背景图所在的盒子是跟着下面的图片一起在滚动，只是图片和窗口之间相对没有移动造成的错觉。
+可能听起来比较复杂，但是实际上只需要一个属性就能做出这种效果，那就是background-attachment: fixe</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-02
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/">游戏制作</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
+            
+              <a href="/tags/HTML-CSS/">HTML+CSS</a>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/06/01/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6fullpage.js/">web开发：全屏滚动插件fullpage.js</a>
+
+      <a href="/2020/06/01/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6fullpage.js/" class="index-excerpt">
+        
+        
+          
+        
+        <div>随着前端的飞速发展，现在制作界面时出现了非常多的好看的样式，比如说全屏滚动效果，能够带来很舒服的视觉体验。先来看一下什么是全屏滚动：
+
+这是fullpage.js的官网，只需要滑动一下滚轮，就能实现翻页的效果。
+安装fullPage.js中文文档github
+如何安装其实文档上面已经说得很清楚了，即：
+// 使用 bower
+bower install fullpage.js
+
+// 使用 npm</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-06-01
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML5/">HTML5</a>
+            
+              <a href="/tags/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/05/28/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%B2%B9%E7%8C%B4Tampermonkey%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/">强大的油猴Tampermonkey：简单的脚本制作</a>
+
+      <a href="/2020/05/28/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%B2%B9%E7%8C%B4Tampermonkey%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" class="index-excerpt">
+        
+        
+          
+        
+        <div>油猴是什么？可以让你在网页上使用脚本，同时它拥有非常多的其他用户开放出来提供下载的脚本，如果你会JavaScript，你甚至可以自行编写脚本实现你想要实现的事情。
+油猴和Chrome扩展应用Chrome扩展应用本质上是HTML+CSS+JavaScript而油猴脚本仅仅是一个JavaScript文件，而且谷歌对于扩展应用的审核比较严格，甚至还需要缴纳审核费用。而油猴脚本其实是简化的Chrome插件</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-28
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/">油猴脚本</a>
+            
+              <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/">浏览器插件</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "欢迎来到沧沧凉凉的博客&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

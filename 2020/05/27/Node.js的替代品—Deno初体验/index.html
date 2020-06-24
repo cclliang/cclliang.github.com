@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>Node.js的替代品—Deno初体验 - 沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-05-27 08:00">
+                    2020年5月27日 早上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    977 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    11
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="Deno是什么"><a href="#Deno是什么" class="headerlink" title="Deno是什么"></a>Deno是什么</h1><p>它内置了 V8 引擎，用来解释 JavaScript。同时，也内置了 tsc 引擎，解释 TypeScript。它使用 Rust 语言开发，由于 Rust 原生支持 WebAssembly，所以它也能直接运行 WebAssembly，说简单点就是Node.js的一个替代品。</p>
+<p><a href="https://deno.land/" target="_blank" rel="noopener">Deno — A secure runtime for JavaScript and TypeScript.deno.land</a></p>
+<h1 id="为什么会出现Deno"><a href="#为什么会出现Deno" class="headerlink" title="为什么会出现Deno"></a>为什么会出现Deno</h1><ol>
+<li><code>Node.js</code>自己的模块格式<code>CommonJS</code>与<code>ES</code>模块不兼容。</li>
+<li><code>node_modules</code>和的<code>package.json</code>在项目越来越大后变得难以管理。</li>
+<li><code>Node.js</code>并不完善的功能，导致外部工具层出不穷。</li>
+</ol>
+<p>由于上面这些原因，Ryan Dahl决定放弃Node.js，从头写一个替代品，彻底解决这些问题。</p>
+<p>deno这个名字就是来自Node的字母重新组合（Node = no + de）表示”拆除 Node.js”（de = destroy, no = Node.js）。</p>
+<h1 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h1><ul>
+<li>使用TypeScript或者JavaScript</li>
+<li>支持ES模块</li>
+<li>安全控制（权限管理）</li>
+<li>全局await</li>
+<li>去中心化Packages</li>
+<li>内置测试</li>
+<li>标准库</li>
+<li>浏览器兼容的API</li>
+<li>Modern Js</li>
+<li>执行Wasm二进制文件</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>开发工具选择：VScode</p>
+<p><img src="/image/v2-6178dcee1166f01b959813c45bb4f7dd_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>官网提供了很多种安装方法，这里只说一下我是怎么安装的。</p>
+<p>使用WIN（即Ctrl右边的键）+R组合键打开运行窗口，输入powershell，回车即可。</p>
+<p>然后在新弹出的窗口中输入下面的命令。</p>
+<pre><code class="hljs powershell">iwr https://deno.land/x/install/install.ps1 <span class="hljs-literal">-useb</span> | iex</code></pre>
+
+<p><img src="/image/v2-bd054d423981c16c17ba7d68e5e45214_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>如果看到这个界面，就说明已经安装成功。</p>
+<h1 id="去中心化packages"><a href="#去中心化packages" class="headerlink" title="去中心化packages"></a>去中心化packages</h1><p>用过<code>Node.js</code>后都知道，如果随着项目的增长，<code>package.json</code>文件会变得越来越臃肿，而且运行<code>npm install</code>时还会有几率出现未知的错误。</p>
+<p>Deno为了解决这个痛点，同时还支持了ES模块，所以可以直接通过<code>import XXX from (URL地址)</code>的形式来导入包。</p>
+<h1 id="标准库模块"><a href="#标准库模块" class="headerlink" title="标准库模块"></a>标准库模块</h1><p>Deno官方提供的模块可以直接在官网上面进行查看。</p>
+<p><a href="https://deno.land/std" target="_blank" rel="noopener">https://deno.land/std</a></p>
+<h1 id="安全控制"><a href="#安全控制" class="headerlink" title="安全控制"></a>安全控制</h1><p><strong>在读取脚本的时候必须使用参数，显式打开权限，不然会报错</strong>，这一点跟Node.js完全不同，可能才入手Deno时会很不习惯。如：<code>deno run --allow-read index.ts</code></p>
+<pre><code class="hljs text">--allow-read：打开读权限，可以指定可读的目录，比如--allow-read&#x3D;&#x2F;temp。
+--allow-write：打开写权限。
+--allow-net&#x3D;google.com：允许网络通信，可以指定可请求的域，比如--allow-net&#x3D;google.com。
+--allow-env：允许读取环境变量。</code></pre>
+
+<h1 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h1><p>不管你愿不愿意，TypeScript的广泛应用的确是未来前端语言的趋势，现在Vue3.0也使用了TypeScript，而且如果你拥有一种后端语言的基础，上手TypeScript是非常简单的，所以还不赶紧学一波TypeScript。</p>
+<h1 id="全局await"><a href="#全局await" class="headerlink" title="全局await"></a>全局await</h1><p>await不用再捆绑在async函数中，可以直接在全局进行使用。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> encoder = <span class="hljs-keyword">new</span> TextEncoder();
+<span class="hljs-keyword">const</span> greetText = encoder.encode(<span class="hljs-string">"Hello World"</span>);
+<span class="hljs-keyword">await</span> Deno.writeFile(<span class="hljs-string">"Hello.txt"</span>, greetText);</code></pre>
+
+<p>上面的代码完成了一个文件写入的操作，可以看到，就算不在async函数中，同样可以使用await。</p>
+<h1 id="创建简单服务器"><a href="#创建简单服务器" class="headerlink" title="创建简单服务器"></a>创建简单服务器</h1><p>根据官方的提示，我们用Deno来创建一个简单的服务器。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; serve &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"https://deno.land/std/http/server.ts"</span>;
+<span class="hljs-keyword">const</span> s = serve(&#123; <span class="hljs-attr">port</span>: <span class="hljs-number">8000</span> &#125;);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"http://localhost:8000/"</span>);
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">await</span> (<span class="hljs-keyword">const</span> req <span class="hljs-keyword">of</span> s) &#123;
+  req.respond(&#123; <span class="hljs-attr">body</span>: <span class="hljs-string">"Hello World\n"</span> &#125;);
+&#125;</code></pre>
+
+<p>运行</p>
+<pre><code class="hljs powershell">deno run -<span class="hljs-literal">-allow</span><span class="hljs-literal">-net</span> index.ts</code></pre>
+
+<p>记得一定要加上<code>--allow-net</code>权限，不然会直接报错。</p>
+<p>运行成功后通过浏览器打开<code>localhost:8000</code> 可以看到<code>Hello World</code>说明我们的服务器已经打开成功。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Deno从体验上来说非常不错，自身就支持<code>TypeScript</code>解析，而且解决了<code>package</code>这个痛点，但是现在作用于生产环境还是太早，因为它的社区还相对不成熟，肯定比不过经过了多年沉淀的<code>Node.js</code>，也许多年后会替代<code>Node.js</code>，但肯定不是现在。</p>
+<h1 id="资料参考"><a href="#资料参考" class="headerlink" title="资料参考"></a>资料参考</h1><p><a href="https://www.ruanyifeng.com/blog/2020/01/deno-intro.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2020/01/deno-intro.html</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Node-js/">Node.js</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/28/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%B2%B9%E7%8C%B4Tampermonkey%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">强大的油猴Tampermonkey：简单的脚本制作</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/27/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AC++%E5%85%A5%E9%97%A8/">
+                        <span class="hidden-mobile">学习笔记：C++入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Node.js的替代品—Deno初体验&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

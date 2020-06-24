@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>使用Taro开发微信养花小程序 - 沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-05-07 08:00">
+                    2020年5月7日 早上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.7k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    21
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="Taro简介"><a href="#Taro简介" class="headerlink" title="Taro简介"></a>Taro简介</h1><p>Taro是一套遵循 React 语法规范的<strong>多端开发</strong>解决方案。</p>
+<p>使用Taro，只需要书写一套代码，再通过 Taro 的编译工具，将源代码分别编译出可以在不同端（微信 / 京东 / 百度 / 支付宝 / 字节跳动 小程序、快应用、H5、React-Native 等）运行的代码。</p>
+<p>注意：<strong>如果不需要进行多端开发并且需要对小程序深度定制，建议还是直接使用原生开发。</strong></p>
+<h1 id="安装Taro"><a href="#安装Taro" class="headerlink" title="安装Taro"></a>安装Taro</h1><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g @tarojs/cli</code></pre>
+
+<h1 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h1><pre><code class="hljs ebnf"><span class="hljs-attribute">taro init myApp</span></code></pre>
+
+<p>模板拉取完毕后会给你一些选项，根据自身喜好选择就行了，我这里使用TypeScript。</p>
+<p><img src="/image/v2-6f735d69e4c55ab67eb0ab09edc0f877_b.png" srcset="/img/loading.gif" alt="img"></p>
+<p>其中因为node-sass的原因，运行npm install时可能会报错。这个时候就将npm换成淘宝镜像应该就可以解决。</p>
+<pre><code class="hljs arduino">npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">set</span> registry https:<span class="hljs-comment">//registry.npm.taobao.org</span></code></pre>
+
+<h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><p>经过漫长的等待后，你还需要准备微信开发者工具，因为必须要通过开发者工具进行预览。</p>
+<p>打开工程目录下的package.json，可以看到下面的命令就是构建不同平台的小程序。使用方法是在前面加上npm run或者yarn比如预览微信小程序就是npm run dev:weapp </p>
+<pre><code class="hljs 1c"><span class="hljs-string">"scripts"</span>: &#123;
+  <span class="hljs-string">"build:weapp"</span>: <span class="hljs-string">"taro build --type weapp"</span>,
+  <span class="hljs-string">"build:swan"</span>: <span class="hljs-string">"taro build --type swan"</span>,
+  <span class="hljs-string">"build:alipay"</span>: <span class="hljs-string">"taro build --type alipay"</span>,
+  <span class="hljs-string">"build:tt"</span>: <span class="hljs-string">"taro build --type tt"</span>,
+  <span class="hljs-string">"build:h5"</span>: <span class="hljs-string">"taro build --type h5"</span>,
+  <span class="hljs-string">"build:rn"</span>: <span class="hljs-string">"taro build --type rn"</span>,
+  <span class="hljs-string">"build:qq"</span>: <span class="hljs-string">"taro build --type qq"</span>,
+  <span class="hljs-string">"build:quickapp"</span>: <span class="hljs-string">"taro build --type quickapp"</span>,
+  <span class="hljs-string">"dev:weapp"</span>: <span class="hljs-string">"npm run build:weapp -- --watch"</span>,
+  <span class="hljs-string">"dev:swan"</span>: <span class="hljs-string">"npm run build:swan -- --watch"</span>,
+  <span class="hljs-string">"dev:alipay"</span>: <span class="hljs-string">"npm run build:alipay -- --watch"</span>,
+  <span class="hljs-string">"dev:tt"</span>: <span class="hljs-string">"npm run build:tt -- --watch"</span>,
+  <span class="hljs-string">"dev:h5"</span>: <span class="hljs-string">"npm run build:h5 -- --watch"</span>,
+  <span class="hljs-string">"dev:rn"</span>: <span class="hljs-string">"npm run build:rn -- --watch"</span>,
+  <span class="hljs-string">"dev:qq"</span>: <span class="hljs-string">"npm run build:qq -- --watch"</span>,
+  <span class="hljs-string">"dev:quickapp"</span>: <span class="hljs-string">"npm run build:quickapp -- --watch"</span>
+&#125;,</code></pre>
+
+<p>编译完成后会出现一个dist文件夹，我们将工程文件夹导入到微信开发者工具中。 如果导入成功就会看到下面的界面：</p>
+<p><img src="/image/v2-9f95a15fefdb30dc3a45d66d2953d83e_b.png" srcset="/img/loading.gif" alt="img"></p>
+<p>我们再次引入Taro-ui。这个是UI组件库，有些组件如果自己去写的话不仅非常消耗时间，而且可能会有BUG，所以这个时候就需要选用UI组件库。</p>
+<p><a href="https://github.com/NervJS/taro-uigithub.com" target="_blank" rel="noopener">https://github.com/NervJS/taro-uigithub.com</a></p>
+<p>引入</p>
+<pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> taro-ui</code></pre>
+
+<h1 id="正式开发"><a href="#正式开发" class="headerlink" title="正式开发"></a>正式开发</h1><p>由于想要开发的代码逻辑还是比较多的，所以这里就不一步一步的讲解代码。</p>
+<p><img src="/image/v2-9dad95b98abfa221827866e965591e11_b.png" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h1><p>先简单的搭出这样一个界面，其中植物有3种状态，一种是<strong>需要浇水</strong>，一种是<strong>正在成长</strong>，最后一种是<strong>已经枯萎</strong>。同时还设计了一个添加植物的按钮，通过这个按钮，能够新增植物。并且植物的数据是从数据库中进行读取，以保证下次打开小程序后这些数据仍然存在。</p>
+<p><img src="/image/v2-502cdcdd83bfd5c6091b600f3e246d99_b.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>搭建中的界面</p>
+<h1 id="植物管理"><a href="#植物管理" class="headerlink" title="植物管理"></a>植物管理</h1><p>由于我这里使用了TypeScript我就直接创建了一个植物类。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> Flower &#123;
+  flowerName: <span class="hljs-built_in">string</span>  <span class="hljs-comment">// 植物名字</span>
+  overTime: <span class="hljs-built_in">number</span>    <span class="hljs-comment">// 浇水间隔</span>
+  imgUrl: <span class="hljs-built_in">string</span>      <span class="hljs-comment">// 植物图片地址</span>
+
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">flowerName: <span class="hljs-built_in">string</span>, overTime: <span class="hljs-built_in">number</span>, imgUrl: <span class="hljs-built_in">string</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.flowerName = flowerName
+    <span class="hljs-keyword">this</span>.overTime = overTime
+    <span class="hljs-keyword">this</span>.imgUrl = imgUrl
+  &#125;
+&#125;</code></pre>
+
+<p>然后实例化这个类，并且存到数组中供页面调用。</p>
+<pre><code class="hljs routeros">import Flower <span class="hljs-keyword">from</span> <span class="hljs-string">'./Flower'</span>
+
+const flowers: Flower[] = []
+flowers.push(new Flower(<span class="hljs-string">'栀子花'</span>, 3600, <span class="hljs-string">'图片地址'</span>))
+flowers.push(new Flower(<span class="hljs-string">'丁香花'</span>, 1200, <span class="hljs-string">'图片地址'</span>))
+flowers.push(new Flower(<span class="hljs-string">'茉莉花'</span>, 2400, <span class="hljs-string">'图片地址'</span>))
+flowers.push(new Flower(<span class="hljs-string">'仙人掌'</span>, 3600, <span class="hljs-string">'图片地址'</span>))
+
+
+<span class="hljs-builtin-name">export</span><span class="hljs-built_in"> default </span>flowers</code></pre>
+
+<h1 id="后端和数据库"><a href="#后端和数据库" class="headerlink" title="后端和数据库"></a>后端和数据库</h1><p>由于我本人对后端内容不是太熟悉，所以大体搭建了一个数据库，意思一下。</p>
+<p>这里我选用的Spring boot搭建后端，mySql作为数据库。如果是前端搭建数据库，还是推荐更适合前端的Nodejs和MongoDB。</p>
+<p>首先我们需要一个数据表：已经添加的植物表。那么它应该就具有：名称，添加时间，上次浇水时间，浇水间隔时间这些属性。</p>
+<h1 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h1><p>Taro对小程序的网络请求API进行了Promise封装，具体可以参考官方文档：</p>
+<p><a href="https://nervjs.github.io/taro/docs/apis/network/request/request/nervjs.github.io" target="_blank" rel="noopener">https://nervjs.github.io/taro/docs/apis/network/request/request/nervjs.github.io</a></p>
+<p>这里我们再次将Taro提供的api进行封装，封装的原因是因为如果我们想要引入其他的网络请求库，就不用再去页面中用到的地方一个一个的更改api，直接修改封装文件中的api就可以了。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Taro <span class="hljs-keyword">from</span> <span class="hljs-string">"@tarojs/taro"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ajax</span>(<span class="hljs-params">url = <span class="hljs-string">""</span>, params = &#123;&#125;, type = <span class="hljs-string">"GET"</span></span>) </span>&#123;
+  <span class="hljs-keyword">let</span> promise;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">if</span> (type.toUpperCase() === <span class="hljs-string">"GET"</span>) &#123;
+      <span class="hljs-keyword">let</span> paramsStr = <span class="hljs-string">""</span>;
+      <span class="hljs-built_in">Object</span>.keys(params).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;
+        paramsStr += key + <span class="hljs-string">"="</span> + params[key] + <span class="hljs-string">"&amp;"</span>;
+      &#125;);
+      <span class="hljs-keyword">if</span> (paramsStr) &#123;
+        paramsStr = paramsStr.substr(<span class="hljs-number">0</span>, paramsStr.lastIndexOf(<span class="hljs-string">"&amp;"</span>));
+      &#125;
+      url += <span class="hljs-string">"?"</span> + paramsStr;
+      <span class="hljs-comment">//发起GET请求</span>
+      promise = Taro.request(&#123;
+        url: url,
+        header: &#123;<span class="hljs-string">"content-type"</span>: <span class="hljs-string">"application/json"</span>&#125;,
+      &#125;);
+    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (type.toUpperCase() === <span class="hljs-string">"POST"</span>) &#123;
+      promise = Taro.request(&#123;
+        method: <span class="hljs-string">"POST"</span>,
+        url: url,
+        data: params,
+        header: &#123;<span class="hljs-string">"content-type"</span>: <span class="hljs-string">"application/json"</span>&#125;
+      &#125;);
+    &#125;
+
+    promise.then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> &#123;
+      resolve(response.data);
+    &#125;).catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;
+      reject(error);
+    &#125;);
+  &#125;);
+&#125;</code></pre>
+
+<p>到这一步，我们已经完成了数据库和后端的配置，剩下的就是需要在前端进行调用这些接口。</p>
+<h1 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h1><p>虽然组件之间的参数传递并不复杂，但是我这里为了方便，还是使用redux和redux-thunk。</p>
+<p>使用 Redux | Taro 文档nervjs.github.io</p>
+<p><a href="https://github.com/reduxjs/redux-thunkgithub.com" target="_blank" rel="noopener">https://github.com/reduxjs/redux-thunkgithub.com</a></p>
+<p>由于我对redux-thunk不是很熟，所以又去翻找了一下资料，在redux和后端数据这里花费了不少时间。</p>
+<p><img src="/image/v2-fc800fd70f2bfc6b700e6b4b09aa0d31_b.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>从上面的图可以看到，这里已经可以添加花了，但是由于每次点击添加不仅要向后端发送请求将点击的花添加到数据库，并且还需要将花的列表进行重新请求。</p>
+<p>剩下的就是实现浇花功能了，该功能的实现必须也要后端配合实现，实现过程就是当你<strong>点击浇水的时候，将数据库中对应的花的上一次浇水时间改成当前时间。</strong>这个的实现几乎全是由后端实现，跟前端没啥关系，最多只是调用一下接口将点击浇水的花的ID传送过去。</p>
+<p>最后增加删除枯萎的花的功能，也是需要后端提供接口。</p>
+<p><img src="/image/v2-de5dfd4f7d2d85936c7094d65e37ec6c_b.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>到这里基本上小程序就已经开发完成了，但是不知道是因为我的后端传输数据很慢还是其它的原因，可以看到点击删除后会卡一会。</p>
+<p>之后我调整了一下代码格式，因为Taro创建工程的时候会自动集成ESLint代码检测，再次尝试添加删除植物，发现这次没有上面那么卡顿了，所以也不知道之前是哪儿出现了问题。</p>
+<p><img src="/image/v2-dd399d409804cc37c9b76e53c745a946_b.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>可以看到，还是比较流畅</p>
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p><img src="/image/v2-b679caf5c262af8a528ebeac5a38d42f_720w.gif" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>整个项目的难点在于redux之间的数据传递，还有时间的换算，除此之外也没有什么难点了，虽然看似简单的一个小程序，但是可以很好的理解redux。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/React/">React</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Taro/">Taro</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/07/JavaScript%EF%BC%9A%E5%85%85%E6%BB%A1%E7%8E%84%E5%AD%A6%E7%9A%84this%E6%8C%87%E5%90%91%EF%BC%8C%E7%9C%9F%E7%9A%84%E6%9C%89%E7%82%B9%E9%9A%BE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript：充满玄学的this指向，真的有点难</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/07/%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88%E7%9A%84this/">
+                        <span class="hidden-mobile">老生常谈的this</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "使用Taro开发微信养花小程序&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

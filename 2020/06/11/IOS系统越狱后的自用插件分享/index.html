@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的Blog，主要记录一下前端学习路上的一些经验。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="web开发,前端开发,Blog,游戏制作,JavaScript,HTML,CSS,Vue,React">
+  <title>IOS系统越狱后的自用插件分享 - 沧沧凉凉</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-06-11 08:00">
+                    2020年6月11日 早上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    14
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="为什么要越狱？"><a href="#为什么要越狱？" class="headerlink" title="为什么要越狱？"></a>为什么要越狱？</h1><p>众所周知，IOS系统的封闭性要远远高于安卓，虽然现在安卓的很多衍生系统都已经不支持Root了。</p>
+<p>正因为IOS的封闭性，所以IOS比起安卓来讲要安全很多，不会因为在滑动APP界面时点到广告就开始下载软件（以前我在用安卓时，那个年代流量还只有不到1G/月时，点到贴吧上面的广告瞬间开始下载软件，花掉不少流量…这个故事告诉我们，4G的速度还是挺快的）。</p>
+<p>总之，越狱是为了实现IOS不具备的某些功能，但是<strong>越狱同时会造成安全性降低，同时越狱后微信和支付宝不支持指纹支付！</strong></p>
+<p><strong>注意：某些插件我并不是用的作者源而是从第三方源（比如Cydia贴吧源、多米诺骨牌源）下载，大家酌情参考。</strong></p>
+<p><strong>我的系统环境：IOS 12.4</strong></p>
+<h1 id="1-Aerial-Rus"><a href="#1-Aerial-Rus" class="headerlink" title="1. Aerial Rus"></a>1. Aerial Rus</h1><p>源地址：<a href="http://rejail.earial/" target="_blank" rel="noopener">http://rejail.earial/</a></p>
+<p>切换状态栏图标的颜色，因为切换后显得特别的花哨，所以这个插件已经被我放弃使用。</p>
+<h2 id="2-AppStore快速切换账号"><a href="#2-AppStore快速切换账号" class="headerlink" title="2. AppStore快速切换账号"></a>2. AppStore快速切换账号</h2><p>源地址：<a href="http://apt.cydiaba.cn/" target="_blank" rel="noopener">http://apt.cydiaba.cn/</a>  Cydia贴吧源</p>
+<p><img src="/image/v2-76c2bf8c74fe3d3f881b55332eed6583_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>有时候会有多个苹果ID需要来回切换，这显得很麻烦，安装该插件后，就会在AppStore里的个人信息处多出一个切换账号的按钮，曾经你登陆过的账号都可以快速进行切换，省去输入账号密码的烦恼。 </p>
+<h2 id="3-AppStore"><a href="#3-AppStore" class="headerlink" title="3. AppStore++"></a>3. AppStore++</h2><p>源地址：<a href="http://cokepokes.github.io/" target="_blank" rel="noopener">http://cokepokes.github.io/</a></p>
+<p><img src="/image/v2-e245957d4ff1075c5ef47eda6d357ba4_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>可以下载APP过去的版本，实用方法是按住右边的下载或者打开按钮，就会弹出来一个对话框。可以选择升级、降级、手动安装、禁止更新。</p>
+<h2 id="4-NiceCaller-电话助手"><a href="#4-NiceCaller-电话助手" class="headerlink" title="4. NiceCaller 电话助手"></a>4. NiceCaller 电话助手</h2><p>源地址：<a href="http://apt.htv123.com/" target="_blank" rel="noopener">http://apt.htv123.com/</a></p>
+<p><img src="/image/v2-8a856a64392b05ab0a2cc09895b279b6_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>如果你被骚扰电话所困扰，该插件是你不二的选择，说起来，我最初越狱的目的就是为了找到一款可以拦截骚扰电话的插件，结果找了很多插件都无法正常进行拦截，直到使用了该插件，该插件需要配合腾讯手机管家使用。</p>
+<p>当对方电话被腾讯手机管家标记过后，该插件会自动拒绝他们的电话，甚至还有拒接所有陌生电话的功能。</p>
+<h2 id="5-KillX-Pro-Rus"><a href="#5-KillX-Pro-Rus" class="headerlink" title="5. KillX Pro Rus"></a>5. KillX Pro Rus</h2><p>源地址：<a href="http://rejail.ru/" target="_blank" rel="noopener">http://rejail.ru/</a></p>
+<p><img src="/image/v2-3c1b74b750379a404e424acf523dca8c_720w.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>一键清理后台程序，安装后在后台界面向下滑动或者点击X，可以关闭掉所有打开的程序，非常实用的一个插件。</p>
+<h2 id="6-DLEasy-Rus"><a href="#6-DLEasy-Rus" class="headerlink" title="6. DLEasy Rus"></a>6. DLEasy Rus</h2><p>源地址：<a href="http://rejail.ru/" target="_blank" rel="noopener">http://rejail.ru/</a></p>
+<p><strong>越狱后的神器之一。</strong>可以说是必装插件。可以下载YouTube视频，Instagram的图片等等。</p>
+<p>同时还有一个附加功能：可以直接屏蔽YouTube客户端的广告，甚至还能打开YouTube的后台播放功能。当然，经济条件允许还是请购买YouTube会员。</p>
+<h2 id="7-Prysm-控制中心美化"><a href="#7-Prysm-控制中心美化" class="headerlink" title="7. Prysm 控制中心美化"></a>7. Prysm 控制中心美化</h2><p>源地址：<a href="http://apt.wxhbts.com/" target="_blank" rel="noopener">http://apt.wxhbts.com/</a>  多米诺骨牌源</p>
+<p><img src="/image/v2-f2f177b3929ca43334dd2877e4231370_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>顾名思义，就是美化控制中心的插件，我个人是不太习惯捣鼓这些样式上的东西。</p>
+<h2 id="8-Liberty-Lite"><a href="#8-Liberty-Lite" class="headerlink" title="8. Liberty Lite"></a>8. Liberty Lite</h2><p>源地址：<a href="http://rejail.ru/" target="_blank" rel="noopener">http://rejail.ru/</a></p>
+<p>屏蔽越狱检测，因为有些软件在越狱环境下无法使用或者某些功能无法使用，比如支付宝的指纹支付，就可以使用这个软件屏蔽支付宝的越狱检测。</p>
+<p>注意：<strong>使用该插件可能有封号的风险，贴吧中不少人使用这个插件屏蔽微信后导致微信号被封。</strong></p>
+<h2 id="9-Selector-Rus"><a href="#9-Selector-Rus" class="headerlink" title="9. Selector Rus"></a>9. Selector Rus</h2><p>源地址：<a href="http://rejail.ru/" target="_blank" rel="noopener">http://rejail.ru/</a></p>
+<p><img src="/image/v2-be2dbf6ec1bdea185711837ffa92835e_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>选中后会弹出翻译选项。</p>
+<h2 id="10-CCVPN"><a href="#10-CCVPN" class="headerlink" title="10. CCVPN"></a>10. CCVPN</h2><p>源地址：<a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a>  (BigBoss)</p>
+<p><img src="/image/v2-430f36fe097ad16abd6f868e0f7b8adf_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>在控制中心会出现一个开启或者关闭VPN的按钮，可以方便的开启或者关闭最后一次使用的VPN。</p>
+<h2 id="11-Flex-3"><a href="#11-Flex-3" class="headerlink" title="11. Flex 3"></a>11. Flex 3</h2><p>源地址：<a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a>   (BigBoss)</p>
+<p><img src="/image/v2-9402913985b9988d7db509cc76c84d2e_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>IOS越狱后的神器级插件，可以做到破解软件VIP，修改游戏数据，去除APP广告等等功能，插件内就提供了很多大家编辑上传的脚本，但是需要注意的是，<strong>由于APP在不停的更新，所以这些脚本不一定有用。</strong></p>
+<h2 id="12-FLEXible"><a href="#12-FLEXible" class="headerlink" title="12. FLEXible"></a>12. FLEXible</h2><p>源地址：<a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a>   (BigBoss)</p>
+<p><img src="/image/v2-4a544a9fcc438aed7c65b5f9ff1cb720_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>配合Flex 3的神器之一，可以抓取界面元素，定位到控制元素的函数，从而使用Flex 3禁止该元素的启动。</p>
+<h2 id="13-ios12状态栏（仿IOS10-For-4-7）"><a href="#13-ios12状态栏（仿IOS10-For-4-7）" class="headerlink" title="13. ios12状态栏（仿IOS10 For 4.7）"></a>13. ios12状态栏（仿IOS10 For 4.7）</h2><p>源地址：<a href="http://apt.wxhbts.com/" target="_blank" rel="noopener">http://apt.wxhbts.com/</a></p>
+<p><img src="/image/v2-4e1305d1258ac992a3eaa1ae61b619b2_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>将ios12状态栏的信号图标变成小圆点，虽然通过替换系统文件也可以做到，但是该插件实现了一键替换。</p>
+<p>注意：<strong>使用有风险！请酌情使用。</strong></p>
+<h2 id="14-ReProvision"><a href="#14-ReProvision" class="headerlink" title="14. ReProvision"></a>14. ReProvision</h2><p>源地址：<a href="http://repo.incendo.ws/" target="_blank" rel="noopener">http://repo.incendo.ws/</a></p>
+<p><img src="/image/v2-ab3673749ab55ccee107cc405a97ef77_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>自动签名程序，作者之前宣布不再维护该项目，但是在某一天大家发现0.5.2~EOL这个版本又可以开始自签了。</p>
+<h2 id="15-RealCC"><a href="#15-RealCC" class="headerlink" title="15. RealCC"></a>15. RealCC</h2><p>源地址：<a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a>   (BigBoss)</p>
+<p><img src="/image/v2-d3b0a4af60f8fd73a2a7a32068c3e383_720w.gif" srcset="/img/loading.gif" alt="img"></p>
+<p>可以直接在控制中心关闭掉WiFi和蓝牙，不再像没有越狱之前仅仅是断开WiFi和蓝牙，本质上是没有关闭。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/IOS/">IOS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%B6%8A%E7%8B%B1/">越狱</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IOS/">IOS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/12/HTML%E4%B8%AD%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%A8Vue%E4%B8%AD%E5%BA%94%E7%94%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HTML中的瀑布流masonry在Vue中应用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/06/web%E5%BC%80%E5%8F%91%EF%BC%9A%E7%94%A8Vue%E5%81%9A%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8/">
+                        <span class="hidden-mobile">web开发：用Vue做一个播放器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "IOS系统越狱后的自用插件分享&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
