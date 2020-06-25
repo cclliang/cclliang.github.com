@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>个人博客评论系统：Valine</title>
+    <link href="/2020/06/24/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9AValine/"/>
+    <url>/2020/06/24/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9AValine/</url>
+    
+    <content type="html"><![CDATA[<p>之前我也写过一篇个人博客的评论系统：Gitalk。</p><p><a href="https://zhuanlan.zhihu.com/p/141078552" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/141078552</a></p><p>但是这个评论系统有一个不太好的地方，它需要使用GitHub账号才能够进行评论，这就涉及到很多人不想暴露自己的隐私或者没有GitHub账号就无法进行评论。</p><p>所以当我在重新搭建我的个人博客时，找了一款新的评论系统：Valine。</p><p><a href="https://valine.js.org/" target="_blank" rel="noopener">https://valine.js.org/</a></p><p>它可以实现不用进行登录就可以使用留言功能。</p><p><img src="/image/v2-9f9e697dd96073a019396aac5f531096_720w.png" srcset="/img/loading.gif" alt="img"></p><h1 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h1><p>首先需要一个LeanCloud账号：</p><p><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">https://leancloud.cn/dashboard/login.html#/signup</a></p><p>注册时需要进行实名认证。</p><p><img src="/image/v2-f66fe2f66f86046bf32f382c78517fef_720w.png" srcset="/img/loading.gif" alt="img"></p><p>应用创建好以后，进入刚刚创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的APP ID和APP Key了：</p><p><img src="/image/v2-806cbb9bc64a5463238e541e711a7764_720w.png" srcset="/img/loading.gif" alt="img"></p><p>接下来直接参考</p><p><a href="https://valine.js.org/quickstart.htmlvaline.js.org" target="_blank" rel="noopener">https://valine.js.org/quickstart.htmlvaline.js.org</a></p><p>进行配置就可以了。</p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>由于各种实名认证，最后我放弃将它集成在我的博客上面，有兴趣的朋友可以直接按照官方文档进行集成，还是非常简单方便的。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vue服务器渲染优秀项目：Nuxt.js</title>
     <link href="/2020/06/22/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/"/>
     <url>/2020/06/22/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/</url>
@@ -13,7 +38,7 @@
     
     <categories>
       
-      <category>vue</category>
+      <category>web开发</category>
       
     </categories>
     
@@ -65,7 +90,7 @@
     
     <categories>
       
-      <category>游戏制作</category>
+      <category>web开发</category>
       
     </categories>
     
@@ -206,7 +231,7 @@
     
     <categories>
       
-      <category>游戏制作</category>
+      <category>web开发</category>
       
     </categories>
     
@@ -296,9 +321,9 @@
     
     <tags>
       
-      <tag>Node.js</tag>
-      
       <tag>JavaScript</tag>
+      
+      <tag>Node.js</tag>
       
     </tags>
     
@@ -323,9 +348,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>集成开发环境</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -390,7 +415,7 @@
     <link href="/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/"/>
     <url>/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/</url>
     
-    <content type="html"><![CDATA[<p>学习一项技术的最好方法就是写博客，博客不光可以分享你学到的知识，而且如果你的学习中有什么错误或者纰漏，偶尔也会被路过的大神指出。</p><p>使用Vue或者React搭建一个静态博客是非常简单的事情，但是如果想要搭建一个像知乎这种具有动态更新，还带有评论系统，并且界面还具有自适应，这些就显得不是那么容易。毕竟一个人的精力有限，如果需要面面俱到就需要花上很长的时间。</p><p>很多公司意识到了这些事情，所以推出了非常多的快速搭建博客的框架，大致看了一下，非常多的人都推荐使用Hexo，所以我也想尝试一下使用Hexo搭建博客，是不是真的那么方便。</p><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p><h1 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h1><ul><li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li><li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li></ul><p>这两个软件是运行环境，必须要进行安装。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>装好了上面两个运行环境后，直接按住键盘上的<code>Ctrl右边的键</code>+<code>r</code> ，在打开的运行窗口中输入<code>cmd</code>，再在新弹出的窗口中输入<code>npm install -g hexo-cli</code>等待安装完成即可。</p><h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>到你需要创建项目的文件夹中，打开<code>cmd</code></p><p><img src="/image/v2-b0fca0c8dc063705e70cda5b6aa1e26d_b.jpg" srcset="/img/loading.gif" alt="img"></p><p>在弹出的窗口中输入<code>hexo init 你需要创建的博客名</code>。</p><h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><p>创建完成后，进入到你创建的文件夹，会看到下面的目录样式。</p><pre><code class="hljs text">.├── _config.yml 网站的配置信息，您可以在此配置大部分的参数。├── package.json 应用程序的信息，如果需要更改需要对node有一定了解├── scaffolds 文章存放的文件夹。├── source 资源文件夹|   ├── _drafts|   └── _posts└── themes 主题文件夹。</code></pre><p>这时还需要再像上面一样打开<code>cmd</code> 输入<code>npm install</code> 回车运行，安装依赖包。</p><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>刚才提到的<code>_config.yml</code>文件中，可以配置大部分的信息，比如网站的标题，描述，关键字。如果有需要的话，可以直接参考官方给出的配置文档。</p><p><a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置hexo</a></p><p>如果按照上面的步骤，顺利走到了这里，那么继续按照上面的方法打开<code>cmd</code></p><p>输入<code>hexo server</code>，会看到如下图所示</p><p><img src="/image/v2-d7193f1d9bb78df6065e869b2d03f6b6_720w.png" srcset="/img/loading.gif" alt="img"></p><p>将框起来的那部分在浏览器地址栏上进行输入。</p><p><img src="/image/v2-8d39b1b6dd060c0c038e99154a7ff28c_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>如果看到这个界面，恭喜，你的博客框架已经大体搭建完成</p><h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>官方自带的主题不是很符合胃口，我认为使用Hexo搭建博客如果还需要自行敲代码不如直接使用Vue或者React搭建了，所以可以直接使用人家开源出的主题。</p><p><a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">https://github.com/fluid-dev/hexo-theme-fluid</a></p><p>下载完成后直接放在<code>themes</code>文件夹中</p><p><img src="/image/v2-a0b4cfe339bea903b23195102534a226_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>要进行应用需要修改项目根目录中的<code>_config.yml</code>文件中的<code>theme</code>属性，修改为刚才下载的主题文件夹名。</p><p>例如：<code>theme: hexo-theme-fluid</code></p><p>再通过<code>hexo serve</code>运行项目，就可以查看到效果。</p><p><img src="/image/v2-847e34e46aee11dc944de56d5a07a235_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>如果需要对主题进行修改，可以直接进入主题文件夹中找到 <code>_config.yml</code> 文件，修改里面的参数。</p><h1 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h1><p>在项目文件中打开<code>cmd</code>输入命令<code>hexo generate</code> 会看见多出来一个<code>public</code>文件夹，将里面的内容直接发布到自己的服务器上面即可。如果没有自己的服务器，也可以使用GitHub Pages，但是GitHub Pages由于特殊原因，在国内访问速度会比较慢。</p><p>至于GitHub Pages是什么，以及怎么用，可以看这篇~</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages</a></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>如果你仅仅只需要使用主题搭建自己的博客，不需要做太多的个性化修改，那么使用Hexo确实是一个非常好的选择，几乎不需要太多的编程知识就可以搭建出一个还不错的博客界面，但是如果你想搭建高度自定义的博客界面，那还是不太推荐使用Hexo框架，主要是EJS这玩意…现在几乎已经不用了。</p>]]></content>
+    <content type="html"><![CDATA[<p>学习一项技术的最好方法就是写博客，博客不光可以分享你学到的知识，而且如果你的学习中有什么错误或者纰漏，偶尔也会被路过的大神指出。</p><p>使用Vue或者React搭建一个静态博客是非常简单的事情，但是如果想要搭建一个像知乎这种具有动态更新，还带有评论系统，并且界面还具有自适应，这些就显得不是那么容易。毕竟一个人的精力有限，如果需要面面俱到就需要花上很长的时间。</p><p>很多公司意识到了这些事情，所以推出了非常多的快速搭建博客的框架，大致看了一下，非常多的人都推荐使用Hexo，所以我也想尝试一下使用Hexo搭建博客，是不是真的那么方便。</p><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p><h1 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h1><ul><li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li><li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li></ul><p>这两个软件是运行环境，必须要进行安装。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>装好了上面两个运行环境后，直接按住键盘上的<code>Ctrl右边的键</code>+<code>r</code> ，在打开的运行窗口中输入<code>cmd</code>，再在新弹出的窗口中输入<code>npm install -g hexo-cli</code>等待安装完成即可。</p><h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>到你需要创建项目的文件夹中，打开<code>cmd</code></p><p><img src="/image/v2-b0fca0c8dc063705e70cda5b6aa1e26d_b.jpg" srcset="/img/loading.gif" alt="img"></p><p>在弹出的窗口中输入<code>hexo init 你需要创建的博客名</code>。</p><h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><p>创建完成后，进入到你创建的文件夹，会看到下面的目录样式。</p><pre><code class="hljs text">.├── _config.yml 网站的配置信息，您可以在此配置大部分的参数。├── package.json 应用程序的信息，如果需要更改需要对node有一定了解├── scaffolds 文章存放的文件夹。├── source 资源文件夹|   ├── _drafts|   └── _posts└── themes 主题文件夹。</code></pre><p>这时还需要再像上面一样打开<code>cmd</code> 输入<code>npm install</code> 回车运行，安装依赖包。</p><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>刚才提到的<code>_config.yml</code>文件中，可以配置大部分的信息，比如网站的标题，描述，关键字。如果有需要的话，可以直接参考官方给出的配置文档。</p><p><a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置hexo</a></p><p>如果按照上面的步骤，顺利走到了这里，那么继续按照上面的方法打开<code>cmd</code></p><p>输入<code>hexo server</code>，会看到如下图所示</p><p><img src="/image/v2-d7193f1d9bb78df6065e869b2d03f6b6_720w.png" srcset="/img/loading.gif" alt="img"></p><p>将框起来的那部分在浏览器地址栏上进行输入。</p><p><img src="/image/v2-8d39b1b6dd060c0c038e99154a7ff28c_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>如果看到这个界面，恭喜，你的博客框架已经大体搭建完成</p><h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>官方自带的主题不是很符合胃口，我认为使用Hexo搭建博客如果还需要自行敲代码不如直接使用Vue或者React搭建了，所以可以直接使用人家开源出的主题。</p><p><a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">https://github.com/fluid-dev/hexo-theme-fluid</a></p><p>下载完成后直接放在<code>themes</code>文件夹中</p><p><img src="/image/v2-a0b4cfe339bea903b23195102534a226_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>要进行应用需要修改项目根目录中的<code>_config.yml</code>文件中的<code>theme</code>属性，修改为刚才下载的主题文件夹名。</p><p>例如：<code>theme: hexo-theme-fluid</code></p><p>再通过<code>hexo serve</code>运行项目，就可以查看到效果。</p><p><img src="/image/v2-847e34e46aee11dc944de56d5a07a235_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>如果需要对主题进行修改，可以直接进入主题文件夹中找到 <code>_config.yml</code> 文件，修改里面的参数。</p><h1 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h1><p>在项目文件中打开<code>cmd</code>输入命令<code>hexo generate</code> 会看见多出来一个<code>public</code>文件夹，将里面的内容直接发布到自己的服务器上面即可。如果没有自己的服务器，也可以使用GitHub Pages，但是GitHub Pages由于特殊原因，在国内访问速度会比较慢。</p><p>至于GitHub Pages是什么，以及怎么用，可以看这篇~</p><p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages</a></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>如果你仅仅只需要使用主题搭建自己的博客，不需要做太多的个性化修改，那么使用Hexo确实是一个非常好的选择，几乎不需要太多的编程知识就可以搭建出一个还不错的博客界面，但是如果你想搭建高度自定义的博客界面，那还是不太推荐使用Hexo框架，主要是EJS这玩意…现在几乎已经不用了。</p><hr><h1 id="6月24日-再更新"><a href="#6月24日-再更新" class="headerlink" title="6月24日 再更新"></a>6月24日 再更新</h1><p>我自己尝试做网站的时候遇到了客户端渲染和服务器渲染的问题，简单的说Vue和React搭建出的单页面应用都为客户端渲染，不利于SEO，而Hexo就完全打包成了一个静态页面…有利于SEO，至于使用Vue的服务器渲染可以看这篇：</p><p><a href="https://zhuanlan.zhihu.com/p/149981401" target="_blank" rel="noopener">Vue服务器渲染优秀项目</a></p><p>总的来说，如果你想将博客布置到GitHub Pages那么Hexo优于使用Vue搭建的页面，因为它更加利于SEO。</p>]]></content>
     
     
     <categories>
@@ -454,9 +479,9 @@
     
     <tags>
       
-      <tag>JavaScript</tag>
-      
       <tag>this指针</tag>
+      
+      <tag>JavaScript</tag>
       
     </tags>
     
@@ -474,7 +499,7 @@
     
     <categories>
       
-      <category>React</category>
+      <category>web开发</category>
       
     </categories>
     
@@ -508,9 +533,9 @@
     
     <tags>
       
-      <tag>JavaScript</tag>
-      
       <tag>this指针</tag>
+      
+      <tag>JavaScript</tag>
       
     </tags>
     
@@ -607,7 +632,7 @@
     
     <categories>
       
-      <category>web前端</category>
+      <category>web开发</category>
       
     </categories>
     
@@ -641,9 +666,9 @@
     
     <tags>
       
-      <tag>Node.js</tag>
-      
       <tag>JavaScript</tag>
+      
+      <tag>Node.js</tag>
       
     </tags>
     
@@ -661,7 +686,7 @@
     
     <categories>
       
-      <category>H5游戏</category>
+      <category>游戏制作</category>
       
     </categories>
     
