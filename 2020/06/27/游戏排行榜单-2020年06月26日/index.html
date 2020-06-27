@@ -19,7 +19,7 @@
   <meta name="keywords" content="web开发,前端开发,Blog,个人博客,博客,游戏制作,JavaScript,HTML,CSS,Vue,React">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>nodejs中module.exports和exports的区别 - 个人博客|沧沧凉凉的小站</title>
+  <title>游戏排行榜单-2020年06月26日 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2019-10-22 08:00">
-                    2019年10月22日 早上
+                  <time datetime="2020-06-27 08:00">
+                    2020年6月27日 早上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.2k 字
+                    659 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    13
+                    7
                      分钟
                   </span>
                 
@@ -184,77 +184,328 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>最近在学习nodejs，这篇文章就权当是一篇笔记，如果有什么地方有误，望指出。</p>
-<p>先说说它们之间的区别：</p>
-<ul>
-<li>exports只能使用语法来向外暴露内部变量：如exports.xxx = xxx;</li>
-<li>module.exports既可以通过语法，也可以直接赋值一个对象。</li>
-</ul>
-<p>我们要明白一点，exports和module.exports其实是一个东西，不信我们来输出一下</p>
-<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>.exports === exports);
-
-<span class="hljs-comment">//输出结果为：true</span></code></pre>
-
-<p>输出结果是true其实就说明它们就是一个东西，其实exports = module.exports，因为他们是引用类型的一个变量名，所以当exports再指向一个引用类型的时候，那么他们就不再全等。</p>
-<pre><code class="hljs js">exports = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-built_in">console</span>.log(exports === <span class="hljs-built_in">module</span>.exports);
-
-<span class="hljs-comment">//输出结果为：false</span></code></pre>
-
-<p>当然，如果直接通过exports.xxx的形式赋值，那么他们依然会指向同一个地址：</p>
-<pre><code class="hljs js">exports.array = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-built_in">console</span>.log(exports === <span class="hljs-built_in">module</span>.exports);
-
-<span class="hljs-comment">//输出结果为：true</span></code></pre>
-
-<p>这个时候要明白module.exports和exports的区别，就要清楚什么是值类型，什么是引用类型。我对值类型和引用类型的理解就是，看它是存储在栈上，还是存储在堆上，值类型就是存储在栈上，引用类型是存储在堆上，但是有个很特殊的情况是，引用类型的名字，是存储在栈上，然后这个名字指向了堆上的一个地址，从而可以直接使用变量名，调用堆上的数据。</p>
-<p><img src="/image/v2-52e9a85deec48e2fe61708b20058dd48_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>这样可能有点难以理解，我们用代码来简单的认识一下值类型：</p>
-<pre><code class="hljs js"><span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">let</span> b = a;
-a = <span class="hljs-number">2</span>;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a的值是："</span> + a);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);</code></pre>
-
-<p>我们将1赋值为a，然后将a赋值给b，然后我们将2赋值为a那么这个时候a和b分别是多少呢？我们将它运行一下看结果：</p>
-<p><img src="/image/v2-3eb9fd92f22e0c9983cb495fd03118df_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>那么为什么a的值是2，b的值为1呢？是因为当将a赋值给b的时候，相当于是将a的值拷贝给了b也就相当于是重新生成了一个b，那么这个b与a就没有什么关系了，如下图所示：</p>
-<p><img src="/image/v2-df0097016e4d9ea1376ed617def5fc1b_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>可以看出，这个时候再去改变变量a的值，那么b的值肯定不会发生变化。</p>
-<p>那么引用类型呢：</p>
-<pre><code class="hljs js"><span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
-<span class="hljs-keyword">let</span> b = a;
-a[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a的值是："</span> + a);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);</code></pre>
-
-<p>那么问题来了，这个时候的b会输出什么结果，是[1,2]还是[0,2]那么我们来进行输出一下</p>
-<p><img src="/image/v2-a0ccf94fbc537f969c46bb043ff833d3_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>这个时候为什么输出的结果是0,2呢？这里就涉及到引用类型了，如下图所示：</p>
-<p><img src="/image/v2-455d624d8c5029570d6dcaa4771b4173_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>从图上面看的出来，栈中只是存储了一个变量名字，而数组是存储在堆中。而当将a赋值给b的时候，并不是从堆中拷贝一个数组再让b指向这个数组，而是直接将b指向和a指向的同一个数组。简单来说，可以把变量a看做是银行账户的存折，变量b是银行账户的卡，都是同一个账户，你从存折里面取钱或者存钱，那么卡中的钱也会跟着变多或者变少。</p>
-<p>那么我们回到主题，那么我们再来说为什么module.exports可以赋值一个对象，而exports却不可以。要明白这点，就要从nodejs的模块化说起，当nodejs执行模块中的代码时，它会将模块中的代码，用一个函数进行包裹：</p>
-<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exports, require, module, __filename, __dirname</span>) </span>&#123;&#125;</code></pre>
-
-<p>这里面的其他参数就在这篇文章中不仔细讲解了，不过可以发现，里面有个熟悉的参数module。这里就要说到exports的本质了，正如上面所说exports = module.exports，也就是说他们指向了堆空间的同一个东西，如果对exports进行赋值，那么exports的指向就不一样了，在另外的文件里面就无法再找到通过exports这个变量传递的东西，而module.exports是在执行模块代码中就将module传入到了函数中，所以即使module.exports的值改变也能够在其他文件中进行调用。</p>
-<p>再写到这里的时候我产生了一个疑问，如果将module.exports的指向改变，那么通过exports.xxx传递的值在其他文件中还能进行调用嘛，于是我尝试了下面的代码：</p>
-<pre><code class="hljs js"><span class="hljs-comment">//Test.js</span>
-exports.add = <span class="hljs-number">100</span>;
-<span class="hljs-built_in">module</span>.exports = <span class="hljs-number">1</span>;
-<span class="hljs-comment">//test1.js文件</span>
-<span class="hljs-keyword">let</span> test = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./Test"</span>);
-<span class="hljs-keyword">let</span> p = test.add;
-<span class="hljs-keyword">let</span> b = test;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"p的值是："</span> + p);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);
-<span class="hljs-comment">/*</span>
-<span class="hljs-comment">输出结果是：</span>
-<span class="hljs-comment">p的值是：undefined</span>
-<span class="hljs-comment">b的值是：1</span>
-<span class="hljs-comment">*/</span></code></pre>
-
-<p>可以看出，改变了module.exports的指向后，exports.xxx的值在其他文件中也无法调用。</p>
-
+              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
+<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新，如果本系列还比较受欢迎，我会考虑在我的博客上面建立一个单独的页面，每天进行统计。</p>
+<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
+<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>英雄联盟+lol</td>
+<td>90238</td>
+</tr>
+<tr>
+<td>2</td>
+<td>我的世界+minecraft</td>
+<td>71494</td>
+</tr>
+<tr>
+<td>3</td>
+<td>地下城与勇士+dnf</td>
+<td>49768</td>
+</tr>
+<tr>
+<td>4</td>
+<td>穿越火线+cf</td>
+<td>26568</td>
+</tr>
+<tr>
+<td>5</td>
+<td>魔域</td>
+<td>23032</td>
+</tr>
+<tr>
+<td>6</td>
+<td>绝地求生+pubg</td>
+<td>17080</td>
+</tr>
+<tr>
+<td>7</td>
+<td>最终幻想14+ff14</td>
+<td>14315</td>
+</tr>
+<tr>
+<td>8</td>
+<td>梦幻西游</td>
+<td>12183</td>
+</tr>
+<tr>
+<td>9</td>
+<td>csgo</td>
+<td>11808</td>
+</tr>
+<tr>
+<td>10</td>
+<td>刀塔2+DOTA2</td>
+<td>11236</td>
+</tr>
+<tr>
+<td>11</td>
+<td>天龙八部</td>
+<td>10699</td>
+</tr>
+<tr>
+<td>12</td>
+<td>坦克世界</td>
+<td>10180</td>
+</tr>
+<tr>
+<td>13</td>
+<td>炉石传说</td>
+<td>9881</td>
+</tr>
+<tr>
+<td>14</td>
+<td>冒险岛</td>
+<td>9640</td>
+</tr>
+<tr>
+<td>15</td>
+<td>魔兽世界+wow</td>
+<td>9585</td>
+</tr>
+<tr>
+<td>16</td>
+<td>方舟生存进化</td>
+<td>9415</td>
+</tr>
+<tr>
+<td>17</td>
+<td>激战2</td>
+<td>9285</td>
+</tr>
+<tr>
+<td>18</td>
+<td>逆水寒</td>
+<td>8860</td>
+</tr>
+<tr>
+<td>19</td>
+<td>守望先锋</td>
+<td>7324</td>
+</tr>
+<tr>
+<td>20</td>
+<td>流放之路</td>
+<td>6597</td>
+</tr>
+<tr>
+<td>21</td>
+<td>变形金刚</td>
+<td>6293</td>
+</tr>
+<tr>
+<td>22</td>
+<td>传奇</td>
+<td>5880</td>
+</tr>
+<tr>
+<td>23</td>
+<td>诛仙</td>
+<td>5676</td>
+</tr>
+<tr>
+<td>24</td>
+<td>大话西游</td>
+<td>5561</td>
+</tr>
+<tr>
+<td>25</td>
+<td>龙之谷</td>
+<td>5041</td>
+</tr>
+<tr>
+<td>26</td>
+<td>QQ飞车</td>
+<td>5020</td>
+</tr>
+<tr>
+<td>27</td>
+<td>EVE</td>
+<td>4718</td>
+</tr>
+<tr>
+<td>28</td>
+<td>龙族</td>
+<td>4644</td>
+</tr>
+<tr>
+<td>29</td>
+<td>剑灵</td>
+<td>4368</td>
+</tr>
+<tr>
+<td>30</td>
+<td>qq三国</td>
+<td>3856</td>
+</tr>
+</tbody></table>
+<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>王者荣耀</td>
+<td>119944</td>
+</tr>
+<tr>
+<td>2</td>
+<td>迷你世界</td>
+<td>86552</td>
+</tr>
+<tr>
+<td>3</td>
+<td>和平精英</td>
+<td>83153</td>
+</tr>
+<tr>
+<td>4</td>
+<td>我的世界+mc</td>
+<td>70675</td>
+</tr>
+<tr>
+<td>5</td>
+<td>香肠派对</td>
+<td>46616</td>
+</tr>
+<tr>
+<td>6</td>
+<td>荒野乱斗</td>
+<td>42836</td>
+</tr>
+<tr>
+<td>7</td>
+<td>剑网3指尖江湖</td>
+<td>41262</td>
+</tr>
+<tr>
+<td>8</td>
+<td>最强蜗牛</td>
+<td>34440</td>
+</tr>
+<tr>
+<td>9</td>
+<td>第五人格</td>
+<td>20012</td>
+</tr>
+<tr>
+<td>10</td>
+<td>阴阳师</td>
+<td>14871</td>
+</tr>
+<tr>
+<td>11</td>
+<td>球球大作战</td>
+<td>14478</td>
+</tr>
+<tr>
+<td>12</td>
+<td>明日之后</td>
+<td>11629</td>
+</tr>
+<tr>
+<td>13</td>
+<td>部落冲突</td>
+<td>10776</td>
+</tr>
+<tr>
+<td>14</td>
+<td>炉石传说</td>
+<td>9881</td>
+</tr>
+<tr>
+<td>15</td>
+<td>欢乐斗地主</td>
+<td>8522</td>
+</tr>
+<tr>
+<td>16</td>
+<td>灌篮高手</td>
+<td>8033</td>
+</tr>
+<tr>
+<td>17</td>
+<td>崩坏3</td>
+<td>7974</td>
+</tr>
+<tr>
+<td>18</td>
+<td>狼人杀</td>
+<td>6720</td>
+</tr>
+<tr>
+<td>19</td>
+<td>碧蓝航线</td>
+<td>5954</td>
+</tr>
+<tr>
+<td>20</td>
+<td>大话西游</td>
+<td>5561</td>
+</tr>
+<tr>
+<td>21</td>
+<td>率土之滨</td>
+<td>5319</td>
+</tr>
+<tr>
+<td>22</td>
+<td>梦幻西游手游</td>
+<td>5277</td>
+</tr>
+<tr>
+<td>23</td>
+<td>饥荒</td>
+<td>5209</td>
+</tr>
+<tr>
+<td>24</td>
+<td>开心消消乐</td>
+<td>5052</td>
+</tr>
+<tr>
+<td>25</td>
+<td>火影忍者手游</td>
+<td>4862</td>
+</tr>
+<tr>
+<td>26</td>
+<td>奇迹暖暖</td>
+<td>4574</td>
+</tr>
+<tr>
+<td>27</td>
+<td>黑猫警长</td>
+<td>3726</td>
+</tr>
+<tr>
+<td>28</td>
+<td>一梦江湖</td>
+<td>3326</td>
+</tr>
+<tr>
+<td>29</td>
+<td>荒野行动</td>
+<td>3083</td>
+</tr>
+<tr>
+<td>30</td>
+<td>爱上消消消</td>
+<td>3074</td>
+</tr>
+</tbody></table>
+<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/" target="_blank" rel="noopener">更多榜单</a></h1>
             </article>
             <hr>
             <div>
@@ -263,7 +514,7 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
                     
                   </div>
                 
@@ -271,9 +522,9 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Node-js/">Node.js</a>
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
                     
-                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
                     
                   </div>
                 
@@ -286,18 +537,12 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/04/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE%EF%BC%9A%E5%81%9A%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F%EF%BC%8C%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">心血来潮：做一个网页游戏，飞机大战</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/10/21/%E7%94%A8Html%E5%81%9A%E4%B8%80%E4%B8%AA%E5%BF%AB%E4%B9%90%E9%B8%9F%E5%B0%8F%E6%B8%B8%E6%88%8F/">
-                        <span class="hidden-mobile">用Html做一个快乐鸟小游戏</span>
+                      <a href="/2020/06/26/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C%E5%8D%95-2020%E5%B9%B406%E6%9C%8825%E6%97%A5/">
+                        <span class="hidden-mobile">游戏排行榜单-2020年06月25日</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -490,7 +735,7 @@ exports.add = <span class="hljs-number">100</span>;
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "nodejs中module.exports和exports的区别&nbsp;",
+        "游戏排行榜单-2020年06月26日&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
