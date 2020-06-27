@@ -762,6 +762,35 @@
   
   
   <entry>
+    <title>部署到Github Pages上的博客，自定义域名，和免费域名如何申请</title>
+    <link href="/2020/05/04/%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%92%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7/"/>
+    <url>/2020/05/04/%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%92%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7/</url>
+    
+    <content type="html"><![CDATA[<p>之前一篇文章提到了使用Hexo，搭建个人博客。</p><a href="/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/" title="一个简单易用的制作博客的框架：Hexo">一个简单易用的制作博客的框架：Hexo</a><p><br/>后面经过我一段时间的探索，发现有2个缺点。</p><ul><li>没有办法像知乎这样实时写文章发布。</li><li>新增文章后需要重新打包项目重新发布。</li></ul><p>这些问题的产生是因为通过这个工具构建的博客，只有前端，没有后端和数据库。所以无法通过后端将文章保存到数据库中从而达到访问页面的时候可以通过后端取出数据库中的内容，再返回前端。</p><p>说远了…现在来说一说博客建好后，如何部署到Github Pages，因为上一篇文章在这个地方一笔带过。</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果想要使用Github Pages，那么就需要一个Github账号。</p><p><img src="/image/v2-9d93b379d174496153cc72aef40576b3_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>因为使用了Chrome自带的翻译，所以显示的是中文</p><p>注册完毕后，登入账号，新建一个仓库。</p><p><img src="/image/v2-6672df7514ec7cd1a0bf884fafa7ff16_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>框起来的地方，必须要输入一致，这里因为我已经创建过了，所以会报错。也就是说仓库的名称必须为<code>你的用户名.github.io</code>。</p><p><img src="/image/v2-372deb950f76f10e7670c58f1c5533b5_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>注意这里的选项，第一个是公开的仓库，第二个是私人仓库，私人的仓库在微软收购了Github后可以免费创建。<strong>但是如果想使用Github Pages，必须将仓库公开，如果确实不想公开，那只有付费。</strong></p><p>创建成功后会看到下面的界面：</p><p><img src="/image/v2-1f0089cb7cae30917f225b71cd355d96_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>先不要关闭这个界面，来到已经构建完毕的博客项目，如果没有构建，在<code>cmd</code>中使用命令<code>hexo g</code>进行构建，构建完毕后会新增一个public文件夹，进入到public文件夹中。</p><p><img src="/image/v2-2fc0adecd00e851847c713b28db9364a_b.jpg" srcset="/img/loading.gif" alt="img"></p><p>右键空白处，打开Git命令窗口。**如果看不见这个选项，可能是因为你没有安装Git，需要先安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>。</p><p>安装完成后，需要设置你的Git用户名：</p><pre><code class="hljs shell">git config --global user.name "Your Name"git config --global user.email "email@example.com"</code></pre><p>接着就可以开始下面的事情：</p><ol><li>首先初始化Git仓库。<code>git init</code></li><li>将文件添加到Git仓库<code>git add .</code> 那个点也需要输入。</li><li>最后找到刚才没有关闭的网页中的有一项为<code>git remote add origin https://github.com/qflyb/xxx.github.io.git</code> 复制到命令窗口后回车。</li><li>最后输入命令<code>git push -u origin master</code>推送到Github仓库中。</li></ol><p>如果成功推送的话，返回刚才的网页刷新一下，就应该可以看到推送的文件，再稍微等待一会，输入xxx(你的Github用户名).<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>，应该就可以访问到你的博客网站了。</p><p>如果你觉得<a href="http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。" target="_blank" rel="noopener">http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。</a></p><h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p><a href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank" rel="noopener">https://www.freenom.com/zh/index.html?lang=zh</a></p><p>在这个网站中可以申请免费域名，<strong>注意：免费域名仅供学习使用，如果你想要当站长，那还是得去购买收费域名。</strong></p><p><img src="/image/v2-f94e9aca265d206519dc742b8fca1d32_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>在这里输入需要购买的域名。</p><p><img src="/image/v2-fb0c3d243eea3a30fa1597fa0496869c_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>会看到一堆免费域名，但是这时如果你点击获取，它就会变成不可用。</p><p>解决方法是搜索域名的时候带上后缀名。</p><p><img src="/image/v2-5bd195e80008b6b78cd659e676b57de5_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>点击完成。这时会跳转到一个界面：</p><p><img src="/image/v2-053598b80da4c645834510df04aba1b0_720w.png" srcset="/img/loading.gif" alt="img"></p><p>选择12个月</p><p>点击继续，会让你填写你的邮件地址。</p><p><img src="/image/v2-67063e1841839467a785eb73e93c0df6_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>填写完毕后会发送一封邮件到你填写的邮箱地址，点击链接后打开。</p><p><img src="/image/v2-5dfc5bacc4803343cb5baf8414cefc53_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>这里推荐还是填美国身份，如果不知道怎么填，还请百度一下。</p><p>如果一切顺利，域名就购买成功了，购买完成后我们还需要解析域名。</p><p><img src="/image/v2-749436fa271a8b5a5e85f2fd0f100125_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>点击如图所示的按钮</p><p><img src="/image/v2-531733c78affec5881689198027b1325_720w.png" srcset="/img/loading.gif" alt="img"></p><p>点击Manage Domain</p><p><img src="/image/v2-491214fb17b729b9228730e53e42bf4a_720w.png" srcset="/img/loading.gif" alt="img"></p><p>点击DNS解析</p><p><img src="/image/v2-7ae8cad84bfd92425ff28574f8fa057e_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>如图所示，添加两项配置</p><p>到了这步，基本上完成了，接着只需要找到Github Pages的IP地址，这个好办，打开<code>cmd</code>。</p><p>输入<code>ping xxx.github.io</code>xxx是你的Github用户名。</p><p>找到了IP地址后，再将这个IP地址填入到之前DNS解析的Target里面，点击保存。</p><h1 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h1><p>终于到了最后一步了，只需要到刚才的Github仓库中点击Settings。</p><p><img src="/image/v2-dfab6002688ca2ad3e28a61aa250c042_720w.png" srcset="/img/loading.gif" alt="img"></p><p>往下翻会看到一个GitHub Pages的标题。</p><p><img src="/image/v2-f8425dbece6e93fad4fdecf4a578dd33_720w.jpg" srcset="/img/loading.gif" alt="img"></p><p>输入刚才申请的域名如<code>www.mikkk.ml</code>，点击保存。下面那个HTTPS证书会在你保存域名后自动帮你申请，不过可能最长需要24小时才能申请成功。</p><p>如果上面的步骤都完成后，等待一会，在浏览器的地址栏输入新增域名，应该就可以跳转到你的博客页面了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>个人博客</tag>
+      
+      <tag>域名</tag>
+      
+      <tag>GitHub Pages</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>nodejs中module.exports和exports的区别</title>
     <link href="/2019/10/22/nodejs%E4%B8%ADmodule.exports%E5%92%8Cexports%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <url>/2019/10/22/nodejs%E4%B8%ADmodule.exports%E5%92%8Cexports%E7%9A%84%E5%8C%BA%E5%88%AB/</url>

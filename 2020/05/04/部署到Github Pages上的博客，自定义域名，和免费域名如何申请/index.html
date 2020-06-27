@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>nodejs中module.exports和exports的区别 - 个人博客|沧沧凉凉的小站</title>
+  <title>部署到Github Pages上的博客，自定义域名，和免费域名如何申请 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2019-10-22 08:00">
-                    2019年10月22日 早上
+                  <time datetime="2020-05-04 08:00">
+                    2020年5月4日 早上
                   </time>
                 </div>
               
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    13
+                    12
                      分钟
                   </span>
                 
@@ -184,76 +184,76 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>最近在学习nodejs，这篇文章就权当是一篇笔记，如果有什么地方有误，望指出。</p>
-<p>先说说它们之间的区别：</p>
+              <p>之前一篇文章提到了使用Hexo，搭建个人博客。</p>
+<a href="/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/" title="一个简单易用的制作博客的框架：Hexo">一个简单易用的制作博客的框架：Hexo</a>
+
+<p><br/>后面经过我一段时间的探索，发现有2个缺点。</p>
 <ul>
-<li>exports只能使用语法来向外暴露内部变量：如exports.xxx = xxx;</li>
-<li>module.exports既可以通过语法，也可以直接赋值一个对象。</li>
+<li>没有办法像知乎这样实时写文章发布。</li>
+<li>新增文章后需要重新打包项目重新发布。</li>
 </ul>
-<p>我们要明白一点，exports和module.exports其实是一个东西，不信我们来输出一下</p>
-<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>.exports === exports);
+<p>这些问题的产生是因为通过这个工具构建的博客，只有前端，没有后端和数据库。所以无法通过后端将文章保存到数据库中从而达到访问页面的时候可以通过后端取出数据库中的内容，再返回前端。</p>
+<p>说远了…现在来说一说博客建好后，如何部署到Github Pages，因为上一篇文章在这个地方一笔带过。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果想要使用Github Pages，那么就需要一个Github账号。</p>
+<p><img src="/image/v2-9d93b379d174496153cc72aef40576b3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>因为使用了Chrome自带的翻译，所以显示的是中文</p>
+<p>注册完毕后，登入账号，新建一个仓库。</p>
+<p><img src="/image/v2-6672df7514ec7cd1a0bf884fafa7ff16_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>框起来的地方，必须要输入一致，这里因为我已经创建过了，所以会报错。也就是说仓库的名称必须为<code>你的用户名.github.io</code>。</p>
+<p><img src="/image/v2-372deb950f76f10e7670c58f1c5533b5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>注意这里的选项，第一个是公开的仓库，第二个是私人仓库，私人的仓库在微软收购了Github后可以免费创建。<strong>但是如果想使用Github Pages，必须将仓库公开，如果确实不想公开，那只有付费。</strong></p>
+<p>创建成功后会看到下面的界面：</p>
+<p><img src="/image/v2-1f0089cb7cae30917f225b71cd355d96_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>先不要关闭这个界面，来到已经构建完毕的博客项目，如果没有构建，在<code>cmd</code>中使用命令<code>hexo g</code>进行构建，构建完毕后会新增一个public文件夹，进入到public文件夹中。</p>
+<p><img src="/image/v2-2fc0adecd00e851847c713b28db9364a_b.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>右键空白处，打开Git命令窗口。**如果看不见这个选项，可能是因为你没有安装Git，需要先安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>。</p>
+<p>安装完成后，需要设置你的Git用户名：</p>
+<pre><code class="hljs shell">git config --global user.name "Your Name"
+git config --global user.email "email@example.com"</code></pre>
 
-<span class="hljs-comment">//输出结果为：true</span></code></pre>
-
-<p>输出结果是true其实就说明它们就是一个东西，其实exports = module.exports，因为他们是引用类型的一个变量名，所以当exports再指向一个引用类型的时候，那么他们就不再全等。</p>
-<pre><code class="hljs js">exports = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-built_in">console</span>.log(exports === <span class="hljs-built_in">module</span>.exports);
-
-<span class="hljs-comment">//输出结果为：false</span></code></pre>
-
-<p>当然，如果直接通过exports.xxx的形式赋值，那么他们依然会指向同一个地址：</p>
-<pre><code class="hljs js">exports.array = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-built_in">console</span>.log(exports === <span class="hljs-built_in">module</span>.exports);
-
-<span class="hljs-comment">//输出结果为：true</span></code></pre>
-
-<p>这个时候要明白module.exports和exports的区别，就要清楚什么是值类型，什么是引用类型。我对值类型和引用类型的理解就是，看它是存储在栈上，还是存储在堆上，值类型就是存储在栈上，引用类型是存储在堆上，但是有个很特殊的情况是，引用类型的名字，是存储在栈上，然后这个名字指向了堆上的一个地址，从而可以直接使用变量名，调用堆上的数据。</p>
-<p><img src="/image/v2-52e9a85deec48e2fe61708b20058dd48_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>这样可能有点难以理解，我们用代码来简单的认识一下值类型：</p>
-<pre><code class="hljs js"><span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">let</span> b = a;
-a = <span class="hljs-number">2</span>;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a的值是："</span> + a);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);</code></pre>
-
-<p>我们将1赋值为a，然后将a赋值给b，然后我们将2赋值为a那么这个时候a和b分别是多少呢？我们将它运行一下看结果：</p>
-<p><img src="/image/v2-3eb9fd92f22e0c9983cb495fd03118df_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>那么为什么a的值是2，b的值为1呢？是因为当将a赋值给b的时候，相当于是将a的值拷贝给了b也就相当于是重新生成了一个b，那么这个b与a就没有什么关系了，如下图所示：</p>
-<p><img src="/image/v2-df0097016e4d9ea1376ed617def5fc1b_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>可以看出，这个时候再去改变变量a的值，那么b的值肯定不会发生变化。</p>
-<p>那么引用类型呢：</p>
-<pre><code class="hljs js"><span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
-<span class="hljs-keyword">let</span> b = a;
-a[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a的值是："</span> + a);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);</code></pre>
-
-<p>那么问题来了，这个时候的b会输出什么结果，是[1,2]还是[0,2]那么我们来进行输出一下</p>
-<p><img src="/image/v2-a0ccf94fbc537f969c46bb043ff833d3_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>这个时候为什么输出的结果是0,2呢？这里就涉及到引用类型了，如下图所示：</p>
-<p><img src="/image/v2-455d624d8c5029570d6dcaa4771b4173_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>从图上面看的出来，栈中只是存储了一个变量名字，而数组是存储在堆中。而当将a赋值给b的时候，并不是从堆中拷贝一个数组再让b指向这个数组，而是直接将b指向和a指向的同一个数组。简单来说，可以把变量a看做是银行账户的存折，变量b是银行账户的卡，都是同一个账户，你从存折里面取钱或者存钱，那么卡中的钱也会跟着变多或者变少。</p>
-<p>那么我们回到主题，那么我们再来说为什么module.exports可以赋值一个对象，而exports却不可以。要明白这点，就要从nodejs的模块化说起，当nodejs执行模块中的代码时，它会将模块中的代码，用一个函数进行包裹：</p>
-<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">exports, require, module, __filename, __dirname</span>) </span>&#123;&#125;</code></pre>
-
-<p>这里面的其他参数就在这篇文章中不仔细讲解了，不过可以发现，里面有个熟悉的参数module。这里就要说到exports的本质了，正如上面所说exports = module.exports，也就是说他们指向了堆空间的同一个东西，如果对exports进行赋值，那么exports的指向就不一样了，在另外的文件里面就无法再找到通过exports这个变量传递的东西，而module.exports是在执行模块代码中就将module传入到了函数中，所以即使module.exports的值改变也能够在其他文件中进行调用。</p>
-<p>再写到这里的时候我产生了一个疑问，如果将module.exports的指向改变，那么通过exports.xxx传递的值在其他文件中还能进行调用嘛，于是我尝试了下面的代码：</p>
-<pre><code class="hljs js"><span class="hljs-comment">//Test.js</span>
-exports.add = <span class="hljs-number">100</span>;
-<span class="hljs-built_in">module</span>.exports = <span class="hljs-number">1</span>;
-<span class="hljs-comment">//test1.js文件</span>
-<span class="hljs-keyword">let</span> test = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./Test"</span>);
-<span class="hljs-keyword">let</span> p = test.add;
-<span class="hljs-keyword">let</span> b = test;
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"p的值是："</span> + p);
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b的值是："</span> + b);
-<span class="hljs-comment">/*</span>
-<span class="hljs-comment">输出结果是：</span>
-<span class="hljs-comment">p的值是：undefined</span>
-<span class="hljs-comment">b的值是：1</span>
-<span class="hljs-comment">*/</span></code></pre>
-
-<p>可以看出，改变了module.exports的指向后，exports.xxx的值在其他文件中也无法调用。</p>
+<p>接着就可以开始下面的事情：</p>
+<ol>
+<li>首先初始化Git仓库。<code>git init</code></li>
+<li>将文件添加到Git仓库<code>git add .</code> 那个点也需要输入。</li>
+<li>最后找到刚才没有关闭的网页中的有一项为<code>git remote add origin https://github.com/qflyb/xxx.github.io.git</code> 复制到命令窗口后回车。</li>
+<li>最后输入命令<code>git push -u origin master</code>推送到Github仓库中。</li>
+</ol>
+<p>如果成功推送的话，返回刚才的网页刷新一下，就应该可以看到推送的文件，再稍微等待一会，输入xxx(你的Github用户名).<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>，应该就可以访问到你的博客网站了。</p>
+<p>如果你觉得<a href="http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。" target="_blank" rel="noopener">http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。</a></p>
+<h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p><a href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank" rel="noopener">https://www.freenom.com/zh/index.html?lang=zh</a></p>
+<p>在这个网站中可以申请免费域名，<strong>注意：免费域名仅供学习使用，如果你想要当站长，那还是得去购买收费域名。</strong></p>
+<p><img src="/image/v2-f94e9aca265d206519dc742b8fca1d32_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>在这里输入需要购买的域名。</p>
+<p><img src="/image/v2-fb0c3d243eea3a30fa1597fa0496869c_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>会看到一堆免费域名，但是这时如果你点击获取，它就会变成不可用。</p>
+<p>解决方法是搜索域名的时候带上后缀名。</p>
+<p><img src="/image/v2-5bd195e80008b6b78cd659e676b57de5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>点击完成。这时会跳转到一个界面：</p>
+<p><img src="/image/v2-053598b80da4c645834510df04aba1b0_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>选择12个月</p>
+<p>点击继续，会让你填写你的邮件地址。</p>
+<p><img src="/image/v2-67063e1841839467a785eb73e93c0df6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>填写完毕后会发送一封邮件到你填写的邮箱地址，点击链接后打开。</p>
+<p><img src="/image/v2-5dfc5bacc4803343cb5baf8414cefc53_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>这里推荐还是填美国身份，如果不知道怎么填，还请百度一下。</p>
+<p>如果一切顺利，域名就购买成功了，购买完成后我们还需要解析域名。</p>
+<p><img src="/image/v2-749436fa271a8b5a5e85f2fd0f100125_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>点击如图所示的按钮</p>
+<p><img src="/image/v2-531733c78affec5881689198027b1325_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>点击Manage Domain</p>
+<p><img src="/image/v2-491214fb17b729b9228730e53e42bf4a_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>点击DNS解析</p>
+<p><img src="/image/v2-7ae8cad84bfd92425ff28574f8fa057e_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>如图所示，添加两项配置</p>
+<p>到了这步，基本上完成了，接着只需要找到Github Pages的IP地址，这个好办，打开<code>cmd</code>。</p>
+<p>输入<code>ping xxx.github.io</code>xxx是你的Github用户名。</p>
+<p>找到了IP地址后，再将这个IP地址填入到之前DNS解析的Target里面，点击保存。</p>
+<h1 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h1><p>终于到了最后一步了，只需要到刚才的Github仓库中点击Settings。</p>
+<p><img src="/image/v2-dfab6002688ca2ad3e28a61aa250c042_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>往下翻会看到一个GitHub Pages的标题。</p>
+<p><img src="/image/v2-f8425dbece6e93fad4fdecf4a578dd33_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>输入刚才申请的域名如<code>www.mikkk.ml</code>，点击保存。下面那个HTTPS证书会在你保存域名后自动帮你申请，不过可能最长需要24小时才能申请成功。</p>
+<p>如果上面的步骤都完成后，等待一会，在浏览器的地址栏输入新增域名，应该就可以跳转到你的博客页面了。</p>
 
             </article>
             <hr>
@@ -263,7 +263,7 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/categories/blog/">blog</a>
                     
                   </div>
                 
@@ -271,9 +271,11 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
                     
-                      <a class="hover-with-bg" href="/tags/Node-js/">Node.js</a>
+                      <a class="hover-with-bg" href="/tags/%E5%9F%9F%E5%90%8D/">域名</a>
+                    
+                      <a class="hover-with-bg" href="/tags/GitHub-Pages/">GitHub Pages</a>
                     
                   </div>
                 
@@ -286,9 +288,9 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/04/%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%92%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7/">
+                      <a href="/2020/05/04/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE%EF%BC%9A%E5%81%9A%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F%EF%BC%8C%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">部署到Github Pages上的博客，自定义域名，和免费域名如何申请</span>
+                        <span class="hidden-mobile">心血来潮：做一个网页游戏，飞机大战</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -296,8 +298,8 @@ exports.add = <span class="hljs-number">100</span>;
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/10/21/%E7%94%A8Html%E5%81%9A%E4%B8%80%E4%B8%AA%E5%BF%AB%E4%B9%90%E9%B8%9F%E5%B0%8F%E6%B8%B8%E6%88%8F/">
-                        <span class="hidden-mobile">用Html做一个快乐鸟小游戏</span>
+                      <a href="/2019/10/22/nodejs%E4%B8%ADmodule.exports%E5%92%8Cexports%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                        <span class="hidden-mobile">nodejs中module.exports和exports的区别</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -490,7 +492,7 @@ exports.add = <span class="hljs-number">100</span>;
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "nodejs中module.exports和exports的区别&nbsp;",
+        "部署到Github Pages上的博客，自定义域名，和免费域名如何申请&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
