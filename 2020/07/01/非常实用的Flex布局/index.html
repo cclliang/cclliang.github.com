@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>非常实用的Flex布局 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-07-01 15:52">
+                    2020年7月1日 下午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.8k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    24
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <style>
+    .box1 {
+        padding: 10px;
+        background-color: #f6ecec;
+    }
+    .box1>label {
+        margin-left: 10px;
+    }
+    #row,#wrap,#content,#items,#alignContent {
+        display: flex;
+        border:1px #0f0f0f solid;
+    }
+    #alignContent {
+        height: 500px;
+        flex-wrap:wrap;
+    }
+    #flexBasis {
+        flex-basis: 100px;
+    }
+    #wrap>div,
+    #content>div,
+    #items>div,
+    #row>div,
+    #alignContent>div{
+        background-color:#f3b3b3;
+    }
+
+    #wrap>div[data-index]::before,
+    #content>div[data-index]::before,
+    #items>div[data-index]::before,
+    #row>div[data-index]::before,
+    #alignContent>div[data-index]::before {
+        content: attr(data-index);
+        background-color: #e5a9a9;
+        color: #fff;
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 20px;
+        z-index: 1;
+    }
+    @media screen  and (max-width: 600px){
+         #content>div {
+             width: 80px;
+         }
+         #alignContent>div:nth-child(5),
+              #alignContent>div:nth-child(6),
+              #alignContent>div:nth-child(7){
+              display: none;
+         }
+         .flex-grow>div {
+            width: 80px;
+         }
+         .flex-shrink-not {
+            display: none;
+         }
+    }
+</style>
+
+<h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><p>传统的布局，基于盒装模型，早期的前端开发就是一个叠盒子的过程，即各种<code>&lt;div&gt;</code>的互相嵌套。</p>
+<p>传统的布局一般依赖<code>position</code>或者<code>float</code>属性控制盒子所在的位置，但是对于特殊布局就显得非常的不方便，比如：垂直居中、均匀分布等。</p>
+<p>在2009年，W3C提出了一种新的布局方案，即现在非常常用的Flex布局，可以非常轻松的完成和实现各种页面布局。到目前为止，它已经获得了主流浏览器的支持。但遗憾的是，如果要兼容早期的IE版本，还是得使用传统的<code>position</code>，<code>float</code>，不过由于兼容以前的IE版本会增加非常多的成本，所以现在大部分开发者已经放弃兼容早期的IE。</p>
+<p>Flex是Flexible Box的缩写，意为”弹性布局”，现在比较流行的响应式界面，就是使用Flex和媒体查询进行实现。</p>
+<h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>任何一个容易都可以指定为Flex布局。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+    <span class="hljs-attribute">display</span>: flex;
+&#125;</code></pre>
+
+<p>注意：设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p>
+<h1 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h1><h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+  <span class="hljs-attribute">flex-direction</span>: row | row-reverse | column | column-reverse;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="rowClick('row',value)" type="radio" name="flex-direction" value="row" checked> row
+    </label>
+    <label>
+    <input onclick="rowClick('row',value)" type="radio" name="flex-direction" value="row-reverse"> row-reverse
+    </label>
+    <label>
+    <input onclick="rowClick('row',value)" type="radio" name="flex-direction" value="column"> column
+    </label>
+    <label>
+    <input onclick="rowClick('row',value)" type="radio" name="flex-direction" value="column-reverse"> column-reverse
+    </label>
+    <div id="row">
+    <div data-index="1">
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><code>row</code> flex容器的主轴被定义为与文本方向相同。 主轴起点和主轴终点与内容方向相同。</li>
+<li><code>row-reverse</code> 表现和row相同，但是置换了主轴起点和主轴终点</li>
+<li><code>column</code> flex容器的主轴和块轴相同。主轴起点与主轴终点和书写模式的前后点相同</li>
+<li><code>column-reverse</code> 表现和column相同，但是置换了主轴起点和主轴终点</li>
+</ul>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>默认情况下，项目都排在一条线（又称“轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span>&#123;
+  <span class="hljs-attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+<label>
+    <input onclick="rowClick('wrap',value)" type="radio" name="flex-wrap" value="nowrap" checked> nowrap
+</label>
+<label>
+    <input onclick="rowClick('wrap',value)" type="radio" name="flex-wrap" value="wrap"> wrap
+</label>
+<label>
+    <input onclick="rowClick('wrap',value)" type="radio" name="flex-wrap" value="wrap-reverse"> wrap-reverse
+</label>
+    <div id="wrap">
+    <div data-index="1">
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="4">
+        <img width="200px" src="/image/Flex/4.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="5">
+            <img width="200px" src="/image/Flex/5.jpg" srcset="/img/loading.gif"/>
+        </div>
+    </div>
+</div>
+
+
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><code>nowrap</code> flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。 cross-start  会根据 flex-direction 的值 相当于 start 或 before。</li>
+<li><code>wrap</code> flex 元素 被打断到多个行中。cross-start 会根据 flex-direction 的值选择等于start 或before。cross-end 为确定的 cross-start 的另一端。</li>
+<li><code>wrap-reverse</code> 和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。</li>
+</ul>
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<blockquote>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+  <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+&#125;</code></pre>
+</blockquote>
+<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+  <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+<label>
+    <input onclick="rowClick('content',value)" type="radio" name="justify-content" value="flex-start" checked> flex-start
+</label>
+<label>
+    <input onclick="rowClick('content',value)" type="radio" name="justify-content" value="flex-end"> flex-end
+</label>
+<label>
+    <input onclick="rowClick('content',value)" type="radio" name="justify-content" value="center"> center
+</label>
+<label>
+    <input onclick="rowClick('content',value)" type="radio" name="justify-content" value="space-between"> space-between
+</label>
+<label>
+    <input onclick="rowClick('content',value)" type="radio" name="justify-content" value="space-around"> space-around
+</label>
+    <div style="height: 200px;" id="content">
+    <div data-index="1"> 
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+
+<h3 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+  <span class="hljs-attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+<label>
+    <input onclick="rowClick('items',value)" type="radio" name="align-items" value="flex-start" checked> flex-start
+</label>
+<label>
+    <input onclick="rowClick('items',value)" type="radio" name="align-items" value="flex-end"> flex-end
+</label>
+<label>
+    <input onclick="rowClick('items',value)" type="radio" name="align-items" value="center"> center
+</label>
+<label>
+    <input onclick="rowClick('items',value)" type="radio" name="align-items" value="baseline"> baseline
+</label>
+<label>
+    <input onclick="rowClick('items',value)" type="radio" name="align-items" value="stretch"> stretch
+</label>
+    <div style="height: 200px;" id="items">
+    <div data-index="1">
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+
+<h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
+  <span class="hljs-attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="stretch" checked> stretch
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="flex-start"> flex-start
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="flex-end"> flex-end
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="center"> center
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="space-between"> space-between
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="space-around"> space-around
+</label>
+<label>
+    <input onclick="rowClick('alignContent',value)" type="radio" name="choose" value="space-evenly"> space-evenly
+</label>
+    <div id="alignContent">
+    <div data-index="1">
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="4">
+        <img width="200px" src="/image/Flex/4.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="5">
+        <img width="200px" src="/image/Flex/5.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="6">
+        <img width="200px" src="/image/Flex/6.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="7">
+        <img width="200px" src="/image/Flex/7.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+
+<h3 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+<li><code>center</code>：与交叉轴的中点对齐。</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<h1 id="子项上的属性"><a href="#子项上的属性" class="headerlink" title="子项上的属性"></a>子项上的属性</h1><h2 id="order"><a href="#order" class="headerlink" title="order"></a>order</h2><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">order</span>: &lt;integer&gt;;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="childClick('order',value)" type="radio" name="order" value="0" checked> order: 0
+    </label>
+    <label>
+    <input onclick="childClick('order',value)" type="radio" name="order" value="1"> order: 1
+    </label>
+    <label>
+    <input onclick="childClick('order',value)" type="radio" name="order" value="2"> order: 2
+    </label>
+    <div id="row">
+    <div data-index="1" id="flex-order">
+    <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2" style="order: 0">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3" style="order: 1">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+<h2 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h2><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">flex-grow</span>: &lt;number&gt;; <span class="hljs-comment">/* default 0 */</span>
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="childClick('flexGrow',value)" type="radio" name="flex-grow" value="0" checked> flex-grow: 0
+    </label>
+    <label>
+    <input onclick="childClick('flexGrow',value)" type="radio" name="flex-grow" value="0.5"> flex-grow: 0.5
+    </label>
+    <label>
+    <input onclick="childClick('flexGrow',value)" type="radio" name="flex-grow" value="1"> flex-grow: 1
+    </label>
+    <div class="flex-grow" style="height: 200px;" id="row">
+    <div data-index="1">
+    <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2" id="flexGrow">
+        <img width="110px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+
+</div>
+
+<h2 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h2><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">flex-shrink</span>: &lt;number&gt;; <span class="hljs-comment">/* default 1 */</span>
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="childClick('flexShrink',value)" type="radio" name="flex-shrink" value="0" checked> flexShrink: 0
+    </label>
+    <label>
+    <input onclick="childClick('flexShrink',value)" type="radio" name="flex-shrink" value="3"> flexShrink: 1
+    </label>
+    <label>
+    <input onclick="childClick('flexShrink',value)" type="radio" name="flex-shrink" value="4"> flexShrink: 2
+    </label>
+    <div id="row">
+    <div data-index="1">
+        <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2" id="flexShrink">
+        <img src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div class="flex-shrink-not" data-index="4">
+            <img width="300px" src="/image/Flex/4.jpg" srcset="/img/loading.gif"/>
+        </div>
+    </div>
+</div>
+
+<h2 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h2><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="hljs-comment">/* default auto */</span>
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="childClick('flexBasis',value)" type="radio" name="flex-basis" value="100px" checked> flex-basis: 100px
+    </label>
+    <label>
+    <input onclick="childClick('flexBasis',value)" type="radio" name="flex-basis" value="150px"> flex-basis: 150px
+    </label>
+    <label>
+    <input onclick="childClick('flexBasis',value)" type="radio" name="flex-basis" value="200px"> flex-basis: 200px
+    </label>
+    <div id="row">
+    <div data-index="1">
+    <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="2" id="flexBasis">
+        <img src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+<h2 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h2><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">flex</span>: none | [ &lt;<span class="hljs-string">'flex-grow'</span>&gt; &lt;<span class="hljs-string">'flex-shrink'</span>&gt;? || &lt;<span class="hljs-string">'flex-basis'</span>&gt; ]
+&#125;</code></pre>
+
+<p>该属性有两个快捷值：<code>auto (1 1 auto)</code> 和 <code>none (0 0 auto)</code>。</p>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<p>因为是上面3项的简写，所以这里就不再提供案例了。</p>
+<h2 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h2><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
+<pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
+  <span class="hljs-attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;
+&#125;</code></pre>
+
+<p>点一点看效果</p>
+<div class="box1">
+    <label>
+        <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="auto" checked> auto
+    </label>
+    <label>
+            <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="flex-start"> flex-start
+        </label>
+        <label>
+                <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="flex-end"> flex-end
+            </label>
+            <label>
+                    <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="center" > center
+                </label>
+    <label>
+    <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="baseline"> baseline
+    </label>
+    <label>
+    <input onclick="childClick('alignSelf',value)" type="radio" name="align-self" value="stretch"> stretch
+    </label>
+    <div style="height:200px;align-items: baseline"  id="row">
+    <div data-index="1">
+    <img width="100px" src="/image/Flex/1.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div  data-index="2" id="alignSelf">
+        <img height="170px" src="/image/Flex/2.jpg" srcset="/img/loading.gif"/>
+    </div>
+    <div data-index="3">
+        <img width="200px" src="/image/Flex/3.jpg" srcset="/img/loading.gif"/>
+    </div>
+    </div>
+</div>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>我之前在做网页中会大量使用<code>Flex</code>，因为比起<code>position</code>或者<code>float</code>来讲实在是太过于方便了，其次用的比较多的就是<code>position</code>，<code>float</code>基本不怎么用到。</p>
+<p>不过这些都要根据实际情况，因为老版本的<code>IE</code>仍然有一部分用户在使用，如果要兼容老版本的<code>IE</code>的话…那实在是很蛋疼。</p>
+<script>
+    function rowClick(type,value) {
+        if(type==='row')
+        {
+           $('#row').css('flexDirection',value);
+        }
+        if(type==='wrap')
+        {
+           $('#wrap').css('flexWrap',value);
+        }
+        if(type==='content')
+        {
+           $('#content').css('justifyContent',value);
+        }
+        if(type==='items')
+        {
+           $('#items').css('alignItems',value);
+        }
+        if(type==='alignContent')
+        {
+           $('#alignContent').css('alignContent',value);
+        }
+    }
+    function childClick(type,value) {
+      if(type==='order'){
+        $('#flex-order').css('order',value);
+      }
+      if(type==='flexGrow'){
+          $('#flexGrow').css('flexGrow',value);
+      }
+      if(type==='flexShrink'){
+          $('#flexShrink').css('flexShrink',value);
+      }
+      if(type==='flexBasis'){
+          $('#flexBasis').css('flexBasis',value);
+      }
+      if(type==='alignSelf'){
+         $('#alignSelf').css('alignSelf',value);
+      }
+    }
+</script>
+
+
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS3/">CSS3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Flex/">Flex</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/01/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B406%E6%9C%8830%E6%97%A5/">
+                        <span class="hidden-mobile">游戏排行榜/2020年06月30日</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "非常实用的Flex布局&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
