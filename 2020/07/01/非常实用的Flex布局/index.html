@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.8k 字
+                    2.1k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    24
+                    27
                      分钟
                   </span>
                 
@@ -184,7 +184,11 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <style>
+              <h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><p>传统的布局，基于盒装模型，早期的前端开发就是一个叠盒子的过程，即各种<code>&lt;div&gt;</code>的互相嵌套。</p>
+<p>传统的布局一般依赖<code>position</code>或者<code>float</code>属性控制盒子所在的位置，但是对于特殊布局就显得非常的不方便，比如：垂直居中、均匀分布等。</p>
+<p>在2009年，W3C提出了一种新的布局方案，即现在非常常用的Flex布局，可以非常轻松的完成和实现各种页面布局。到目前为止，它已经获得了主流浏览器的支持。但遗憾的是，如果要兼容早期的IE版本，还是得使用传统的<code>position</code>，<code>float</code>，不过由于兼容以前的IE版本会增加非常多的成本，所以现在大部分开发者已经放弃兼容早期的IE。</p>
+<p>Flex是Flexible Box的缩写，意为”弹性布局”，现在比较流行的响应式界面，就是使用Flex和媒体查询进行实现。</p>
+<style>
     .box1 {
         padding: 10px;
         background-color: #f6ecec;
@@ -211,6 +215,7 @@
     #alignContent>div{
         background-color:#f3b3b3;
     }
+
 
     #wrap>div[data-index]::before,
     #content>div[data-index]::before,
@@ -247,7 +252,7 @@
     }
 </style>
 
-<h1 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h1><p>传统的布局，基于盒装模型，早期的前端开发就是一个叠盒子的过程，即各种<code>&lt;div&gt;</code>的互相嵌套。</p>
+<h1 id="Flex布局-1"><a href="#Flex布局-1" class="headerlink" title="Flex布局"></a>Flex布局</h1><p>传统的布局，基于盒装模型，早期的前端开发就是一个叠盒子的过程，即各种<code>&lt;div&gt;</code>的互相嵌套。</p>
 <p>传统的布局一般依赖<code>position</code>或者<code>float</code>属性控制盒子所在的位置，但是对于特殊布局就显得非常的不方便，比如：垂直居中、均匀分布等。</p>
 <p>在2009年，W3C提出了一种新的布局方案，即现在非常常用的Flex布局，可以非常轻松的完成和实现各种页面布局。到目前为止，它已经获得了主流浏览器的支持。但遗憾的是，如果要兼容早期的IE版本，还是得使用传统的<code>position</code>，<code>float</code>，不过由于兼容以前的IE版本会增加非常多的成本，所以现在大部分开发者已经放弃兼容早期的IE。</p>
 <p>Flex是Flexible Box的缩写，意为”弹性布局”，现在比较流行的响应式界面，就是使用Flex和媒体查询进行实现。</p>
