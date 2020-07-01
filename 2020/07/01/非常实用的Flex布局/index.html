@@ -193,6 +193,7 @@
         margin-left: 10px;
     }
     #row,#wrap,#content,#items,#alignContent {
+        max-width: 600px;
         display: flex;
         border:1px #0f0f0f solid;
     }
@@ -324,12 +325,8 @@
     <div data-index="4">
         <img width="200px" src="/image/Flex/4.jpg" srcset="/img/loading.gif"/>
     </div>
-    <div data-index="5">
-            <img width="200px" src="/image/Flex/5.jpg" srcset="/img/loading.gif"/>
-        </div>
     </div>
 </div>
-
 
 <h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
 <li><code>nowrap</code> flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。 cross-start  会根据 flex-direction 的值 相当于 start 或 before。</li>
@@ -337,11 +334,10 @@
 <li><code>wrap-reverse</code> 和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。</li>
 </ul>
 <h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
-<blockquote>
 <pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
   <span class="hljs-attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
 &#125;</code></pre>
-</blockquote>
+
 <h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
   <span class="hljs-attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;
