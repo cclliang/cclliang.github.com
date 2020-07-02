@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>Vue服务器渲染优秀项目：Nuxt.js - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/HTML中的瀑布流masonry在Vue中应用 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-22 08:00">
-                    2020年6月22日 早上
+                  <time datetime="2020-06-12 08:00">
+                    2020年6月12日 早上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.9k 字
+                    907 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    21
+                    11
                      分钟
                   </span>
                 
@@ -184,90 +184,99 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="1-服务器渲染"><a href="#1-服务器渲染" class="headerlink" title="1. 服务器渲染"></a>1. 服务器渲染</h1><h2 id="1-1-什么是服务器渲染"><a href="#1-1-什么是服务器渲染" class="headerlink" title="1. 1 什么是服务器渲染"></a>1. 1 什么是服务器渲染</h2><p><a href="[https://ssr.vuejs.org/zh/#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93-ssr-%EF%BC%9F](https://ssr.vuejs.org/zh/#什么是服务器端渲染-ssr-？)">Vue.js 服务器端渲染指南 </a></p>
-<p>Vue官网已经对服务器渲染讲解的很详细了，可以直接参考上面的文档。不过就是因为讲解的太过于全面，所以有时候可能看的一头雾水。</p>
-<h2 id="1-2-为什么需要服务器渲染"><a href="#1-2-为什么需要服务器渲染" class="headerlink" title="1.2 为什么需要服务器渲染"></a>1.2 为什么需要服务器渲染</h2><p><strong>更好的 SEO，搜索引擎的爬虫抓取工具可以直接查看完全渲染的页面。</strong></p>
-<p>这段话是什么意思呢，大家可以打开自己的Vue项目，右键查看源代码：</p>
-<p><img src="/image/v2-28299477732b658e149ce2d986203754_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>可以看到，不管你的Vue项目有多庞大，作为入口的<code>index.html</code>一般就长成上面这个样子，页面中的<code>DOM</code>元素是由<code>JavaScript</code>进行生成，无法在<code>index.html</code>中直接查看到。</p>
-<p>就是因为无法在<code>index.html</code>中直接查看到完全渲染的页面，尤其是在页面上的内容使用<code>ajax</code>动态获取渲染时，<strong>搜索引擎的爬虫就很难爬取得到你页面上的内容，不利于搜索引擎对你的页面进行排名 。</strong></p>
-<p>如果你并不是指望着通过网站带来的广告费赚钱，那么完全不需要使用服务器渲染，当你想通过网站的流量获得广告费时，服务器渲染就显得特别重要，因为完全渲染的页面才有利于搜索引擎爬虫的爬取。不信你可以看看现在的主流网站，全是服务器渲染。</p>
-<p><strong>更快的内容到达时间 (time-to-content)</strong></p>
-<p>对于缓慢的网络情况或运行缓慢的设备。无需等待所有的 JavaScript 都完成下载并执行，才显示服务器渲染的标记，所以你的用户将会更快速地看到完整渲染的页面。通常可以产生更好的用户体验。</p>
-<p>没有人能够忍受打开一个网站需要长达10多秒的响应时间，服务器渲染也解决了这个痛点。</p>
-<h1 id="2-Nuxt-js"><a href="#2-Nuxt-js" class="headerlink" title="2. Nuxt.js"></a>2. Nuxt.js</h1><p>如果你想要从头搭建服务端渲染，那么需要耗费大量的精力去进行研究，而<code>Nuxt.js</code>的出现，让一切都变得很简单。</p>
-<p><a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">https://zh.nuxtjs.org/</a></p>
-<h1 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3. 创建项目"></a>3. 创建项目</h1><p>Nuxt.js团队创建了脚手架工具<a href="https://github.com/nuxt/create-nuxt-app" target="_blank" rel="noopener">create-nuxt-app</a>。</p>
-<pre><code class="hljs powershell">npx create<span class="hljs-literal">-nuxt</span><span class="hljs-literal">-app</span> &lt;项目名&gt;
-yarn create nuxt<span class="hljs-literal">-app</span> &lt;项目名&gt;
+              <blockquote>
+<p>瀑布流，又称瀑布流式布局。是比较流行的一种网站页面布局，视觉表现为参差不齐的多栏布局，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。最早采用此布局的网站是Pinterest，逐渐在国内流行开来。国内大多数清新站基本为这类风格。</p>
+</blockquote>
+<p><img src="/image/v2-8d270acaf37a1f3a1a5a31a2152d55b8_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>可以说作为图片的一种展示风格，是非常的好看了，那么在HTML中怎么进行实现呢？</p>
+<h1 id="纯CSS实现"><a href="#纯CSS实现" class="headerlink" title="纯CSS实现"></a>纯CSS实现</h1><p><a href="https://www.bilibili.com/video/BV1xa4y147JP?t=164" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1xa4y147JP?t=164</a></p>
+<p>好吧，我就是看了这个视频后，才知道了原来这种排版叫做<strong>瀑布流</strong>，如果想要实现简单的瀑布流，根据这个视频中提供的思路，直接用CSS加上几行代码就能轻松实现瀑布流。所以这里就不再赘述，直接下一项。</p>
+<h1 id="masonry"><a href="#masonry" class="headerlink" title="masonry"></a>masonry</h1><p>既然有现成的，为什么还要自己写呢，现在主要讲一讲如何在Vue中使用masonry。</p>
+<p><strong>引入</strong></p>
+<p>引入的方式有两种，一种通过CDN引入</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- or --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
-运行
-npm run dev</code></pre>
+<p>一种是通过包管理的方式引入，即我们平时用的Vue,react框架，一般都是通过这种方式进行引入。</p>
+<pre><code class="hljs ps1con">npm: npm install masonry-layout --save
 
-<h1 id="4-目录结构"><a href="#4-目录结构" class="headerlink" title="4. 目录结构"></a>4. 目录结构</h1><p><code>assets</code> 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</p>
-<p><code>components</code> 用于组织应用的 Vue.js 组件。</p>
-<p><code>layouts</code> 用于组织应用的布局组件。</p>
-<p><code>middleware</code> 用于存放应用的中间件。</p>
-<p><code>pages</code> 页面目录，用于组织应用的路由及视图。</p>
-<p><code>plugins</code> 插件目录。</p>
-<p><code>static</code> 存放应用的静态文件，此类文件不会被 Nuxt.js 调用 Webpack 进行构建编译处理。</p>
-<p><code>store</code> 用于组织应用的 Vuex 状态树 文件。</p>
-<p><code>nuxt.config.js</code>文件用于组织Nuxt.js 应用的个性化配置，以便覆盖默认配置。</p>
-<p><code>package.json</code>文件用于描述应用的依赖关系和对外暴露的脚本接口。</p>
-<h1 id="5-创建页面"><a href="#5-创建页面" class="headerlink" title="5. 创建页面"></a>5. 创建页面</h1><p>到了这一步开始，几乎就和正常的使用Vue创建项目差不多，将页面放在pages中，<code>Nuxt.js</code>会自动找到<code>index.vue</code>作为入口文件。</p>
-<p>如果是之前创建的项目，直接将项目按照目录文件逐渐移动过来。</p>
-<h1 id="6-asyncData-fetch"><a href="#6-asyncData-fetch" class="headerlink" title="6. asyncData fetch"></a>6. asyncData fetch</h1><p><a href="https://zh.nuxtjs.org/guide/async-data/" target="_blank" rel="noopener">https://zh.nuxtjs.org/guide/async-data/</a></p>
-<p>上面的问题解决后，还存在一个问题，就是通过<code>ajax</code>取得的数据然后进行渲染的<code>DOM</code>元素并没有出现在<code>html</code>文件上， 解决这个问题就需要使用到<code>asyncData</code>，<code>fetch</code>。</p>
-<p><strong>注：需要写在第一个入口文件中。</strong></p>
-<p>在这两个方法中都无法调用<code>this</code>获取<strong>组件实例，</strong>因为它们是在<strong>组件初始化之前</strong>被调用。</p>
+Bower: bower install masonry-layout --save</code></pre>
+
+<p><strong>使用</strong></p>
+<p>先将HTML结构创建出来：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-item"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-item"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<p>注：</p>
 <ul>
-<li><code>asyncData</code> 可以在设置组件的数据之前能异步获取或处理数据。</li>
-<li><code>fetch</code> 用于在渲染页面前填充应用的状态树（store）数据， 与<code>asyncData</code>方法类似，不同的是它不会设置组件的数据。</li>
+<li>.grid即是所有图片的容器</li>
+<li>.grid-item是单张图片的容器</li>
 </ul>
-<h1 id="7-部署上线"><a href="#7-部署上线" class="headerlink" title="7. 部署上线"></a>7. 部署上线</h1><h2 id="7-1-服务端渲染应用部署（常用）"><a href="#7-1-服务端渲染应用部署（常用）" class="headerlink" title="7.1 服务端渲染应用部署（常用）"></a>7.1 服务端渲染应用部署（常用）</h2><p>因为我的服务上装了宝塔面板，强烈推荐宝塔面板！很多东西都是一键安装，非常方便。</p>
-<p><a href="https://bt.cn/" target="_blank" rel="noopener">https://bt.cn/</a></p>
-<p><strong>第一步</strong></p>
-<p>打包应用<code>npm run build</code> 。</p>
-<p><strong>第二步</strong></p>
-<p>在宝塔面板中的<code>网站</code>-<code>添加网站</code>，如果是要部署到服务器，那么相信大家都对服务器有一定了解。</p>
-<p>添加网站后在<code>根目录</code>可以看到一个文件夹地址，将项目中的<code>.nuxt</code>，<code>static</code>，<code>nuxt.config.js</code>，<code>package.json</code>拷贝到该文件夹中。</p>
-<p><strong>第三步</strong></p>
-<p>服务器中安装<code>pm2</code> 直接在宝塔面板的<code>软件商店</code>里面搜索后安装。安装完成后进入到刚才拷贝项目的文件夹中，运行<code>npm install</code>。</p>
-<p><strong>第四步</strong></p>
-<p>等待<code>npm</code>运行完成后，运行项目：</p>
-<pre><code class="hljs powershell">pm2 start npm -<span class="hljs-literal">-name</span> <span class="hljs-string">"nuxt-name"</span> -- run start</code></pre>
+<p>创建后，就开始准备引入js</p>
+<p>1、通过jQuery引入</p>
+<pre><code class="hljs js">$(<span class="hljs-string">'.grid'</span>).masonry(&#123;
+  <span class="hljs-comment">// options...</span>
+  itemSelector: <span class="hljs-string">'.grid-item'</span>,
+  columnWidth: <span class="hljs-number">200</span>
+&#125;);</code></pre>
 
-<p><code>nuxt-name</code>为<code>package.json</code>中的项目名称。</p>
-<p><strong>第五步</strong></p>
-<p>如果上面的步骤都没有问题的话，就开启反向代理，在宝塔面板中<code>网站</code>-<code>设置</code>-<code>反向代理</code>，<code>目标url</code>中填写<code>http://localhost:3000</code>，<code>发送域名</code>中就填写你自己的域名。 到这里，项目就部署完毕了。</p>
-<h2 id="7-2-静态应用部署"><a href="#7-2-静态应用部署" class="headerlink" title="7.2 静态应用部署"></a>7.2 静态应用部署</h2><p>Nuxt.js 可依据路由配置将应用静态化，使得我们可以将应用部署至任何一个静态站点主机服务商。</p>
-<p>可利用下面的命令生成应用的静态目录和文件：</p>
-<pre><code class="hljs text">npm run generate</code></pre>
+<p>2、<strong>普通方式引入（Vue就是这样引入）</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Masonry <span class="hljs-keyword">from</span> <span class="hljs-string">"masonry-layout"</span>; <span class="hljs-comment">// Vue项目的引入方式</span>
 
-<p>这个命令会创建一个 <code>dist</code> 文件夹，所有静态化后的资源文件均在其中。</p>
-<p>注意：<code>nuxt generate</code>在 build/generate 时间内仍然需要SSR引擎，<strong>而且如果首页是动态获取数据的话，那千万别用这种方式打包，因为如果数据发生了改变，你就必须要重新进行打包。</strong></p>
-<h2 id="7-3-单页面应用程序部署-SPA"><a href="#7-3-单页面应用程序部署-SPA" class="headerlink" title="7.3 单页面应用程序部署 (SPA)"></a>7.3 单页面应用程序部署 (SPA)</h2><p>使用时启用SPA模式<code>mode: &#39;spa&#39;</code>或<code>--spa</code>。</p>
-<ul>
-<li>将<code>nuxt.config.js</code>中的<code>mode</code>更改为<code>spa</code>。</li>
-<li>运行 <code>npm run build</code>.</li>
-<li>自动生成<code>dist/</code>文件夹，部署到您的服务器，如<code>Surge</code>，<code>GitHub Pages</code>或<code>nginx</code>。</li>
-</ul>
-<p>注意：这种方式打包出来的文件就和<code>Vue</code>直接打包出来的文件没有什么区别，最主要的用途就是将项目部署到<code>GitHub Pages</code>。</p>
-<h1 id="8-错误"><a href="#8-错误" class="headerlink" title="8. 错误"></a>8. 错误</h1><h2 id="8-1-Interface-39-NuxtApp-39-incorrectly-extends-interface-39-Vue-39"><a href="#8-1-Interface-39-NuxtApp-39-incorrectly-extends-interface-39-Vue-39" class="headerlink" title="8.1 Interface &#39;NuxtApp&#39; incorrectly extends interface &#39;Vue&#39;"></a>8.1 <code>Interface &#39;NuxtApp&#39; incorrectly extends interface &#39;Vue&#39;</code></h2><p><a href="https://github.com/nuxt/typescript/issues/49" target="_blank" rel="noopener">https://github.com/nuxt/typescript/issues/49</a></p>
-<p>可能是由于<code>element-ui</code>的<code>$loading</code>和<code>nuxt.js</code> 中的<code>$loading</code>冲突导致。</p>
-<p>解决方法：</p>
-<p>在<code>tsconfig.json</code>添加：</p>
-<pre><code class="hljs json">"skipLibCheck":true,</code></pre>
-
-<h2 id="8-2-window-is-not-defined"><a href="#8-2-window-is-not-defined" class="headerlink" title="8.2 window is not defined"></a>8.2 <code>window is not defined</code></h2><p>一些只兼容客户端的脚本被打包进了服务端的执行脚本中去。 对于只适合在客户端运行的脚本，需要通过使用<code>process.client</code>变量来判断导入。比如我要引入<code>smooth-scroll</code>这个页面平滑滚动插件，就需要写在<code>if</code>条件判断中，不然就会报错。</p>
-<pre><code class="hljs js">created () &#123;
-  <span class="hljs-keyword">if</span> (process.client) &#123;
-    <span class="hljs-keyword">const</span> SmoothScroll = <span class="hljs-built_in">require</span>(<span class="hljs-string">'smooth-scroll'</span>)
-    <span class="hljs-keyword">const</span> scroll = <span class="hljs-keyword">new</span> SmoothScroll(<span class="hljs-string">'a[href*="#"]'</span>)
-  &#125;
+updated() &#123;
+  <span class="hljs-keyword">var</span> grid = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">".grid"</span>);
+  <span class="hljs-keyword">var</span> msnry = <span class="hljs-keyword">new</span> Masonry(grid, &#123;
+    <span class="hljs-comment">// options...</span>
+    itemSelector: <span class="hljs-string">".grid-item"</span>,
+    columnWidth: <span class="hljs-number">300</span>,
+  &#125;);
 &#125;</code></pre>
 
-<h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9. 总结"></a>9. 总结</h1><p>使用<code>Nuxt.js</code>最主要的原因就是为了<code>SEO</code>给网站带来更高的流量，提高网页的打开速度，如果不靠着网站盈利，我个人觉得完全没有必要使用服务器渲染，因为服务器渲染给服务器带来更大的压力，增加服务器的成本。</p>
+<p>经过多次测试，发现放在<strong>updated</strong>中是最保险的，最开始我将初始化放在了<strong>mounted</strong>这个生命周期里面，虽然静态的HTML没有出现问题，但是你如果想要使用v-for的方式进行渲染，那么初始化就不会起作用。</p>
+<p>3、HTML通过data方式引入</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid"</span> <span class="hljs-attr">data-masonry</span>=<span class="hljs-string">'&#123; "itemSelector": ".grid-item", "columnWidth": 200 &#125;'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-item"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-item"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<h1 id="最后效果"><a href="#最后效果" class="headerlink" title="最后效果"></a>最后效果</h1><p><img src="/image/v2-324d03d4675ddb378a4658fc0e3fe10b_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="/image/v2-d6c0ee583c7b4d24d3ef1c9ae3329010_b.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>响应式</p>
+<p><strong>可以看出来masonry通过少量的配置就可以达到惊人的效果。</strong></p>
+<p>至于更多的配置内容，可以参考下面这篇文章</p>
+<p><a href="https://blog.csdn.net/a419419/article/details/83858984" target="_blank" rel="noopener">https://blog.csdn.net/a419419/article/details/83858984</a></p>
+<p>有条件的话，也可以直接到masonry官网进行查看</p>
+<p><a href="https://masonry.desandro.com/" target="_blank" rel="noopener">masonry</a></p>
+<hr>
+<h1 id="6-12更新"><a href="#6-12更新" class="headerlink" title="6.12更新"></a>6.12更新</h1><p>最近做项目时想要用瀑布流，但是发现一个BUG，当图片数据已经被获取，但是图片未加载完时，可能会出现图片重叠的现象，这种现象经过测试往往出现在刷新浏览器的时候。</p>
+<p><img src="/image/v2-7d1215a22efd4c2cf5ac5b8c2532a2ef_b.jpg" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>引入第三方库</p>
+<p><a href="https://github.com/desandro/imagesloaded" target="_blank" rel="noopener">imagesloadedgithub.com</a></p>
+<p>这个库会判断元素中的图片是否已经加载完成，并且在加载完成后调用回调函数。</p>
+<p>所以改一下上面的代码：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> imagesloaded <span class="hljs-keyword">from</span> <span class="hljs-string">'imagesloaded'</span>; <span class="hljs-comment">// 引入imagesloaded库</span>
+
+updated() &#123;
+  <span class="hljs-keyword">let</span> grid = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.grid'</span>);
+  <span class="hljs-keyword">let</span> msnry = <span class="hljs-keyword">new</span> Masonry(grid, &#123;
+    <span class="hljs-comment">// options...</span>
+    itemSelector: <span class="hljs-string">'.grid-item'</span>,
+    columnWidth: <span class="hljs-number">300</span>,
+  &#125;);
+
+  imagesloaded(<span class="hljs-string">'.grid-item'</span>, () =&gt; &#123;
+    msnry.layout(); <span class="hljs-comment">// 图片加载完成后重新绘制。</span>
+  &#125;);
+&#125;</code></pre>
+
+<p><img src="/image/v2-eee714c047801bc6f9eba8ef9bc84ff2_b.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>可以看到当图片加载完成后会进行重新排版</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://segmentfault.com/a/1190000013675077" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013675077</a></p>
 
             </article>
             <hr>
@@ -285,7 +294,9 @@ npm run dev</code></pre>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/">服务端渲染</a>
+                      <a class="hover-with-bg" href="/tags/HTML/">HTML</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue-js/">Vue.js</a>
                     
                   </div>
                 
@@ -298,9 +309,9 @@ npm run dev</code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/24/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9AValine/">
+                      <a href="/2020/06/15/web%E5%BC%80%E5%8F%91/%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C%E6%8F%92%E4%BB%B6Typed.js/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">个人博客评论系统：Valine</span>
+                        <span class="hidden-mobile">web开发/打字机效果插件Typed.js</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -308,8 +319,8 @@ npm run dev</code></pre>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/15/web%E5%89%8D%E7%AB%AF%EF%BC%9AViewer.js%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">
-                        <span class="hidden-mobile">web前端：Viewer.js图片查看器</span>
+                      <a href="/2020/06/11/IOS%E7%B3%BB%E7%BB%9F%E8%B6%8A%E7%8B%B1%E5%90%8E%E7%9A%84%E8%87%AA%E7%94%A8%E6%8F%92%E4%BB%B6%E5%88%86%E4%BA%AB/">
+                        <span class="hidden-mobile">IOS系统越狱后的自用插件分享</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -502,7 +513,7 @@ npm run dev</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Vue服务器渲染优秀项目：Nuxt.js&nbsp;",
+        "web开发/HTML中的瀑布流masonry在Vue中应用&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

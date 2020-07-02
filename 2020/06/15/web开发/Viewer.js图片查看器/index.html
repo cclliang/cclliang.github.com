@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>web开发：打字机效果插件Typed.js - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/Viewer.js图片查看器 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    394 字
+                    716 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    9
                      分钟
                   </span>
                 
@@ -184,45 +184,68 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>打字机效果是非常酷的文字显示效果，视觉表现极佳，而通过<code>Typed.js</code>可以很简单的在web开发中实现打字机效果。</p>
-<h1 id="1-官网"><a href="#1-官网" class="headerlink" title="1. 官网"></a>1. 官网</h1><p><a href="https://mattboldt.com/demos/typed-js/" target="_blank" rel="noopener">JavaScript Animated Typing with Typed.jsmattboldt</a></p>
-<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h1><pre><code class="hljs powershell"><span class="hljs-comment"># With NPM</span>
-npm install typed.js
+              <p>做界面时可能会需要图片查看的功能，就比如QQ空间查看照片的功能。</p>
+<p>虽然这个功能自己实现也不是太难，但是直接引入第三方库有个最大的好处是第三方库一般都经过很多个版本的更新迭代，不管是性能还是体验上一般都优于自己动手写（大佬除外）。</p>
+<p><a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="noopener">Viewer.js</a>几乎是开源出来的图片查看器中功能最全的库。 </p>
+<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><h2 id="1-1-npm"><a href="#1-1-npm" class="headerlink" title="1.1 npm"></a>1.1 npm</h2><pre><code class="hljs shell">npm install viewerjs</code></pre>
 
-<span class="hljs-comment"># With Yarn</span>
-yarn add typed.js
+<h2 id="1-2-browser"><a href="#1-2-browser" class="headerlink" title="1.2 browser"></a>1.2 browser</h2><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span>  <span class="hljs-attr">href</span>=<span class="hljs-string">"/path/to/viewer.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/path/to/viewer.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 
-<span class="hljs-comment"># With Bower</span>
-bower install typed.js</code></pre>
+<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h1><pre><code class="hljs react">&lt;div&gt;
+  &lt;ul id&#x3D;&quot;images&quot;&gt;
+    &lt;li&gt;&lt;img src&#x3D;&quot;picture-1.jpg&quot; alt&#x3D;&quot;Picture 1&quot;&gt;&lt;&#x2F;li&gt;
+    &lt;li&gt;&lt;img src&#x3D;&quot;picture-2.jpg&quot; alt&#x3D;&quot;Picture 2&quot;&gt;&lt;&#x2F;li&gt;
+    &lt;li&gt;&lt;img src&#x3D;&quot;picture-3.jpg&quot; alt&#x3D;&quot;Picture 3&quot;&gt;&lt;&#x2F;li&gt;
+  &lt;&#x2F;ul&gt;
+&lt;&#x2F;div&gt;
+import Viewer from &#39;viewerjs&#39;;
+import &#39;viewerjs&#x2F;dist&#x2F;viewer.css&#39;;
 
-<h2 id="2-1-CDN"><a href="#2-1-CDN" class="headerlink" title="2.1 CDN"></a>2.1 CDN</h2><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/typed.js@2.0.11"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+const viewer &#x3D; new Viewer(document.getElementById(&#39;images&#39;), &#123;
+  &#x2F;&#x2F; 配置选项
+&#125;);</code></pre>
 
-<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h1><h2 id="3-1-HTML部分"><a href="#3-1-HTML部分" class="headerlink" title="3.1 HTML部分"></a>3.1 HTML部分</h2><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"typed"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"white-space: pre-wrap;line-height: 30px;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<h2 id="2-1-inline模式"><a href="#2-1-inline模式" class="headerlink" title="2.1 inline模式"></a>2.1 inline模式</h2><p>官方给出的实例中有一个属性inline: true,这个属性指的是<strong>在当前的容器中进行图片展示。</strong>推荐根据情况进行开启。</p>
+<p><img src="/image/v2-40a418dc45c96d9d51910555c8dc7c3e_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p><code>inline: true</code></p>
+<p><img src="/image/v2-dc6e7ac0818674df6b673a0bda91a0fa_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p><code>inline: false</code>时，在全屏范围内进行显示。 </p>
+<h2 id="2-2-缩略图和原图"><a href="#2-2-缩略图和原图" class="headerlink" title="2.2 缩略图和原图"></a>2.2 缩略图和原图</h2><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-item"</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(image,index) in imageInfo"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"index"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">el-card</span> <span class="hljs-attr">:body-style</span>=<span class="hljs-string">"&#123;padding:0&#125;"</span> <span class="hljs-attr">shadow</span>=<span class="hljs-string">"hover"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:data-original</span>=<span class="hljs-string">"image.original"</span></span>
+<span class="hljs-tag">         <span class="hljs-attr">:src</span>=<span class="hljs-string">"image.thumbnail"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-left: 5px;cursor: zoom-in"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">el-card</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
-<p><strong>经过测试文字放在<code>span</code>标签里面，输入的光标才会正常显示。</strong></p>
-<h2 id="3-2-JavaScript部分"><a href="#3-2-JavaScript部分" class="headerlink" title="3.2 JavaScript部分"></a>3.2 JavaScript部分</h2><pre><code class="hljs js"><span class="hljs-keyword">const</span> options = &#123;
-  strings: [
-    <span class="hljs-string">'First test.'</span>,
-    <span class="hljs-string">'Second test, \nit will pause for three seconds. ^3000'</span>,
-    <span class="hljs-string">"Second test, \nthe last sentence will go back to 'Second test, ', \noh no, this is the third test. ^1000"</span>,
-    <span class="hljs-string">"It's going to start repeating."</span>,
-  ],
-  typeSpeed: <span class="hljs-number">50</span>, <span class="hljs-comment">// 打印速度</span>
-  startDelay: <span class="hljs-number">300</span>, <span class="hljs-comment">// 开始之前的延迟300毫秒</span>
-  loop: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否循环</span>
-&#125;;
+<p>上面的代码是我在<code>Vue</code>中使用<code>Viewer.js</code>，其中<code>img</code>标签中的<code>src</code>是缩放图的地址，而<code>data-original</code>中是原图的地址。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> viewer = <span class="hljs-keyword">new</span> Viewer(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'images'</span>), &#123;
+  url: <span class="hljs-string">'data-original'</span>,
+&#125;);</code></pre>
 
-<span class="hljs-keyword">const</span> typed = <span class="hljs-keyword">new</span> Typed(<span class="hljs-string">'#typed'</span>, options);</code></pre>
-
-<h2 id="3-3-更多参数"><a href="#3-3-更多参数" class="headerlink" title="3.3 更多参数"></a>3.3 更多参数</h2><p>该插件可以配置很多参数，具体的参数可以参考官方文档，或者参考下面的文章：</p>
-<p><a href="https://blog.csdn.net/weixin_41000111/article/details/78725784" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41000111/article/details/78725784</a></p>
-<h1 id="4-vue中的使用"><a href="#4-vue中的使用" class="headerlink" title="4. vue中的使用"></a>4. vue中的使用</h1><p>该插件对<code>vue</code>做了一次封装：</p>
-<p><a href="hhttps://github.com/Orlandster/vue-typed-js">vue-typed-jsgithub</a></p>
-<h2 id="4-1-安装"><a href="#4-1-安装" class="headerlink" title="4.1 安装"></a>4.1 安装</h2><pre><code class="hljs powershell">npm install -<span class="hljs-literal">-save</span> vue<span class="hljs-literal">-typed</span><span class="hljs-literal">-js</span></code></pre>
-
-<h2 id="4-2-使用"><a href="#4-2-使用" class="headerlink" title="4.2 使用"></a>4.2 使用</h2><p>非常简单，按照文档一步一步集成就可以了。</p>
-<p><strong>注意：<code>vue-typed-js</code>没有声明文件，所以在<code>TypeScript</code>中使用会报错，而<code>Typed.js</code>是有声明文件的，可以直接在TypeScript中使用。</strong></p>
-<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a><strong>5. 总结</strong></h1><p>总而言之使用<code>Typed.js</code>实现打字机效果非常的简单，简单到不需要用太多语言去进行描述。</p>
+<p>在声明时将<code>data-original</code>赋值给<code>url</code>这样点击查看时就会根据原图的地址进行加载原图。 </p>
+<h1 id="3-兼容性"><a href="#3-兼容性" class="headerlink" title="3. 兼容性"></a>3. 兼容性</h1><ul>
+<li>Chrome (最新)</li>
+<li>Firefox (最新)</li>
+<li>Safari (最新)</li>
+<li>Opera (最新)</li>
+<li>Edge (最新)</li>
+<li>Internet Explorer 9+</li>
+</ul>
+<h1 id="4-键盘支持"><a href="#4-键盘支持" class="headerlink" title="4. 键盘支持"></a>4. 键盘支持</h1><ul>
+<li>Esc：退出全屏、关闭查看器、退出模式、停止播放。</li>
+<li>Space：停止播放。</li>
+<li>←：查看上一张图像。</li>
+<li>→：查看下一张图像。</li>
+<li>↑：放大图像。</li>
+<li>↓：缩小图像。</li>
+<li>Ctrl + 0：缩小到初始大小。</li>
+<li>Ctrl + 1：放大至自然大小。</li>
+</ul>
+<h1 id="5-配置参数"><a href="#5-配置参数" class="headerlink" title="5. 配置参数"></a>5. 配置参数</h1><p>配置参数就不详细讲解了，需要用到什么再去找寻就好了，也可以参考下面这篇文章：</p>
+<p><a href="https://segmentfault.com/a/1190000016584946" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016584946</a></p>
+<h1 id="6-最终效果"><a href="#6-最终效果" class="headerlink" title="6. 最终效果"></a>6. 最终效果</h1><p><img src="/image/v2-92538727955d76a616a4d07cde8bb176_720w.gif" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h1><p>Viewer.js非常非常的简单易用，简直不需要过多的配置就能集成一个拥有非常多功能的图片查看器，最关键的是该图片查看器还支持移动端，如果是自己想要写出一个这样的图片查看器，还是需要花费大量功夫。</p>
 
             </article>
             <hr>
@@ -240,11 +263,9 @@ bower install typed.js</code></pre>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+                      <a class="hover-with-bg" href="/tags/Viewer-js/">Viewer.js</a>
                     
-                      <a class="hover-with-bg" href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%89%93%E5%AD%97%E6%9C%BA/">打字机</a>
+                      <a class="hover-with-bg" href="/tags/%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">图片查看器</a>
                     
                   </div>
                 
@@ -257,9 +278,9 @@ bower install typed.js</code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/15/web%E5%89%8D%E7%AB%AF%EF%BC%9AViewer.js%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">
+                      <a href="/2020/06/22/web%E5%BC%80%E5%8F%91/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web前端：Viewer.js图片查看器</span>
+                        <span class="hidden-mobile">web开发/Vue服务器渲染优秀项目：Nuxt.js</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -267,8 +288,8 @@ bower install typed.js</code></pre>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/12/HTML%E4%B8%AD%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81masonry%E5%9C%A8Vue%E4%B8%AD%E5%BA%94%E7%94%A8/">
-                        <span class="hidden-mobile">HTML中的瀑布流masonry在Vue中应用</span>
+                      <a href="/2020/06/15/web%E5%BC%80%E5%8F%91/%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C%E6%8F%92%E4%BB%B6Typed.js/">
+                        <span class="hidden-mobile">web开发/打字机效果插件Typed.js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -461,7 +482,7 @@ bower install typed.js</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发：打字机效果插件Typed.js&nbsp;",
+        "web开发/Viewer.js图片查看器&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

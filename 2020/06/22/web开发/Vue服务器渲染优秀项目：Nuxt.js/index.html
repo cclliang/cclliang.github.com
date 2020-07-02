@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>web开发：利用background制作拉窗帘效果 - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/Vue服务器渲染优秀项目：Nuxt.js - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-02 08:00">
-                    2020年6月2日 早上
+                  <time datetime="2020-06-22 08:00">
+                    2020年6月22日 早上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    394 字
+                    1.9k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    4
+                    21
                      分钟
                   </span>
                 
@@ -184,20 +184,90 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>往往利用CSS可以做出一些意想不到的效果，比如说下面的这个示例：</p>
-<p><img src="/image/v2-1c842c67816442adf6c8ba34c6b7411a_b.webp" srcset="/img/loading.gif" alt="img"></p>
-<p>为了演示随手做的，官网并不是这样</p>
-<p>滚动鼠标滚轮，就有一种背景图被覆盖的错觉，之所以说是错觉，并不是背景图真的被覆盖了，其实背景图所在的盒子是跟着下面的图片一起在滚动，只是图片和窗口之间相对没有移动造成的错觉。</p>
-<p>可能听起来比较复杂，但是实际上只需要一个属性就能做出这种效果，那就是<code>background-attachment: fixed;</code></p>
-<p>还是同一个案例，我们将背景图片去掉，看看效果就明白了。</p>
-<p><img src="/image/v2-0b2fa904729127861768553783f16c26_b.webp" srcset="/img/loading.gif" alt="img"></p>
-<h1 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a>background-attachment</h1><p>CSS 属性决定背景图像的位置是在视口内固定，或者随着包含它的区块滚动。</p>
+              <h1 id="1-服务器渲染"><a href="#1-服务器渲染" class="headerlink" title="1. 服务器渲染"></a>1. 服务器渲染</h1><h2 id="1-1-什么是服务器渲染"><a href="#1-1-什么是服务器渲染" class="headerlink" title="1. 1 什么是服务器渲染"></a>1. 1 什么是服务器渲染</h2><p><a href="[https://ssr.vuejs.org/zh/#%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93-ssr-%EF%BC%9F](https://ssr.vuejs.org/zh/#什么是服务器端渲染-ssr-？)">Vue.js 服务器端渲染指南 </a></p>
+<p>Vue官网已经对服务器渲染讲解的很详细了，可以直接参考上面的文档。不过就是因为讲解的太过于全面，所以有时候可能看的一头雾水。</p>
+<h2 id="1-2-为什么需要服务器渲染"><a href="#1-2-为什么需要服务器渲染" class="headerlink" title="1.2 为什么需要服务器渲染"></a>1.2 为什么需要服务器渲染</h2><p><strong>更好的 SEO，搜索引擎的爬虫抓取工具可以直接查看完全渲染的页面。</strong></p>
+<p>这段话是什么意思呢，大家可以打开自己的Vue项目，右键查看源代码：</p>
+<p><img src="/image/v2-28299477732b658e149ce2d986203754_720w.png" srcset="/img/loading.gif" alt="img"></p>
+<p>可以看到，不管你的Vue项目有多庞大，作为入口的<code>index.html</code>一般就长成上面这个样子，页面中的<code>DOM</code>元素是由<code>JavaScript</code>进行生成，无法在<code>index.html</code>中直接查看到。</p>
+<p>就是因为无法在<code>index.html</code>中直接查看到完全渲染的页面，尤其是在页面上的内容使用<code>ajax</code>动态获取渲染时，<strong>搜索引擎的爬虫就很难爬取得到你页面上的内容，不利于搜索引擎对你的页面进行排名 。</strong></p>
+<p>如果你并不是指望着通过网站带来的广告费赚钱，那么完全不需要使用服务器渲染，当你想通过网站的流量获得广告费时，服务器渲染就显得特别重要，因为完全渲染的页面才有利于搜索引擎爬虫的爬取。不信你可以看看现在的主流网站，全是服务器渲染。</p>
+<p><strong>更快的内容到达时间 (time-to-content)</strong></p>
+<p>对于缓慢的网络情况或运行缓慢的设备。无需等待所有的 JavaScript 都完成下载并执行，才显示服务器渲染的标记，所以你的用户将会更快速地看到完整渲染的页面。通常可以产生更好的用户体验。</p>
+<p>没有人能够忍受打开一个网站需要长达10多秒的响应时间，服务器渲染也解决了这个痛点。</p>
+<h1 id="2-Nuxt-js"><a href="#2-Nuxt-js" class="headerlink" title="2. Nuxt.js"></a>2. Nuxt.js</h1><p>如果你想要从头搭建服务端渲染，那么需要耗费大量的精力去进行研究，而<code>Nuxt.js</code>的出现，让一切都变得很简单。</p>
+<p><a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">https://zh.nuxtjs.org/</a></p>
+<h1 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3. 创建项目"></a>3. 创建项目</h1><p>Nuxt.js团队创建了脚手架工具<a href="https://github.com/nuxt/create-nuxt-app" target="_blank" rel="noopener">create-nuxt-app</a>。</p>
+<pre><code class="hljs powershell">npx create<span class="hljs-literal">-nuxt</span><span class="hljs-literal">-app</span> &lt;项目名&gt;
+yarn create nuxt<span class="hljs-literal">-app</span> &lt;项目名&gt;
+
+运行
+npm run dev</code></pre>
+
+<h1 id="4-目录结构"><a href="#4-目录结构" class="headerlink" title="4. 目录结构"></a>4. 目录结构</h1><p><code>assets</code> 用于组织未编译的静态资源如 LESS、SASS 或 JavaScript。</p>
+<p><code>components</code> 用于组织应用的 Vue.js 组件。</p>
+<p><code>layouts</code> 用于组织应用的布局组件。</p>
+<p><code>middleware</code> 用于存放应用的中间件。</p>
+<p><code>pages</code> 页面目录，用于组织应用的路由及视图。</p>
+<p><code>plugins</code> 插件目录。</p>
+<p><code>static</code> 存放应用的静态文件，此类文件不会被 Nuxt.js 调用 Webpack 进行构建编译处理。</p>
+<p><code>store</code> 用于组织应用的 Vuex 状态树 文件。</p>
+<p><code>nuxt.config.js</code>文件用于组织Nuxt.js 应用的个性化配置，以便覆盖默认配置。</p>
+<p><code>package.json</code>文件用于描述应用的依赖关系和对外暴露的脚本接口。</p>
+<h1 id="5-创建页面"><a href="#5-创建页面" class="headerlink" title="5. 创建页面"></a>5. 创建页面</h1><p>到了这一步开始，几乎就和正常的使用Vue创建项目差不多，将页面放在pages中，<code>Nuxt.js</code>会自动找到<code>index.vue</code>作为入口文件。</p>
+<p>如果是之前创建的项目，直接将项目按照目录文件逐渐移动过来。</p>
+<h1 id="6-asyncData-fetch"><a href="#6-asyncData-fetch" class="headerlink" title="6. asyncData fetch"></a>6. asyncData fetch</h1><p><a href="https://zh.nuxtjs.org/guide/async-data/" target="_blank" rel="noopener">https://zh.nuxtjs.org/guide/async-data/</a></p>
+<p>上面的问题解决后，还存在一个问题，就是通过<code>ajax</code>取得的数据然后进行渲染的<code>DOM</code>元素并没有出现在<code>html</code>文件上， 解决这个问题就需要使用到<code>asyncData</code>，<code>fetch</code>。</p>
+<p><strong>注：需要写在第一个入口文件中。</strong></p>
+<p>在这两个方法中都无法调用<code>this</code>获取<strong>组件实例，</strong>因为它们是在<strong>组件初始化之前</strong>被调用。</p>
 <ul>
-<li><code>fixed</code>此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。</li>
-<li><code>local</code>此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动， 并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。</li>
-<li><code>scroll</code>此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。</li>
+<li><code>asyncData</code> 可以在设置组件的数据之前能异步获取或处理数据。</li>
+<li><code>fetch</code> 用于在渲染页面前填充应用的状态树（store）数据， 与<code>asyncData</code>方法类似，不同的是它不会设置组件的数据。</li>
 </ul>
-<h1 id="资料参考"><a href="#资料参考" class="headerlink" title="资料参考"></a>资料参考</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment</a></p>
+<h1 id="7-部署上线"><a href="#7-部署上线" class="headerlink" title="7. 部署上线"></a>7. 部署上线</h1><h2 id="7-1-服务端渲染应用部署（常用）"><a href="#7-1-服务端渲染应用部署（常用）" class="headerlink" title="7.1 服务端渲染应用部署（常用）"></a>7.1 服务端渲染应用部署（常用）</h2><p>因为我的服务上装了宝塔面板，强烈推荐宝塔面板！很多东西都是一键安装，非常方便。</p>
+<p><a href="https://bt.cn/" target="_blank" rel="noopener">https://bt.cn/</a></p>
+<p><strong>第一步</strong></p>
+<p>打包应用<code>npm run build</code> 。</p>
+<p><strong>第二步</strong></p>
+<p>在宝塔面板中的<code>网站</code>-<code>添加网站</code>，如果是要部署到服务器，那么相信大家都对服务器有一定了解。</p>
+<p>添加网站后在<code>根目录</code>可以看到一个文件夹地址，将项目中的<code>.nuxt</code>，<code>static</code>，<code>nuxt.config.js</code>，<code>package.json</code>拷贝到该文件夹中。</p>
+<p><strong>第三步</strong></p>
+<p>服务器中安装<code>pm2</code> 直接在宝塔面板的<code>软件商店</code>里面搜索后安装。安装完成后进入到刚才拷贝项目的文件夹中，运行<code>npm install</code>。</p>
+<p><strong>第四步</strong></p>
+<p>等待<code>npm</code>运行完成后，运行项目：</p>
+<pre><code class="hljs powershell">pm2 start npm -<span class="hljs-literal">-name</span> <span class="hljs-string">"nuxt-name"</span> -- run start</code></pre>
+
+<p><code>nuxt-name</code>为<code>package.json</code>中的项目名称。</p>
+<p><strong>第五步</strong></p>
+<p>如果上面的步骤都没有问题的话，就开启反向代理，在宝塔面板中<code>网站</code>-<code>设置</code>-<code>反向代理</code>，<code>目标url</code>中填写<code>http://localhost:3000</code>，<code>发送域名</code>中就填写你自己的域名。 到这里，项目就部署完毕了。</p>
+<h2 id="7-2-静态应用部署"><a href="#7-2-静态应用部署" class="headerlink" title="7.2 静态应用部署"></a>7.2 静态应用部署</h2><p>Nuxt.js 可依据路由配置将应用静态化，使得我们可以将应用部署至任何一个静态站点主机服务商。</p>
+<p>可利用下面的命令生成应用的静态目录和文件：</p>
+<pre><code class="hljs text">npm run generate</code></pre>
+
+<p>这个命令会创建一个 <code>dist</code> 文件夹，所有静态化后的资源文件均在其中。</p>
+<p>注意：<code>nuxt generate</code>在 build/generate 时间内仍然需要SSR引擎，<strong>而且如果首页是动态获取数据的话，那千万别用这种方式打包，因为如果数据发生了改变，你就必须要重新进行打包。</strong></p>
+<h2 id="7-3-单页面应用程序部署-SPA"><a href="#7-3-单页面应用程序部署-SPA" class="headerlink" title="7.3 单页面应用程序部署 (SPA)"></a>7.3 单页面应用程序部署 (SPA)</h2><p>使用时启用SPA模式<code>mode: &#39;spa&#39;</code>或<code>--spa</code>。</p>
+<ul>
+<li>将<code>nuxt.config.js</code>中的<code>mode</code>更改为<code>spa</code>。</li>
+<li>运行 <code>npm run build</code>.</li>
+<li>自动生成<code>dist/</code>文件夹，部署到您的服务器，如<code>Surge</code>，<code>GitHub Pages</code>或<code>nginx</code>。</li>
+</ul>
+<p>注意：这种方式打包出来的文件就和<code>Vue</code>直接打包出来的文件没有什么区别，最主要的用途就是将项目部署到<code>GitHub Pages</code>。</p>
+<h1 id="8-错误"><a href="#8-错误" class="headerlink" title="8. 错误"></a>8. 错误</h1><h2 id="8-1-Interface-39-NuxtApp-39-incorrectly-extends-interface-39-Vue-39"><a href="#8-1-Interface-39-NuxtApp-39-incorrectly-extends-interface-39-Vue-39" class="headerlink" title="8.1 Interface &#39;NuxtApp&#39; incorrectly extends interface &#39;Vue&#39;"></a>8.1 <code>Interface &#39;NuxtApp&#39; incorrectly extends interface &#39;Vue&#39;</code></h2><p><a href="https://github.com/nuxt/typescript/issues/49" target="_blank" rel="noopener">https://github.com/nuxt/typescript/issues/49</a></p>
+<p>可能是由于<code>element-ui</code>的<code>$loading</code>和<code>nuxt.js</code> 中的<code>$loading</code>冲突导致。</p>
+<p>解决方法：</p>
+<p>在<code>tsconfig.json</code>添加：</p>
+<pre><code class="hljs json">"skipLibCheck":true,</code></pre>
+
+<h2 id="8-2-window-is-not-defined"><a href="#8-2-window-is-not-defined" class="headerlink" title="8.2 window is not defined"></a>8.2 <code>window is not defined</code></h2><p>一些只兼容客户端的脚本被打包进了服务端的执行脚本中去。 对于只适合在客户端运行的脚本，需要通过使用<code>process.client</code>变量来判断导入。比如我要引入<code>smooth-scroll</code>这个页面平滑滚动插件，就需要写在<code>if</code>条件判断中，不然就会报错。</p>
+<pre><code class="hljs js">created () &#123;
+  <span class="hljs-keyword">if</span> (process.client) &#123;
+    <span class="hljs-keyword">const</span> SmoothScroll = <span class="hljs-built_in">require</span>(<span class="hljs-string">'smooth-scroll'</span>)
+    <span class="hljs-keyword">const</span> scroll = <span class="hljs-keyword">new</span> SmoothScroll(<span class="hljs-string">'a[href*="#"]'</span>)
+  &#125;
+&#125;</code></pre>
+
+<h1 id="9-总结"><a href="#9-总结" class="headerlink" title="9. 总结"></a>9. 总结</h1><p>使用<code>Nuxt.js</code>最主要的原因就是为了<code>SEO</code>给网站带来更高的流量，提高网页的打开速度，如果不靠着网站盈利，我个人觉得完全没有必要使用服务器渲染，因为服务器渲染给服务器带来更大的压力，增加服务器的成本。</p>
 
             </article>
             <hr>
@@ -215,11 +285,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
-                    
-                      <a class="hover-with-bg" href="/tags/HTML-CSS/">HTML+CSS</a>
-                    
-                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                      <a class="hover-with-bg" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/">服务端渲染</a>
                     
                   </div>
                 
@@ -232,9 +298,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/03/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/">
+                      <a href="/2020/06/24/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9AValine/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">GSAP（GreenSock）：最健全的web动画库之一</span>
+                        <span class="hidden-mobile">个人博客评论系统：Valine</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -242,8 +308,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/01/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6fullpage.js/">
-                        <span class="hidden-mobile">web开发：全屏滚动插件fullpage.js</span>
+                      <a href="/2020/06/15/web%E5%BC%80%E5%8F%91/Viewer.js%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B%E5%99%A8/">
+                        <span class="hidden-mobile">web开发/Viewer.js图片查看器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -436,7 +502,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发：利用background制作拉窗帘效果&nbsp;",
+        "web开发/Vue服务器渲染优秀项目：Nuxt.js&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

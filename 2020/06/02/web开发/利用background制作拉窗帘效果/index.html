@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>GSAP（GreenSock）：最健全的web动画库之一 - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/利用background制作拉窗帘效果 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-03 08:00">
-                    2020年6月3日 早上
+                  <time datetime="2020-06-02 08:00">
+                    2020年6月2日 早上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.5k 字
+                    394 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    19
+                    4
                      分钟
                   </span>
                 
@@ -184,137 +184,20 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="官方的介绍"><a href="#官方的介绍" class="headerlink" title="官方的介绍"></a>官方的介绍</h1><blockquote>
-<p>GreenSock动画平台（GSAP）可以对JavaScript可以操作的所有内容进行动画处理（CSS属性，SVG，React，画布，通用对象等），同时解决了不同浏览器上存在的兼容性问题，而且速度极快（比jQuery 快20倍）。大约有1000万个站点和许多主要品牌都使用 GSAP。</p>
-</blockquote>
-<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://link.zhihu.com/?target=https%3A//greensock.com/">https://greensock.com/greensock.com</a></p>
-<p>动画其实是每秒多次改变元素属性值，元素看起来就仿佛在动一样，比如淡入淡出，旋转，移动等。而GSAP捕捉一个起始值和一个结束值，然后每秒在它们之间插值60次。</p>
-<p>如果从技术上面来讲，GSAP其实应该被称为“GreenSock属性操纵器”（GSPM）。</p>
-<h1 id="可以添加动画的元素"><a href="#可以添加动画的元素" class="headerlink" title="可以添加动画的元素"></a>可以添加动画的元素</h1><p>GSAP非常的灵活，几乎可以处理所有页面上可以通过JS进行改变的元素，例如：</p>
+              <p>往往利用CSS可以做出一些意想不到的效果，比如说下面的这个示例：</p>
+<p><img src="/image/v2-1c842c67816442adf6c8ba34c6b7411a_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<p>为了演示随手做的，官网并不是这样</p>
+<p>滚动鼠标滚轮，就有一种背景图被覆盖的错觉，之所以说是错觉，并不是背景图真的被覆盖了，其实背景图所在的盒子是跟着下面的图片一起在滚动，只是图片和窗口之间相对没有移动造成的错觉。</p>
+<p>可能听起来比较复杂，但是实际上只需要一个属性就能做出这种效果，那就是<code>background-attachment: fixed;</code></p>
+<p>还是同一个案例，我们将背景图片去掉，看看效果就明白了。</p>
+<p><img src="/image/v2-0b2fa904729127861768553783f16c26_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a>background-attachment</h1><p>CSS 属性决定背景图像的位置是在视口内固定，或者随着包含它的区块滚动。</p>
 <ul>
-<li>CSS：2D和3D变换，颜色，<code>width</code>，<code>opacity</code>，<code>border-radius</code>，<code>margin</code>，和几乎所有CSS值。</li>
-<li>SVG属性：<code>viewBox</code>，<code>width</code>，<code>height</code>，<code>fill</code>，<code>stroke</code>，<code>cx</code>，<code>r</code>，<code>opacity</code>，等插件，像MorphSVG和DrawSVG可用于高级特效。</li>
-<li>任何数值，例如，呈现为的对象<code>&lt;canvas&gt;</code>。对3D场景中的相机位置进行动画处理或过滤值。GSAP通常与Three.js和Pixi.js一起使用。</li>
+<li><code>fixed</code>此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。</li>
+<li><code>local</code>此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动， 并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。</li>
+<li><code>scroll</code>此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。</li>
 </ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载直接引入"><a href="#下载直接引入" class="headerlink" title="下载直接引入"></a>下载直接引入</h2><p><a href="https://link.zhihu.com/?target=https%3A//greensock.com/files/file/20-gsap-3-public-files/%3Fdo%3Ddownload%26csrfKey%3D15944fce35b951ce3142b11661536cdd">greensock Version 3.3.0greensock.com</a></p>
-<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>官网上提供的CDN非常的多，可以按照自己的需要进行引入。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/CSSRulePlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/Draggable.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/EaselPlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/MotionPathPlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/PixiPlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/TextPlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollToPlugin.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-
-<p>NPM</p>
-<pre><code class="hljs shell">npm install gsap
-
-yarn add gsap</code></pre>
-
-<h1 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h1><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a><strong>使用</strong></h2><p><code>gsap.to(targets,vars)</code>：从开始的位置到结束的位置。</p>
-<ul>
-<li><code>targets</code> - 你需要添加动画的对象，可以是<code>object</code>,<code>array</code>和选择器<code>&quot;.myClass&quot;</code>。</li>
-<li><code>vars</code> - 一个对象，里面包含你想要改变的属性，延时，已经回调函数等。</li>
-</ul>
-<p><a href="https://greensock.com/docs/v3/GSAP/Tween/vars" target="_blank" rel="noopener">vars所有的参数</a></p>
-<p><code>gsap.from(targets,vars)</code>：与上面的<code>gsap.to</code>相反，这个是从结束的位置到开始的位置。</p>
-<p><code>Easing</code>：运动状态。属于<code>vars</code>中的一个属性。</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> tween = gsap.from(<span class="hljs-string">"#app"</span>, &#123;
-    duration: <span class="hljs-number">5</span>,
-    x: <span class="hljs-number">500</span>,
-    ease:<span class="hljs-string">"elastic.in(1,1)"</span> <span class="hljs-comment">// 运动状态</span>
-&#125;);
-Draggable.create(<span class="hljs-string">"#app"</span>);</code></pre>
-
-<p><a href="https://greensock.com/docs/v3/Eases" target="_blank" rel="noopener">https://greensock.com/docs/v3/Eases</a></p>
-<p>官网上面对于ease属性给出了很多值，如果有需要的话可以参考官网的属性。</p>
-<p><img src="/image/v2-6adaec0fbbd60764e60aa2d389a1a829_b.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>只需要点一点，就直观的体验</p>
-<h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><ul>
-<li><strong>onComplete</strong>：动画完成时调用。</li>
-<li><strong>onStart</strong>：动画开始时调用</li>
-<li><strong>onUpdate</strong>：每次动画更新时调用（在动画处于活动状态时每帧调用）。</li>
-<li><strong>onRepeat</strong>：每次动画重复时调用一次。</li>
-<li><strong>onReverseComplete</strong>：动画反转后再次到达其起点时调用。</li>
-</ul>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> tween = gsap.from(<span class="hljs-string">"#app"</span>, &#123;
-    duration: <span class="hljs-number">5</span>,
-    x: <span class="hljs-number">500</span>,
-    ease:<span class="hljs-string">"elastic.in(1,1)"</span>,
-    onComplete:<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">// 动画播放完成时调用</span>
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"111"</span>);
-    &#125;
-&#125;);</code></pre>
-
-<p>回调参数</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> tween = gsap.to(<span class="hljs-string">"#app"</span>, &#123;
-    duration: <span class="hljs-number">1</span>,
-    x: <span class="hljs-number">100</span>,
-    onComplete: tweenComplete,
-    onCompleteParams: [<span class="hljs-string">"done!"</span>]
-&#125;);
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tweenComplete</span>(<span class="hljs-params">message</span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(message);
-&#125;</code></pre>
-
-<p>使用上面这种方式调用回调函数时，<strong>如果需要传递参数，必须以数组方式传递，即使只有一个参数。</strong></p>
-<h1 id="控制动画"><a href="#控制动画" class="headerlink" title="控制动画"></a>控制动画</h1><ul>
-<li><code>tween.pause();</code> 暂停</li>
-<li><code>tween.resume();</code>恢复</li>
-<li><code>tween.reverse();</code>反向播放</li>
-<li><code>tween.seek(0.5);</code> 跳到0.5s</li>
-<li><code>tween.progress(0.25);</code> 跳到4分之1处</li>
-<li><code>tween.timeScale(0.5);</code> 速度减慢</li>
-<li><code>tween.timeScale(2);</code>速度翻倍</li>
-<li><code>tween.kill();</code> 删除动画</li>
-</ul>
-<h1 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h1><ul>
-<li>从整体上控制一组动画。</li>
-<li>在不使用很多<code>delay</code>的情况下构建一个动画序列。（如果对前一个动画进行时间调整后一个动画的触发时间也会改变，从而大大简化了实验和维护工作）。</li>
-<li>对动画进行模块化。</li>
-<li>可以进行非常复杂的动画编排。</li>
-<li>要基于一组动画触发回调（例如“在完成所有这些动画之后，调用<code>myFunction()</code>”）。</li>
-</ul>
-<p>生命时间线变量<code>var t1 = gsap.timeline();</code></p>
-<p>然后将需要依次触发的动画添加入时间线里即可，例如：</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> tl = gsap.timeline();
-tl.add(gsap.to(<span class="hljs-string">"#app"</span>, &#123;
-    duration: <span class="hljs-number">1</span>,
-    delay: <span class="hljs-number">1</span>,
-    x: <span class="hljs-number">500</span>,
-&#125;));
-tl.to(<span class="hljs-string">"#app"</span>, &#123;
-    duration: <span class="hljs-number">1</span>,
-    y: <span class="hljs-number">500</span>,
-&#125;);</code></pre>
-
-<p><img src="/image/v2-c2ee2519115a9bceb5623f5b3674fad4_b.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>时间轴的特殊属性：</p>
-<ul>
-<li><code>repeat</code>：动画重复的次数。</li>
-<li><code>repeatDelay</code>：两次重复之间的间隔时间（以秒为单位）。</li>
-<li><code>yoyo</code>：如果为<code>true</code>，则每次重复播放都会前后交替进行。</li>
-<li><code>delay</code>：时间轴开始之前的延迟（以秒为单位）。</li>
-<li><code>onComplete</code>：时间线播放完毕后调用的函数。</li>
-</ul>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> tl = gsap.timeline(&#123;
-  repeat: <span class="hljs-number">1</span>, 
-  yoyo: <span class="hljs-literal">true</span>, 
-  onRepeat: onRepeatHandler,
-  onComplete: onCompleteHandler
-&#125;);</code></pre>
-
-<p><strong>Getter / Setter 方法</strong></p>
-<ul>
-<li><code>time()</code> 播放头的本地位置（当前时间，以秒为单位），不包括任何重复或repeatDelays。</li>
-<li><code>progress()</code> 它是介于0和1之间的值，指示播放头的位置，其中0处在开始位置，0.5处在中途完成，1处在结束位置。</li>
-<li><code>duration()</code> 动画的持续时间（以秒为单位），不包括任何重复或repeatDelays。</li>
-<li><code>delay()</code> 动画的初始延迟（动画开始之前的时间长度，以秒为单位）。</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>GSAP的功能可远远不止上面这些，它几乎可以做到你想要的任何动画，包括DOM的拖动，滚动触发，运动路径插件等等，唯一的缺点就是它包含可以实现的动画实在是太多了，需要花费一定的时间进行学习，不像<code>Animate.css</code>和<code>Anime.js</code>这些动画库一样简单易用，不过如果你的网页需要大量动画，<code>GSAP</code>不失为一个很好的选择。</p>
+<h1 id="资料参考"><a href="#资料参考" class="headerlink" title="资料参考"></a>资料参考</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment</a></p>
 
             </article>
             <hr>
@@ -332,11 +215,11 @@ tl.to(<span class="hljs-string">"#app"</span>, &#123;
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                      <a class="hover-with-bg" href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
                     
-                      <a class="hover-with-bg" href="/tags/HTML5/">HTML5</a>
+                      <a class="hover-with-bg" href="/tags/HTML-CSS/">HTML+CSS</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
                     
                   </div>
                 
@@ -349,9 +232,9 @@ tl.to(<span class="hljs-string">"#app"</span>, &#123;
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/06/web%E5%BC%80%E5%8F%91%EF%BC%9A%E7%94%A8Vue%E5%81%9A%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8/">
+                      <a href="/2020/06/03/web%E5%BC%80%E5%8F%91/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web开发：用Vue做一个播放器</span>
+                        <span class="hidden-mobile">web开发/GSAP（GreenSock）：最健全的web动画库之一</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -359,8 +242,8 @@ tl.to(<span class="hljs-string">"#app"</span>, &#123;
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/02/web%E5%BC%80%E5%8F%91%EF%BC%9A%E5%88%A9%E7%94%A8background%E5%88%B6%E4%BD%9C%E6%8B%89%E7%AA%97%E5%B8%98%E6%95%88%E6%9E%9C/">
-                        <span class="hidden-mobile">web开发：利用background制作拉窗帘效果</span>
+                      <a href="/2020/06/01/web%E5%BC%80%E5%8F%91/%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6fullpage.js/">
+                        <span class="hidden-mobile">web开发/全屏滚动插件fullpage.js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -553,7 +436,7 @@ tl.to(<span class="hljs-string">"#app"</span>, &#123;
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "GSAP（GreenSock）：最健全的web动画库之一&nbsp;",
+        "web开发/利用background制作拉窗帘效果&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
