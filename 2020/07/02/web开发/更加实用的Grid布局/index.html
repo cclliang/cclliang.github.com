@@ -241,25 +241,23 @@
 <h2 id="2-3-cell"><a href="#2-3-cell" class="headerlink" title="2.3 cell"></a>2.3 cell</h2><p>  行和列的交叉区域，就称为<code>cell</code>（单元格）。</p>
 <h2 id="2-4-grid-line"><a href="#2-4-grid-line" class="headerlink" title="2.4 grid line"></a>2.4 grid line</h2><p>  划分单元格的线，就称为<code>grid line</code>（网格线），水平网格线划分出行，垂直网格线划分出列。</p>
 <h1 id="3-容器属性"><a href="#3-容器属性" class="headerlink" title="3. 容器属性"></a>3. 容器属性</h1><h2 id="3-1-display属性"><a href="#3-1-display属性" class="headerlink" title="3.1 display属性"></a>3.1 display属性</h2><p>  <code>display: grid</code>指定一个容器采用网格布局。</p>
-  <pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
-<span class="hljs-attribute">display</span>: grid; <span class="hljs-comment">/*块级元素*/</span>
-<span class="hljs-attribute">display</span>: inline-grid; <span class="hljs-comment">/*行内元素。*/</span>
+<pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
+    <span class="hljs-attribute">display</span>: grid; <span class="hljs-comment">/*块级元素*/</span>
+    <span class="hljs-attribute">display</span>: inline-grid; <span class="hljs-comment">/*行内元素。*/</span>
 &#125;</code></pre>
 
 
 <p>  <strong>注意，设为网格布局以后，容器子元素（项目）的<code>float</code>、<code>display: inline-block</code>、<code>display: table-cell</code>、<code>vertical-align</code>和<code>column-*</code>等设置都将失效。</strong></p>
 <h2 id="3-2-grid-template-columns-属性，-grid-template-rows-属性"><a href="#3-2-grid-template-columns-属性，-grid-template-rows-属性" class="headerlink" title="3.2 grid-template-columns 属性， grid-template-rows 属性"></a>3.2 grid-template-columns 属性， grid-template-rows 属性</h2><ul>
-<li><p><code>grid-template-columns</code>属性定义每一列的列宽。</p>
-</li>
-<li><p><code>grid-template-rows</code>属性定义每一行的行高。</p>
+<li><code>grid-template-columns</code>属性定义每一列的列宽。</li>
+<li><code>grid-template-rows</code>属性定义每一行的行高。</li>
+</ul>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
 &#125;</code></pre>
 
-</li>
-</ul>
 <div class="grid-container" style="grid-template-columns: 100px 100px 100px;grid-template-rows: 100px 100px 100px;">
   <div data-index="1"></div>
   <div data-index="2"></div>
@@ -275,9 +273,9 @@
 
 <p>除了用绝对单位，也可以设置为容器的百分之多少：</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span>;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span>;
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span>;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span>;
 &#125;</code></pre>
 
 <div class="grid-container"
@@ -295,17 +293,17 @@
 
 <h3 id="3-2-1-repeat"><a href="#3-2-1-repeat" class="headerlink" title="3.2.1 repeat()"></a>3.2.1 repeat()</h3><p>上面的代码用<code>repeat()</code>改写如下。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
 &#125;</code></pre>
 
 <p><code>repeat()</code>接受两个参数，第一个参数是重复的次数（上例是3），第二个参数是所要重复的值。</p>
 <p>同时所要重复的值可以是多个，例如：</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50px</span> <span class="hljs-number">30px</span> <span class="hljs-number">60px</span>);
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50%</span>);
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50px</span> <span class="hljs-number">30px</span> <span class="hljs-number">60px</span>);
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50%</span>);
 &#125;</code></pre>
 
 <p>效果如下：</p>
@@ -324,8 +322,8 @@
 
 <h3 id="3-2-2-auto-fill-关键字"><a href="#3-2-2-auto-fill-关键字" class="headerlink" title="3.2.2 auto-fill 关键字"></a>3.2.2 auto-fill 关键字</h3><p>如果单元格的大小固定，但是容器大小不确定的情况下，使用<code>auto-fill</code>就可以让每行或者每列尽可能多的收纳单元格。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50%</span>);
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">2</span>, <span class="hljs-number">50%</span>);
 &#125;</code></pre>
 
 <p>点一点看效果：</p>
@@ -358,8 +356,8 @@
 
 <h3 id="3-2-3-fr-关键字"><a href="#3-2-3-fr-关键字" class="headerlink" title="3.2.3 fr 关键字"></a>3.2.3 fr 关键字</h3><p><code>fr</code>关键字（fraction 的缩写，意为”片段”）。如果两列的宽度分别为<code>1fr</code>和<code>2fr</code>，就表示后者是前者的两倍。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);
 &#125;</code></pre>
 
 <div>
@@ -396,9 +394,9 @@
 <p>上面代码中，<code>minmax(100px, 1fr)</code>表示列宽不小于<code>100px</code>，不大于<code>1fr</code>。</p>
 <h3 id="3-2-5-auto-关键字"><a href="#3-2-5-auto-关键字" class="headerlink" title="3.2.5 auto 关键字"></a>3.2.5 auto 关键字</h3><p><code>auto</code>关键字表示由浏览器自己决定长度。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">40px</span> auto <span class="hljs-number">40px</span>;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">40px</span> auto <span class="hljs-number">40px</span>;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
 &#125;</code></pre>
 
 <p>上面代码中，第二列的宽度，基本上等于该列单元格的最大宽度，除非单元格内容设置了<code>min-width</code>，且这个值大于最大宽度。</p>
@@ -417,9 +415,9 @@
 
 <h3 id="3-2-6-网格线的名称"><a href="#3-2-6-网格线的名称" class="headerlink" title="3.2.6 网格线的名称"></a>3.2.6 网格线的名称</h3><p><code>grid-template-columns</code>属性和<code>grid-template-rows</code>属性里面，还可以使用方括号，指定每一根网格线的名字，方便以后的引用。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.grid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: [c1] <span class="hljs-number">100px</span> [c2] <span class="hljs-number">100px</span> [c3] auto [c4];
-<span class="hljs-attribute">grid-template-rows</span>: [r1] <span class="hljs-number">100px</span> [r2] <span class="hljs-number">100px</span> [r3] auto [r4];
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: [c1] <span class="hljs-number">100px</span> [c2] <span class="hljs-number">100px</span> [c3] auto [c4];
+    <span class="hljs-attribute">grid-template-rows</span>: [r1] <span class="hljs-number">100px</span> [r2] <span class="hljs-number">100px</span> [r3] auto [r4];
 &#125;</code></pre>
 
 <p>上面代码指定网格布局为3行 x 3列，因此有4根垂直网格线和4根水平网格线。方括号里面依次是这八根线的名字。</p>
@@ -492,18 +490,18 @@
 
 <h2 id="3-4-grid-template-areas-属性"><a href="#3-4-grid-template-areas-属性" class="headerlink" title="3.4 grid-template-areas 属性"></a>3.4 grid-template-areas 属性</h2><p>网格布局允许指定”区域”（area），一个区域由单个或多个单元格组成。<code>grid-template-areas</code>属性用于定义区域。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.brid-container</span> &#123;
-<span class="hljs-attribute">display</span>: grid;
-<span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
-<span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
-<span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'a b c'</span>
-<span class="hljs-string">'d e f'</span>
-<span class="hljs-string">'g h i'</span>;
+    <span class="hljs-attribute">display</span>: grid;
+    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'a b c'</span>
+                         <span class="hljs-string">'d e f'</span>
+                         <span class="hljs-string">'g h i'</span>;
 &#125;</code></pre>
 
 <p>如果某些区域不需要利用，则使用”点”（<code>.</code>）表示。</p>
 <pre><code class="hljs css">grid-template-areas: 'a . c'
-'d . f'
-'g . i';</code></pre>
+                     'd . f'
+                     'g . i';</code></pre>
 
 <p>上面代码中，中间一列为点，表示没有用到该单元格，或者该单元格不属于任何区域。</p>
 <p>注意，<strong>区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为<code>区域名-start</code>，终止网格线自动命名为<code>区域名-end</code>。</strong></p>
@@ -802,9 +800,9 @@
 <li><code>grid-row-end</code>属性：下边框所在的水平网格线</li>
 </ul>
 <pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-<span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">1</span>;
-<span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">1</span>;
-<span class="hljs-attribute">grid-row-end</span>: <span class="hljs-number">2</span>;
+    <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">1</span>;
+    <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">1</span>;
+    <span class="hljs-attribute">grid-row-end</span>: <span class="hljs-number">2</span>;
 &#125;</code></pre>
 
 <p>下面只改变<code>grid-column-end</code>的效果，其它的属性同理：</p>
@@ -835,7 +833,7 @@
 <p><code>grid-row</code>属性是<code>grid-row-start</code>属性和<code>grid-row-end</code>的合并简写形式。</p>
 <h2 id="4-3-grid-area-属性"><a href="#4-3-grid-area-属性" class="headerlink" title="4.3 grid-area 属性"></a>4.3 grid-area 属性</h2><p><code>grid-area</code>属性指定项目放在哪一个区域。</p>
 <pre><code class="hljs css"><span class="hljs-selector-class">.item</span> &#123;
-<span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span>;
+    <span class="hljs-attribute">grid-area</span>: <span class="hljs-number">3</span>;
 &#125;</code></pre>
 
 <div class="grid-container"
