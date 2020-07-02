@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>部署到Github Pages上的博客，自定义域名，和免费域名如何申请 - 个人博客|沧沧凉凉的小站</title>
+  <title>游戏排行榜/2020年07月01日 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-04 08:00">
-                    2020年5月4日 早上
+                  <time datetime="2020-07-02 11:05">
+                    2020年7月2日 上午
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.2k 字
+                    698 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    12
+                    8
                      分钟
                   </span>
                 
@@ -184,77 +184,328 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>之前一篇文章提到了使用Hexo，搭建个人博客。</p>
-<a href="/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/" title="一个简单易用的制作博客的框架：Hexo">一个简单易用的制作博客的框架：Hexo</a>
-
-<p><br/>后面经过我一段时间的探索，发现有2个缺点。</p>
-<ul>
-<li>没有办法像知乎这样实时写文章发布。</li>
-<li>新增文章后需要重新打包项目重新发布。</li>
-</ul>
-<p>这些问题的产生是因为通过这个工具构建的博客，只有前端，没有后端和数据库。所以无法通过后端将文章保存到数据库中从而达到访问页面的时候可以通过后端取出数据库中的内容，再返回前端。</p>
-<p>说远了…现在来说一说博客建好后，如何部署到Github Pages，因为上一篇文章在这个地方一笔带过。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>如果想要使用Github Pages，那么就需要一个Github账号。</p>
-<p><img src="/image/v2-9d93b379d174496153cc72aef40576b3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>因为使用了Chrome自带的翻译，所以显示的是中文</p>
-<p>注册完毕后，登入账号，新建一个仓库。</p>
-<p><img src="/image/v2-6672df7514ec7cd1a0bf884fafa7ff16_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>框起来的地方，必须要输入一致，这里因为我已经创建过了，所以会报错。也就是说仓库的名称必须为<code>你的用户名.github.io</code>。</p>
-<p><img src="/image/v2-372deb950f76f10e7670c58f1c5533b5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>注意这里的选项，第一个是公开的仓库，第二个是私人仓库，私人的仓库在微软收购了Github后可以免费创建。<strong>但是如果想使用Github Pages，必须将仓库公开，如果确实不想公开，那只有付费。</strong></p>
-<p>创建成功后会看到下面的界面：</p>
-<p><img src="/image/v2-1f0089cb7cae30917f225b71cd355d96_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>先不要关闭这个界面，来到已经构建完毕的博客项目，如果没有构建，在<code>cmd</code>中使用命令<code>hexo g</code>进行构建，构建完毕后会新增一个public文件夹，进入到public文件夹中。</p>
-<p><img src="/image/v2-2fc0adecd00e851847c713b28db9364a_b.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>右键空白处，打开Git命令窗口。**如果看不见这个选项，可能是因为你没有安装Git，需要先安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>。</p>
-<p>安装完成后，需要设置你的Git用户名：</p>
-<pre><code class="hljs shell">git config --global user.name "Your Name"
-git config --global user.email "email@example.com"</code></pre>
-
-<p>接着就可以开始下面的事情：</p>
-<ol>
-<li>首先初始化Git仓库。<code>git init</code></li>
-<li>将文件添加到Git仓库<code>git add .</code> 那个点也需要输入。</li>
-<li>最后找到刚才没有关闭的网页中的有一项为<code>git remote add origin https://github.com/qflyb/xxx.github.io.git</code> 复制到命令窗口后回车。</li>
-<li>最后输入命令<code>git push -u origin master</code>推送到Github仓库中。</li>
-</ol>
-<p>如果成功推送的话，返回刚才的网页刷新一下，就应该可以看到推送的文件，再稍微等待一会，输入xxx(你的Github用户名).<a href="https://link.zhihu.com/?target=http%3A//github.io">http://github.io</a>，应该就可以访问到你的博客网站了。</p>
-<p>如果你觉得<a href="http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。" target="_blank" rel="noopener">http://xxx.github.io这种域名既难记又难看，那你还得继续看下去进行自定义域名。</a></p>
-<h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p><a href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank" rel="noopener">https://www.freenom.com/zh/index.html?lang=zh</a></p>
-<p>在这个网站中可以申请免费域名，<strong>注意：免费域名仅供学习使用，如果你想要当站长，那还是得去购买收费域名。</strong></p>
-<p><img src="/image/v2-f94e9aca265d206519dc742b8fca1d32_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>在这里输入需要购买的域名。</p>
-<p><img src="/image/v2-fb0c3d243eea3a30fa1597fa0496869c_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>会看到一堆免费域名，但是这时如果你点击获取，它就会变成不可用。</p>
-<p>解决方法是搜索域名的时候带上后缀名。</p>
-<p><img src="/image/v2-5bd195e80008b6b78cd659e676b57de5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>点击完成。这时会跳转到一个界面：</p>
-<p><img src="/image/v2-053598b80da4c645834510df04aba1b0_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>选择12个月</p>
-<p>点击继续，会让你填写你的邮件地址。</p>
-<p><img src="/image/v2-67063e1841839467a785eb73e93c0df6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>填写完毕后会发送一封邮件到你填写的邮箱地址，点击链接后打开。</p>
-<p><img src="/image/v2-5dfc5bacc4803343cb5baf8414cefc53_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>这里推荐还是填美国身份，如果不知道怎么填，还请百度一下。</p>
-<p>如果一切顺利，域名就购买成功了，购买完成后我们还需要解析域名。</p>
-<p><img src="/image/v2-749436fa271a8b5a5e85f2fd0f100125_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>点击如图所示的按钮</p>
-<p><img src="/image/v2-531733c78affec5881689198027b1325_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>点击Manage Domain</p>
-<p><img src="/image/v2-491214fb17b729b9228730e53e42bf4a_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>点击DNS解析</p>
-<p><img src="/image/v2-7ae8cad84bfd92425ff28574f8fa057e_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>如图所示，添加两项配置</p>
-<p>到了这步，基本上完成了，接着只需要找到Github Pages的IP地址，这个好办，打开<code>cmd</code>。</p>
-<p>输入<code>ping xxx.github.io</code>xxx是你的Github用户名。</p>
-<p>找到了IP地址后，再将这个IP地址填入到之前DNS解析的Target里面，点击保存。</p>
-<h1 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h1><p>终于到了最后一步了，只需要到刚才的Github仓库中点击Settings。</p>
-<p><img src="/image/v2-dfab6002688ca2ad3e28a61aa250c042_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>往下翻会看到一个GitHub Pages的标题。</p>
-<p><img src="/image/v2-f8425dbece6e93fad4fdecf4a578dd33_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>输入刚才申请的域名如<code>www.mikkk.ml</code>，点击保存。下面那个HTTPS证书会在你保存域名后自动帮你申请，不过可能最长需要24小时才能申请成功。</p>
-<p>如果上面的步骤都完成后，等待一会，在浏览器的地址栏输入新增域名，应该就可以跳转到你的博客页面了。</p>
-
+              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
+<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新，如果本系列还比较受欢迎，我会考虑在我的博客上面建立一个单独的页面，每天进行统计。</p>
+<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
+<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>英雄联盟+lol</td>
+<td>77526</td>
+</tr>
+<tr>
+<td>2</td>
+<td>我的世界+minecraft</td>
+<td>46915</td>
+</tr>
+<tr>
+<td>3</td>
+<td>地下城与勇士+dnf</td>
+<td>32814</td>
+</tr>
+<tr>
+<td>4</td>
+<td>穿越火线+cf ↑1</td>
+<td>25976</td>
+</tr>
+<tr>
+<td>5</td>
+<td>最终幻想14+ff14 ↑2</td>
+<td>16242</td>
+</tr>
+<tr>
+<td>6</td>
+<td>梦幻西游 ↓2</td>
+<td>16007</td>
+</tr>
+<tr>
+<td>7</td>
+<td>冒险岛 ↑1</td>
+<td>13873</td>
+</tr>
+<tr>
+<td>8</td>
+<td>绝地求生+pubg ↑1</td>
+<td>13537</td>
+</tr>
+<tr>
+<td>9</td>
+<td>魔域 ↓3</td>
+<td>12559</td>
+</tr>
+<tr>
+<td>10</td>
+<td>刀塔2+DOTA2</td>
+<td>12253</td>
+</tr>
+<tr>
+<td>11</td>
+<td>魔兽世界+wow</td>
+<td>12055</td>
+</tr>
+<tr>
+<td>12</td>
+<td>天龙八部</td>
+<td>11723</td>
+</tr>
+<tr>
+<td>13</td>
+<td>csgo</td>
+<td>10317</td>
+</tr>
+<tr>
+<td>14</td>
+<td>坦克世界 ↑1</td>
+<td>8855</td>
+</tr>
+<tr>
+<td>15</td>
+<td>炉石传说 ↑2</td>
+<td>8612</td>
+</tr>
+<tr>
+<td>16</td>
+<td>激战2</td>
+<td>8233</td>
+</tr>
+<tr>
+<td>17</td>
+<td>方舟生存进化 ↑1</td>
+<td>7026</td>
+</tr>
+<tr>
+<td>18</td>
+<td>逆水寒 ↑1</td>
+<td>6722</td>
+</tr>
+<tr>
+<td>19</td>
+<td>守望先锋 ↑1</td>
+<td>6670</td>
+</tr>
+<tr>
+<td>20</td>
+<td>龙之谷 ↑3</td>
+<td>6616</td>
+</tr>
+<tr>
+<td>21</td>
+<td>诛仙 ↓7</td>
+<td>6468</td>
+</tr>
+<tr>
+<td>22</td>
+<td>QQ飞车 ↑7</td>
+<td>6292</td>
+</tr>
+<tr>
+<td>23</td>
+<td>EVE ↑1</td>
+<td>5827</td>
+</tr>
+<tr>
+<td>24</td>
+<td>流放之路 ↓3</td>
+<td>5294</td>
+</tr>
+<tr>
+<td>25</td>
+<td>变形金刚 ↑2</td>
+<td>4609</td>
+</tr>
+<tr>
+<td>26</td>
+<td>天涯明月刀 ↑2</td>
+<td>4548</td>
+</tr>
+<tr>
+<td>27</td>
+<td>传奇 ↓2</td>
+<td>4497</td>
+</tr>
+<tr>
+<td>28</td>
+<td>大话西游 ↓2</td>
+<td>4382</td>
+</tr>
+<tr>
+<td>29</td>
+<td>剑灵 ↓7</td>
+<td>4219</td>
+</tr>
+<tr>
+<td>30</td>
+<td>摩尔庄园 ↑new</td>
+<td>4013</td>
+</tr>
+</tbody></table>
+<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>王者荣耀</td>
+<td>94338</td>
+</tr>
+<tr>
+<td>2</td>
+<td>和平精英</td>
+<td>51845</td>
+</tr>
+<tr>
+<td>3</td>
+<td>我的世界+mc</td>
+<td>47113</td>
+</tr>
+<tr>
+<td>4</td>
+<td>迷你世界</td>
+<td>45833</td>
+</tr>
+<tr>
+<td>5</td>
+<td>最强蜗牛</td>
+<td>26578</td>
+</tr>
+<tr>
+<td>6</td>
+<td>香肠派对 ↑1</td>
+<td>21057</td>
+</tr>
+<tr>
+<td>7</td>
+<td>荒野乱斗 ↓1</td>
+<td>19259</td>
+</tr>
+<tr>
+<td>8</td>
+<td>阴阳师</td>
+<td>14652</td>
+</tr>
+<tr>
+<td>9</td>
+<td>妖神记 ↑1</td>
+<td>13578</td>
+</tr>
+<tr>
+<td>10</td>
+<td>第五人格 ↓1</td>
+<td>13388</td>
+</tr>
+<tr>
+<td>11</td>
+<td>梦幻西游手游 ↑10</td>
+<td>10260</td>
+</tr>
+<tr>
+<td>12</td>
+<td>部落冲突 ↑4</td>
+<td>9610</td>
+</tr>
+<tr>
+<td>13</td>
+<td>球球大作战</td>
+<td>9072</td>
+</tr>
+<tr>
+<td>14</td>
+<td>炉石传说 ↓2</td>
+<td>8612</td>
+</tr>
+<tr>
+<td>15</td>
+<td>灌篮高手</td>
+<td>8218</td>
+</tr>
+<tr>
+<td>16</td>
+<td>剑与远征 ↓5</td>
+<td>7817</td>
+</tr>
+<tr>
+<td>17</td>
+<td>明日之后 ↓3</td>
+<td>7572</td>
+</tr>
+<tr>
+<td>18</td>
+<td>欢乐斗地主 ↓1</td>
+<td>7214</td>
+</tr>
+<tr>
+<td>19</td>
+<td>崩坏3 ↓1</td>
+<td>6298</td>
+</tr>
+<tr>
+<td>20</td>
+<td>率土之滨</td>
+<td>5531</td>
+</tr>
+<tr>
+<td>21</td>
+<td>开心消消乐 ↓2</td>
+<td>5111</td>
+</tr>
+<tr>
+<td>22</td>
+<td>火影忍者手游 ↑4</td>
+<td>4711</td>
+</tr>
+<tr>
+<td>23</td>
+<td>狼人杀 ↑2</td>
+<td>4550</td>
+</tr>
+<tr>
+<td>24</td>
+<td>大话西游 ↓1</td>
+<td>4382</td>
+</tr>
+<tr>
+<td>25</td>
+<td>碧蓝航线 ↓1</td>
+<td>4351</td>
+</tr>
+<tr>
+<td>26</td>
+<td>饥荒 ↑1</td>
+<td>3718</td>
+</tr>
+<tr>
+<td>27</td>
+<td>神魔大陆 ↑new</td>
+<td>3514</td>
+</tr>
+<tr>
+<td>28</td>
+<td>奇迹暖暖</td>
+<td>3131</td>
+</tr>
+<tr>
+<td>29</td>
+<td>问道</td>
+<td>2997</td>
+</tr>
+<tr>
+<td>30</td>
+<td>爱上消消消 ↑new</td>
+<td>2916</td>
+</tr>
+</tbody></table>
+<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>
             </article>
             <hr>
             <div>
@@ -263,7 +514,7 @@ git config --global user.email "email@example.com"</code></pre>
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/blog/">blog</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
                     
                   </div>
                 
@@ -271,11 +522,9 @@ git config --global user.email "email@example.com"</code></pre>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%9F%9F%E5%90%8D/">域名</a>
-                    
-                      <a class="hover-with-bg" href="/tags/GitHub-Pages/">GitHub Pages</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
                     
                   </div>
                 
@@ -288,18 +537,12 @@ git config --global user.email "email@example.com"</code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/04/%E5%BF%83%E8%A1%80%E6%9D%A5%E6%BD%AE%EF%BC%9A%E5%81%9A%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F%EF%BC%8C%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">心血来潮：做一个网页游戏，飞机大战</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/10/22/nodejs%E4%B8%ADmodule.exports%E5%92%8Cexports%E7%9A%84%E5%8C%BA%E5%88%AB/">
-                        <span class="hidden-mobile">nodejs中module.exports和exports的区别</span>
+                      <a href="/2020/07/01/%E9%9D%9E%E5%B8%B8%E5%AE%9E%E7%94%A8%E7%9A%84Flex%E5%B8%83%E5%B1%80/">
+                        <span class="hidden-mobile">非常实用的Flex布局</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -492,7 +735,7 @@ git config --global user.email "email@example.com"</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "部署到Github Pages上的博客，自定义域名，和免费域名如何申请&nbsp;",
+        "游戏排行榜/2020年07月01日&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
