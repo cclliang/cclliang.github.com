@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    888 字
+                    1k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    9
+                    10
                      分钟
                   </span>
                 
@@ -184,27 +184,45 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信前端的初学者在学习到一定的地步时，都会想将自己做的网页向人家进行展示，但是如何进行展示呢？是直接将网页的静态文件发送给别人？还是说给他地址，让他直接在浏览器上面进行查看。</p>
+              <p>本篇文章的视频地址：</p>
+<div style="position: relative; padding: 35% 45%;">
+<iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"  src="//player.bilibili.com/player.html?aid=926161323&bvid=BV1HT4y1774Y&cid=208735231&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> ></iframe>
+</div>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信前端的初学者在学习到一定的地步时，都会想将自己做的网页向人家进行展示，但是如何进行展示呢？是直接将网页的静态文件发送给别人？还是说给他地址，让他直接在浏览器上面进行查看。</p>
 <p>当然是直接通过域名访问你做的网页更加的人性化！因为你就算给他静态文件，他也不一定会使用。</p>
 <p>那么如何将自己的网页部署上线呢？</p>
 <h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>这种方法无成本，只需要注册一个GitHub账号，具体可以看这篇文章：</p>
 <a href="/2020/05/04/%E9%83%A8%E7%BD%B2%E5%88%B0Github-Pages%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%92%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7/" title="部署到Github-Pages上的博客，自定义域名，和免费域名如何申请">部署到Github-Pages上的博客，自定义域名，和免费域名如何申请</a>
 
-<p><br/>当然，这种方式虽然免费，但是有一个严重的缺陷，就是国内的访问速度有时候会非常慢，图片会有一个很长的加载时间，但是有时访问速度就很正常。</p>
+<p><br/>当然，这种方式虽然免费，但是有一个严重的缺陷，就是<strong>国内的访问速度有时候会非常慢，图片会有一个很长的加载时间，或者打开网页的响应时间会很长。</strong></p>
 <h2 id="虚拟服务器"><a href="#虚拟服务器" class="headerlink" title="虚拟服务器"></a>虚拟服务器</h2><blockquote>
 <p>虚拟专用服务器，是将一台服务器分割成多个虚拟专用服务器的服务。实现VPS的技术分为容器技术和虚拟机技术。在容器或虚拟机中，每个VPS都可分配独立公网IP地址、独立操作系统、实现不同VPS间磁盘空间、内存、CPU资源、进程和系统配置的隔离，为用户和应用程序模拟出“独占”使用计算资源的体验。</p>
 </blockquote>
-<p>国内有例如腾讯云，阿里云，京东云等云服务器，但是国内的服务器有一个非常大的弊端就是需要非常长时间的备案，如果不进行备案，你通过服务器的公网IP也是能够访问到该服务器的，但是公网IP不便于记忆的同时，还显得跟黑网站一样，让人家不敢打开。</p>
-<h1 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h1><p>因为我有一台阿里云服务器，也曾经备案过，简单的说就是在阿里云备案填写相关的资料后，如果不合格，会有客服打电话过来告诉你哪儿哪儿不合格，然后你按照他所描诉的地方进行修改。</p>
-<p>如果第一关客服关过了后，就需要等待相关部门的审核，当时我的服务器审核了大概1个多星期吧。</p>
+<p>国内有腾讯云，阿里云，京东云等云服务器，但是国内的服务器如果要解析域名就必须进行备案。如果不进行备案，你通过服务器的公网IP也是能够访问到该服务器的，但是公网IP不便于记忆的同时，还显得跟<strong>暗网</strong>一样，让人家不敢打开。</p>
+<h1 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h1><p>因为我有一台阿里云服务器，也曾经备案过，简单的说就是阿里云在备案时需要填写相关的资料并且提交后，如果不合格，会有客服打电话过来告诉你哪儿不合格，然后你按照他所描述的地方进行修改后再提交。</p>
+<p>如果第一关客服关过了后，就需要等待相关部门的审核，当时我的服务器审核了大概1个多星期。</p>
 <h1 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h1><p>如果购买的是国外的VPS，那么可以直接进行域名解析，是不用备案的，同时<code>VPS</code>的系统推荐使用<code>centos</code>。</p>
-<p>国外的VPS可能存在连接不稳定，丢包，甚至无法进行访问的情况，而国内的VPS访问速度还是有保障的，基本可以跑满VPS的带宽。</p>
+<p>但是国外的VPS可能存在连接<strong>不稳定，丢包，甚至无法进行访问的情况</strong>，而国内的VPS<strong>访问速度还是有保障的，基本可以跑满VPS的带宽</strong>。</p>
 <p>所以是选择国内的VPS还是选择国外的VPS，还是根据自己的情况进行判断。</p>
-<h1 id="连接VPS"><a href="#连接VPS" class="headerlink" title="连接VPS"></a>连接VPS</h1><p>那么服务器有了，我们就需要连接VPS，这里推荐使用<code>FinalShell</code>，<code>Xshell</code>两种工具。</p>
-<h1 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h1><p><a href="https://bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">https://bt.cn/bbs/thread-19376-1-1.html</a></p>
+<h1 id="连接VPS"><a href="#连接VPS" class="headerlink" title="连接VPS"></a>连接VPS</h1><p>那么服务器有了，我们就需要连接VPS的工具，这里推荐使用<code>FinalShell</code>，<code>Xshell</code>两种工具。</p>
+<p><a href="https://www.hostbuf.com/t/988.html" target="_blank" rel="noopener">FinalShell下载</a></p>
+<p><a href="https://www.netsarang.com/zh/xshell-download/" target="_blank" rel="noopener">Xshell下载</a></p>
+<h1 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h1><p>首先我们需要通过<code>FinalShell</code>工具连接一下我们的VPS。</p>
+<p><img src="/image/image-20200704110550648.png" srcset="/img/loading.gif" alt="image-20200704110550648"></p>
+<p>然后，安装一下宝塔面板：<a href="https://bt.cn/bbs/thread-19376-1-1.html" target="_blank" rel="noopener">宝塔面板的安装方法</a>。</p>
 <p>宝塔面板是非常好用的一个面板，可以大大简化我们部署个人博客的难度。根据文档中的提示，一步步进行安装，当安装结束后会弹出链接，用户名，密码。</p>
+<p><img src="/image/image-20200704103025773.png" srcset="/img/loading.gif" alt="image-20200704103025773"></p>
+<p>最后通过浏览器打开面板地址。</p>
 <h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p>域名可以选择免费的域名，至于免费的域名如何申请，在<a href="/2020/05/04/%E9%83%A8%E7%BD%B2%E5%88%B0Github-Pages%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%92%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D%E5%A6%82%E4%BD%95%E7%94%B3%E8%AF%B7/" title="部署到Github-Pages上的博客，自定义域名，和免费域名如何申请">部署到Github-Pages上的博客，自定义域名，和免费域名如何申请</a>中有提到。</p>
-<h1 id="部署网页"><a href="#部署网页" class="headerlink" title="部署网页"></a>部署网页</h1>
+<h1 id="部署网页"><a href="#部署网页" class="headerlink" title="部署网页"></a>部署网页</h1><p>在宝塔面板中<code>网站</code>-<code>添加网站</code>。</p>
+<p><img src="/image/image-20200704105145466.png" srcset="/img/loading.gif" alt="image-20200704105145466"></p>
+<p>填写进自己的域名。提交后访问一下域名，如果出现：</p>
+<p><img src="/image/image-20200704105003618.png" srcset="/img/loading.gif" alt="image-20200704105003618"></p>
+<p>上面这个界面，说明域名解析已经成功，并且可以开始上传自己的网页。</p>
+<p><img src="/image/image-20200704105242692.png" srcset="/img/loading.gif" alt="image-20200704105242692"></p>
+<p>通过Finalshell工具，来到添加站点中的根目录，将自己的网页放到这个目录就大功告成了。</p>
+
             </article>
             <hr>
             <div>
