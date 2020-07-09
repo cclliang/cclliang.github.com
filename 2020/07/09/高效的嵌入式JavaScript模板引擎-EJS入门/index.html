@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-07-09 01:43">
-                    2020年7月9日 凌晨
+                  <time datetime="2020-07-09 20:09">
+                    2020年7月9日 晚上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    224 字
+                    2.1k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    2
+                    26
                      分钟
                   </span>
                 
@@ -184,12 +184,194 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="EJS是什么？"><a href="#EJS是什么？" class="headerlink" title="EJS是什么？"></a>EJS是什么？</h1><blockquote>
+              <h1 id="1-EJS是什么？"><a href="#1-EJS是什么？" class="headerlink" title="1. EJS是什么？"></a>1. EJS是什么？</h1><blockquote>
 <p>“E” 代表什么？可以表示 “可嵌入（Embedded）”，也可以是“高效（Effective）”、“优雅（Elegant）”或者是“简单（Easy）”。EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
 </blockquote>
 <p>因为最近我使用的<code>Hexo</code>博客框架使用到了<code>EJS</code>，所以如果想要实现一些自定义的功能，就需要了解一下<code>EJS</code>。</p>
 <p><code>Hexo</code>的文章在这里：<a href="/2020/05/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E6%98%93%E7%94%A8%E7%9A%84%E5%88%B6%E4%BD%9C%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%9AHexo/" title="一个简单易用的制作博客的框架：Hexo">一个简单易用的制作博客的框架：Hexo</a></p>
 <p>但是最近我发现还有一个使用<code>Vue</code>驱动的静态网站生成器，叫做<code>VuePress</code>，特色是可以在<code>Markdown</code>中使用<code>Vue</code>组件，又可以使用<code>Vue</code>来开发自定义主题，考虑什么时候研究一下。</p>
+<h1 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h1><h2 id="2-1-npm安装"><a href="#2-1-npm安装" class="headerlink" title="2.1 npm安装"></a>2.1 npm安装</h2><p>利用 NPM 安装 EJS 很简单。</p>
+<pre><code class="hljs powershell">npm install ejs</code></pre>
+
+<h2 id="2-2-直接引入"><a href="#2-2-直接引入" class="headerlink" title="2.2 直接引入"></a>2.2 直接引入</h2><p>从这里下载 <a href="https://github.com/mde/ejs/releases/latest" target="_blank" rel="noopener">最新的浏览器版本</a>，然后引入页面即可。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"ejs.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h1><p>因为是学习的原因，我并没有考虑过用<code>EJS</code>搭建项目，所以我这里就选择<strong>直接引入</strong>。<code>html</code>文件样式如下：</p>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>测试ejs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- ejs渲染的容器 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 引入ejs --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./ejs.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">  <span class="hljs-comment">/* 书写ejs */</span></span>
+<span class="javascript">  <span class="hljs-keyword">let</span> people = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>],</span>
+<span class="actionscript">    html = ejs.render(<span class="hljs-string">'&lt;%= people.join(", "); %&gt;'</span>, &#123;people: people&#125;);</span>
+<span class="actionscript">  <span class="hljs-comment">/* 将写好的ejs进行渲染 */</span></span>
+<span class="javascript">  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'app'</span>).innerHTML = html;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<p>跟<code>Vue</code>、<code>React</code>一样，需要一个容器，好让<code>EJS</code>渲染到<code>html</code>上面。</p>
+<h2 id="3-1-express"><a href="#3-1-express" class="headerlink" title="3.1 express"></a>3.1 express</h2><p>后面打脸的事情发生了，因为我发现如果是在浏览器上使用<code>EJS</code>，<code>ejs.renderFile</code>和<code>include</code>无法正常工作。</p>
+<p>所以我们来搭建一个简单的基于<code>express</code>的后端。</p>
+<p>首先我们创建一个<code>package.json</code>文件，创建方法为通过<code>CMD</code>运行：</p>
+<pre><code class="hljs powershell">npm init</code></pre>
+
+<p>然后一路回车，就可以看到文件夹中多出了一个文件<code>package.json</code>。</p>
+<p>安装<code>ejs</code>和<code>express</code>。</p>
+<pre><code class="hljs powershell">npm install ejs express nodemon <span class="hljs-literal">-D</span></code></pre>
+
+<p>然后在<code>package.json</code>同级目录下创建<code>index.js</code>。</p>
+<p>直接引入的代码可以改成下面的这个样子：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ejs'</span>);
+<span class="hljs-keyword">const</span> app = express();
+
+<span class="hljs-comment">/* 路由 */</span>
+app.get(<span class="hljs-string">'/'</span>, (req, res) =&gt; &#123;
+  <span class="hljs-keyword">let</span> people = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>],
+    html = ejs.render(<span class="hljs-string">'&lt;%= people.join(", "); %&gt;'</span>, &#123;<span class="hljs-attr">people</span>: people&#125;);
+  res.send(html);
+&#125;);
+
+<span class="hljs-comment">/* 监听端口 */</span>
+app.listen(<span class="hljs-number">8080</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'开启服务成功！'</span>);
+&#125;);</code></pre>
+
+<p>最后使用<code>nodemon index.js</code>运行。</p>
+<p>那么在浏览器上面输入<code>localhost:8080</code>就可以看到渲染后的界面了。</p>
+<h1 id="4-方法"><a href="#4-方法" class="headerlink" title="4. 方法"></a>4. 方法</h1><p>下面的代码都在<code>express</code>搭建的后端环境上运行。</p>
+<h2 id="4-1-template"><a href="#4-1-template" class="headerlink" title="4.1 template"></a>4.1 template</h2><p>编译字符串得到模板函数。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> template = ejs.compile(str, options);
+template(data); <span class="hljs-comment">// =&gt; 输出渲染后的 HTML 字符串</span></code></pre>
+
+<ul>
+<li><code>str</code>：需要解析的字符串模板</li>
+<li><code>data</code>：数据</li>
+<li><code>option</code>：配置选项</li>
+</ul>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-comment">/* 书写ejs */</span>
+<span class="hljs-keyword">let</span> html = ejs.compile(<span class="hljs-string">'&lt;%=123 %&gt;'</span>)();
+<span class="hljs-comment">/* 将写好的ejs进行渲染 */</span>
+res.send(html);</code></pre>
+
+<h2 id="4-2-render"><a href="#4-2-render" class="headerlink" title="4.2 render"></a>4.2 render</h2><p>直接渲染字符串并生成<code>HTML</code></p>
+<pre><code class="hljs js">ejs.render(str, data, options); <span class="hljs-comment">// =&gt; 输出渲染后的 HTML 字符串</span></code></pre>
+
+<ul>
+<li><code>str</code>：需要解析的字符串模板</li>
+<li><code>data</code>：数据</li>
+<li><code>option</code>：配置选项</li>
+</ul>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-comment">/* 书写ejs */</span>
+<span class="hljs-keyword">let</span> people = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>],
+  html = ejs.render(<span class="hljs-string">'&lt;%= people.join(", "); %&gt;'</span>, &#123;<span class="hljs-attr">people</span>: people&#125;);
+<span class="hljs-comment">/* 将写好的ejs进行渲染 */</span>
+res.send(html);</code></pre>
+
+<h2 id="4-3-renderFile"><a href="#4-3-renderFile" class="headerlink" title="4.3 renderFile"></a>4.3 renderFile</h2><p>解析文件生成<code>HTML</code></p>
+<pre><code class="hljs js">ejs.renderFile(filename, data, options, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, str</span>)</span>&#123;
+    <span class="hljs-comment">// str =&gt; 输出渲染后的 HTML 字符串</span>
+&#125;);</code></pre>
+
+<ul>
+<li><code>str</code>：需要解析的字符串模板</li>
+<li><code>data</code>：数据</li>
+<li><code>option</code>：配置选项</li>
+</ul>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> people = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>],
+  html = ejs.renderFile(<span class="hljs-string">'./test.ejs'</span>, (err, str) =&gt; &#123;
+    res.send(str);
+  &#125;);</code></pre>
+
+<h2 id="4-4-参数"><a href="#4-4-参数" class="headerlink" title="4.4 参数"></a>4.4 参数</h2><p>上面3个方法中的<code>options</code>可以选择的参数如下：</p>
+<ul>
+<li><code>cache</code> 缓存编译后的函数，需要指定 <code>filename</code>。</li>
+<li><code>filename</code> 被 <code>cache</code> 参数用做键值，同时也用于 include 语句。</li>
+<li><code>context</code> 函数执行时的上下文环境。</li>
+<li><code>compileDebug</code> 当值为 <code>false</code> 时不编译调试语句。</li>
+<li><code>client</code> 返回独立的编译后的函数。</li>
+<li><code>delimiter</code> 放在角括号中的字符，用于标记标签的开与闭。</li>
+<li><code>debug</code> 将生成的函数体输出。</li>
+<li><code>_with</code> 是否使用 <code>with() {}</code> 结构。如果值为 <code>false</code>，所有局部数据将存储在 <code>locals</code> 对象上。</li>
+<li><code>localsName</code> 如果不使用 <code>with</code> ，localsName 将作为存储局部变量的对象的名称。默认名称是 <code>locals</code>。</li>
+<li><code>rmWhitespace</code> 删除所有可安全删除的空白字符，包括开始与结尾处的空格。对于所有标签来说，它提供了一个更安全版本的 <code>-%&gt;</code> 标签（在一行的中间并不会剔除标签后面的换行符)。</li>
+<li><code>escape</code> 为 <code>&lt;%=</code> 结构设置对应的转义（escape）函数。它被用于输出结果以及在生成的客户端函数中通过 <code>.toString()</code> 输出。(默认转义 <code>XML</code>)。</li>
+<li><code>outputFunctionName</code> 设置为代表函数名的字符串（例如 <code>&#39;echo&#39;</code> 或 <code>&#39;print&#39;</code>）时，将输出脚本标签之间应该输出的内容。</li>
+<li><code>async</code> 当值为 <code>true</code> 时，EJS 将使用异步函数进行渲染。（依赖于 JS 运行环境对 <code>async/await</code> 是否支持）。</li>
+</ul>
+<h1 id="5-标签含义"><a href="#5-标签含义" class="headerlink" title="5. 标签含义"></a>5. 标签含义</h1><ul>
+<li><code>&lt;%</code> ‘脚本’ 标签，用于流程控制，无输出。</li>
+<li><code>&lt;%_</code> 删除其前面的空格符</li>
+<li><code>&lt;%=</code> 输出数据到模板（输出是转义 HTML 标签）</li>
+<li><code>&lt;%-</code> 输出非转义的数据到模板</li>
+<li><code>&lt;%#</code> 注释标签，不执行、不输出内容</li>
+<li><code>&lt;%%</code> 输出字符串 ‘&lt;%’</li>
+<li><code>%&gt;</code> 一般结束标签</li>
+<li><code>-%&gt;</code> 删除紧随其后的换行符</li>
+<li><code>_%&gt;</code> 将结束标签后面的空格符删除</li>
+</ul>
+<h1 id="6-引入其它文件"><a href="#6-引入其它文件" class="headerlink" title="6. 引入其它文件"></a>6. 引入其它文件</h1><p>通过 <code>include</code> 指令将相对于模板路径中的模板片段包含进来。(需要提供 ‘<code>filename</code>‘ 参数。) </p>
+<p>因为该项需要使用到<code>fs</code>所以只有在<code>Node</code>环境中才能生效，也就是说需要搭建一个<code>Node</code>后端服务器。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> people = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>],
+  html = ejs.render(<span class="hljs-string">`&lt;%- include('test.ejs') %&gt;`</span>, &#123;<span class="hljs-attr">filename</span>: <span class="hljs-string">'test.ejs'</span>&#125;);</code></pre>
+
+<h1 id="7-自定义分隔符"><a href="#7-自定义分隔符" class="headerlink" title="7. 自定义分隔符"></a>7. 自定义分隔符</h1><p>可针对单个模板或全局使用自定义分隔符：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ejs'</span>),
+    users = [<span class="hljs-string">'geddy'</span>, <span class="hljs-string">'neil'</span>, <span class="hljs-string">'alex'</span>];
+
+<span class="hljs-comment">// 单个模板文件</span>
+ejs.render(<span class="hljs-string">'&lt;?= users.join(" | "); ?&gt;'</span>, &#123;<span class="hljs-attr">users</span>: users&#125;,
+    &#123;<span class="hljs-attr">delimiter</span>: <span class="hljs-string">'?'</span>&#125;);
+<span class="hljs-comment">// =&gt; 'geddy | neil | alex'</span>
+
+<span class="hljs-comment">// 全局</span>
+ejs.delimiter = <span class="hljs-string">'$'</span>;
+ejs.render(<span class="hljs-string">'&lt;$= users.join(" | "); $&gt;'</span>, &#123;<span class="hljs-attr">users</span>: users&#125;);
+<span class="hljs-comment">// =&gt; 'geddy | neil | alex'</span></code></pre>
+
+<h1 id="8-缓存"><a href="#8-缓存" class="headerlink" title="8. 缓存"></a>8. 缓存</h1><p>EJS 附带了一个基本的进程内缓存，用于缓在渲染模板过程中所生成的临时 JavaScript 函数。 通过 Node 的 <code>lru-cache</code> 库可以很容易地加入 LRU 缓存：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ejs'</span>),
+    LRU = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lru-cache'</span>);
+ejs.cache = LRU(<span class="hljs-number">100</span>); <span class="hljs-comment">// 具有 100 条内容限制的 LRU 缓存</span></code></pre>
+
+<p>如果要清除 EJS 缓存，调用 <code>ejs.clearCache</code> 即可。如果你正在使用的是 LRU 缓存并且需要设置不同的限额，则只需要将 <code>ejs.cache</code> 重置为 一个新的 LRU 实例即可。</p>
+<h1 id="9-自定义文件加载器"><a href="#9-自定义文件加载器" class="headerlink" title="9. 自定义文件加载器"></a>9. 自定义文件加载器</h1><p>默认的文件加载器是 <code>fs.readFileSync</code>，如果你想要的自定义它, 设置<code>ejs.fileLoader</code> 即可。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> ejs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ejs'</span>);
+<span class="hljs-keyword">let</span> myFileLoader = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">filePath</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'myFileLoader: '</span> + fs.readFileSync(filePath);
+&#125;;
+
+ejs.fileLoader = myFileLoad;</code></pre>
+
+<p>使用此功能，您可以在读取模板之前对其进行预处理。</p>
+<h1 id="10-布局（Layouts）"><a href="#10-布局（Layouts）" class="headerlink" title="10. 布局（Layouts）"></a>10. 布局（Layouts）</h1><p>EJS 并未对块（blocks）提供专门的支持，但是可以通过 包含页眉和页脚来实现布局，如下所示：</p>
+<pre><code class="hljs javascript">&lt;%- include(<span class="hljs-string">'header'</span>); -%&gt;
+&lt;h1&gt;
+  Title
+&lt;<span class="hljs-regexp">/h1&gt;</span>
+<span class="hljs-regexp">&lt;p&gt;</span>
+<span class="hljs-regexp">  My page</span>
+<span class="hljs-regexp">&lt;/</span>p&gt;
+&lt;%- include(<span class="hljs-string">'footer'</span>); -%&gt;</code></pre>
+
+<h1 id="11-总结"><a href="#11-总结" class="headerlink" title="11. 总结"></a>11. 总结</h1><p>总的来说这篇文章几乎就是参考了官方的文档，只是添加了一些使用方法，官方文档上某些用法讲的不是太明确。</p>
+<p><code>EJS</code>上手还是非常简单的，但是有些高级用法就比较难了，因为<code>EJS</code>对于我来说不算很实用，所以就不过多的进行研究了，如果有用到，再研究也不迟。</p>
+<p>在<code>Nodejs</code>搭建的后端中可能会用到<code>EJS</code>，但是前端项目一般不会使用<code>EJS</code>。</p>
+<p><code>EJS</code>最方便的地方就是在于将项目给别人使用的时候，人家不用过多的去了解你的代码，直接修改配置文件就可以达到自己想要的效果。比如说<code>Hexo</code>中的配置都集中在<code>_config.yml</code>这个文件中，你根本不需要去一行一行的浏览源代码，就可以实现修改，达到你想要的效果。</p>
+<h1 id="12-参考资料"><a href="#12-参考资料" class="headerlink" title="12. 参考资料"></a>12. 参考资料</h1><p><a href="https://ejs.bootcss.com/" target="_blank" rel="noopener">EJS官方中文文档</a></p>
 
             </article>
             <hr>
@@ -209,8 +391,6 @@
                     
                       <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                     
-                      <a class="hover-with-bg" href="/tags/hide/">hide</a>
-                    
                       <a class="hover-with-bg" href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/">模板引擎</a>
                     
                   </div>
@@ -224,18 +404,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/07/09/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8808%E6%97%A5/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">游戏排行榜/2020年07月08日</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/07/08/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%B8%B8%E5%AE%A2%E4%B9%8B-Promise/">
-                        <span class="hidden-mobile">面试题常客之-Promise</span>
+                      <a href="/2020/07/09/web%E5%BC%80%E5%8F%91/%E7%9B%AE%E5%89%8D%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7-webpack/">
+                        <span class="hidden-mobile">web开发/目前最流行的前端打包工具-webpack</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
