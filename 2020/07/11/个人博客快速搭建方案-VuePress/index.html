@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>个人博客快速搭建方案-VuePress - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-07-11 13:57">
+                    2020年7月11日 下午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2.7k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    32
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>之前在<code>EJS</code>的文章中就提到过<code>VuePress</code>，特色是可以在<code>Markdown</code>中使用<code>Vue</code>组件，又可以使用<code>Vue</code>来开发自定义主题，对于一个前端玩家来说，<code>Vue</code>在当下可是必备的技能，所以使用<code>Vue</code>搭建博客也是一个非常常见的需求。</p>
+<h2 id="1-1-如何工作"><a href="#1-1-如何工作" class="headerlink" title="1.1 如何工作"></a>1.1 如何工作</h2><p>一个 <code>VuePress</code> 网站是一个由 <code>Vue</code>、<code>Vue Router</code> 和 <code>webpack</code> 驱动的单页应用。</p>
+<p>在构建时，我们会为应用创建一个服务端渲染（SSR）的版本，然后通过虚拟访问每一条路径来渲染对应的<code>HTML</code>。</p>
+<p>关于服务端渲染（SSR）我在<a href="/2020/06/22/web%E5%BC%80%E5%8F%91/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/" title="Vue服务器渲染优秀项目：Nuxt.js">Vue服务器渲染优秀项目：Nuxt.js</a>这篇文章中有详细的提到<code>Vue</code>项目如何实现<code>SSR</code>以及为什么要使用<code>SSR</code>。</p>
+<h1 id="2-快速入门"><a href="#2-快速入门" class="headerlink" title="2. 快速入门"></a>2. 快速入门</h1><ol>
+<li><p>创建并进入一个新目录</p>
+<pre><code class="hljs bash">mkdir vuepress-starter &amp;&amp; <span class="hljs-built_in">cd</span> vuepress-starter</code></pre>
+</li>
+<li><p>使用你喜欢的包管理器进行初始化，运行下面的命令后会出现一些选项，<strong>通常一路回车过去就可以。</strong></p>
+<pre><code class="hljs bash">npm init
+
+<span class="hljs-comment"># 如果使用了yarn就使用下面的命令</span>
+yarn init</code></pre>
+</li>
+<li><p>将 <code>VuePress</code> 安装为本地依赖</p>
+<pre><code class="hljs bash">npm install -D vuepress
+
+<span class="hljs-comment"># 如果使用了yarn就使用下面的命令</span>
+yarn add -D vuepress</code></pre>
+</li>
+<li><p>创建你的第一篇文档</p>
+<pre><code class="hljs bash">mkdir docs &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">'# Hello VuePress'</span> &gt; docs/README.md</code></pre>
+</li>
+<li><p>在 <code>package.json</code> 中添加一些 scripts。</p>
+<p><strong>注意：如果没有进行添加，下面的一些命令将无法使用，比如<code>npm run docs:dev</code>。</strong></p>
+<pre><code class="hljs json">&#123;
+  <span class="hljs-attr">"scripts"</span>: &#123;
+    <span class="hljs-attr">"docs:dev"</span>: <span class="hljs-string">"vuepress dev docs"</span>,
+    <span class="hljs-attr">"docs:build"</span>: <span class="hljs-string">"vuepress build docs"</span>
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p>在本地启动服务器</p>
+<pre><code class="hljs bash">npm run docs:dev
+
+<span class="hljs-comment"># 如果使用了yarn就使用下面的命令</span>
+yarn docs:dev</code></pre>
+
+</li>
+</ol>
+<p>最后访问<code>locolhost:8080</code>就可以看到已经部署完毕的博客界面了，然后就可以看到这个界面：</p>
+<p><img src="/image/image-20200711143752811.png" srcset="/img/loading.gif" alt="image-20200711143752811"></p>
+<p>是不是非常的简陋，如果要使你的博客看上去更丰富，那么就接着往下看。</p>
+<h1 id="3-目录结构"><a href="#3-目录结构" class="headerlink" title="3. 目录结构"></a>3. 目录结构</h1><p>根据官方文档的说明，<strong>推荐使用以下目录结构，尽量不要自行胡乱创建目录结构。</strong></p>
+<pre><code class="hljs css">.
+├── <span class="hljs-selector-tag">docs</span>
+│   ├── <span class="hljs-selector-class">.vuepress</span> (可选的)
+│   │   ├── <span class="hljs-selector-tag">components</span> (可选的)
+│   │   ├── <span class="hljs-selector-tag">theme</span> (可选的)
+│   │   │   └── <span class="hljs-selector-tag">Layout</span><span class="hljs-selector-class">.vue</span>
+│   │   ├── <span class="hljs-selector-tag">public</span> (可选的)
+│   │   ├── <span class="hljs-selector-tag">styles</span> (可选的)
+│   │   │   ├── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.styl</span>
+│   │   │   └── <span class="hljs-selector-tag">palette</span><span class="hljs-selector-class">.styl</span>
+│   │   ├── <span class="hljs-selector-tag">templates</span> (可选的, 谨慎配置)
+│   │   │   ├── <span class="hljs-selector-tag">dev</span><span class="hljs-selector-class">.html</span>
+│   │   │   └── <span class="hljs-selector-tag">ssr</span><span class="hljs-selector-class">.html</span>
+│   │   ├── <span class="hljs-selector-tag">config</span><span class="hljs-selector-class">.js</span> (可选的)
+│   │   └── <span class="hljs-selector-tag">enhanceApp</span><span class="hljs-selector-class">.js</span> (可选的)
+│   │ 
+│   ├── <span class="hljs-selector-tag">README</span><span class="hljs-selector-class">.md</span>
+│   ├── <span class="hljs-selector-tag">guide</span>
+│   │   └── <span class="hljs-selector-tag">README</span><span class="hljs-selector-class">.md</span>
+│   └── <span class="hljs-selector-tag">config</span><span class="hljs-selector-class">.md</span>
+│ 
+└── <span class="hljs-selector-tag">package</span><span class="hljs-selector-class">.json</span></code></pre>
+
+<p><strong>注意：请留意目录名的大写。</strong></p>
+<ul>
+<li><code>docs/.vuepress</code>: 用于存放全局的配置、组件、静态资源等。</li>
+<li><code>docs/.vuepress/components</code>: 该目录中的 Vue 组件将会被自动注册为全局组件。</li>
+<li><code>docs/.vuepress/theme</code>: 用于存放本地主题。</li>
+<li><code>docs/.vuepress/styles</code>: 用于存放样式相关的文件。</li>
+<li><code>docs/.vuepress/styles/index.styl</code>: 将会被自动应用的全局样式文件，会生成在最终的 CSS 文件结尾，具有比默认样式更高的优先级。</li>
+<li><code>docs/.vuepress/styles/palette.styl</code>: 用于重写默认颜色常量，或者设置新的 stylus 颜色常量。</li>
+<li><code>docs/.vuepress/public</code>: 静态资源目录。</li>
+<li><code>docs/.vuepress/templates</code>: 存储 HTML 模板文件。</li>
+<li><code>docs/.vuepress/templates/dev.html</code>: 用于开发环境的 HTML 模板文件。</li>
+<li><code>docs/.vuepress/templates/ssr.html</code>: 构建时基于 Vue SSR 的 HTML 模板文件。</li>
+<li><code>docs/.vuepress/config.js</code>: 配置文件的入口文件，也可以是 <code>YML</code> 或 <code>toml</code>。</li>
+<li><code>docs/.vuepress/enhanceApp.js</code>: 客户端应用的增强。</li>
+</ul>
+<h2 id="3-1-路由"><a href="#3-1-路由" class="headerlink" title="3.1 路由"></a>3.1 路由</h2><p>所有的“文件的相对路径”都是相对于 <code>docs</code> 目录的，也就是<code>docs</code>目录就是根目录。</p>
+<table>
+<thead>
+<tr>
+<th>文件的相对路径</th>
+<th>页面路由地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/README.md</code></td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><code>/guide/README.md</code></td>
+<td><code>/guide/</code></td>
+</tr>
+<tr>
+<td><code>/config.md</code></td>
+<td><code>/config.html</code></td>
+</tr>
+</tbody></table>
+<h2 id="3-2-创建-vuepress"><a href="#3-2-创建-vuepress" class="headerlink" title="3.2 创建.vuepress"></a>3.2 创建<code>.vuepress</code></h2><p>根据上面的目录结构，我们需要在<code>docs</code>文件夹下创建一个<code>.vuepress</code>文件夹，好用来存放 <code>VuePress</code> 相关的文件。</p>
+<p>然后在<code>.vuepress</code>文件夹下创建一个<code>config.js</code>文件，用来存放<code>vuepress</code>相关的配置，基础内容如下：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  title: <span class="hljs-string">'Hello VuePress'</span>,
+  description: <span class="hljs-string">'Just playing around'</span>
+&#125;</code></pre>
+
+<p>重新运行一下项目后，你就会看到页面上多出了一个标题。</p>
+<p><img src="/image/image-20200711144433535.png" srcset="/img/loading.gif" alt="image-20200711144433535"></p>
+<p>但是这样看起来还是很简陋，不用担心，<code>VuePress</code> 可以默认主题也可以使用人家已经发布的主题。</p>
+<h2 id="3-3-创建public文件夹"><a href="#3-3-创建public文件夹" class="headerlink" title="3.3 创建public文件夹"></a>3.3 创建<code>public</code>文件夹</h2><p>在写作的过程中或者搭建界面的过程中经常会使用到一些图片或者其它的静态资源，这些静态资源都统一存放在<code>public</code>文件夹下面，例如：</p>
+<p><img src="/image/image-20200711151142211.png" srcset="/img/loading.gif" alt="image-20200711151142211"></p>
+<p>下面这张<code>hero.png</code>的图片，就可以通过<code>localhost:8080/hero.png</code>进行访问。</p>
+<h1 id="4-默认主题配置"><a href="#4-默认主题配置" class="headerlink" title="4. 默认主题配置"></a>4. 默认主题配置</h1><h2 id="4-1-首页配置"><a href="#4-1-首页配置" class="headerlink" title="4.1 首页配置"></a>4.1 首页配置</h2><p>使用默认主题配置首页需要在根级<code>README.md</code>的<code>YAML front matter</code>指定<code>home: true</code>。如下所示：</p>
+<pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">home:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">heroImage:</span> <span class="hljs-string">/hero.png</span> <span class="hljs-comment"># 需要在public文件夹下存放该文件名的图片，否则不显示图片</span>
+<span class="hljs-attr">heroText:</span> <span class="hljs-string">Hero</span> <span class="hljs-string">标题</span> <span class="hljs-comment"># 如果不需要可以设置为mull</span>
+<span class="hljs-attr">tagline:</span> <span class="hljs-string">Hero</span> <span class="hljs-string">副标题</span> <span class="hljs-comment"># 如果不需要可以设置为mull</span>
+<span class="hljs-attr">actionText:</span> <span class="hljs-string">快速上手</span> <span class="hljs-string">→</span>
+<span class="hljs-attr">actionLink:</span> <span class="hljs-string">/zh/guide/</span>
+<span class="hljs-attr">features:</span>
+<span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">简洁至上</span>
+  <span class="hljs-attr">details:</span> <span class="hljs-string">以</span> <span class="hljs-string">Markdown</span> <span class="hljs-string">为中心的项目结构，以最少的配置帮助你专注于写作。</span>
+<span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Vue驱动</span>
+  <span class="hljs-attr">details:</span> <span class="hljs-string">享受</span> <span class="hljs-string">Vue</span> <span class="hljs-string">+</span> <span class="hljs-string">webpack</span> <span class="hljs-string">的开发体验，在</span> <span class="hljs-string">Markdown</span> <span class="hljs-string">中使用</span> <span class="hljs-string">Vue</span> <span class="hljs-string">组件，同时可以使用</span> <span class="hljs-string">Vue</span> <span class="hljs-string">来开发自定义主题。</span>
+<span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">高性能</span>
+  <span class="hljs-attr">details:</span> <span class="hljs-string">VuePress</span> <span class="hljs-string">为每个页面预渲染生成静态的</span> <span class="hljs-string">HTML，同时在页面被加载的时候，将作为</span> <span class="hljs-string">SPA</span> <span class="hljs-string">运行。</span>
+<span class="hljs-attr">footer:</span> <span class="hljs-string">MIT</span> <span class="hljs-string">Licensed</span> <span class="hljs-string">|</span> <span class="hljs-string">Copyright</span> <span class="hljs-string">©</span> <span class="hljs-number">2018</span><span class="hljs-string">-present</span> <span class="hljs-string">Evan</span> <span class="hljs-string">You</span>
+<span class="hljs-meta">---</span></code></pre>
+
+<p>重新运行一下项目，可以看到下面的效果：</p>
+<p><img src="/image/image-20200711151425246.png" srcset="/img/loading.gif" alt="image-20200711151425246"></p>
+<p>这样看上去，是不是就有博客的样子了。</p>
+<h2 id="4-2-导航栏"><a href="#4-2-导航栏" class="headerlink" title="4.2 导航栏"></a>4.2 导航栏</h2><p>导航栏的配置包括下面的几项，可以根据自己的需要进行配置，配置文件在<code>.vuepress/config.js</code>。</p>
+<ul>
+<li>页面标题</li>
+<li>搜索框</li>
+<li>导航栏链接</li>
+<li>多语言切换</li>
+<li>仓库链接</li>
+</ul>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  themeConfig: &#123;
+    <span class="hljs-comment">// navbar: false, // 禁用导航栏</span>
+    logo: <span class="hljs-string">'/assets/img/logo.png'</span>, <span class="hljs-comment">// 配置导航Log</span>
+    nav: [ <span class="hljs-comment">//配置导航链接</span>
+      &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'Home'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'/'</span>&#125;,
+      &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'Guide'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'/guide/'</span>&#125;,
+      &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'External'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'https://google.com'</span>&#125;,
+      <span class="hljs-comment">/* 外部链接可以配置target和rel */</span>
+      &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'External'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'https://google.com'</span>, <span class="hljs-attr">target</span>: <span class="hljs-string">'_self'</span>, <span class="hljs-attr">rel</span>: <span class="hljs-string">''</span>&#125;,
+      &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'Guide'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'/guide/'</span>, <span class="hljs-attr">target</span>: <span class="hljs-string">'_blank'</span>&#125;,
+      &#123;
+        text: <span class="hljs-string">'Languages'</span>,
+        ariaLabel: <span class="hljs-string">'Language Menu'</span>,
+        items: [ <span class="hljs-comment">// 如果提供了一个items，会用下拉框的形式显示</span>
+          &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'Chinese'</span>, <span class="hljs-attr">link</span>: <span class="hljs-string">'/language/chinese/'</span>&#125;,
+          &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'Japanese'</span>, <span class="hljs-attr">items</span>: [<span class="hljs-comment">/*  */</span>]&#125; <span class="hljs-comment">//还可以进行嵌套items</span>
+        ]
+      &#125;
+    ]
+  &#125;
+&#125;;</code></pre>
+
+<p>重新运行一下看效果：</p>
+<p><img src="/image/image-20200711152834391.png" srcset="/img/loading.gif" alt="image-20200711152834391"></p>
+<h2 id="4-3-侧边栏"><a href="#4-3-侧边栏" class="headerlink" title="4.3 侧边栏"></a>4.3 侧边栏</h2><pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  themeConfig: &#123;
+    sidebar: <span class="hljs-string">'auto'</span> <span class="hljs-comment">// 自动生成侧边栏</span>
+  &#125;
+&#125;;</code></pre>
+
+<p><img src="/image/image-20200711155130504.png" srcset="/img/loading.gif" alt="image-20200711155130504"></p>
+<p>但是在这里我发现了一个问题，一篇文章中只能存在一个<strong>一级标题</strong>，因为自动生成的侧边栏貌似只会生成一个一级标题。</p>
+<p>侧边栏的更多配置可以参考<a href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E4%BE%A7%E8%BE%B9%E6%A0%8F" target="_blank" rel="noopener">官方文档</a>，如果有需要的话根据文档进行配置。</p>
+<h1 id="5-在Markdown中使用Vue"><a href="#5-在Markdown中使用Vue" class="headerlink" title="5. 在Markdown中使用Vue"></a>5. 在Markdown中使用Vue</h1><p>为什么要使用<code>VuePress</code>创建博客呢，因为它可以在<code>Markdown</code>中使用<code>Vue</code>，这就极大的提高了界面的自定义，但是它有着浏览器<code>API</code>访问限制，因为所有的页面在生成静态 HTML 时都需要通过<code>Node.js</code>服务端渲染，所以请确保只在<code>beforeMount</code>或者<code>mounted</code>访问<code>浏览器 / DOM</code> 的 <code>API</code>。</p>
+<h2 id="5-1-插值"><a href="#5-1-插值" class="headerlink" title="5.1 插值"></a>5.1 插值</h2><p>每一个 <code>Markdown</code> 文件将首先被编译成 <code>HTML</code>，接着作为一个 <code>Vue</code> 组件传入 <code>vue-loader</code>，这意味着你可以在文本中使用 Vue 风格的插值：</p>
+<p><strong>Input</strong></p>
+<pre><code class="hljs md">&#123;&#123; 1 + 1 &#125;&#125;</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code class="hljs angelscript"><span class="hljs-number">2</span></code></pre>
+
+<h2 id="5-2-指令"><a href="#5-2-指令" class="headerlink" title="5.2 指令"></a>5.2 指令</h2><p>同样地，也可以使用指令:</p>
+<p><strong>Input</strong></p>
+<pre><code class="hljs md"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"i in 3"</span>&gt;</span></span>&#123;&#123; i &#125;&#125; <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span></code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code class="hljs basic"><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span></code></pre>
+
+<h2 id="5-3-访问网站以及页面的数据"><a href="#5-3-访问网站以及页面的数据" class="headerlink" title="5.3 访问网站以及页面的数据"></a>5.3 访问网站以及页面的数据</h2><p>编译后的组件没有私有数据，但可以访问 <a href="https://vuepress.vuejs.org/zh/theme/writing-a-theme.html#网站和页面的元数据" target="_blank" rel="noopener">网站的元数据</a>，举例来说：</p>
+<p><strong>Input</strong></p>
+<pre><code class="hljs md">&#123;&#123; $page &#125;&#125;</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code class="hljs json">&#123;
+  <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/using-vue.html"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Using Vue in Markdown"</span>,
+  <span class="hljs-attr">"frontmatter"</span>: &#123;&#125;
+&#125;</code></pre>
+
+<h2 id="5-4-转义"><a href="#5-4-转义" class="headerlink" title="5.4 转义"></a>5.4 转义</h2><p>默认情况下，块级 (block) 的代码块将会被自动包裹在 <code>v-pre</code> 中。如果你想要在内联 (inline) 的代码块或者普通文本中显示原始的大括号，或者一些 Vue 特定的语法，你需要使用自定义容器 <code>v-pre</code> 来包裹：</p>
+<p><strong>Input</strong></p>
+<pre><code class="hljs md">::: v-pre
+<span class="hljs-code">`&#123;&#123; This will be displayed as-is &#125;&#125;`</span>
+:::</code></pre>
+
+<p><strong>Output</strong></p>
+<pre><code class="hljs mizar">&#123;&#123; This will <span class="hljs-keyword">be</span> displayed <span class="hljs-keyword">as</span>-<span class="hljs-keyword">is</span> &#125;&#125;</code></pre>
+
+<h2 id="5-5-使用组件"><a href="#5-5-使用组件" class="headerlink" title="5.5 使用组件"></a>5.5 使用组件</h2><p>所有在 <code>.vuepress/components</code> 中找到的 <code>*.vue</code> 文件将会自动地被注册为全局的异步组件。</p>
+<p>你可以直接使用这些组件在任意的 Markdown 文件中（组件名是通过文件名取到的）：</p>
+<pre><code class="hljs md"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">demo-1</span>/&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">OtherComponent</span>/&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Foo-Bar</span>/&gt;</span></span></code></pre>
+
+<h2 id="5-6-使用预处理器"><a href="#5-6-使用预处理器" class="headerlink" title="5.6 使用预处理器"></a>5.6 使用预处理器</h2><p>vue中已经内置了 <code>stylus</code> 和 <code>stylus-loader</code>，所以不需要再安装它们，而<code>sass</code>、<code>scss</code>、<code>less</code>、<code>stylus</code> 和 <code>pug</code>。要使用它们你只需要在项目中安装对应的依赖即可。例如，要使用 <code>sass</code>，需要安装：</p>
+<pre><code class="hljs bash">yarn add -D sass-loader node-sass</code></pre>
+
+<p>然后你就可以在 Markdown 或是组件中使用如下代码：</p>
+<pre><code class="hljs vue">&lt;style lang&#x3D;&quot;sass&quot;&gt;
+  .title
+    font-size: 20px
+&lt;&#x2F;style&gt;</code></pre>
+
+<p>要在组件中使用 <code>&lt;template lang=&quot;pug&quot;&gt;</code>，则需要安装 <code>pug</code> 和 <code>pug-plain-loader</code>:</p>
+<pre><code class="hljs bash">yarn add -D pug pug-plain-loader</code></pre>
+
+<h1 id="6-其它配置"><a href="#6-其它配置" class="headerlink" title="6. 其它配置"></a>6. 其它配置</h1><h2 id="6-1-内部链接"><a href="#6-1-内部链接" class="headerlink" title="6.1 内部链接"></a>6.1 内部链接</h2><p>网站内部的链接，将会被转换成 <code>&lt;router-link&gt;</code> 用于 SPA 导航。同时，站内的每一个文件夹下的 <code>README.md</code> 或者 <code>index.md</code> 文件都会被自动编译为 <code>index.html</code>，对应的链接将被视为 <code>/</code>。</p>
+<p>以如下的文件结构为例：</p>
+<pre><code class="hljs text">.
+├─ README.md
+├─ foo
+│  ├─ README.md
+│  ├─ one.md
+│  └─ two.md
+└─ bar
+   ├─ README.md
+   ├─ three.md
+   └─ four.md</code></pre>
+
+<p>假设你现在在 <code>foo/one.md</code> 中：</p>
+<pre><code class="hljs md">[<span class="hljs-string">Home</span>](<span class="hljs-link">/</span>) <span class="xml"><span class="hljs-comment">&lt;!-- 跳转到根部的 README.md --&gt;</span></span>
+[<span class="hljs-string">foo</span>](<span class="hljs-link">/foo/</span>) <span class="xml"><span class="hljs-comment">&lt;!-- 跳转到 foo 文件夹的 index.html --&gt;</span></span>
+[<span class="hljs-string">foo heading</span>](<span class="hljs-link">./#heading</span>) <span class="xml"><span class="hljs-comment">&lt;!-- 跳转到 foo/index.html 的特定标题位置 --&gt;</span></span>
+[<span class="hljs-string">bar - three</span>](<span class="hljs-link">../bar/three.md</span>) <span class="xml"><span class="hljs-comment">&lt;!-- 具体文件可以使用 .md 结尾（推荐） --&gt;</span></span>
+[<span class="hljs-string">bar - four</span>](<span class="hljs-link">../bar/four.html</span>) <span class="xml"><span class="hljs-comment">&lt;!-- 也可以用 .html --&gt;</span></span></code></pre>
+
+<h2 id="6-2-Emoji"><a href="#6-2-Emoji" class="headerlink" title="6.2 Emoji"></a>6.2 Emoji</h2><p><strong>输入</strong></p>
+<pre><code class="hljs text">:tada: :100:</code></pre>
+
+<p><strong>输出</strong></p>
+<p>🎉 💯</p>
+<p><a href="https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json" target="_blank" rel="noopener">所有可用的Emoji</a>。</p>
+<h2 id="6-3-行号"><a href="#6-3-行号" class="headerlink" title="6.3 行号"></a>6.3 行号</h2><p>可以通过配置来为每个代码块显示行号：</p>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  markdown: &#123;
+    lineNumbers: <span class="hljs-literal">true</span>
+  &#125;
+&#125;</code></pre>
+
+<h1 id="7-部署"><a href="#7-部署" class="headerlink" title="7. 部署"></a>7. 部署</h1><p>项目的部署是十分简单的，直接运行</p>
+<pre><code class="hljs bash">npm run docs:build</code></pre>
+
+<p>进入到<code>docs\.vuepress\dist</code>就可以看到打包后的静态文件，你可以将它们发布到<code>GitHub Pages</code>或者你自己的服务器上面。</p>
+<h1 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h1><p><code>VuePress</code>和<code>Hexo</code>各有各的优点，因为<code>Hexo</code>出来的时间很久了所以技术上也相对成熟，主题也相对较多，但是缺点是使用了<code>EJS</code>，虽然让使用者更加方便，但是对于<code>DIY</code>来讲要额外进行学习。</p>
+<p><code>VuePress</code>就可以直接使用<code>Vue</code>这个前端几乎必修的框架，<code>DIY</code>就显得非常方便，但是因为出来的时间短，主题也相对较少。所以如果对于不了解前端技术的同学，还是推荐使用<code>Hexo</code>。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/blog/">blog</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/11/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8810%E6%97%A5/">
+                        <span class="hidden-mobile">游戏排行榜/2020年07月10日</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "个人博客快速搭建方案-VuePress&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
