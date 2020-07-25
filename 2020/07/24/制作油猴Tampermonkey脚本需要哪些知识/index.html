@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>一个简单易用的制作博客的框架：Hexo - 个人博客|沧沧凉凉的小站</title>
+  <title>制作油猴Tampermonkey脚本需要哪些知识 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-19 00:00">
-                    2020年5月19日 凌晨
+                  <time datetime="2020-07-24 20:41">
+                    2020年7月24日 晚上
                   </time>
                 </div>
               
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    13
+                    15
                      分钟
                   </span>
                 
@@ -184,56 +184,82 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>学习一项技术的最好方法就是写博客，博客不光可以分享你学到的知识，而且如果你的学习中有什么错误或者纰漏，偶尔也会被路过的大神指出。</p>
-<p>使用Vue或者React搭建一个静态博客是非常简单的事情，但是如果想要搭建一个像知乎这种具有动态更新，还带有评论系统，并且界面还具有自适应，这些就显得不是那么容易。毕竟一个人的精力有限，如果需要面面俱到就需要花上很长的时间。</p>
-<p>很多公司意识到了这些事情，所以推出了非常多的快速搭建博客的框架，大致看了一下，非常多的人都推荐使用Hexo，所以我也想尝试一下使用Hexo搭建博客，是不是真的那么方便。</p>
-<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
-<h1 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h1><ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ul>
-<p>这两个软件是运行环境，必须要进行安装。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>装好了上面两个运行环境后，直接按住键盘上的<code>Ctrl右边的键</code>+<code>r</code> ，在打开的运行窗口中输入<code>cmd</code>，再在新弹出的窗口中输入<code>npm install -g hexo-cli</code>等待安装完成即可。</p>
-<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>到你需要创建项目的文件夹中，打开<code>cmd</code></p>
-<p><img src="/image/v2-b0fca0c8dc063705e70cda5b6aa1e26d_b.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>在弹出的窗口中输入<code>hexo init 你需要创建的博客名</code>。</p>
-<h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><p>创建完成后，进入到你创建的文件夹，会看到下面的目录样式。</p>
-<pre><code class="hljs text">.
-├── _config.yml 网站的配置信息，您可以在此配置大部分的参数。
-├── package.json 应用程序的信息，如果需要更改需要对node有一定了解
-├── scaffolds 文章存放的文件夹。
-├── source 资源文件夹
-|   ├── _drafts
-|   └── _posts
-└── themes 主题文件夹。</code></pre>
+              <p>之前有篇文章讲述了如何使用油猴来编写浏览器脚本，以及用油猴编写脚本相对于Chrome插件有什么优势：<a href="/2020/05/28/%E5%BC%BA%E5%A4%A7%E7%9A%84%E6%B2%B9%E7%8C%B4Tampermonkey%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" title="强大的油猴Tampermonkey：简单的脚本制作">强大的油猴Tampermonkey：简单的脚本制作</a>。</p>
+<p>因为之前的文章中只讲解了油猴脚本怎么编写，但是没有细说油猴脚本如何编写，以及编写油猴脚本需要哪些知识与技能点。</p>
+<p>所以这篇文章就着重讲解一下油猴脚本涉及了哪些知识：</p>
+<h1 id="HTML，CSS"><a href="#HTML，CSS" class="headerlink" title="HTML，CSS"></a>HTML，CSS</h1><p>将<code>HTML</code>和<code>CSS</code>放在一起是因为在油猴脚本的编写中，这两项技术并不是太能派的上用场，因为油猴脚本除非有需要交互之处，否则很难用得上<code>HTML</code>和<code>CSS</code>。</p>
+<p><img src="/image/v2-134f4d56dc979fcc5d4dadb7775f4f38_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<p>就好比上图来说，你需要做出这种按钮、图片集成框时才需要使用到<code>HTML</code>和<code>CSS</code>。</p>
+<p>如果有这方面的需求，那么就必须要学会<code>HTML</code>和<code>CSS</code>基础，至于<code>Vue</code>，我个人是觉得没啥必要，除非是有大量的需要交互的页面，否则使用<code>Vue</code>就是大材小用。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>重点！一个油猴脚本本质上就是一个<code>JavaScript</code>文件，如果连<code>JavaScript</code>不会使用，那根本无从下手。</p>
+<p>因为上一篇文件是直接放出了脚本代码，但是没有讲解脚本代码的含义，所以本篇文章就着重讲解一下我之前的代码做了什么，下面贴上上次的代码：</p>
+<pre><code class="hljs js"><span class="hljs-comment">// ==UserScript==</span>
+<span class="hljs-comment">// @name         B站图片爬取</span>
+<span class="hljs-comment">// @namespace    http://tampermonkey.net/</span>
+<span class="hljs-comment">// @version      0.1</span>
+<span class="hljs-comment">// @description  try to take over the world!</span>
+<span class="hljs-comment">// @author       You</span>
+<span class="hljs-comment">// @match        https://www.bilibili.com/*</span>
+<span class="hljs-comment">// @grant        none</span>
+<span class="hljs-comment">// @resource     customCSS https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css</span>
+<span class="hljs-comment">// @require      https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js</span>
+<span class="hljs-comment">// @require      https://cdn.jsdelivr.net/npm/vue</span>
+<span class="hljs-comment">// ==/UserScript==</span>
 
-<p>这时还需要再像上面一样打开<code>cmd</code> 输入<code>npm install</code> 回车运行，安装依赖包。</p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>刚才提到的<code>_config.yml</code>文件中，可以配置大部分的信息，比如网站的标题，描述，关键字。如果有需要的话，可以直接参考官方给出的配置文档。</p>
-<p><a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置hexo</a></p>
-<p>如果按照上面的步骤，顺利走到了这里，那么继续按照上面的方法打开<code>cmd</code></p>
-<p>输入<code>hexo server</code>，会看到如下图所示</p>
-<p><img src="/image/v2-d7193f1d9bb78df6065e869b2d03f6b6_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<p>将框起来的那部分在浏览器地址栏上进行输入。</p>
-<p><img src="/image/v2-8d39b1b6dd060c0c038e99154a7ff28c_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>如果看到这个界面，恭喜，你的博客框架已经大体搭建完成</p>
-<h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>官方自带的主题不是很符合胃口，我认为使用Hexo搭建博客如果还需要自行敲代码不如直接使用Vue或者React搭建了，所以可以直接使用人家开源出的主题。</p>
-<p><a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">https://github.com/fluid-dev/hexo-theme-fluid</a></p>
-<p>下载完成后直接放在<code>themes</code>文件夹中</p>
-<p><img src="/image/v2-a0b4cfe339bea903b23195102534a226_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>要进行应用需要修改项目根目录中的<code>_config.yml</code>文件中的<code>theme</code>属性，修改为刚才下载的主题文件夹名。</p>
-<p>例如：<code>theme: hexo-theme-fluid</code></p>
-<p>再通过<code>hexo serve</code>运行项目，就可以查看到效果。</p>
-<p><img src="/image/v2-847e34e46aee11dc944de56d5a07a235_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>如果需要对主题进行修改，可以直接进入主题文件夹中找到 <code>_config.yml</code> 文件，修改里面的参数。</p>
-<h1 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h1><p>在项目文件中打开<code>cmd</code>输入命令<code>hexo generate</code> 会看见多出来一个<code>public</code>文件夹，将里面的内容直接发布到自己的服务器上面即可。如果没有自己的服务器，也可以使用GitHub Pages，但是GitHub Pages由于特殊原因，在国内访问速度会比较慢。</p>
-<p>至于GitHub Pages是什么，以及怎么用，可以看这篇~</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Using_Github_pages</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h1><p>如果你仅仅只需要使用主题搭建自己的博客，不需要做太多的个性化修改，那么使用Hexo确实是一个非常好的选择，几乎不需要太多的编程知识就可以搭建出一个还不错的博客界面，但是如果你想搭建高度自定义的博客界面，那还是不太推荐使用Hexo框架，主要是EJS这玩意…现在几乎已经不用了。</p>
-<hr>
-<h1 id="6月24日-再更新"><a href="#6月24日-再更新" class="headerlink" title="6月24日 再更新"></a>6月24日 再更新</h1><p>我自己尝试做网站的时候遇到了客户端渲染和服务器渲染的问题，简单的说Vue和React搭建出的单页面应用都为客户端渲染，不利于SEO，而Hexo就完全打包成了一个静态页面…有利于SEO，至于使用Vue的服务器渲染可以看这篇：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/149981401" target="_blank" rel="noopener">Vue服务器渲染优秀项目</a></p>
-<p>总的来说，如果你想将博客布置到GitHub Pages那么Hexo优于使用Vue搭建的页面，因为它更加利于SEO。</p>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-meta">  "use strict"</span>;
+  $(<span class="hljs-string">"head"</span>).append($(<span class="hljs-string">`&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"&gt;`</span>));
+  <span class="hljs-keyword">var</span> divApp = $(
+    <span class="hljs-string">`</span>
+<span class="hljs-string">&lt;div style="position:fixed; z-index:1000;top: 80vh;left: 5vw" id="myPlan"&gt;</span>
+<span class="hljs-string">  &lt;div v-if="showMassage" style="position: fixed;z-index: -1;width: 100vw;height: 100vh;top: 0;right:0;background-color:rgba(0,0,0,0.5);"&gt;&lt;/div&gt;</span>
+<span class="hljs-string">  &lt;button class="btn btn-primary" @click="showM"&gt;提取图片&lt;/button&gt;</span>
+<span class="hljs-string">  &lt;div v-if="showMassage"</span>
+<span class="hljs-string">       class="container"</span>
+<span class="hljs-string">       style="position:fixed;background-color:rgba(0,0,0,0.5);;display: flex;flex-wrap: wrap;overflow: auto;width: 600px;height: 500px;top: 50%;left: 50%;transform: translate(-50%, -50%);"&gt;</span>
+<span class="hljs-string">       &lt;div  v-for="(image,index) in images"  :key="index"&gt;</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">       &lt;a :href="image.src" target="frame1"&gt;&lt;img :src="image.src" class="rounded float-left" style="min-width: 100px;margin: 10px;height: 80px" alt=""&gt;&lt;/a&gt;</span>
+<span class="hljs-string">&lt;/div&gt;</span>
+<span class="hljs-string">&lt;/li&gt;</span>
+<span class="hljs-string">&lt;/div&gt;</span>
+<span class="hljs-string">&lt;/div&gt;</span>
+<span class="hljs-string">&lt;/div&gt;`</span>
+  );
+  $(<span class="hljs-string">"#app"</span>).append(divApp);
 
+  <span class="hljs-comment">/*Vue操作*/</span>
+  <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
+    el: <span class="hljs-string">"#myPlan"</span>,
+    data: &#123;
+      showMassage: <span class="hljs-literal">false</span>,
+      images: []
+    &#125;, <span class="hljs-attr">methods</span>: &#123;
+      showM() &#123;
+        <span class="hljs-keyword">this</span>.showMassage = !<span class="hljs-keyword">this</span>.showMassage;
+        <span class="hljs-keyword">this</span>.images = $(<span class="hljs-string">"img"</span>);
+      &#125;
+    &#125;
+  &#125;);
+
+&#125;)();</code></pre>
+
+<h2 id="function"><a href="#function" class="headerlink" title="(function(){})"></a>(function(){})</h2><p><code>(function(){})</code>在JavaScript的代码中经常出现，其实本质上是声明了一个匿名函数，然后对它进行调用：</p>
+<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><p>曾经风光无限的<code>JavaScript</code>库，它简化了<code>HTML</code>与<code>JavaScript</code>之间的操作。但是近些年来越来越少的开发者会用到它，因为现在几乎都是使用的<code>Vue</code>和<code>React</code>前端框架，这些前端框架提出了一个概念叫做<strong>虚拟DOM</strong>，通过虚拟<code>DOM</code>技术，我们在实际的开发中减少了大量的<code>DOM</code>操作，自然就不需要使用简化<code>DOM</code>操作的<code>jQuery</code>了。</p>
+<p>正由于<code>jQuery</code>过去的风光，所以现在很多前端项目依然还在使用<code>jQuery</code>进行维护，同时由于编写油猴脚本需要大量的操作<code>DOM</code>，所以如果需要<strong>编写油猴脚本，还是要学一学<code>jQuery</code>。</strong></p>
+<p>那么说了这么多，通过下面的例子我们来看看<code>jQuery</code>到底起了什么作用：</p>
+<pre><code class="hljs js">
+</code></pre>
+
+<h2 id="引入BootStrap"><a href="#引入BootStrap" class="headerlink" title="引入BootStrap"></a>引入BootStrap</h2><p>因为我发现油猴脚本好像无法引入CSS文件，也可能是我没有找对方法，我试了几个方法后发现只有直接向<code>head</code>中进行添加<code>DOM</code>的方式成功了，即下面的代码：</p>
+<pre><code class="hljs js">$(<span class="hljs-string">"head"</span>).append($(<span class="hljs-string">`&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"&gt;`</span>));</code></pre>
+
+<p>通过这段代码，我们就相当于给网页的<code>&lt;head&gt;</code>标签中添加了：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"</span>&gt;</span></code></pre>
+
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><p>我编写的那个脚本中还使用到了<code>Vue</code>，</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>这里再给上一个旋转网页图片的油猴脚本，总所周知，在看贴吧或者各种网页的时候，有人发的图片可能是颠倒的，这个时候就需要旋转才方便观看，但是旋转手机十分好旋转， 但是电脑上面总不能把电脑屏幕整个旋转吧。</p>
+<h2 id="最后效果"><a href="#最后效果" class="headerlink" title="最后效果"></a>最后效果</h2>
             </article>
             <hr>
             <div>
@@ -242,7 +268,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/blog/">blog</a>
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
                     
                   </div>
                 
@@ -250,9 +276,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/">油猴脚本</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">个人博客</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/">浏览器插件</a>
+                    
+                      <a class="hover-with-bg" href="/tags/hide/">hide</a>
                     
                   </div>
                 
@@ -265,18 +293,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/21/%E7%94%A8JavaScript%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1TOP250/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">用JavaScript爬取豆瓣电影TOP250</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/19/%E4%B8%8D%E7%94%A8%E5%86%99%E4%BB%A3%E7%A0%81%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E7%9A%84%E5%BC%95%E6%93%8E%EF%BC%9A%E8%99%9A%E5%B9%BB4/">
-                        <span class="hidden-mobile">不用写代码就可以制作游戏的引擎：虚幻4</span>
+                      <a href="/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8823%E6%97%A5-%E4%B8%87%E7%81%B5%E5%90%AF%E6%BA%90%E4%B8%8A%E7%BA%BF/">
+                        <span class="hidden-mobile">游戏排行榜/2020年07月23日-万灵启源上线</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -469,7 +491,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "一个简单易用的制作博客的框架：Hexo&nbsp;",
+        "制作油猴Tampermonkey脚本需要哪些知识&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
