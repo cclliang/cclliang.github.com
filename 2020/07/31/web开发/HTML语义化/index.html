@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>unity3D复刻保卫萝卜 - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/HTML语义化 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-04 00:00">
-                    2020年5月4日 凌晨
+                  <time datetime="2020-07-31 12:22">
+                    2020年7月31日 中午
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    612 字
+                    1.7k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    6
+                    18
                      分钟
                   </span>
                 
@@ -184,20 +184,70 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <blockquote>
-<p>上次那个快乐鸟-html版似乎反响还不错，看来大家对游戏制作还蛮感兴趣的…那么这次我要搬出我前年用unity3D复刻的保卫萝卜。</p>
-<p>因为年份太过于久远了，所以具体代码就不进行分析了，主要是我忘了（狗头），研究前端后就再也没有碰过unity3D。</p>
-</blockquote>
-<p>视频在这里：</p>
-<p><a href="https://www.bilibili.com/video/BV1HW411d7DMwww.bilibili.com" target="_blank" rel="noopener">unity3D复刻保卫萝卜</a></p>
-<p>当时参照了siki学院的思路，然后自己独立进行一些加工将它完成了，如果有兴趣的朋友可以直接在siki学院上面搜索一下…</p>
-<p>大概说一下自己当时独立加工的点的实现方式：</p>
-<p><img src="/image/v2-678267ad3758d59e1021cd1fd19056b3_720w.png" srcset="/img/loading.gif" alt="img"></p>
-<h1 id="地图编辑器"><a href="#地图编辑器" class="headerlink" title="地图编辑器"></a>地图编辑器</h1><p>将屏幕分为 8*12 个格子，判断鼠标点击时最近的格子，通过视频上面也可以看出即使是没有点在格子的正中部分，依然可以将那一格进行点亮。当地图编辑完毕时点击保存，就将该地图信息，记录在CSV中，通过CSV进行导入。</p>
-<p>CSV有个最大的好处就是可以通过Excel打开，如果是用json存取数据，就没有CSV展现的数据那么清晰。</p>
-<h1 id="核心算法"><a href="#核心算法" class="headerlink" title="核心算法"></a>核心算法</h1><p>通过计算出每个格子中心点的坐标，让怪物沿着已经设定好的路径点通过 Translat 进行移动，如果当怪物离某个路径点的距离小于某值，则让它朝着下一个点进行移动，如果已经达到终点，则将怪物的渲染关闭。搜寻怪物逻辑即将所有怪物放在一个数组中，先遍历这个数组，然后判断怪物是否在塔的攻击范围中，如果在塔的攻击范围中，则将炮塔的目标设置为当前怪物。</p>
-<h1 id="对象池"><a href="#对象池" class="headerlink" title="对象池"></a>对象池</h1><p>unity生成和销毁实例跟前端生成Dom一样，是十分消耗性能的，所以这就涉及到实例的复用。意思就是当怪物“死亡”时，其实不进行销毁，而仅仅是将怪物的渲染关闭，如果下次需要使用，则对这些事例重新进行初始化。就跟前端将<code>display</code>设置为<code>none</code>一样。</p>
-<p>整个项目的实现难度并不难，但是里面包含的点非常多，包括UI，动画，对象池，数据的本地存取等，很适合作为初学者项目。</p>
+              <h1 id="1-为什么需要语义化"><a href="#1-为什么需要语义化" class="headerlink" title="1. 为什么需要语义化"></a>1. 为什么需要语义化</h1><p>语义化有下面几个好处：</p>
+<ul>
+<li>易修改、易维护。</li>
+<li>阅读HTML源代码时更容易进行定位。</li>
+<li>对搜索引擎更加的友好，更加方便SEO。</li>
+<li>在未来的HTML中，浏览器可能会提供更多的标签。</li>
+</ul>
+<p>语义标签不会做任何的事情，仅仅只是为了规范HTML结构，实质效果和一个<code>&lt;div&gt;</code>标签没有任何区别，也不会对内容造成本质影响，但是现在随着前端技术的广度和深度逐渐扩大，我们就需要对代码制定一系列的规范，而不能随心所欲想怎么写就怎么写。</p>
+<p>当然，如果是不开源的个人项目，也不想要做SEO，只要自己能看懂，就可以随心所欲。<strong>不过建议还是在个人写代码的时候就遵循规范，因为习惯了一时半会改不过来。</strong></p>
+<p>其实HTML的语义化，用下面一张图就可以很直观的看到：</p>
+<p><img src="/image/web/image-20200417132554712.png" srcset="/img/loading.gif" alt="image-20200417132554712"></p>
+<h1 id="2-头部-lt-header-gt"><a href="#2-头部-lt-header-gt" class="headerlink" title="2. 头部&lt;header&gt;"></a>2. 头部<code>&lt;header&gt;</code></h1><ol>
+<li>头部标签，有一般来说用来标注内容的标题，或者标注网页的页眉，内部可以包含页面导航。</li>
+<li>一般不在内容中使用，除非在文章内容标题附带其它信息的情况下：发布时间、作者等。</li>
+<li>网页中可以包含多个<code>&lt;header&gt;</code>元素。按照 HTML5 的规定，<code>&lt;header&gt;</code>都应包含某个级别的标题，所以应隐式或显式地包含标题，通常将不希望显示的标题设置为<code>display: none;</code>，一方面遵守规范，另一方面则提供了无障碍阅读而不至于影响到页面设计。</li>
+</ol>
+<h1 id="3-导航栏-lt-nav-gt"><a href="#3-导航栏-lt-nav-gt" class="headerlink" title="3. 导航栏&lt;nav&gt;"></a>3. 导航栏<code>&lt;nav&gt;</code></h1><p>一个页面可以包含多个<code>&lt;nav&gt;</code>元素，但通常仅仅在页面的主要导航部分使用它。导航部分的常见示例是菜单，目录和索引。</p>
+<ul>
+<li>并不是所有的链接都必须使用<code>&lt;nav&gt;</code>元素，它只用来将一些热门的链接放入导航栏,例如<code>&lt;footer&gt;</code>元素就常用来在页面底部包含一个不常用到,没必要加入<code>&lt;nav&gt;</code>的链接列表。</li>
+<li>一个网页也可能含有多个<code>&lt;nav&gt;</code>元素，例如一个是网站内的导航列表，另一个是本页面内的导航列表。</li>
+<li>对于屏幕阅读障碍的人，可以使用这个元素来确定是否忽略初始内容。</li>
+</ul>
+<h1 id="4-附注-lt-aside-gt"><a href="#4-附注-lt-aside-gt" class="headerlink" title="4. 附注&lt;aside&gt;"></a>4. 附注<code>&lt;aside&gt;</code></h1><p><code>&lt;aside&gt;</code>元素并不仅仅是侧栏，表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者标注框（call-out boxes）。</p>
+<p>当<code>&lt;aside&gt;</code>用于侧栏时，其表示整个网页的附加内容。通常的广告区域、搜索、分享链接则位于侧栏。侧栏中的<code>&lt;aside&gt;</code>元素规定了一个区域，通常是带有标题的内容。</p>
+<p><code>&lt;section&gt;</code>标签适合标记的内容区块：</p>
+<ul>
+<li>与页面主体并列显示的小内容块。</li>
+<li>独立性内容，清单、表单等。</li>
+<li>分组内容，如 CMS 系统中的文章分类区块。</li>
+<li>比较长文档的一部分，可能仅仅是为了正确规定页面大纲。</li>
+</ul>
+<h1 id="5-页脚-lt-footer-gt"><a href="#5-页脚-lt-footer-gt" class="headerlink" title="5. 页脚&lt;footer&gt;"></a>5. 页脚<code>&lt;footer&gt;</code></h1><p><code>&lt;footer</code>标签仅仅可以包含版权、来源信息、法律限制等等之类的文本或链接信息。如果想要在页脚中包含其它内容，可以使用熟悉的<code>&lt;div&gt;</code>来帮忙。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 其它内容 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 法律、版权、来源、联系信息等 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<h1 id="6-主要内容-lt-main-gt"><a href="#6-主要内容-lt-main-gt" class="headerlink" title="6. 主要内容&lt;main&gt;"></a>6. 主要内容<code>&lt;main&gt;</code></h1><p><code>&lt;main&gt;</code>元素呈现了文档的<code>&lt;body&gt;</code>或应用的主体部分。主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成。<strong>一般来讲：除去头部、尾部、侧栏等其它部分，剩下的就是主体部分。</strong></p>
+<p><code>HTML5.1</code>中规定了一个<code>&lt;main&gt;</code>标签来标识主体内容。该标签通常是<code>&lt;body&gt;</code>的子标签，或者是全局<code>&lt;div&gt;</code>的子标签。不建议在页面的其它子标签中进行使用，也就是说，一个页面最好仅仅只拥有一个<code>&lt;main&gt;</code>标签。</p>
+<p>该标签可以帮助屏幕阅读工具或者爬虫迅速识别页面的主题部分，从而让访问者或者爬虫更容易得到有用的信息。</p>
+<h1 id="7-文章-lt-article-gt"><a href="#7-文章-lt-article-gt" class="headerlink" title="7. 文章&lt;article&gt;"></a>7. 文章<code>&lt;article&gt;</code></h1><p><code>&lt;article&gt;</code>表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。</p>
+<p>文章中包含插图时，使用新的语义元素<code>&lt;figure&gt;</code>标签。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 内容 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"插图"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span>&gt;</span>这是一个插图<span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span> <span class="hljs-comment">&lt;!--文章中插图图像的标题--&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
+
+<p>上述情况下，<code>&lt;figcaption&gt;</code>包含了关于插图的详细解释，则<code>&lt;img&gt;</code>的<code>alt</code>属性可以略去。</p>
+<p>不过目前大多数框架中，依然没有在文章中应用<code>&lt;figure&gt;</code>标签。比如：<code>Hexo</code>。</p>
+<h1 id="8-万能容器-lt-div-gt"><a href="#8-万能容器-lt-div-gt" class="headerlink" title="8. 万能容器&lt;div&gt;"></a>8. 万能容器<code>&lt;div&gt;</code></h1><p><code>&lt;div&gt;</code>元素 (或 HTML 文档分区元素) 是一个通用型的流内容容器，在不使用CSS的情况下，其对内容或布局没有任何影响。</p>
+<p>再过去还没有推行语义化之前，一个页面的构建会大量的使用<code>&lt;div&gt;</code>，当然在现在，你不清楚到底该使用什么语义化标签时，或者没有对应的语义化标签，都可以使用<code>&lt;div&gt;</code>标签。</p>
+<h1 id="9-其它标签"><a href="#9-其它标签" class="headerlink" title="9. 其它标签"></a>9. 其它标签</h1><p>除了这些页面结构的标签之外，其实在HTML中还有更多的语义化标签。</p>
+<p>比如标题标签<code>&lt;h1&gt;&lt;h2&gt;&lt;h3&gt;&lt;h4&gt;...</code>尤其是<code>&lt;h1&gt;</code>标签，推荐一个界面中仅仅使用一次，用来突出页面中最重要的标题，因为<code>&lt;h1&gt;</code>标签对SEO来说至关重要。</p>
 
             </article>
             <hr>
@@ -207,7 +257,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/">游戏制作</a>
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
                     
                   </div>
                 
@@ -215,9 +265,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/">游戏设计</a>
-                    
-                      <a class="hover-with-bg" href="/tags/unity3d/">unity3d</a>
+                      <a class="hover-with-bg" href="/tags/HTML/">HTML</a>
                     
                   </div>
                 
@@ -230,18 +278,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/07/web%E5%BC%80%E5%8F%91/%E4%BD%BF%E7%94%A8Taro%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%85%BB%E8%8A%B1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web开发/使用Taro开发微信养花小程序</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/04/vue-element-admin%20npm%20install%E6%8A%A5%E9%94%99/">
-                        <span class="hidden-mobile">vue-element-admin npm install报错</span>
+                      <a href="/2020/07/31/web%E5%BC%80%E5%8F%91/JavaScript%EF%BC%9A%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/">
+                        <span class="hidden-mobile">web开发/JavaScript：原型链和原型对象</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -434,7 +476,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "unity3D复刻保卫萝卜&nbsp;",
+        "web开发/HTML语义化&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
