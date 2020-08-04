@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>游戏排行榜/2020年08月03日-王者荣耀阿古朵，耀FMVP皮肤上线前夕 - 个人博客|沧沧凉凉的小站</title>
+  <title>阿里巴巴的后门程序：AlibabaProtect.exe删除过程 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-08-04 22:09">
-                    2020年8月4日 晚上
+                  <time datetime="2020-08-05 01:53">
+                    2020年8月5日 凌晨
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    731 字
+                    636 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    9
+                    6
                      分钟
                   </span>
                 
@@ -184,334 +184,41 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
-<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p>
-<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
-<p><strong>更新时间：目前百度指数更新为晚上10点（22点）左右。</strong></p>
-<h1 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h1><ol>
-<li><strong>王者荣耀</strong>：阿古朵，耀FMVP皮肤上线前夕，热度大涨。</li>
-<li><strong>穿越火线</strong>因为同名电视剧，表现依然强势。</li>
-<li><strong>星际战甲、逆战</strong>排名大跌。</li>
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>偶然发现了一个阿里巴巴的后门程序：<code>AlibabaProtect.exe</code>。</p>
+<p>通过查询了一些资料，显示该应用不仅会占用大量的内存和<code>CPU</code>性能，还会占用一部分带宽，并且没有任何的文档说明该应用的具体功能，所以网上对它有很多猜测，说它在后台监视你的一举一动，记录你电脑的使用情况，进行精准的投放广告以及其它细思极恐的事情。</p>
+<p>具体网上的分析就不谈了，反正就是流氓程序。</p>
+<h2 id="1-1-发现"><a href="#1-1-发现" class="headerlink" title="1.1 发现"></a>1.1 发现</h2><p><img src="/image/image-20200805010539250.png" srcset="/img/loading.gif" alt="image-20200805010539250"></p>
+<p>在任务管理器上面可以查看到这样的一个进程，可以看到占用了非常少的<code>CPU</code>和内存，本来这样一个程序放在那里不管也行，但是勾选它点击结束任务没有任何反应！这点就非常恐怖，到底该程序有着什么样的功能，居然无法结束进程。</p>
+<p>定位到该程序目录：</p>
+<p><img src="/image/image-20200805012238080.png" srcset="/img/loading.gif" alt="image-20200805012238080"></p>
+<p>直接尝试删除该文件夹：</p>
+<p><img src="/image/image-20200805012401943.png" srcset="/img/loading.gif" alt="image-20200805012401943"></p>
+<p>提示<strong>没有获得权限。</strong></p>
+<p>尝试更改该文件夹的只读权限：</p>
+<p><img src="/image/image-20200805012604654.png" srcset="/img/loading.gif" alt="image-20200805012604654"></p>
+<p><strong>被拒绝访问。</strong></p>
+<h1 id="2-火绒"><a href="#2-火绒" class="headerlink" title="2. 火绒"></a>2. 火绒</h1><p>因为它是一个服务，所以就想着火绒是否可以快速的结束它。</p>
+<p><img src="/image/image-20200805011009528.png" srcset="/img/loading.gif" alt="image-20200805011009528"></p>
+<p>找到了该项，设置为禁止启动，然后重启。</p>
+<p><strong>最终结果：无效。</strong></p>
+<p>到这里更加加深了我的恐惧，究竟是什么样的程序，怎么样的启动方式，居然通过常规手段无法禁止它启动。</p>
+<h1 id="3-删除方法"><a href="#3-删除方法" class="headerlink" title="3. 删除方法"></a>3. 删除方法</h1><p>方法很简单，简单的让我觉得有点不可思议，因为上面尝试删除的过程那么曲折：</p>
+<ol>
+<li>在键盘上按下<code>win</code>+<code>r</code>键（<code>win</code>键在<code>Alt</code>键左侧），输入<code>cmd</code>。</li>
 </ol>
-<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
-<thead>
-<tr>
-<th>名次</th>
-<th>百度搜索关键词</th>
-<th>百度指数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>穿越火线+cf ↑2</td>
-<td>85415</td>
-</tr>
-<tr>
-<td>2</td>
-<td>英雄联盟+lol</td>
-<td>80319</td>
-</tr>
-<tr>
-<td>3</td>
-<td>我的世界+minecraft ↓2</td>
-<td>78897</td>
-</tr>
-<tr>
-<td>4</td>
-<td>征途 ↑1</td>
-<td>33153</td>
-</tr>
-<tr>
-<td>5</td>
-<td>地下城与勇士+dnf ↓1</td>
-<td>21683</td>
-</tr>
-<tr>
-<td>6</td>
-<td>梦幻西游 ↑4</td>
-<td>20635</td>
-</tr>
-<tr>
-<td>7</td>
-<td>绝地求生+pubg ↓1</td>
-<td>17337</td>
-</tr>
-<tr>
-<td>8</td>
-<td>坦克世界 ↑1</td>
-<td>16182</td>
-</tr>
-<tr>
-<td>9</td>
-<td>炉石传说 ↓2</td>
-<td>15756</td>
-</tr>
-<tr>
-<td>10</td>
-<td>最终幻想14+ff14 ↑2</td>
-<td>14404</td>
-</tr>
-<tr>
-<td>11</td>
-<td>csgo ↑2</td>
-<td>11651</td>
-</tr>
-<tr>
-<td>12</td>
-<td>魔兽世界+wow ↑2</td>
-<td>11360</td>
-</tr>
-<tr>
-<td>13</td>
-<td>天龙八部 ↑2</td>
-<td>10151</td>
-</tr>
-<tr>
-<td>14</td>
-<td>传奇 ↑2</td>
-<td>9642</td>
-</tr>
-<tr>
-<td>15</td>
-<td>刀塔2+DOTA2 ↑3</td>
-<td>9530</td>
-</tr>
-<tr>
-<td>16</td>
-<td>冒险岛 ↑3</td>
-<td>8754</td>
-</tr>
-<tr>
-<td>17</td>
-<td>方舟生存进化</td>
-<td>8475</td>
-</tr>
-<tr>
-<td>18</td>
-<td>星际战甲+warframe ↓10</td>
-<td>8166</td>
-</tr>
-<tr>
-<td>19</td>
-<td>守望先锋 ↑1</td>
-<td>7441</td>
-</tr>
-<tr>
-<td>20</td>
-<td>剑灵 ↑6</td>
-<td>6475</td>
-</tr>
-<tr>
-<td>21</td>
-<td>激战2 ↑6</td>
-<td>6316</td>
-</tr>
-<tr>
-<td>22</td>
-<td>大话西游 ↓1</td>
-<td>6201</td>
-</tr>
-<tr>
-<td>23</td>
-<td>变形金刚 ↓1</td>
-<td>6147</td>
-</tr>
-<tr>
-<td>24</td>
-<td>QQ飞车</td>
-<td>6068</td>
-</tr>
-<tr>
-<td>25</td>
-<td>逆水寒 ↓2</td>
-<td>6007</td>
-</tr>
-<tr>
-<td>26</td>
-<td>逆战 ↓15</td>
-<td>5970</td>
-</tr>
-<tr>
-<td>27</td>
-<td>诛仙 ↓2</td>
-<td>5860</td>
-</tr>
-<tr>
-<td>28</td>
-<td>龙之谷</td>
-<td>5135</td>
-</tr>
-<tr>
-<td>29</td>
-<td>EVE ↑new</td>
-<td>4740</td>
-</tr>
-<tr>
-<td>30</td>
-<td>战舰世界 ↓1</td>
-<td>4560</td>
-</tr>
-</tbody></table>
-<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
-<thead>
-<tr>
-<th>名次</th>
-<th>百度搜索关键词</th>
-<th>百度指数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>王者荣耀</td>
-<td>175928</td>
-</tr>
-<tr>
-<td>2</td>
-<td>和平精英 ↑1</td>
-<td>78972</td>
-</tr>
-<tr>
-<td>3</td>
-<td>我的世界+mc ↓1</td>
-<td>78867</td>
-</tr>
-<tr>
-<td>4</td>
-<td>迷你世界</td>
-<td>68813</td>
-</tr>
-<tr>
-<td>5</td>
-<td>江南百景图</td>
-<td>53444</td>
-</tr>
-<tr>
-<td>6</td>
-<td>香肠派对</td>
-<td>32609</td>
-</tr>
-<tr>
-<td>7</td>
-<td>光遇</td>
-<td>23259</td>
-</tr>
-<tr>
-<td>8</td>
-<td>明日方舟 ↑3</td>
-<td>18658</td>
-</tr>
-<tr>
-<td>9</td>
-<td>第五人格</td>
-<td>18079</td>
-</tr>
-<tr>
-<td>10</td>
-<td>阴阳师 ↑4</td>
-<td>17820</td>
-</tr>
-<tr>
-<td>11</td>
-<td>球球大作战 ↓3</td>
-<td>16894</td>
-</tr>
-<tr>
-<td>12</td>
-<td>最强蜗牛 ↑1</td>
-<td>16729</td>
-</tr>
-<tr>
-<td>13</td>
-<td>炉石传说 ↓3</td>
-<td>15756</td>
-</tr>
-<tr>
-<td>14</td>
-<td>荒野乱斗 ↓2</td>
-<td>12580</td>
-</tr>
-<tr>
-<td>15</td>
-<td>妖神记</td>
-<td>12452</td>
-</tr>
-<tr>
-<td>16</td>
-<td>部落冲突 ↑1</td>
-<td>11325</td>
-</tr>
-<tr>
-<td>17</td>
-<td>明日之后 ↓1</td>
-<td>10262</td>
-</tr>
-<tr>
-<td>18</td>
-<td>未定事件簿</td>
-<td>9448</td>
-</tr>
-<tr>
-<td>19</td>
-<td>欢乐斗地主</td>
-<td>9443</td>
-</tr>
-<tr>
-<td>20</td>
-<td>崩坏3 ↑1</td>
-<td>7393</td>
-</tr>
-<tr>
-<td>21</td>
-<td>狼人杀 ↓1</td>
-<td>6734</td>
-</tr>
-<tr>
-<td>22</td>
-<td>大话西游</td>
-<td>6201</td>
-</tr>
-<tr>
-<td>23</td>
-<td>妖精的尾巴</td>
-<td>6074</td>
-</tr>
-<tr>
-<td>24</td>
-<td>公主连结 ↑new</td>
-<td>5997</td>
-</tr>
-<tr>
-<td>25</td>
-<td>碧蓝航线 ↑3</td>
-<td>5910</td>
-</tr>
-<tr>
-<td>26</td>
-<td>率土之滨</td>
-<td>5796</td>
-</tr>
-<tr>
-<td>27</td>
-<td>饥荒 ↓3</td>
-<td>5738</td>
-</tr>
-<tr>
-<td>28</td>
-<td>忍者必须死3 ↓3</td>
-<td>5698</td>
-</tr>
-<tr>
-<td>29</td>
-<td>剑与远征 ↑1</td>
-<td>5614</td>
-</tr>
-<tr>
-<td>30</td>
-<td>灌篮高手 ↓3</td>
-<td>5281</td>
-</tr>
-</tbody></table>
-<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>
+<p><img src="/image/image-20200805013816714.png" srcset="/img/loading.gif" alt="image-20200805013816714"></p>
+<ol start="2">
+<li>在打开的窗口中输入：<code>sc delete AlibabaProtect</code>，再点击回车，会得到成功提示（因为我已经删除过了，所以无法截图成功时的提示）。</li>
+</ol>
+<p><img src="/image/image-20200805013902968.png" srcset="/img/loading.gif" alt="image-20200805013902968"></p>
+<ol start="3">
+<li>重启电脑，进入<code>C:\Program Files (x86)</code>目录，删除<code>AlibabaProtect</code>整个文件夹，这下终于能顺利删除该文件夹了。</li>
+<li>最后打开任务管理器，可以看到<code>alibaba pc safe service</code>，这项进程已经消失。</li>
+</ol>
+<h1 id="4-最后"><a href="#4-最后" class="headerlink" title="4. 最后"></a>4. 最后</h1><p>据说彻底禁用该程序后会导致阿里系的某些软件出现无法启动的情况，比如：<strong>千牛</strong>。</p>
+<p>如果有阿里系的软件需要运行，例如：<strong>旺旺</strong>，该进程可能无法通过文章中的方法进行禁止。</p>
+<p>是否禁止还是要根据自身情况来定。</p>
+
             </article>
             <hr>
             <div>
@@ -520,7 +227,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
+                      <a class="hover-with-bg" href="/categories/%E5%85%B6%E5%AE%83/">其它</a>
                     
                   </div>
                 
@@ -528,9 +235,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+                      <a class="hover-with-bg" href="/tags/%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/">后门程序</a>
                     
                   </div>
                 
@@ -543,18 +248,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/05/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F%EF%BC%9AAlibabaProtect.exe%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">阿里巴巴的后门程序：AlibabaProtect.exe删除过程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/03/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8802%E6%97%A5-%E6%98%9F%E9%99%85%E6%88%98%E7%94%B2%EF%BC%8C%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E7%83%AD%E5%BA%A6%E5%86%8D%E4%B8%8A%E6%B6%A8/">
-                        <span class="hidden-mobile">游戏排行榜/2020年08月02日-星际战甲，王者荣耀热度再上涨</span>
+                      <a href="/2020/08/04/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8803%E6%97%A5-%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E9%98%BF%E5%8F%A4%E6%9C%B5%EF%BC%8C%E8%80%80FMVP%E7%9A%AE%E8%82%A4%E4%B8%8A%E7%BA%BF%E5%89%8D%E5%A4%95/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月03日-王者荣耀阿古朵，耀FMVP皮肤上线前夕</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -747,7 +446,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "游戏排行榜/2020年08月03日-王者荣耀阿古朵，耀FMVP皮肤上线前夕&nbsp;",
+        "阿里巴巴的后门程序：AlibabaProtect.exe删除过程&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

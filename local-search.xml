@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>阿里巴巴的后门程序：AlibabaProtect.exe删除过程</title>
+    <link href="/2020/08/05/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F%EF%BC%9AAlibabaProtect.exe%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B/"/>
+    <url>/2020/08/05/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E7%9A%84%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F%EF%BC%9AAlibabaProtect.exe%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>偶然发现了一个阿里巴巴的后门程序：<code>AlibabaProtect.exe</code>。</p><p>通过查询了一些资料，显示该应用不仅会占用大量的内存和<code>CPU</code>性能，还会占用一部分带宽，并且没有任何的文档说明该应用的具体功能，所以网上对它有很多猜测，说它在后台监视你的一举一动，记录你电脑的使用情况，进行精准的投放广告以及其它细思极恐的事情。</p><p>具体网上的分析就不谈了，反正就是流氓程序。</p><h2 id="1-1-发现"><a href="#1-1-发现" class="headerlink" title="1.1 发现"></a>1.1 发现</h2><p><img src="/image/image-20200805010539250.png" srcset="/img/loading.gif" alt="image-20200805010539250"></p><p>在任务管理器上面可以查看到这样的一个进程，可以看到占用了非常少的<code>CPU</code>和内存，本来这样一个程序放在那里不管也行，但是勾选它点击结束任务没有任何反应！这点就非常恐怖，到底该程序有着什么样的功能，居然无法结束进程。</p><p>定位到该程序目录：</p><p><img src="/image/image-20200805012238080.png" srcset="/img/loading.gif" alt="image-20200805012238080"></p><p>直接尝试删除该文件夹：</p><p><img src="/image/image-20200805012401943.png" srcset="/img/loading.gif" alt="image-20200805012401943"></p><p>提示<strong>没有获得权限。</strong></p><p>尝试更改该文件夹的只读权限：</p><p><img src="/image/image-20200805012604654.png" srcset="/img/loading.gif" alt="image-20200805012604654"></p><p><strong>被拒绝访问。</strong></p><h1 id="2-火绒"><a href="#2-火绒" class="headerlink" title="2. 火绒"></a>2. 火绒</h1><p>因为它是一个服务，所以就想着火绒是否可以快速的结束它。</p><p><img src="/image/image-20200805011009528.png" srcset="/img/loading.gif" alt="image-20200805011009528"></p><p>找到了该项，设置为禁止启动，然后重启。</p><p><strong>最终结果：无效。</strong></p><p>到这里更加加深了我的恐惧，究竟是什么样的程序，怎么样的启动方式，居然通过常规手段无法禁止它启动。</p><h1 id="3-删除方法"><a href="#3-删除方法" class="headerlink" title="3. 删除方法"></a>3. 删除方法</h1><p>方法很简单，简单的让我觉得有点不可思议，因为上面尝试删除的过程那么曲折：</p><ol><li>在键盘上按下<code>win</code>+<code>r</code>键（<code>win</code>键在<code>Alt</code>键左侧），输入<code>cmd</code>。</li></ol><p><img src="/image/image-20200805013816714.png" srcset="/img/loading.gif" alt="image-20200805013816714"></p><ol start="2"><li>在打开的窗口中输入：<code>sc delete AlibabaProtect</code>，再点击回车，会得到成功提示（因为我已经删除过了，所以无法截图成功时的提示）。</li></ol><p><img src="/image/image-20200805013902968.png" srcset="/img/loading.gif" alt="image-20200805013902968"></p><ol start="3"><li>重启电脑，进入<code>C:\Program Files (x86)</code>目录，删除<code>AlibabaProtect</code>整个文件夹，这下终于能顺利删除该文件夹了。</li><li>最后打开任务管理器，可以看到<code>alibaba pc safe service</code>，这项进程已经消失。</li></ol><h1 id="4-最后"><a href="#4-最后" class="headerlink" title="4. 最后"></a>4. 最后</h1><p>据说彻底禁用该程序后会导致阿里系的某些软件出现无法启动的情况，比如：<strong>千牛</strong>。</p><p>如果有阿里系的软件需要运行，例如：<strong>旺旺</strong>，该进程可能无法通过文章中的方法进行禁止。</p><p>是否禁止还是要根据自身情况来定。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其它</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>后门程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>游戏排行榜/2020年08月03日-王者荣耀阿古朵，耀FMVP皮肤上线前夕</title>
     <link href="/2020/08/04/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8803%E6%97%A5-%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E9%98%BF%E5%8F%A4%E6%9C%B5%EF%BC%8C%E8%80%80FMVP%E7%9A%AE%E8%82%A4%E4%B8%8A%E7%BA%BF%E5%89%8D%E5%A4%95/"/>
     <url>/2020/08/04/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8803%E6%97%A5-%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E9%98%BF%E5%8F%A4%E6%9C%B5%EF%BC%8C%E8%80%80FMVP%E7%9A%AE%E8%82%A4%E4%B8%8A%E7%BA%BF%E5%89%8D%E5%A4%95/</url>
