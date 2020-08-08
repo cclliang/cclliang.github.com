@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>GitHub为什么连接缓慢以及解决方法 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-08 22:43">
+                    2020年8月8日 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    915 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    10
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>之前有一篇文章介绍了<code>Git</code>的使用方法：<a href="/2020/07/13/%E9%A1%B9%E7%9B%AE%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%A5%9E%E5%99%A8-Git/" title="项目或者文件管理神器-Git">项目或者文件管理神器-Git</a>。</p>
+<p>一般对于电脑有一定认知的人都会知道<code>GitHub</code>，但是因为<code>GitHub</code>的服务器在国外，所以有时候连接速度非常的感人。</p>
+<p>我们通过<code>ipip.net</code>的路由跟踪来看一下我们访问<code>GitHub</code>走的线路。</p>
+<p><img src="/image/image-20200806235520307.png" srcset="/img/loading.gif" alt="image-20200806235520307"></p>
+<p>可以看到在广州出口走的骨干网到新加坡的服务器，这就是为什么访问<code>GitHub</code>有时候会异常缓慢的原因，尤其是在晚高峰时期，通过骨干网出口的数据量过于庞大，电信还会选择权重不高的用户进行丢包，从而缓解骨干网拥挤的问题。</p>
+<p>具体的服务器和线路详解可以参考：<a href="/2020/07/21/VPS%E7%9A%84%E5%90%84%E7%A7%8D%E7%BA%BF%E8%B7%AF%E5%88%B0%E5%BA%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/" title="VPS的各种线路到底有什么区别">VPS的各种线路到底有什么区别</a>。</p>
+<h1 id="2-终极解决办法"><a href="#2-终极解决办法" class="headerlink" title="2. 终极解决办法"></a>2. 终极解决办法</h1><p>看了网上有非常多的帖子说修改host，但是我个人认为，修改host并不能解决骨干网晚高峰拥挤的问题。</p>
+<p>终极解决方法是通过代理服务器。</p>
+<p>首先你需要有一个境外的服务器，参考<a href="/2020/07/21/VPS%E7%9A%84%E5%90%84%E7%A7%8D%E7%BA%BF%E8%B7%AF%E5%88%B0%E5%BA%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/" title="VPS的各种线路到底有什么区别">VPS的各种线路到底有什么区别</a>该文章中讲解的服务器，或者你有其它的代理软件也可以，但是<strong>连接代理服务器时的出口线路一定不能是骨干网，不然跟直连没有任何区别，依然连接缓慢</strong>。</p>
+<p>关于代理服务器这里就不详细讲解了，这篇文章着重讲解如何通过代理服务器来连接<code>GitHub</code>，从而摆脱缓慢的<code>Clone</code>速度。</p>
+<h2 id="2-1-代码"><a href="#2-1-代码" class="headerlink" title="2.1 代码"></a>2.1 代码</h2><pre><code class="hljs bash"><span class="hljs-comment"># 设置ss</span>
+git config --global http.proxy socks5://127.0.0.1:1080
+
+git config --global https.proxy socks5://127.0.0.1:1080
+
+<span class="hljs-comment"># 设置代理</span>
+git config --global https.proxy http://127.0.0.1:1080
+
+git config --global https.proxy https://127.0.0.1:1080
+
+<span class="hljs-comment"># 取消代理</span>
+git config --global --<span class="hljs-built_in">unset</span> http.proxy
+
+git config --global --<span class="hljs-built_in">unset</span> https.proxy
+
+<span class="hljs-comment"># 仅代理GitHub</span>
+git config --global http.https://github.com.proxy https://127.0.0.1:1080
+
+git config --global https.https://github.com.proxy https://127.0.0.1:1080</code></pre>
+
+<h2 id="2-2-步骤"><a href="#2-2-步骤" class="headerlink" title="2.2 步骤"></a>2.2 步骤</h2><p>首先需要知道你的代理服务器使用的端口号，在你的代理软件上可以看到，一般是<code>1080</code>，但是<code>Clash</code>默认使用的是<code>7890</code>。</p>
+<ol>
+<li>打开Git命令窗口，该窗口安装Git后在文件夹中点击右键选择<code>Git bash here</code>就会出现：</li>
+</ol>
+<p><img src="/image/image-20200807001106816.png" srcset="/img/loading.gif" alt="image-20200807001106816"></p>
+<ol start="2">
+<li>输入<code>git config --global http.proxy socks5://127.0.0.1:1080</code>点击回车。（<code>1080</code>需要填写你的代理软件使用的端口号，我的是<code>7890</code>）</li>
+</ol>
+<p><img src="/image/image-20200807005413488.png" srcset="/img/loading.gif" alt="image-20200807005413488"></p>
+<ol start="3">
+<li>没有任何消息就是最好的消息，这个时候就设置完成了。</li>
+</ol>
+<p><strong>注意：其它的设置可以参考上面给出的代码。</strong></p>
+<h1 id="3-速度测试"><a href="#3-速度测试" class="headerlink" title="3. 速度测试"></a>3. 速度测试</h1><h2 id="3-1-没有用代理的速度"><a href="#3-1-没有用代理的速度" class="headerlink" title="3.1 没有用代理的速度"></a>3.1 没有用代理的速度</h2><p><img src="/image/image-20200807004012064.png" srcset="/img/loading.gif" alt="image-20200807004012064"></p>
+<h2 id="3-2-用代理后的速度"><a href="#3-2-用代理后的速度" class="headerlink" title="3.2 用代理后的速度"></a>3.2 用代理后的速度</h2><p>设置完毕后，<code>Clone</code>和<code>git push</code>的速度就跟你代理服务器的质量密切相关。</p>
+<p><img src="/image/image-20200807001636943.png" srcset="/img/loading.gif" alt="image-20200807001636943"></p>
+<h1 id="4-使用镜像站"><a href="#4-使用镜像站" class="headerlink" title="4. 使用镜像站"></a>4. 使用镜像站</h1><p>该方法仅对<code>git clone</code>有用，对<code>git push</code>无效，并且无法登陆账号，私人项目无法进行<code>Clone</code>。</p>
+<p>比如<code>Clone</code> <code>Vue</code>项目，项目地址：<code>https://github.com/vuejs/vue.git</code>。</p>
+<p>则将地址改为<code>https://github.com.cnpmjs.org/vuejs/vue.git</code>。</p>
+<h2 id="4-1-速度"><a href="#4-1-速度" class="headerlink" title="4.1 速度"></a>4.1 速度</h2><p><img src="/image/image-20200807011539081.png" srcset="/img/loading.gif" alt="image-20200807011539081"></p>
+<p>只需要在<code>Clone</code>时将项目地址中的<code>github.com</code>改为<code>github.com.cnpmjs.org</code>，就可以使用镜像站。</p>
+<p>那么为什么该镜像网站会这么快呢？我们再次通过<code>ipip.net</code>的路由跟踪测试一下：</p>
+<p><img src="/image/image-20200807011733439.png" srcset="/img/loading.gif" alt="image-20200807011733439"></p>
+<p>可以看到，在省级城市已经走上了<code>59.43</code>开头的线路，说明该服务器用的是<code>CN2 GIA</code>的线路，所以拥有这么快的传输速度完全不奇怪。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%85%B6%E5%AE%83/">其它</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/GitHub/">GitHub</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/08/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8807%E6%97%A5-%E5%88%80%E5%A1%942%E7%83%AD%E5%BA%A6%E5%A4%A7%E5%B9%85%E5%BA%A6%E4%B8%8B%E6%BB%91/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月07日-刀塔2热度大幅度下滑</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "GitHub为什么连接缓慢以及解决方法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
