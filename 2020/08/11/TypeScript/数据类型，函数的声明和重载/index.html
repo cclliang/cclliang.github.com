@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>TypeScript/数据类型，函数的声明和重载 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-11 16:01">
+                    2020年8月11日 下午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2.2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    26
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><h2 id="1-1-TypeScript是什么？"><a href="#1-1-TypeScript是什么？" class="headerlink" title="1.1 TypeScript是什么？"></a>1.1 TypeScript是什么？</h2><p>TypeScript是一种开源的编程语言，该语言项目由微软进行维护和管理。TypeScript不仅包含JavaScript的语法，而且还提供了静态类型检查以及使用看起来像基于类的面向对象编程语法操作Prototype。</p>
+<p>注意：其实TypeScript最终会编译成为JavaScript再进行运行，所以即使有时候TypeScript在编译中进行报错，但是代码依然能够正常运行。</p>
+<p>换句话说TypeScript是JavaScript的严格超集，任何现有的JavaScript程序都是合法的TypeScript程序。</p>
+<h2 id="1-2-为什么要学习TypeScript？"><a href="#1-2-为什么要学习TypeScript？" class="headerlink" title="1.2 为什么要学习TypeScript？"></a>1.2 为什么要学习TypeScript？</h2><p>因为JavaScript是一种弱类型的语言，并且在ES6之前都没有引入类（Class）的概念，而且JavaScript没有实现接口这一项重要的功能，而随着前端项目的深度和广度日益扩大，使用JavaScript做中大型项目和团队协作开发时就可能会出现很多潜在的BUG以及代码耦合性强的问题，所以这个时候TypeScript的出现就是为了解决这些问题。</p>
+<p>到目前为止，已经有非常多的前端团队开始使用TypeScript，并且现在的前端主流框架Vue3.0已经开始使用TypeScript进行编写，所以学习TypeScript已经是一件刻不容缓的事情。</p>
+<h2 id="1-3-怎么学习TypeScript？"><a href="#1-3-怎么学习TypeScript？" class="headerlink" title="1.3 怎么学习TypeScript？"></a>1.3 怎么学习TypeScript？</h2><p>如果你已经有一项后端语言（C#，Java等）的基础，那么学习TypeScript是一件非常容易的事情，当然，即使你没有后端语言的基础，学习TypeScript也并非是一件困难的事情。</p>
+<p>推荐直接查看<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">官方文档</a>。</p>
+<h1 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2. 开始使用"></a>2. 开始使用</h1><p>推荐使用前端最流行的编辑器vscode，虽然我个人更喜欢使用webstorm。</p>
+<h2 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h2><pre><code class="hljs shell">npm install -g typescript</code></pre>
+
+<p>TypeScript文件的后缀名为<code>.ts</code></p>
+<h2 id="2-2-编译"><a href="#2-2-编译" class="headerlink" title="2.2 编译"></a>2.2 编译</h2><pre><code class="hljs shell">tsc index.ts</code></pre>
+
+<h3 id="2-2-1-自动编译"><a href="#2-2-1-自动编译" class="headerlink" title="2.2.1 自动编译"></a>2.2.1 自动编译</h3><pre><code class="hljs shell">tsc --init</code></pre>
+
+<p>打开生成的<code>tsconfig.json</code></p>
+<p>找到<code>outDir</code>，取消注释。</p>
+<p><img src="/image/TypeScript/image-20200811000443934.png" srcset="/img/loading.gif" alt="image-20200811000443934"></p>
+<p>修改为：<code>&quot;outDir&quot;: &quot;src/js&quot;,</code>或者其它你喜欢的目录。</p>
+<p><code>终端</code> - <code>运行任务</code> -<code>tsc: 监视</code></p>
+<p>设置完毕后会看到下面的文件目录：</p>
+<p><img src="/image/TypeScript/image-20200811002358534.png" srcset="/img/loading.gif" alt="image-20200811002358534"></p>
+<p>附：webpack中可以使用ts-loader。</p>
+<h1 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h1><p><code>TypeScript</code>中为了使编写的代码更规范，更有利于维护，增加了类型校验</p>
+<ul>
+<li>布尔类型（<code>boolean</code>）</li>
+<li>数字类型（<code>number</code>）</li>
+<li>字符串类型（<code>string</code>）</li>
+<li>数组类型（<code>array</code>）</li>
+<li>元组类型（<code>tuple</code>）</li>
+<li>枚举类型（<code>enum</code>）</li>
+<li>任意类型（<code>any</code>）</li>
+<li><code>null</code>和<code>undefined</code></li>
+<li><code>void</code>类型：没有任何类型，通常用来表示函数的返回值。</li>
+<li><code>never</code>类型：表示的是那些永不存在的值的类型。</li>
+</ul>
+<h2 id="3-1-变量声明"><a href="#3-1-变量声明" class="headerlink" title="3.1 变量声明"></a>3.1 变量声明</h2><p>变量的声明方式和JavaScript差不多，不过唯一不同的就是需要在后面加上数据类型，例如：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">let</span> isDone: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>; <span class="hljs-comment">// boolean类型</span>
+
+<span class="hljs-comment">// 数字类型 支持：二进制，八进制，十进制，十六进制</span>
+<span class="hljs-keyword">let</span> decLiteral: <span class="hljs-built_in">number</span> = <span class="hljs-number">6</span>;
+<span class="hljs-keyword">let</span> hexLiteral: <span class="hljs-built_in">number</span> = <span class="hljs-number">0xf00d</span>;
+<span class="hljs-keyword">let</span> binaryLiteral: <span class="hljs-built_in">number</span> = <span class="hljs-number">0b1010</span>;
+<span class="hljs-keyword">let</span> octalLiteral: <span class="hljs-built_in">number</span> = <span class="hljs-number">0o744</span>;
+
+<span class="hljs-comment">// 字符串类型</span>
+<span class="hljs-keyword">let</span> name: <span class="hljs-built_in">string</span> = <span class="hljs-string">"bob"</span>;
+
+<span class="hljs-comment">// 数组类型</span>
+<span class="hljs-keyword">let</span> list: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> list: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt; = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+<span class="hljs-comment">// 元组类型</span>
+<span class="hljs-keyword">let</span> x: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>];
+x = [<span class="hljs-string">'hello'</span>, <span class="hljs-number">10</span>]; <span class="hljs-comment">// OK</span>
+
+<span class="hljs-comment">// 枚举类型</span>
+<span class="hljs-keyword">enum</span> Color &#123;Red, Green, Blue&#125;
+<span class="hljs-keyword">let</span> c: Color = Color.Green;
+
+<span class="hljs-comment">// void：函数无返回值</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">warnUser</span>(<span class="hljs-params"></span>): <span class="hljs-title">void</span> </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"This is my warning message"</span>);
+&#125;</code></pre>
+
+<h2 id="3-2-元组-tuple"><a href="#3-2-元组-tuple" class="headerlink" title="3.2 元组 tuple"></a>3.2 元组 tuple</h2><p>元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。 比如，你可以定义一对值分别为 <code>string</code>和<code>number</code>类型的元组。</p>
+<pre><code class="hljs typescript"><span class="hljs-comment">// 声明元组</span>
+<span class="hljs-keyword">let</span> x: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>];
+<span class="hljs-comment">// 初始化</span>
+x = [<span class="hljs-string">'hello'</span>, <span class="hljs-number">10</span>]; <span class="hljs-comment">// 编译正确</span>
+<span class="hljs-comment">// 错误的初始化</span>
+x = [<span class="hljs-number">10</span>, <span class="hljs-string">'hello'</span>]; <span class="hljs-comment">// 报错</span></code></pre>
+
+<h2 id="3-3-枚举-enum"><a href="#3-3-枚举-enum" class="headerlink" title="3.3 枚举 enum"></a>3.3 枚举 enum</h2><p>使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">enum</span> Direction &#123;
+  up,
+  down,
+  left,
+  right,
+&#125;</code></pre>
+
+<p>如果在不指定枚举的值的情况下，<code>Up</code>使用初始化为 <code>0</code>。 其余的成员会从 <code>0</code>开始自动增长。 换句话说， <code>Direction.Up</code>的值为 <code>0</code>， <code>Down</code>为 <code>1</code>， <code>Left</code>为 <code>2</code>， <code>Right</code>为 <code>3</code>。</p>
+<h3 id="3-3-1-为什么要使用枚举？"><a href="#3-3-1-为什么要使用枚举？" class="headerlink" title="3.3.1 为什么要使用枚举？"></a>3.3.1 为什么要使用枚举？</h3><p>枚举的具体使用过程在这里就不细说了，这里就说一下为什么要使用枚举。</p>
+<p>如果上面的枚举写成普通的形式，即为：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">let</span> up:<span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">let</span> down:<span class="hljs-built_in">number</span> = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">let</span> left:<span class="hljs-built_in">number</span> = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">let</span> right:<span class="hljs-built_in">number</span> = <span class="hljs-number">3</span>;</code></pre>
+
+<p>其实通过其它的方式也可以实现类似于枚举的效果，但是使用枚举会更加方便快捷而且不容易出错，推荐能够使用枚举的地方尽量使用枚举。</p>
+<h2 id="3-4-never"><a href="#3-4-never" class="headerlink" title="3.4 never"></a>3.4 never</h2><p><code>never</code>类型表示的是那些永不存在的值的类型。</p>
+<pre><code class="hljs typescript"><span class="hljs-comment">// 返回never的函数必须存在无法达到的终点</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">error</span>(<span class="hljs-params">message: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">never</span> </span>&#123;
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(message);
+&#125;
+
+<span class="hljs-comment">// 推断的返回值类型为never</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fail</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> error(<span class="hljs-string">"Something failed"</span>);
+&#125;
+
+<span class="hljs-comment">// 返回never的函数必须存在无法达到的终点</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">infiniteLoop</span>(<span class="hljs-params"></span>): <span class="hljs-title">never</span> </span>&#123;
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;
+    &#125;
+&#125;</code></pre>
+
+<h1 id="4-函数"><a href="#4-函数" class="headerlink" title="4. 函数"></a>4. 函数</h1><p>TypeScript和JavaScript一样，可以创建有名字的函数以及匿名函数。</p>
+<h2 id="4-1-函数的声明"><a href="#4-1-函数的声明" class="headerlink" title="4.1 函数的声明"></a>4.1 函数的声明</h2><p>跟大多数后端语言一样，TypeScript中声明函数时<strong>需要指定函数的返回值，以及参数的类型</strong>，例如：</p>
+<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>&#123;
+    <span class="hljs-keyword">return</span> x + y;
+&#125;
+
+<span class="hljs-keyword">let</span> myAdd = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>&#123; <span class="hljs-keyword">return</span> x + y; &#125;;</code></pre>
+
+<p>还可以使用箭头函数<code>=&gt;</code>进行函数声明：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">let</span> myAdd: <span class="hljs-function">(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">number</span> =
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>&#123; <span class="hljs-keyword">return</span> x + y; &#125;;</code></pre>
+
+<p>其实即使不声明函数的返回值和参数类型，编译后也能运行，但是TypeScript编译器会报错，不过既然使用了TypeScript，那还是需要按照它的规范来编写代码。</p>
+<p>可以看到，TypeScript中声明函数比JavaScript声明函数需要多写很多代码，但是多些这些代码其实是有好处的，尤其是在大型的项目中，比如有<code>add()</code>这个函数，在JavaScript中可以传递任何类型的参数进去，甚至<code>string</code>类型，这可能就会导致程序出错。</p>
+<p>而在TypeScript中就指定了只能传递<code>number</code>类型，出错的几率就会大大降低。这就是为什么近些年前端的中大型项目都使用TypeScript进行开发。</p>
+<h2 id="4-2-参数"><a href="#4-2-参数" class="headerlink" title="4.2 参数"></a>4.2 参数</h2><h3 id="4-2-1-可选参数"><a href="#4-2-1-可选参数" class="headerlink" title="4.2.1 可选参数"></a>4.2.1 可选参数</h3><p>JavaScript里，每个参数都是可选的，可传可不传。 没传参的时候，它的值就是undefined。 在TypeScript里我们可以在参数名旁使用 <code>?</code>实现可选参数的功能。</p>
+<p>可选参数必须跟在必须参数后面。 如果上例我们想让firstname是可选的，那么就必须调整它们的位置，把firstname放在后面。</p>
+<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myName</span>(<span class="hljs-params">firstName: <span class="hljs-built_in">string</span>, lastName?: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">void</span> </span>&#123;
+  <span class="hljs-built_in">console</span>.log(firstName + lastName);
+&#125;</code></pre>
+
+<h3 id="4-2-2-默认参数"><a href="#4-2-2-默认参数" class="headerlink" title="4.2.2 默认参数"></a>4.2.2 默认参数</h3><p>我们在设置参数时，也可以给参数一个默认值，如果没有传参，那么该参数的值就是我们给定的默认值。</p>
+<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myName</span>(<span class="hljs-params">firstName: <span class="hljs-built_in">string</span>, lastName: <span class="hljs-built_in">string</span> = "张三"</span>): <span class="hljs-title">void</span> </span>&#123;
+  <span class="hljs-built_in">console</span>.log(firstName + lastName);
+&#125;</code></pre>
+
+<p>与普通可选参数不同的是，<strong>带默认值的参数不需要放在必须参数的后面</strong>。 如果带默认值的参数出现在必须参数前面，用户必须明确的传入 <code>undefined</code>值来获得默认值。</p>
+<h3 id="4-2-3-剩余参数"><a href="#4-2-3-剩余参数" class="headerlink" title="4.2.3 剩余参数"></a>4.2.3 剩余参数</h3><p>如果你想要操作多个参数，或者你不知道该函数会传入多少个参数，在TypeScript里，你可以把所有参数收集到一个变量里：</p>
+<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildName</span>(<span class="hljs-params">firstName: <span class="hljs-built_in">string</span>, ...restOfName: <span class="hljs-built_in">string</span>[]</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> firstName + <span class="hljs-string">" "</span> + restOfName.join(<span class="hljs-string">" "</span>);
+&#125;
+
+<span class="hljs-keyword">let</span> employeeName = buildName(<span class="hljs-string">"Joseph"</span>, <span class="hljs-string">"Samuel"</span>, <span class="hljs-string">"Lucas"</span>, <span class="hljs-string">"MacKinzie"</span>);</code></pre>
+
+<p>剩余参数会被当做个数不限的可选参数。 可以一个都没有，同样也可以有任意个。</p>
+<h2 id="4-3-重载"><a href="#4-3-重载" class="headerlink" title="4.3 重载"></a>4.3 重载</h2><p>重载就是拥有很多个同名函数，但是会根据传入不同的参数而返回不同类型的数据。</p>
+<p>例如下面的函数：</p>
+<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getInfo</span>(<span class="hljs-params">name:<span class="hljs-built_in">string</span></span>):<span class="hljs-title">string</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getInfo</span>(<span class="hljs-params">age:<span class="hljs-built_in">number</span></span>):<span class="hljs-title">string</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getInfo</span>(<span class="hljs-params">str:<span class="hljs-built_in">any</span></span>):<span class="hljs-title">any</span> </span>&#123;
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> str === <span class="hljs-string">"string"</span>)&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"name"</span> +str;
+    &#125;<span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"年龄"</span>+str
+    &#125;
+&#125;
+
+<span class="hljs-built_in">console</span>.log(getInfo(<span class="hljs-literal">false</span>));<span class="hljs-comment">//如果传入非上面两种数据类型会报错</span></code></pre>
+
+<p>虽然调用函数名称都是<code>getInfo()</code>但是根据传入的参数，会得到不同的结果，因为重载算是一个很重要的功能，所以如果有机会的话，会单独对重载进行一次比较深度的研究。</p>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><p>本篇文章只是起到抛砖引玉的作用，也是为了记录学习TypeScript的过程，所以很多细节都没有写到，如果需要系统学习，建议还是参照<a href="https://www.tslang.cn/docs/handbook/functions.html" target="_blank" rel="noopener">TypeScript文档</a>，或者网上的学习视频。</p>
+<p>总之，有了JavaScript的基础，TypeScript也仅仅是在JavaScript的基础上新加了一些东西，所以学习起来也并不困难。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/TypeScript/">TypeScript</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/11/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8810%E6%97%A5-%E6%96%B0%E5%A2%9E%E6%89%8B%E6%B8%B8%E5%85%B3%E9%94%AE%E8%AF%8D%EF%BC%9A%E6%B5%AE%E7%94%9F%E4%B8%BA%E5%8D%BF%E6%AD%8C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">游戏排行榜/2020年08月10日-新增手游关键词：浮生为卿歌</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/10/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8809%E6%97%A5-%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF%E7%83%AD%E5%BA%A6%E5%9B%9E%E8%90%BD%EF%BC%8C%E9%AD%94%E5%9F%9F%E9%87%8D%E8%BF%94%E6%89%8B%E6%B8%B8%E6%A6%9C/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月09日-穿越火线热度回落，魔域重返手游榜</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "TypeScript/数据类型，函数的声明和重载&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

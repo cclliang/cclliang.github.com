@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>TypeScript/类和接口的使用 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-11 23:22">
+                    2020年8月11日 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    30
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>前一篇文章介绍了TypeScript的入门：<a href="/2020/08/11/TypeScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E9%87%8D%E8%BD%BD/" title="TypeScript数据类型，函数的声明和重载">TypeScript数据类型，函数的声明和重载</a>，所有本篇文章就来介绍一下TypeScript的高级编程，类的使用。</p>
+<h1 id="2-类"><a href="#2-类" class="headerlink" title="2. 类"></a>2. 类</h1><p>在ES5中，要使用函数和基于原型的继承来创建可重用的组件，就必须理解TypeScript中的原型和原型链：<a href="/2020/07/31/web%E5%BC%80%E5%8F%91/JavaScript%EF%BC%9A%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/" title="JavaScript：原型链和原型对象">JavaScript：原型链和原型对象</a>，只有理解了JavaScript中的原型和原型链，才能基于原型的继承来创建可重用的组件。</p>
+<p>而从从ECMAScript 2015，也就是ECMAScript 6开始，JavaScript程序员将能够使用基于类的面向对象的方式，虽然主流的浏览器已经支持ES6，但是如果想要兼容老版本浏览器，那就必须将ES6代码转换为ES5代码，虽然现在使用webpack这一点已经不用再过多的去操心。</p>
+<p>而使用TypeScript中基于类的面向对象方式，编译后的JavaScript可以在所有主流浏览器和平台上运行。</p>
+<p>在目前的主流框架中的模块化，则也是基于面向对象进行实现的。</p>
+<p>下面是一个类的例子：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Student &#123;
+  <span class="hljs-keyword">private</span> name: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> age: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">private</span> sex: <span class="hljs-built_in">string</span>;
+  <span class="hljs-comment">// 构造函数</span>
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span>, sex: <span class="hljs-built_in">string</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.age = age;
+    <span class="hljs-keyword">this</span>.sex = sex;
+  &#125;
+  show(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-keyword">this</span>.age + <span class="hljs-keyword">this</span>.sex);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"张三"</span>, <span class="hljs-number">18</span>, <span class="hljs-string">"男"</span>);
+s.show();</code></pre>
+
+<h2 id="2-1-面向对象三要素"><a href="#2-1-面向对象三要素" class="headerlink" title="2.1 面向对象三要素"></a>2.1 面向对象三要素</h2><p>在面向对象中有三要素：</p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+<p>这三要素在面试中偶尔会询问到。</p>
+<h2 id="2-2-封装"><a href="#2-2-封装" class="headerlink" title="2.2 封装"></a>2.2 封装</h2><p>一种将抽象性函数接口的实现细节部分包装、隐藏起来的方法。同时，它也是一种防止外界调用端，去访问对象内部实现细节的手段，这个手段是由编程语言本身来提供的。</p>
+<h2 id="2-3-继承（Inheritance）"><a href="#2-3-继承（Inheritance）" class="headerlink" title="2.3 继承（Inheritance）"></a>2.3 继承（Inheritance）</h2><p>继承是面向对象中一个非常重要的概念，使用继承会大大的减少代码量，以及提高代码复用性。</p>
+<p>例子：</p>
+<p>如果有一个需求，需要管理一个班级上老师和学生的信息以及行为。</p>
+<p>那么你应该怎么样去实现这个代码呢？</p>
+<ol>
+<li><p>首先我们要分析老师和学生有哪些信息和行为。</p>
+<ul>
+<li>老师的信息和行为：姓名，性别，年龄，授课。</li>
+<li>学生的信息和行为：姓名，性别，年龄，学习。</li>
+</ul>
+</li>
+<li><p>假设老师和学生的信息和行为就分为上面4种，那么我们就需要通过代码进行实现。</p>
+<ul>
+<li><p>不通过继承进行实现。</p>
+</li>
+<li><p>通过继承进行实现。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-3-1-不通过继承进行实现"><a href="#2-3-1-不通过继承进行实现" class="headerlink" title="2.3.1 不通过继承进行实现"></a>2.3.1 不通过继承进行实现</h3><pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Student &#123;
+  name: <span class="hljs-built_in">string</span>;
+  sex: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, sex: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.sex = sex;
+    <span class="hljs-keyword">this</span>.age = age;
+  &#125;
+  learn(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在学习"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> Teacher &#123;
+  name: <span class="hljs-built_in">string</span>;
+  sex: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, sex: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.sex = sex;
+    <span class="hljs-keyword">this</span>.age = age;
+  &#125;
+  teach(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在授课"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> s1: Student = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"张三"</span>, <span class="hljs-string">"男"</span>, <span class="hljs-number">15</span>);
+s1.learn(); <span class="hljs-comment">// 张三在学习</span>
+
+<span class="hljs-keyword">let</span> teacher = <span class="hljs-keyword">new</span> Teacher(<span class="hljs-string">"王五"</span>, <span class="hljs-string">"男"</span>, <span class="hljs-number">50</span>);
+teacher.teach(); <span class="hljs-comment">// 王五在授课</span></code></pre>
+
+<p>观察上面的代码可以发现，在类的声明中出现了非常多的重复代码，比如：姓名，性别，年龄，这3项属性，老师和学生都拥有，但是在这里我们就写了2次。那么如果我们后期还需要添加一个”校长”类，那我们岂不是还需要再次重复写一遍这些代码？</p>
+<p>为了解决上面的问题，我们就需要用到<strong>继承</strong>。</p>
+<h3 id="2-3-2-通过继承进行实现"><a href="#2-3-2-通过继承进行实现" class="headerlink" title="2.3.2 通过继承进行实现"></a>2.3.2 通过继承进行实现</h3><pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Person &#123;
+  name: <span class="hljs-built_in">string</span>;
+  sex: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, sex: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.sex = sex;
+    <span class="hljs-keyword">this</span>.age = age;
+  &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> Student <span class="hljs-keyword">extends</span> Person &#123;
+  learn(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在学习"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> Teacher <span class="hljs-keyword">extends</span> Person &#123;
+  teach(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在授课"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> s1: Student = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">"张三"</span>, <span class="hljs-string">"男"</span>, <span class="hljs-number">15</span>);
+s1.learn(); <span class="hljs-comment">// 张三在学习</span>
+
+<span class="hljs-keyword">let</span> teacher = <span class="hljs-keyword">new</span> Teacher(<span class="hljs-string">"王五"</span>, <span class="hljs-string">"男"</span>, <span class="hljs-number">50</span>);
+teacher.teach(); <span class="hljs-comment">// 王五在授课</span></code></pre>
+
+<p>在上面的代码中实际上编译器已经帮我们创建了构造函数。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Student <span class="hljs-keyword">extends</span> Person &#123;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, sex: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;
+        <span class="hljs-keyword">super</span>(name, age, sex);  <span class="hljs-comment">//编译时默认会写</span>
+    &#125;
+&#125;</code></pre>
+
+<p>可以看到，两种代码一对比，使用继承好像并没有减少太多的代码量，但是你如果想要新增一个“校长”类，继承的作用就会体验的淋漓尽致。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Schoolmaster <span class="hljs-keyword">extends</span> Person &#123;
+  management(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在管理师生"</span>);
+  &#125;
+&#125;</code></pre>
+
+<h2 id="2-4-抽象类"><a href="#2-4-抽象类" class="headerlink" title="2.4 抽象类"></a>2.4 抽象类</h2><p>通过上面的例子后，我们可以看到<code>Person</code>这个类单纯是用来作为基类，而不需要进行实例化的，这个时候我们就可以将<code>Person</code>类设定为抽象类。</p>
+<p>关键词：<code>abstract</code>。 </p>
+<ul>
+<li>提供其他类继承的基类，不能直接被实例化。</li>
+<li>用<code>abstract</code>关键字定义抽象类和抽象方法，抽象类中的抽象方法不包含具体实现并且必须在派生类中实现。</li>
+<li>抽象方法只能放在抽象类里面。</li>
+</ul>
+<p>声明抽象类只需要在<code>class</code>关键词前面加上<code>abstract</code>，即：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> Person &#123;
+  name: <span class="hljs-built_in">string</span>;
+  sex: <span class="hljs-built_in">string</span>;
+  age: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, sex: <span class="hljs-built_in">string</span>, age: <span class="hljs-built_in">number</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.sex = sex;
+    <span class="hljs-keyword">this</span>.age = age;
+  &#125;
+&#125;</code></pre>
+
+<p>当然，抽象类是不能进行实例化的，如果你试图将抽象类进行实例化，那么编译器会报错。</p>
+<p><img src="/image/TypeScript/image-20200811173751743.png" srcset="/img/loading.gif" alt="image-20200811173751743"></p>
+<h2 id="2-5-抽象方法"><a href="#2-5-抽象方法" class="headerlink" title="2.5 抽象方法"></a>2.5 抽象方法</h2><ul>
+<li>抽象类中的抽象方法不包含具体实现但是必须在派生类中实现。 </li>
+<li>抽象方法的语法与接口方法相似。 两者都是定义方法签名但不包含方法体。 </li>
+<li>抽象方法必须包含 <code>abstract</code>关键字并且可以包含访问修饰符。</li>
+</ul>
+<h2 id="2-6-多态"><a href="#2-6-多态" class="headerlink" title="2.6 多态"></a>2.6 多态</h2><p>父类定义的方法在子类中进行实现，每一个子类都有不同的表现。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Animal &#123;
+  name: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+  &#125;
+  eat() &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在吃肉"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> Dog <span class="hljs-keyword">extends</span> Animal &#123;
+  eat() &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在吃肉"</span>);
+  &#125;
+  show() &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"名字叫做"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> d1: Animal = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">"小白"</span>);
+d1.eat(); <span class="hljs-comment">// 小白在吃肉</span>
+d1.show(); <span class="hljs-comment">// 报错</span></code></pre>
+
+<p>当使用多态方式调用方法时，首先检查父类中是否有该方法，如果没有，则编译错误；如果有，再去调用子类的同名方法，当然，多态的用法还需要在项目中一步一步的进行理解。</p>
+<p>不过我之前做前端项目的时候，类都很少用到，因为Vue，React这些已经帮你创建好类了。</p>
+<h2 id="2-7-静态方法和静态属性"><a href="#2-7-静态方法和静态属性" class="headerlink" title="2.7 静态方法和静态属性"></a>2.7 静态方法和静态属性</h2><p>静态方法和静态属性存在于类本身上面而并非在类的实例上。</p>
+<p>一般用于一个类只有一个已经定义好的属性，比如圆周率，对于圆来说就是唯一的值，这个时候就可以申明为静态属性。</p>
+<p>而对于一个类通用的方法，就可以声明为静态方法。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">class</span> Circle &#123;
+  r: <span class="hljs-built_in">number</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">r: <span class="hljs-built_in">number</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.r = r;
+  &#125;
+  <span class="hljs-keyword">static</span> pi = <span class="hljs-number">3.14</span>;
+
+  perimeter(): <span class="hljs-built_in">number</span> &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * Circle.pi * <span class="hljs-keyword">this</span>.r;
+  &#125;
+  <span class="hljs-keyword">static</span> showPI(): <span class="hljs-built_in">number</span> &#123;
+    <span class="hljs-keyword">return</span> Circle.pi;
+  &#125;
+&#125;</code></pre>
+
+<p>注意：<strong>静态方法中只能调用静态属性</strong>。</p>
+<h2 id="2-8-修饰符"><a href="#2-8-修饰符" class="headerlink" title="2.8 修饰符"></a>2.8 修饰符</h2><p>在TypeScript里，成员都默认为 <code>public</code>，而除了<code>public</code>外，还有下面的几种修饰符。</p>
+<ul>
+<li><code>public</code>：（默认）: 在类里面、子类、类外面都可以访问</li>
+<li><code>protected</code>：在类里面、子类里面可以访问，在类外部没法访问</li>
+<li><code>private</code>：在类里面可以访问，子类、类外部都没法访问</li>
+<li><code>static</code>：静态方法</li>
+<li><code>readonly</code>：将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。</li>
+</ul>
+<h1 id="3-接口"><a href="#3-接口" class="headerlink" title="3. 接口"></a>3. 接口</h1><h2 id="3-1-作用"><a href="#3-1-作用" class="headerlink" title="3.1 作用"></a>3.1 作用</h2><ul>
+<li>在面向对象的编程中，接口是一种规范的定义，它定义了行为和动作的规范</li>
+<li>在程序设计里面，接口起到一种限制和规范的作用。接口定义了某一批类所需要遵守的规范</li>
+<li>接口不关心这些类的内部状态数据，也不关心这些类里方法的实现细节，它只规定这批类里必须提供某些方法，提供这些方法的类就可以满足实际需要</li>
+<li>typescrip中的接口类似于java，同时还增加了更灵活的接口类型，包括属性、函数、可索引和类</li>
+</ul>
+<h2 id="3-2-属性类接口"><a href="#3-2-属性类接口" class="headerlink" title="3.2 属性类接口"></a>3.2 属性类接口</h2><p>对传入对象的约束</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> LabelledValue &#123;
+  label: <span class="hljs-built_in">string</span>;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printLabel</span>(<span class="hljs-params">labelledObj: LabelledValue</span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(labelledObj.label);
+&#125;
+
+<span class="hljs-keyword">let</span> myObj = &#123; size: <span class="hljs-number">10</span>, label: <span class="hljs-string">"Size 10 Object"</span> &#125;;
+printLabel(myObj);</code></pre>
+
+<p>如果在声明接口属性时添加<code>?</code>，则即为可选属性。</p>
+<p>例如：</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> LabelledValue &#123;
+  label: <span class="hljs-built_in">string</span>;
+&#125;</code></pre>
+
+<h2 id="3-3-函数类型接口"><a href="#3-3-函数类型接口" class="headerlink" title="3.3 函数类型接口"></a>3.3 函数类型接口</h2><p>对方法传入的<strong>参数</strong>以及<strong>返回值</strong>进行约束。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Encrypt &#123;
+  (key: <span class="hljs-built_in">string</span>, value: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span>;
+&#125;
+
+<span class="hljs-keyword">let</span> md5: Encrypt = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key: <span class="hljs-built_in">string</span>, value: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span> </span>&#123;
+  <span class="hljs-keyword">return</span> key + value;
+&#125;;</code></pre>
+
+<h2 id="3-4-可索引接口"><a href="#3-4-可索引接口" class="headerlink" title="3.4 可索引接口"></a>3.4 可索引接口</h2><p>对数组的约束</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> UserArr &#123;
+  [index: <span class="hljs-built_in">number</span>]: <span class="hljs-built_in">string</span>;
+&#125;
+
+<span class="hljs-keyword">let</span> arr: UserArr = [<span class="hljs-string">"aaa"</span>, <span class="hljs-string">"bbb"</span>];</code></pre>
+
+<p>对对象的约束</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> UserObj &#123;
+  [index: <span class="hljs-built_in">string</span>]: <span class="hljs-built_in">string</span>;
+&#125;
+
+<span class="hljs-keyword">let</span> arr: UserObj = &#123; name: <span class="hljs-string">"张三"</span> &#125;;</code></pre>
+
+<h2 id="3-5-类类型的接口（重要）"><a href="#3-5-类类型的接口（重要）" class="headerlink" title="3.5 类类型的接口（重要）"></a>3.5 类类型的接口（重要）</h2><p>类类型的接口：对类的约束，和抽象类有点相似。</p>
+<p><code>implements</code></p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Animal &#123;
+  name: <span class="hljs-built_in">string</span>;
+  eat(): <span class="hljs-built_in">void</span>;
+&#125;
+
+<span class="hljs-keyword">class</span> Dog <span class="hljs-keyword">implements</span> Animal &#123;
+  name: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+  &#125;
+  eat(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"吃食物"</span>);
+  &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> d = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">"小白"</span>);
+d.eat(); <span class="hljs-comment">// 小白吃食物</span></code></pre>
+
+<h2 id="3-6-接口扩展"><a href="#3-6-接口扩展" class="headerlink" title="3.6 接口扩展"></a>3.6 接口扩展</h2><p>接口可以继承接口。</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">interface</span> Animal &#123;
+  eat(): <span class="hljs-built_in">void</span>;
+&#125;
+
+<span class="hljs-keyword">interface</span> Person <span class="hljs-keyword">extends</span> Animal &#123;
+  work(): <span class="hljs-built_in">void</span>;
+&#125;
+
+<span class="hljs-keyword">class</span> Teacher <span class="hljs-keyword">implements</span> Person &#123;
+  name: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span></span>) &#123;
+    <span class="hljs-keyword">this</span>.name = name;
+  &#125;
+  work(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在工作"</span>);
+  &#125;
+  eat(): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在吃饭"</span>);
+  &#125;
+&#125;</code></pre>
+
+<h1 id="4-最后"><a href="#4-最后" class="headerlink" title="4. 最后"></a>4. 最后</h1><p>本篇文章只是起到抛砖引玉的作用，也是为了记录学习TypeScript的过程，所以很多细节都没有写到，如果需要系统学习，建议还是参照<a href="https://www.tslang.cn/docs/handbook/functions.html" target="_blank" rel="noopener">TypeScript文档</a>，或者网上的学习视频。</p>
+<p>总之，有了JavaScript的基础，TypeScript也仅仅是在JavaScript的基础上新加了一些东西，所以学习起来也并不困难。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/TypeScript/">TypeScript</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/11/TypeScript/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TypeScript/特色功能之装饰器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/11/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8810%E6%97%A5-%E6%96%B0%E5%A2%9E%E6%89%8B%E6%B8%B8%E5%85%B3%E9%94%AE%E8%AF%8D%EF%BC%9A%E6%B5%AE%E7%94%9F%E4%B8%BA%E5%8D%BF%E6%AD%8C/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月10日-新增手游关键词：浮生为卿歌</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "TypeScript/类和接口的使用&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
