@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>面试/JavaScript：原型链和原型对象 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-07-31 11:30">
+                    2020年7月31日 中午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    15
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>原型链和原型对象一直是<code>JavaScript</code>中的一个重要的概念，因为涉及到面向对象。</p>
+<p>在现在的高级语言中，比如<code>Java</code>，<code>C#</code>，<code>C++</code>都采用了面向对象的设计方式，正因如此，<code>JavaScript</code>并没有类的概念，但是<code>JavaScript</code>却大量的使用了对象，而为了保持对象之间的联系，<code>JavaScript</code>引入了原型和原型链的概念。</p>
+<p>即使在<code>ES6</code>后添加了<code>class</code>关键字，但它其实是一种语法糖，它的实现原理依然是通过原型链和原型对象。</p>
+<p>在现在的<code>React</code>和<code>Vue</code>中，已经大量的使用<code>ES6</code>的语法，所以<code>ES6</code>语法必须要进行学习。</p>
+<h1 id="2-原型对象"><a href="#2-原型对象" class="headerlink" title="2. 原型对象"></a>2. 原型对象</h1><p>在初步学习<code>JavaScript</code>原型和原型链的概念时，很容易不知所云，这个时候只有反复研究，再去查阅相关的资料，因为原型和原型链是<code>JavaScript</code>中非常重要的一个概念。</p>
+<p>在<code>JavaScript</code>中，对象本质上就是一个函数，在一般的书写中，对象的声明一般首字母要使用大写，例如：<code>function Person()</code>。而对象的实例化则需要使用到关键字<code>new</code>，例如：<code>let person = new Person();</code>。</p>
+<p>至于<code>new</code>关键字到底做了什么，我们下文中会着重讲解。</p>
+<h2 id="2-1-proto"><a href="#2-1-proto" class="headerlink" title="2.1 __proto__"></a>2.1 <code>__proto__</code></h2><p><code>对象.__proto__</code>：<strong>实例的原型对象</strong>。</p>
+<p><code>对象.__proto__ === 函数.prototype</code>。</p>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;
+
+&#125;
+
+<span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> Person(); <span class="hljs-comment">// 实例化对象</span>
+<span class="hljs-built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="hljs-comment">// true</span></code></pre>
+
+<h2 id="2-2-原型prototype"><a href="#2-2-原型prototype" class="headerlink" title="2.2 原型prototype"></a>2.2 原型prototype</h2><ol>
+<li><p>每一个构造函数都拥有一个<code>prototype</code>属性，这个属性指向一个对象，也就是原型对象。当使用这个构造函数创建实例的时候，<code>prototype</code>属性指向的原型对象就成为实例的原型对象。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;
+&#125;
+
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'在运动'</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(Parsen.prototype === p.__proto__); 	<span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>原型对象默认拥有一个<code>constructor</code>属性，指向指向它的那个构造函数（也就是说构造函数和原型对象是互相指向的关系）。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;
+&#125;
+
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'在运动'</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(Parsen.prototype.constructor === Parsen); <span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>每个对象都拥有一个隐藏的属性<code>[[prototype]]</code>，指向它的原型对象，这个属性可以通过 <code>Object.getPrototypeOf(obj)</code> 或 <code>obj.__proto__</code> 来访问。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;
+&#125;
+
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'在运动'</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getPrototypeOf(p) === p.__proto__); <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getPrototypeOf(p) === Parsen.prototype); <span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>实际上，构造函数的<code>prototype</code>属性与它创建的实例对象的<code>[[prototype]]</code>属性指向的是同一个对象，即 <code>对象.__proto__ === 函数.prototype</code> 。</p>
+</li>
+<li><p>如上文所述，<strong>原型对象就是用来存放实例中共有的那部分属性</strong>。</p>
+</li>
+<li><p>在<code>JavaScript</code>中，所有的对象都是由它的原型对象继承而来，反之，所有的对象都可以作为原型对象存在。</p>
+</li>
+<li><p>访问对象的属性时，<code>JavaScript</code>会首先在对象自身的属性内查找，若没有找到，则会跳转到该对象的原型对象中查找。</p>
+</li>
+</ol>
+<h1 id="3-原型链"><a href="#3-原型链" class="headerlink" title="3. 原型链"></a>3. 原型链</h1><p>了解了什么是原型对象后，我们就可以进一步学习原型链。</p>
+<p>因为<strong>原型对象自身也是一个对象，它也有自己的原型对象，这样层层上溯，就形成了一个类似链表的结构，这就是原型链（prototype chain）</strong>。</p>
+<p>通过下面的图中，我们可以很清晰的观测到整个原型链。</p>
+<p><img src="/image/web/20200303132302223.png" srcset="/img/loading.gif" alt="20200303132302223"></p>
+<p>注意：<strong>原型链的终点都是<code>Object</code>函数的<code>prototype</code>属性，因为在<code>JavaScript</code>中的对象都默认由<code>Object()</code>构造。<code>Objec.prototype</code>指向的原型对象同样拥有原型，不过它的原型是<code>null</code>，而<code>null</code>则没有原型。</strong></p>
+<p>例子：</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在运动"</span>);
+&#125;;
+
+<span class="hljs-built_in">console</span>.log(Parsen.prototype.__proto__ === <span class="hljs-built_in">Object</span>.prototype); <span class="hljs-comment">//true</span></code></pre>
+
+<h1 id="4-new关键字"><a href="#4-new关键字" class="headerlink" title="4. new关键字"></a>4. new关键字</h1><p>可以看到，在实例化对象的时候我们使用了<code>new</code>关键字，即：<code>let person = new Person();</code>，那么这个<code>new</code>关键字到底起了什么样的作用呢？</p>
+<p>其实<code>new</code>关键字做了下面的几件事情：</p>
+<ol>
+<li>创建一个临时对象。</li>
+<li>给临时对象绑定原型。</li>
+<li>给临时对象对应的属性赋值。</li>
+<li><code>prototype</code>对象的方法的<code>this</code>指向实例对象。</li>
+<li>将临时对象<code>return</code>。</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">//new做的事情</span>
+  <span class="hljs-keyword">var</span> obj = &#123;&#125;;
+  obj.__proto__ = Fun.prototype; <span class="hljs-comment">// Base为构造函数</span>
+  obj.name = <span class="hljs-string">'Damonare'</span>;
+  ... <span class="hljs-comment">// 一系列赋值以及更多的事</span>
+  <span class="hljs-keyword">return</span> obj;
+&#125;
+
+<span class="hljs-comment">//例子</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun1</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Damonre'</span>;
+  <span class="hljs-keyword">this</span>.age = <span class="hljs-number">21</span>;
+  <span class="hljs-keyword">this</span>.sex = <span class="hljs-string">'man'</span>;
+  <span class="hljs-keyword">this</span>.run = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name + <span class="hljs-keyword">this</span>.age + <span class="hljs-keyword">this</span>.sex + <span class="hljs-string">'正在跑步'</span>;
+  &#125;;
+&#125;
+
+<span class="hljs-comment">//可以改写为</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun2</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">var</span> obj = &#123;&#125;; <span class="hljs-comment">// 创建一个临时对象。</span>
+  obj.__proto__ = Fun2.prototype; <span class="hljs-comment">// 给临时对象绑定原型。</span>
+  obj.name = <span class="hljs-string">'Damonre'</span>; <span class="hljs-comment">// 给临时对象绑定原型。</span>
+  obj.age = <span class="hljs-number">21</span>;
+  obj.sex = <span class="hljs-string">'man'</span>; 
+  <span class="hljs-keyword">return</span> obj; <span class="hljs-comment">// 将临时对象return。</span>
+&#125;
+
+Fun2.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name + <span class="hljs-keyword">this</span>.age + <span class="hljs-keyword">this</span>.sex + <span class="hljs-string">'正在跑步'</span>; <span class="hljs-comment">// prototype对象的方法的this指向实例对象。</span>
+&#125;;
+
+<span class="hljs-built_in">console</span>.log(Fun2().run());</code></pre>
+
+<p>注意：<strong><code>new</code>关键字本质上是语法糖</strong>。</p>
+<h1 id="5-最后"><a href="#5-最后" class="headerlink" title="5. 最后"></a>5. 最后</h1><p>了解了原型和原型链后，我们接下来就可以正式进入<code>JavaScript</code>面向对象的学习。</p>
+<p>面向对象的三个基本特征：<strong>封装、继承、多态</strong>。</p>
+<p>而关于<code>JavaScript</code>的继承，有很多种方式，这些就留到下一篇文章再进行归纳整理。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                    
+                      <a class="hover-with-bg" href="/tags/HTML/">HTML</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/07/31/%E9%9D%A2%E8%AF%95/HTML%E8%AF%AD%E4%B9%89%E5%8C%96/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">面试/HTML语义化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/30/%E9%9D%A2%E8%AF%95/JavaScript%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+                        <span class="hidden-mobile">面试/JavaScript实现继承的几种方式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "面试/JavaScript：原型链和原型对象&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    19
+                    20
                      分钟
                   </span>
                 
@@ -187,7 +187,7 @@
               <p>随着前端的飞速发展，现在制作界面时出现了非常多的好看的样式，比如说全屏滚动效果，能够带来很舒服的视觉体验。先来看一下什么是全屏滚动：</p>
 <p><img src="/image/v2-432af4e9a4a61d6a7d615dca0b11e98c_b.webp" srcset="/img/loading.gif" alt="img"></p>
 <p>这是<code>fullpage.js</code>的官网，只需要滑动一下滚轮，就能实现翻页的效果。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/chinese#fullpagejs" target="_blank" rel="noopener">fullPage.js中文文档github</a></p>
+<h1 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h1><p><a href="https://github.com/alvarotrigo/fullPage.js/tree/master/lang/chinese#fullpagejs" target="_blank" rel="noopener">fullPage.js中文文档github</a></p>
 <p>如何安装其实文档上面已经说得很清楚了，即：</p>
 <pre><code class="hljs powershell">// 使用 bower
 bower install fullpage.js
@@ -226,7 +226,7 @@ npm install fullpage.js</code></pre>
     sectionsColor:[<span class="hljs-string">'#ff5f45'</span>, <span class="hljs-string">'#0798ec'</span>, <span class="hljs-string">'#fc6c7c'</span>, <span class="hljs-string">'grey'</span>]
 &#125;);</code></pre>
 
-<h1 id="应用于React"><a href="#应用于React" class="headerlink" title="应用于React"></a>应用于React</h1><p>根据上面的方法，我们很容易就可以在React中进行使用<code>fullpage.js</code>，只需要创建：</p>
+<h1 id="2-应用于React"><a href="#2-应用于React" class="headerlink" title="2. 应用于React"></a>2. 应用于React</h1><p>根据上面的方法，我们很容易就可以在React中进行使用<code>fullpage.js</code>，只需要创建：</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myFullpage"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"section"</span>&gt;</span>Some section<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -322,7 +322,7 @@ componentDidMount() &#123;
 &#125;);</code></pre>
 
 <p><strong>如果你想将一个页面设置为默认页，只需要给它添加<code>active</code>类，例如<code>&lt;div class=&quot;section active&quot;&gt;Some section&lt;/div&gt;</code>。</strong></p>
-<h1 id="导航小圆点"><a href="#导航小圆点" class="headerlink" title="导航小圆点"></a>导航小圆点</h1><p><img src="/image/v2-f5d2b9a8deb690dc4c796bdb2182484a_b.webp" srcset="/img/loading.gif" alt="img"></p>
+<h1 id="3-导航小圆点"><a href="#3-导航小圆点" class="headerlink" title="3. 导航小圆点"></a>3. 导航小圆点</h1><p><img src="/image/v2-f5d2b9a8deb690dc4c796bdb2182484a_b.webp" srcset="/img/loading.gif" alt="img"></p>
 <p>这种导航小圆点是非常实用的一个功能，引入也很简单，</p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-string">'fullpage.js/dist/fullpage.min.css'</span>; <span class="hljs-comment">//引入CSS样式，如果不引入是无法显示小圆点。</span>
 
@@ -330,7 +330,7 @@ componentDidMount() &#123;
   navigation:<span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启小圆点</span>
 &#125;);</code></pre>
 
-<h1 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h1><p>通常我们都需要一些锚点，点击锚点直接进行切换页面：</p>
+<h1 id="4-锚点"><a href="#4-锚点" class="headerlink" title="4. 锚点"></a>4. 锚点</h1><p>通常我们都需要一些锚点，点击锚点直接进行切换页面：</p>
 <p>根据官方文档，如果要使用锚点功能只需要在HTML标签中使用属性<code>data-anchor</code>，例：</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"slide"</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">"slide1"</span>&gt;</span> slide 1 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -346,11 +346,11 @@ componentDidMount() &#123;
 
 <p>但是我发现了一个新问题：在<code>react-router</code>的<code>HashRouter</code>中会把<code>#</code>当做是hash来处理。也就是说<strong>锚点在<code>HashRouter</code>中无法使用。</strong><code>HashRouter</code>即地址栏中包含<code>#</code>的模式，例如：<code>https://www.xxx.cn/#/</code>这种地址，既然这种地址这么丑，为什么还要使用呢？</p>
 <p>因为项目部署到服务器后，如果没有后端进行转发或者重定向，不使用<code>HashRouter</code>模式就可能存在你<strong>刷新一下页面会出现页面未找到的情况，但是我没有找到太好的解决办法。</strong>目前仅想到了使用<code>fullpage_api.moveTo();</code>方法来进行控制，但是远远没有锚点方便。</p>
-<h1 id="react-fullpage"><a href="#react-fullpage" class="headerlink" title="react-fullpage"></a>react-fullpage</h1><p>都写到这里了，我才发现原来这个插件有React版本的，不仅有React版本，甚至还有Vue和Angular，不过应该仅仅是在该插件的基础上做了封装。</p>
+<h1 id="5-react-fullpage"><a href="#5-react-fullpage" class="headerlink" title="5. react-fullpage"></a>5. react-fullpage</h1><p>都写到这里了，我才发现原来这个插件有React版本的，不仅有React版本，甚至还有Vue和Angular，不过应该仅仅是在该插件的基础上做了封装。</p>
 <p><a href="https://github.com/alvarotrigo/react-fullpage" target="_blank" rel="noopener">react-fullpagegithub</a></p>
-<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><pre><code class="hljs powershell">npm install @fullpage/react<span class="hljs-literal">-fullpage</span></code></pre>
+<h2 id="5-1-安装"><a href="#5-1-安装" class="headerlink" title="5.1 安装"></a>5.1 安装</h2><pre><code class="hljs powershell">npm install @fullpage/react<span class="hljs-literal">-fullpage</span></code></pre>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用方法大体相同，如果将上面的例子改为<code>react-fullpage</code>写法即为：</p>
+<h2 id="5-2-使用"><a href="#5-2-使用" class="headerlink" title="5.2 使用"></a>5.2 使用</h2><p>使用方法大体相同，如果将上面的例子改为<code>react-fullpage</code>写法即为：</p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> React, &#123;Component&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> ReactFullpage <span class="hljs-keyword">from</span> <span class="hljs-string">'@fullpage/react-fullpage'</span>;
 
@@ -378,7 +378,7 @@ componentDidMount() &#123;
 &#125;
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Test;</code></pre>
 
-<h1 id="视频推荐"><a href="#视频推荐" class="headerlink" title="视频推荐"></a>视频推荐</h1><p><a href="https://www.bilibili.com/video/BV1Xx411d7rc" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Xx411d7rc</a></p>
+<h1 id="6-视频推荐"><a href="#6-视频推荐" class="headerlink" title="6. 视频推荐"></a>6. 视频推荐</h1><p><a href="https://www.bilibili.com/video/BV1Xx411d7rc" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Xx411d7rc</a></p>
 
             </article>
             <hr>
