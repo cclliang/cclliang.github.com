@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-08-16 15:36">
-                    2020年8月16日 下午
+                  <time datetime="2020-08-17 13:09">
+                    2020年8月17日 下午
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    305 字
+                    558 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    3
+                    8
                      分钟
                   </span>
                 
@@ -184,20 +184,102 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>在平时我做的项目都比较小，所以处理一般都使用<code>async await</code>，很少用到<code>Promise.then</code>，但是这一天就碰到了这么一个问题。</p>
-<p>之前我写了一篇介绍Promise的文章：<a href="/2020/07/08/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%B8%B8%E5%AE%A2%E4%B9%8B-Promise/" title="面试题常客之-Promise">面试题常客之-Promise</a>，但是没有实际的例子。</p>
-<p>但是平时我做的项目都比较小，所以处理一般都使用<code>async await</code>，很少用到<code>Promise.then</code>，但是这一天就碰到了这么一个问题。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>有6个异步请求，分别是<code>A1</code>，<code>A2</code>，<code>A3</code>，<code>B1</code>，<code>B2</code>，<code>B3</code>，<code>A1</code>，<code>A2</code>，<code>A3</code>的执行顺序是<code>A1→A2→A3</code>，并且<code>A2</code>要获得<code>A1</code>取得的数据，而<code>B1</code>，<code>B2</code>，<code>B3</code>在<code>A1</code>，<code>A2</code>，<code>A3</code>按照顺序执行完成后同时执行，并且只能通过Promise实现，那么这个需求该如何实现。</p>
+              <p>之前我写了一篇介绍Promise的文章：<a href="/2020/07/08/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%B8%B8%E5%AE%A2%E4%B9%8B-Promise/" title="面试题常客之-Promise">面试题常客之-Promise</a>，但是没有实际的例子。</p>
+<p>因为平时我做的项目都比较小，所以处理异步函数一般都使用<code>async await</code>，很少用到<code>Promise.then</code>，但是这一天就碰到了这么一个问题。</p>
+<h1 id="1-问题"><a href="#1-问题" class="headerlink" title="1. 问题"></a>1. 问题</h1><p>有6个异步请求，分别是<code>A1</code>，<code>A2</code>，<code>A3</code>，<code>B1</code>，<code>B2</code>，<code>B3</code>。而<code>A1</code>，<code>A2</code>，<code>A3</code>的执行顺序是<code>A1→A2→A3</code>，并且<code>A2</code>要获得<code>A1</code>取得的数据，而<code>B1</code>，<code>B2</code>，<code>B3</code>在<code>A1</code>，<code>A2</code>，<code>A3</code>按照顺序执行完成后同时执行，并且只能通过Promise实现。</p>
 <p><img src="/image/Interview/A1A2A3.jpg" srcset="/img/loading.gif" alt="A1A2A3"></p>
 <p>当时听题的时候被问的一愣一愣的，但是现在回想起来，使用<code>async await</code>可能是最简单的方法，但是题目中明确的说明了只能使用Promise进行实现，那么这道题目应该怎么解呢。</p>
-<h1 id="Promise实现"><a href="#Promise实现" class="headerlink" title="Promise实现"></a>Promise实现</h1><pre><code class="hljs javascript">
-</code></pre>
+<p>首先我们用<code>setTimeout</code>来模拟出上面的这些数据：</p>
+<pre><code class="hljs js"><span class="hljs-keyword">let</span> a1 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">let</span> time = <span class="hljs-number">1</span>;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a1经过1s获得了数据"</span>);
+      resolve(time);
+    &#125;, <span class="hljs-number">1000</span>);
+  &#125;);
+&#125;;
 
-<h1 id="async-await实现"><a href="#async-await实现" class="headerlink" title="async await实现"></a>async await实现</h1><p>没有对比就没有伤害，<code>async await</code>做为ES7的终极大招，来实现这个问题。</p>
+<span class="hljs-keyword">let</span> a2 = <span class="hljs-function">(<span class="hljs-params">time</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">let</span> newTime = time + <span class="hljs-number">1</span>;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a2经过"</span> + newTime + <span class="hljs-string">"s获得了数据"</span>);
+      resolve(newTime);
+    &#125;, <span class="hljs-number">3000</span>);
+  &#125;);
+&#125;;
+
+<span class="hljs-keyword">let</span> a3 = <span class="hljs-function">(<span class="hljs-params">time</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">let</span> newTime = time + <span class="hljs-number">1</span>;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a3经过"</span> + newTime + <span class="hljs-string">"s获得了数据"</span>);
+      resolve(newTime);
+    &#125;, <span class="hljs-number">4000</span>);
+  &#125;);
+&#125;;
+
+<span class="hljs-keyword">let</span> b1 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b1经过1s获得了数据"</span>);
+    &#125;, <span class="hljs-number">1000</span>);
+  &#125;);
+&#125;;
+
+<span class="hljs-keyword">let</span> b2 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b2经过1s获得了数据"</span>);
+    &#125;, <span class="hljs-number">1000</span>);
+  &#125;);
+&#125;;
+
+<span class="hljs-keyword">let</span> b3 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"b3经过1s获得了数据"</span>);
+    &#125;, <span class="hljs-number">1000</span>);
+  &#125;);
+&#125;;</code></pre>
+
+<h1 id="2-Promise实现"><a href="#2-Promise实现" class="headerlink" title="2. Promise实现"></a>2. Promise实现</h1><p>嵌套实现：</p>
+<pre><code class="hljs javascript">a1().then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  a2(res).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    a3(res).then(<span class="hljs-function"><span class="hljs-params">res</span>=&gt;</span>&#123;
+      b1();
+      b2();
+      b3();
+    &#125;);
+  &#125;);
+&#125;);</code></pre>
+
+<p><code>.then</code>链式调用实现：</p>
+<pre><code class="hljs js">a1().then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> res;
+&#125;).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> a2(res);
+&#125;).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> a3(res);
+&#125;).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  b1();
+  b2();
+  b3();
+&#125;);</code></pre>
+
+<h1 id="3-async-await实现"><a href="#3-async-await实现" class="headerlink" title="3. async await实现"></a>3. async await实现</h1><p>没有对比就没有伤害，<code>async await</code>做为ES7的终极大招，来实现这个问题。</p>
 <p>看看和Promise的区别。</p>
-<pre><code class="hljs javascript">
-</code></pre>
+<pre><code class="hljs javascript">(<span class="hljs-keyword">async</span> () =&gt; &#123;
+  <span class="hljs-keyword">let</span> time = <span class="hljs-keyword">await</span> a1();
+  time = <span class="hljs-keyword">await</span> a2(time);
+  <span class="hljs-keyword">await</span> a3(time);
+  b1();
+  b2();
+  b3();
+&#125;)();</code></pre>
 
+<p>这…只能说<code>async await</code>牛逼。</p>
 
             </article>
             <hr>
@@ -217,8 +299,6 @@
                     
                       <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                     
-                      <a class="hover-with-bg" href="/tags/hide/">hide</a>
-                    
                   </div>
                 
               </div>
@@ -230,18 +310,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/16/%E9%9D%A2%E8%AF%95/JavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面试/JavaScript的变量提升</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/15/web%E5%BC%80%E5%8F%91/%E5%86%8D%E8%B0%88Nuxt.js%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
-                        <span class="hidden-mobile">web开发/再谈Nuxt.js开发中遇到的那些事</span>
+                      <a href="/2020/08/17/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8816%E6%97%A5-%E7%8E%87%E5%9C%9F%E4%B9%8B%E6%BB%A8%E6%8E%92%E8%A1%8C%E4%B8%8B%E6%BB%91/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月16日-率土之滨排行下滑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
