@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>面试/手动实现Vue双向绑定 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-17 02:03">
+                    2020年8月17日 凌晨
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    4.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    57
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-原理"><a href="#1-原理" class="headerlink" title="1. 原理"></a>1. 原理</h1><p><strong>Vue数据双向绑定是通过数据劫持结合发布者-订阅者模式的方式来实现的。</strong></p>
+<p>Vue的双向绑定是前端面试中一个高频问题，不排除会让你手动实现Vue双向绑定这种问题，毕竟面试造火箭嘛。</p>
+<p>下面的代码都通过ES6语法进行书写，如果对ES6不是太熟悉，可以直接参考原文章：<a href="https://juejin.im/entry/6844903479044112391" target="_blank" rel="noopener">vue 的双向绑定原理及实现</a>，原作者是使用的ES5语法。</p>
+<p><strong>因为ES6引入了类的概念，所以代码会显得更清晰。</strong></p>
+<h1 id="2-数据劫持"><a href="#2-数据劫持" class="headerlink" title="2. 数据劫持"></a>2. 数据劫持</h1><p>vue是通过<code>Object.defineProperty()</code>来实现数据劫持，<code>Object.defineProperty()</code>方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象，有点类似于TypeScript中的装饰器。</p>
+<p>比如说：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> Book = &#123;
+  name: <span class="hljs-string">"Vue入门"</span>,
+&#125;;
+
+<span class="hljs-built_in">console</span>.log(Book.name); <span class="hljs-comment">// Vue入门</span></code></pre>
+
+<p>如果想要在执行<code>console.log(Book.name)</code>时，用书名号将结果包含起来，这个时候就需要使用<code>Object.defineProperty()</code>。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> Book = &#123;&#125;;
+<span class="hljs-keyword">let</span> name = <span class="hljs-string">""</span>;
+<span class="hljs-built_in">Object</span>.defineProperty(Book, <span class="hljs-string">"name"</span>, &#123;
+  <span class="hljs-keyword">set</span>(value) &#123;
+    name = value;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"你取了一个书名叫做"</span> + value);
+  &#125;,
+  <span class="hljs-keyword">get</span>() &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"《"</span> + name + <span class="hljs-string">"》"</span>;
+  &#125;,
+&#125;);
+
+Book.name = <span class="hljs-string">"Vue入门"</span>; <span class="hljs-comment">// 你取了一个书名叫做Vue入门</span>
+<span class="hljs-built_in">console</span>.log(Book.name); <span class="hljs-comment">// 《Vue入门》</span></code></pre>
+
+<p>上面的代码通过<code>Object.defineProperty( )</code>对Book的属性name的get和set进行了重写操作，所以如果读取name属性时，就会触发get函数。如果设置name属性时，那么同样也会触发set函数。</p>
+<p>这个时候我们已经明白了Vue数据劫持的方式，那么我们下面就可以写出一个简易版的双向绑定代码。</p>
+<h1 id="3-简易双向绑定"><a href="#3-简易双向绑定" class="headerlink" title="3. 简易双向绑定"></a>3. 简易双向绑定</h1><p>使用过Vue后应该都清楚，data中的数据改变时，视图就会改变，而视图发生改变时，数据也会改变。</p>
+<p>视图改变数据是一个非常好实现的功能，可以通过事件监听来实现，比如说<code>onclick</code>点击事件，双向绑定的关键点在于数据是如何改变视图。</p>
+<p>那么难点就在于数据改变视图了，所以为了实现双向绑定，我们需要引入一些概念：</p>
+<ol>
+<li>Observer：监听器，用来监听所有属性，如果属性发生了变化，则告诉订阅者Watcher。</li>
+<li>Watcher：订阅者，收到属性变化并执行对应的函数，从而更新视图。</li>
+<li>Dep：消息订阅器，因为订阅者是多个，消息订阅器就专门用来收集这些订阅者。</li>
+<li>Compile：解析器，扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</li>
+</ol>
+<p>清楚了上面的概念后，我们就可以逐步进行实现一个简易的双向绑定Demo，整个双向绑定实现的核心方法即为上面介绍的<code>Object.defineProperty( )</code>。</p>
+<h2 id="3-1-实现Observer"><a href="#3-1-实现Observer" class="headerlink" title="3.1 实现Observer"></a>3.1 实现Observer</h2><p>前面我们实现了一个简易的监听器，仅仅是针对Book对象下的name属性，如果我们要对对象下的每一个属性进行监听，那么我们就需要使用递归来遍历所有属性值，并对其进行<code>Object.defineProperty( )</code>处理。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/* </span>
+<span class="hljs-comment">传入的参数和上面的简单例子一样 </span>
+<span class="hljs-comment">data：对象 key：属性名 val：剩余的对象</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineReactive</span>(<span class="hljs-params">data, key, val</span>) </span>&#123;
+  observe(val); <span class="hljs-comment">// 递归遍历所有子属性</span>
+  <span class="hljs-built_in">Object</span>.defineProperty(data, key, &#123;
+    enumerable: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 该属性会出现在对象的枚举属性中</span>
+    configurable: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 该属性的描述能被改变，同时该属性也能从对象上删除</span>
+    <span class="hljs-keyword">get</span>() &#123;
+      <span class="hljs-keyword">return</span> val;
+    &#125;,
+    <span class="hljs-keyword">set</span>(newVal) &#123;
+      val = newVal;
+      <span class="hljs-built_in">console</span>.log(
+        <span class="hljs-string">"属性"</span> + key + <span class="hljs-string">"已经被监听了，现在值为：“"</span> + newVal.toString() + <span class="hljs-string">"”"</span>
+      );
+    &#125;,
+  &#125;);
+&#125;
+
+<span class="hljs-keyword">let</span> library = &#123;
+  book1: &#123;
+    name: <span class="hljs-string">""</span>,
+  &#125;,
+  book2: <span class="hljs-string">""</span>,
+&#125;;
+observe(library);
+library.book1.name = <span class="hljs-string">"Vue入门"</span>; <span class="hljs-comment">// 属性name已经被监听了，现在值为：“Vue入门”</span>
+library.book2 = <span class="hljs-string">"没有此书籍"</span>; <span class="hljs-comment">// 属性book2已经被监听了，现在值为：“没有此书籍”</span></code></pre>
+
+<h2 id="3-2-添加Dep"><a href="#3-2-添加Dep" class="headerlink" title="3.2 添加Dep"></a>3.2 添加Dep</h2><p>在实现订阅者之前，还需要个消息订阅器，用来收集这些订阅者。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/* data：对象 key：属性名 val：剩余的对象 */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineReactive</span>(<span class="hljs-params">data, key, val</span>) </span>&#123;
+  observe(val); <span class="hljs-comment">// 递归遍历所有子属性</span>
+  <span class="hljs-keyword">let</span> dep = <span class="hljs-keyword">new</span> Dep();
+  <span class="hljs-built_in">Object</span>.defineProperty(data, key, &#123;
+    enumerable: <span class="hljs-literal">true</span>,
+    configurable: <span class="hljs-literal">true</span>,
+    <span class="hljs-keyword">get</span>() &#123;
+      <span class="hljs-keyword">if</span> (是否需要添加订阅者) &#123;
+        dep.addSub(watcher); <span class="hljs-comment">// 在这里添加一个订阅者</span>
+      &#125;
+      <span class="hljs-keyword">return</span> val;
+    &#125;,
+    <span class="hljs-keyword">set</span>(newVal) &#123;
+      <span class="hljs-keyword">if</span> (val === newVal) &#123;
+        <span class="hljs-keyword">return</span>;
+      &#125;
+      val = newVal;
+      <span class="hljs-built_in">console</span>.log(
+        <span class="hljs-string">"属性"</span> + key + <span class="hljs-string">"已经被监听了，现在值为：“"</span> + newVal.toString() + <span class="hljs-string">"”"</span>
+      );
+      dep.notify(); <span class="hljs-comment">// 如果数据变化，通知所有订阅者</span>
+    &#125;,
+  &#125;);
+&#125;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dep</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>() &#123;
+    <span class="hljs-keyword">this</span>.subs = [];
+  &#125;
+
+  addSub(sub) &#123;
+    <span class="hljs-keyword">this</span>.subs.push(sub);
+  &#125;
+
+  notify() &#123;
+    <span class="hljs-keyword">this</span>.subs.forEach(<span class="hljs-function">(<span class="hljs-params">sub</span>) =&gt;</span> &#123;
+      sub.update();
+    &#125;);
+  &#125;
+&#125;
+
+Dep.target = <span class="hljs-literal">null</span>;</code></pre>
+
+<p>在get方法中，判断是否添加一个订阅者到订阅器Dep中，而在set方法中，如果数据变化，就去通知所有订阅者，执行对应的函数。</p>
+<h2 id="3-3-实现Watcher"><a href="#3-3-实现Watcher" class="headerlink" title="3.3 实现Watcher"></a>3.3 实现Watcher</h2><p>我们需要在Watcher初始化的时候触发对应的get方法去执行添加订阅者的操作。</p>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Watcher</span> </span>&#123;
+  <span class="hljs-comment">/* vm：绑定的对象，exp：属性名称，cb：回调函数 */</span>
+  <span class="hljs-keyword">constructor</span>(vm, exp, cb) &#123;
+    <span class="hljs-keyword">this</span>.cb = cb;
+    <span class="hljs-keyword">this</span>.vm = vm;
+    <span class="hljs-keyword">this</span>.exp = exp;
+    <span class="hljs-keyword">this</span>.value = <span class="hljs-keyword">this</span>.get(); <span class="hljs-comment">// 将自己添加到订阅器的操作</span>
+  &#125;
+
+  update() &#123;
+    <span class="hljs-keyword">this</span>.run();
+  &#125;
+
+  run() &#123;
+    <span class="hljs-keyword">let</span> value = <span class="hljs-keyword">this</span>.vm.data[<span class="hljs-keyword">this</span>.exp];
+    <span class="hljs-keyword">let</span> oldVal = <span class="hljs-keyword">this</span>.value;
+    <span class="hljs-keyword">if</span> (value !== oldVal) &#123;
+      <span class="hljs-keyword">this</span>.value = value;
+      <span class="hljs-keyword">this</span>.cb.call(<span class="hljs-keyword">this</span>.vm, value, oldVal);
+    &#125;
+  &#125;
+
+  <span class="hljs-keyword">get</span>() &#123;
+    Dep.target = <span class="hljs-keyword">this</span>; <span class="hljs-comment">// 缓存自己</span>
+    <span class="hljs-keyword">let</span> value = <span class="hljs-keyword">this</span>.vm.data[<span class="hljs-keyword">this</span>.exp]; <span class="hljs-comment">// 强制执行监听器里的get函数</span>
+    Dep.target = <span class="hljs-literal">null</span>; <span class="hljs-comment">// 释放自己</span>
+    <span class="hljs-keyword">return</span> value;
+  &#125;
+&#125;</code></pre>
+
+<p>调整Observer中的defineReactive函数：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/* data：对象 key：属性名 val：剩余的对象 */</span>
+defineReactive(data, key, val) &#123;
+  observe(val); <span class="hljs-comment">// 递归遍历所有子属性</span>
+  <span class="hljs-keyword">let</span> dep = <span class="hljs-keyword">new</span> Dep();
+  <span class="hljs-built_in">Object</span>.defineProperty(data, key, &#123;
+    enumerable: <span class="hljs-literal">true</span>,
+    configurable: <span class="hljs-literal">true</span>,
+    <span class="hljs-keyword">get</span>() &#123;
+      <span class="hljs-keyword">if</span> (Dep.target) &#123;  <span class="hljs-comment">// 判断是否需要添加订阅者</span>
+        dep.addSub(Dep.target); <span class="hljs-comment">// 在这里添加一个订阅者</span>
+      &#125;
+      <span class="hljs-keyword">return</span> val;
+    &#125;,
+    <span class="hljs-keyword">set</span>(newVal) &#123;
+      <span class="hljs-keyword">if</span> (val === newVal) &#123;
+        <span class="hljs-keyword">return</span>;
+      &#125;
+      val = newVal;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"属性"</span> + key + <span class="hljs-string">"已经被监听了，现在值为：“"</span> + newVal.toString() + <span class="hljs-string">"”"</span>);
+      dep.notify(); <span class="hljs-comment">// 如果数据变化，通知所有订阅者</span>
+    &#125;
+  &#125;);
+&#125;</code></pre>
+
+<p>到这里，我们就已经实现了一个简易的双向绑定，但是这个时候我们还没有Compile解析器，所以不能直接解析dom，为了演示，暂且模拟一下Vue中双向绑定的dom写法：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+
+<p>将Observer和Watcher关联起来，而SelfVue类，就是将Observer，Watcher，Compile进行整合，也正是我们在使用Vue时的<code>new Vue</code>，只不过这里变成了<code>new SelfVue</code>，顺带一提，<code>new Vue</code>做的事情远远不止双向绑定这么简单。：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/* data：数据，el：dom节点，exp：属性名称 */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SelfVue</span>(<span class="hljs-params">data, el, exp</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.data = data;
+  observe(data);
+  el.innerHTML = <span class="hljs-keyword">this</span>.data[exp]; <span class="hljs-comment">// 初始化模板数据的值</span>
+  <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+    el.innerHTML = value;
+  &#125;);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+&#125;</code></pre>
+
+<p>然后在页面上new一下SelfVue类，就可以实现数据的双向绑定了：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/observer.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/watcher.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span>
+<span class="javascript">    <span class="hljs-keyword">let</span> ele = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name'</span>);</span>
+<span class="javascript">    <span class="hljs-keyword">let</span> selfVue = <span class="hljs-keyword">new</span> SelfVue(&#123;</span>
+<span class="actionscript">        name: <span class="hljs-string">'hello world'</span></span>
+<span class="actionscript">    &#125;, ele, <span class="hljs-string">'name'</span>);</span>
+ 
+<span class="javascript">    <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span>
+<span class="javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name值改变了'</span>);</span>
+<span class="actionscript">        selfVue.data.name = <span class="hljs-string">'canfoo'</span>;</span>
+    &#125;, 2000);
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<p>这时候打开页面，可以看到页面刚开始显示了是<code>&#39;hello world&#39;</code>，过了2s后就变成<code>&#39;canfoo&#39;</code>了。</p>
+<p><img src="/image/Interview/change.gif" srcset="/img/loading.gif" alt="change"></p>
+<p>到这里，总算大功告成一半了。</p>
+<p>但是还有一个细节问题，我们在赋值的时候是这样的形式<code>selfVue.data.name = &#39;canfoo&#39;</code>而我们理想的形式是<code>selfVue.name = &#39;canfoo&#39;</code>。</p>
+<p>我们在new SelfVue的时候做一个代理处理，让访问selfVue的属性代理为访问<code>selfVue.data</code>的属性，实现原理还是使用<code>Object.defineProperty( )</code>对属性值再包一层：</p>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SelfVue</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>(data, el, exp) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">this</span>.data = data;
+
+    <span class="hljs-built_in">Object</span>.keys(data).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>&#123;
+      self.proxyKeys(key); <span class="hljs-comment">// 绑定代理属性</span>
+    &#125;);
+
+    observe(data);
+    el.innerHTML = <span class="hljs-keyword">this</span>.data[exp]; <span class="hljs-comment">// 初始化模板数据的值</span>
+    <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+      el.innerHTML = value;
+    &#125;);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+  &#125;
+
+  proxyKeys(key) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">Object</span>.defineProperty(<span class="hljs-keyword">this</span>, key, &#123;
+      enumerable: <span class="hljs-literal">false</span>,
+      configurable: <span class="hljs-literal">true</span>,
+      <span class="hljs-keyword">get</span>: function proxyGetter() &#123;
+        <span class="hljs-keyword">return</span> self.data[key];
+      &#125;,
+      <span class="hljs-keyword">set</span>: function proxySetter(newVal) &#123;
+        self.data[key] = newVal;
+      &#125;,
+    &#125;);
+  &#125;
+&#125;</code></pre>
+
+<p>到目前为止，完整的Observer：</p>
+<pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Observer</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>(data) &#123;
+    <span class="hljs-keyword">this</span>.data = data;
+    <span class="hljs-keyword">this</span>.walk(data);
+  &#125;
+
+  walk(data) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">Object</span>.keys(data).forEach(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> &#123;
+      self.defineReactive(data, key, data[key]);
+    &#125;);
+  &#125;
+
+  <span class="hljs-comment">/* data：对象 key：属性名 val：剩余的对象 */</span>
+  defineReactive(data, key, val) &#123;
+    observe(val); <span class="hljs-comment">// 递归遍历所有子属性</span>
+    <span class="hljs-keyword">let</span> dep = <span class="hljs-keyword">new</span> Dep();
+    <span class="hljs-built_in">Object</span>.defineProperty(data, key, &#123;
+      enumerable: <span class="hljs-literal">true</span>,
+      configurable: <span class="hljs-literal">true</span>,
+      <span class="hljs-keyword">get</span>() &#123;
+        <span class="hljs-keyword">if</span> (Dep.target) &#123;  <span class="hljs-comment">// 判断是否需要添加订阅者</span>
+          dep.addSub(Dep.target); <span class="hljs-comment">// 在这里添加一个订阅者</span>
+        &#125;
+        <span class="hljs-keyword">return</span> val;
+      &#125;,
+      <span class="hljs-keyword">set</span>(newVal) &#123;
+        <span class="hljs-keyword">if</span> (val === newVal) &#123;
+          <span class="hljs-keyword">return</span>;
+        &#125;
+        val = newVal;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"属性"</span> + key + <span class="hljs-string">"已经被监听了，现在值为：“"</span> + newVal.toString() + <span class="hljs-string">"”"</span>);
+        dep.notify(); <span class="hljs-comment">// 如果数据变化，通知所有订阅者</span>
+      &#125;
+    &#125;);
+  &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">observe</span>(<span class="hljs-params">value, vm</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (!value || <span class="hljs-keyword">typeof</span> value !== <span class="hljs-string">"object"</span>) &#123;
+    <span class="hljs-keyword">return</span>;
+  &#125;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Observer(value);
+&#125;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dep</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>() &#123;
+    <span class="hljs-keyword">this</span>.subs = [];
+  &#125;
+
+  addSub(sub) &#123;
+    <span class="hljs-keyword">this</span>.subs.push(sub);
+  &#125;
+
+  notify() &#123;
+    <span class="hljs-keyword">this</span>.subs.forEach(<span class="hljs-function">(<span class="hljs-params">sub</span>) =&gt;</span> &#123;
+      sub.update();
+    &#125;);
+  &#125;
+&#125;
+
+Dep.target = <span class="hljs-literal">null</span>;</code></pre>
+
+<h2 id="3-4-实现Compile"><a href="#3-4-实现Compile" class="headerlink" title="3.4 实现Compile"></a>3.4 实现Compile</h2><p>上面已经实现了一个简单的双向绑定操作，但是整个过程中并没有解析dom节点，而是直接固定某个节点进行替换数据。</p>
+<p>而Compile就是为了解决这个问题。而Compile主要做下面两件事情：</p>
+<ol>
+<li>解析模板指令，并替换模板数据，初始化视图。（即Vue中用&#123;&#123;&#125;&#125;包裹起来的部分）</li>
+<li>将模板指令对应的节点绑定对应的更新函数，初始化相应的订阅器。（完成绑定）</li>
+</ol>
+<p>先给出完整的compile，接下来我们再一步一步的进行讲解：</p>
+<pre><code class="hljs js"><span class="hljs-comment">/* el：dom节点，vm：绑定的对象 */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Compile</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>(el, vm) &#123;
+    <span class="hljs-keyword">this</span>.vm = vm;
+    <span class="hljs-keyword">this</span>.el = <span class="hljs-built_in">document</span>.querySelector(el);
+    <span class="hljs-keyword">this</span>.fragment = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">this</span>.init();
+  &#125;
+
+  init() &#123;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.el) &#123;
+      <span class="hljs-keyword">this</span>.fragment = <span class="hljs-keyword">this</span>.nodeToFragment(<span class="hljs-keyword">this</span>.el); <span class="hljs-comment">// 将需要解析的dom节点存入fragment片段里再进行处理</span>
+      <span class="hljs-keyword">this</span>.compileElement(<span class="hljs-keyword">this</span>.fragment); <span class="hljs-comment">// 对特殊节点进行处理，比如&#123;&#123;&#125;&#125;，V-</span>
+      <span class="hljs-keyword">this</span>.el.appendChild(<span class="hljs-keyword">this</span>.fragment);
+    &#125; <span class="hljs-keyword">else</span> &#123;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Dom元素不存在"</span>);
+    &#125;
+  &#125;
+
+  nodeToFragment(el) &#123;
+    <span class="hljs-keyword">let</span> fragment = <span class="hljs-built_in">document</span>.createDocumentFragment();
+    <span class="hljs-keyword">let</span> child = el.firstChild;
+    <span class="hljs-keyword">while</span> (child) &#123;
+      <span class="hljs-comment">// 将Dom元素移入fragment中</span>
+      fragment.appendChild(child);
+      child = el.firstChild;
+    &#125;
+    <span class="hljs-keyword">return</span> fragment;
+  &#125;
+
+  compileElement(el) &#123;
+    <span class="hljs-keyword">let</span> childNodes = el.childNodes;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    [].slice.call(childNodes).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">node</span>) </span>&#123;
+      <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/\&#123;\&#123;(.*)\&#125;\&#125;/</span>;
+      <span class="hljs-keyword">let</span> text = node.textContent;
+
+      <span class="hljs-keyword">if</span> (self.isElementNode(node)) &#123;
+        self.compile(node);
+      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (self.isTextNode(node) &amp;&amp; reg.test(text)) &#123;
+        self.compiletext(node, reg.exec(text)[<span class="hljs-number">1</span>]);
+      &#125;
+
+      <span class="hljs-keyword">if</span> (node.childNodes &amp;&amp; node.childNodes.length) &#123;
+        self.compileElement(node);
+      &#125;
+    &#125;);
+  &#125;
+
+  compile(node) &#123;
+    <span class="hljs-keyword">let</span> nodeAttrs = node.attributes;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">Array</span>.prototype.forEach.call(nodeAttrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">attr</span>) </span>&#123;
+      <span class="hljs-keyword">let</span> attrName = attr.name;
+      <span class="hljs-keyword">if</span> (self.isDirective(attrName)) &#123;
+        <span class="hljs-keyword">let</span> exp = attr.value;
+        <span class="hljs-keyword">let</span> dir = attrName.substring(<span class="hljs-number">2</span>);
+        <span class="hljs-keyword">if</span> (self.isEventDirective(dir)) &#123;  <span class="hljs-comment">// 事件指令</span>
+          self.compileEvent(node, self.vm, exp, dir);
+        &#125; <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">// v-model 指令</span>
+          self.compileModel(node, self.vm, exp, dir);
+        &#125;
+        node.removeAttribute(attrName);
+      &#125;
+    &#125;);
+  &#125;
+
+  compiletext(node, exp) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">let</span> initText = <span class="hljs-keyword">this</span>.vm[exp];
+    <span class="hljs-keyword">this</span>.updateText(node, initText);
+    <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>.vm, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+      self.updateText(node, value);
+    &#125;);
+  &#125;
+
+  compileEvent(node, vm, exp, dir) &#123;
+    <span class="hljs-keyword">let</span> eventType = dir.split(<span class="hljs-string">":"</span>)[<span class="hljs-number">1</span>];
+    <span class="hljs-keyword">let</span> cb = vm.methods &amp;&amp; vm.methods[exp];
+
+    <span class="hljs-keyword">if</span> (eventType &amp;&amp; cb) &#123;
+      node.addEventListener(eventType, cb.bind(vm), <span class="hljs-literal">false</span>);
+    &#125;
+  &#125;
+
+  compileModel(node, vm, exp, dir) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">let</span> val = <span class="hljs-keyword">this</span>.vm[exp];
+    <span class="hljs-keyword">this</span>.modelUpdater(node, val);
+    <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>.vm, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+      self.modelUpdater(node, value);
+    &#125;);
+
+    node.addEventListener(<span class="hljs-string">"input"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
+      <span class="hljs-keyword">let</span> newValue = e.target.value;
+      <span class="hljs-keyword">if</span> (val === newValue) &#123;
+        <span class="hljs-keyword">return</span>;
+      &#125;
+      self.vm[exp] = newValue;
+      val = newValue;
+    &#125;);
+  &#125;
+
+  updateText(node, value) &#123;
+    node.textContent = <span class="hljs-keyword">typeof</span> value == <span class="hljs-string">"undefined"</span> ? <span class="hljs-string">""</span> : value;
+  &#125;
+
+  modelUpdater(node, value, oldValue) &#123;
+    node.value = <span class="hljs-keyword">typeof</span> value == <span class="hljs-string">"undefined"</span> ? <span class="hljs-string">""</span> : value;
+  &#125;
+
+  isDirective(attr) &#123;
+    <span class="hljs-keyword">return</span> attr.indexOf(<span class="hljs-string">"v-"</span>) == <span class="hljs-number">0</span>;
+  &#125;
+
+  isEventDirective(dir) &#123;
+    <span class="hljs-keyword">return</span> dir.indexOf(<span class="hljs-string">"on:"</span>) === <span class="hljs-number">0</span>;
+  &#125;
+
+  isElementNode(node) &#123;
+    <span class="hljs-keyword">return</span> node.nodeType == <span class="hljs-number">1</span>;
+  &#125;
+
+  isTextNode(node) &#123;
+    <span class="hljs-keyword">return</span> node.nodeType == <span class="hljs-number">3</span>;
+  &#125;
+&#125;</code></pre>
+
+<p>那么知道我们该做什么后，第一件事就是获取到含有相关指令的dom元素，这个环节对dom操作比较繁琐，可以先建一个fragment片段，将需要解析的dom节点存入fragment片段里再进行处理：</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nodeToFragment</span>(<span class="hljs-params">el</span>) </span>&#123;
+  <span class="hljs-keyword">let</span> fragment = <span class="hljs-built_in">document</span>.createDocumentFragment();
+  <span class="hljs-keyword">let</span> child = el.firstChild;
+  <span class="hljs-keyword">while</span> (child) &#123;
+    <span class="hljs-comment">// 将Dom元素移入fragment中</span>
+    fragment.appendChild(child);
+    child = el.firstChild;
+  &#125;
+  <span class="hljs-keyword">return</span> fragment;
+&#125;</code></pre>
+
+<p>接下来对含有&#123;&#123;&#125;&#125;这种形式的指令进行处理：</p>
+<pre><code class="hljs javascript">compileElement(el) &#123;
+  <span class="hljs-keyword">let</span> childNodes = el.childNodes;
+  <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+  [].slice.call(childNodes).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">node</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> reg = <span class="hljs-regexp">/\&#123;\&#123;(.*)\&#125;\&#125;/</span>;
+    <span class="hljs-keyword">let</span> text = node.textContent;
+
+    <span class="hljs-keyword">if</span> (self.isTextNode(node) &amp;&amp; reg.test(text)) &#123;  <span class="hljs-comment">// 判断是否是符合这种形式&#123;&#123;&#125;&#125;的指令</span>
+      self.compiletext(node, reg.exec(text)[<span class="hljs-number">1</span>]);
+    &#125;
+
+    <span class="hljs-keyword">if</span> (node.childNodes &amp;&amp; node.childNodes.length) &#123;
+      self.compileElement(node);  <span class="hljs-comment">// 继续递归遍历子节点</span>
+    &#125;
+  &#125;);
+&#125;
+
+compiletext(node, exp) &#123;
+  <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+  <span class="hljs-keyword">let</span> initText = <span class="hljs-keyword">this</span>.vm[exp];
+  <span class="hljs-keyword">this</span>.updateText(node, initText);  <span class="hljs-comment">// 将初始化的数据初始化到视图中</span>
+  <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>.vm, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;  <span class="hljs-comment">// 生成订阅器并绑定更新函数</span>
+    self.updateText(node, value);
+  &#125;);
+&#125;
+
+updateText(node, value) &#123;
+  node.textContent = <span class="hljs-keyword">typeof</span> value == <span class="hljs-string">"undefined"</span> ? <span class="hljs-string">""</span> : value;
+&#125;</code></pre>
+
+<p>获取到最外层节点后，调用<code>compileElement</code>函数，对所有子节点进行判断，如果节点是文本节点且匹配&#123;&#123;&#125;&#125;这种形式指令的节点就开始进行编译处理，编译处理首先需要初始化视图数据，对应上面所说的步骤1。</p>
+<p>接下来需要生成一个并绑定更新函数的订阅器，对应上面所说的步骤2。</p>
+<p>接下来需要将解析器Compile与监听器Observer和订阅者Watcher关联起来，这个时候就需要修改一下SelfVue整合类，因为之前的整合类没有关联Compile：</p>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SelfVue</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>(data, el, exp) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">this</span>.vm = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">this</span>.data = options;
+
+    <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.data).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>&#123;
+      self.proxyKeys(key);
+    &#125;);
+
+    observe(<span class="hljs-keyword">this</span>.data);
+    <span class="hljs-keyword">new</span> Compile(options, <span class="hljs-keyword">this</span>.vm);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+  &#125;
+
+  proxyKeys(key) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">Object</span>.defineProperty(<span class="hljs-keyword">this</span>, key, &#123;
+      enumerable: <span class="hljs-literal">false</span>,
+      configurable: <span class="hljs-literal">true</span>,
+      <span class="hljs-keyword">get</span>: function proxyGetter() &#123;
+        <span class="hljs-keyword">return</span> self.data[key];
+      &#125;,
+      <span class="hljs-keyword">set</span>: function proxySetter(newVal) &#123;
+        self.data[key] = newVal;
+      &#125;,
+    &#125;);
+  &#125;
+&#125;</code></pre>
+
+<p>更改后，我们就不要像之前通过传入固定的元素值进行双向绑定了，可以随便命名各种变量进行双向绑定了：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&#123;&#123;title&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/observer.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/watcher.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/compile.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span>
+ 
+<span class="javascript">    <span class="hljs-keyword">let</span> selfVue = <span class="hljs-keyword">new</span> SelfVue(&#123;</span>
+<span class="actionscript">        el: <span class="hljs-string">'#app'</span>,</span>
+        data: &#123;
+<span class="actionscript">            title: <span class="hljs-string">'hello world'</span>,</span>
+<span class="actionscript">            name: <span class="hljs-string">''</span></span>
+        &#125;
+    &#125;);
+ 
+<span class="javascript">    <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span>
+<span class="actionscript">        selfVue.title = <span class="hljs-string">'你好'</span>;</span>
+    &#125;, 2000);
+ 
+<span class="javascript">    <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span>
+<span class="actionscript">        selfVue.name = <span class="hljs-string">'canfoo'</span>;</span>
+    &#125;, 2500);
+ 
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<p>如上代码，在页面上可观察到，刚开始titile和name分别被初始化为<code>hello world</code>和空，2s后title被替换成<code>你好</code>3s后name被替换成<code>canfoo</code>。</p>
+<p>如果需要完善更多指令的解析编译，只要在上文说的<code>compileElement</code>函数加上对其他指令节点进行判断，然后遍历其所有属性，看是否有匹配的指令的属性，如果有的话，就对其进行解析编译。</p>
+<p>这里我们再添加一个<code>v-model</code>指令和事件指令的解析编译，对于这些节点我们使用函数compile进行解析处理：</p>
+<pre><code class="hljs javascript">compile(node) &#123;
+  <span class="hljs-keyword">let</span> nodeAttrs = node.attributes;
+  <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+  <span class="hljs-built_in">Array</span>.prototype.forEach.call(nodeAttrs, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">attr</span>) </span>&#123;
+    <span class="hljs-keyword">let</span> attrName = attr.name;
+    <span class="hljs-keyword">if</span> (self.isDirective(attrName)) &#123;
+      <span class="hljs-keyword">let</span> exp = attr.value;
+      <span class="hljs-keyword">let</span> dir = attrName.substring(<span class="hljs-number">2</span>);
+      <span class="hljs-keyword">if</span> (self.isEventDirective(dir)) &#123;  <span class="hljs-comment">// 事件指令</span>
+        self.compileEvent(node, self.vm, exp, dir);
+      &#125; <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">// v-model 指令</span>
+        self.compileModel(node, self.vm, exp, dir);
+      &#125;
+      node.removeAttribute(attrName);
+    &#125;
+  &#125;);
+&#125;</code></pre>
+
+<p>最后我们在稍微改造下类SelfVue，使它更像Vue的用法：</p>
+<pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SelfVue</span> </span>&#123;
+  <span class="hljs-keyword">constructor</span>(data, el, exp) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">this</span>.data = options.data;
+    <span class="hljs-keyword">this</span>.methods = options.methods;
+
+    <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.data).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>&#123;
+      self.proxyKeys(key);
+    &#125;);
+
+    observe(<span class="hljs-keyword">this</span>.data);
+    <span class="hljs-keyword">new</span> Compile(options.el, <span class="hljs-keyword">this</span>);
+    options.mounted.call(<span class="hljs-keyword">this</span>); <span class="hljs-comment">// 所有事情处理好后执行mounted函数</span>
+  &#125;
+
+  proxyKeys(key) &#123;
+    <span class="hljs-keyword">let</span> self = <span class="hljs-keyword">this</span>;
+    <span class="hljs-built_in">Object</span>.defineProperty(<span class="hljs-keyword">this</span>, key, &#123;
+      enumerable: <span class="hljs-literal">false</span>,
+      configurable: <span class="hljs-literal">true</span>,
+      <span class="hljs-keyword">get</span>: function proxyGetter() &#123;
+        <span class="hljs-keyword">return</span> self.data[key];
+      &#125;,
+      <span class="hljs-keyword">set</span>: function proxySetter(newVal) &#123;
+        self.data[key] = newVal;
+      &#125;,
+    &#125;);
+  &#125;
+&#125;</code></pre>
+
+<p>到这里，Vue的双向绑定就已经实现了，代码这个东西，第一遍看可能并不理解，但是多写多看，Vue双向绑定也并不是一个太难实现的功能，其实代码不一定非要像作者这么写，主要是明白其原理，如果能自行实现代码那是更好的。</p>
+<h1 id="4-参考文章"><a href="#4-参考文章" class="headerlink" title="4. 参考文章"></a>4. 参考文章</h1><p>本篇文章的代码大部分都来源于：<a href="https://juejin.im/entry/6844903479044112391" target="_blank" rel="noopener">vue 的双向绑定原理及实现</a>，该文章中的讲解更为详细，本文章仅仅做了一些精简。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/17/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8816%E6%97%A5-%E7%8E%87%E5%9C%9F%E4%B9%8B%E6%BB%A8%E6%8E%92%E8%A1%8C%E4%B8%8B%E6%BB%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">游戏排行榜/2020年08月16日-率土之滨排行下滑</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/16/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8815%E6%97%A5-%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF%E5%86%8D%E7%AD%89%E6%A6%9C%E9%A6%96%EF%BC%8C%E7%8E%87%E5%9C%9F%E4%B9%8B%E6%BB%A8%E5%A4%A7%E6%B6%A8/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月15日-穿越火线再等榜首，率土之滨大涨</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "面试/手动实现Vue双向绑定&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
