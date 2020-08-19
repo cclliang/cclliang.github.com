@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>面试/面试题未整理 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-19 23:46">
+                    2020年8月19日 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    12.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    144
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <blockquote>
+<p>参照了很多文章，将自己平时没有注意的一些知识点记录下来，方便自己查阅的同时，也分享给大家。</p>
+</blockquote>
+<h1 id="html"><a href="#html" class="headerlink" title="html"></a>html</h1><h2 id="语义化"><a href="#语义化" class="headerlink" title="语义化"></a><a href="https://rainylog.com/post/ife-note-1/" target="_blank" rel="noopener">语义化</a></h2><p>1、为什么需要语义化</p>
+<ul>
+<li>易修改、易维护。</li>
+<li>无障碍阅读支持。</li>
+<li>搜索引擎友好，利于 SEO。</li>
+<li>面向未来的 HTML，浏览器在未来可能提供更丰富的支持。</li>
+</ul>
+<blockquote>
+<p>语义元素均有一个共同特点——他们均不做任何事情。换句话说，语义元素仅仅是页面结构的规范化，并不会对内容有本质的影响。</p>
+</blockquote>
+<p><img src="image/image-20200417132554712.png" srcset="/img/loading.gif" alt="image-20200417132554712"></p>
+<h3 id="头部-lt-header-gt"><a href="#头部-lt-header-gt" class="headerlink" title="头部&lt;header&gt;"></a>头部<code>&lt;header&gt;</code></h3><ul>
+<li>有两种用法，第一是标注内容的标题，第二是标注网页的页眉</li>
+<li>除非必要（内容标题附带其它信息的情况下：发布时间、作者等），一般不在内容中使用</li>
+<li>网页中可以包含多个<code>&lt;header&gt;</code>元素。按照 HTML5 的规定，<code>&lt;header&gt;</code>都应包含某个级别的标题，所以应隐式或显式地包含标题，通常将不希望显示的标题设置为<code>display: none;</code>，一方面遵守规范，另一方面则提供了无障碍阅读而不至于影响到页面设计。</li>
+</ul>
+<h3 id="导航栏-lt-nav-gt"><a href="#导航栏-lt-nav-gt" class="headerlink" title="导航栏&lt;nav&gt;"></a>导航栏<code>&lt;nav&gt;</code></h3><p>导航栏使用<code>&lt;nav&gt;</code>看起来是理所当然的，进一步，它也用于一组文章的链接。一个页面可以包含多个<code>&lt;nav&gt;</code>元素，但通常仅仅在页面的主要导航部分使用它。</p>
+<h3 id="附注-lt-aside-gt"><a href="#附注-lt-aside-gt" class="headerlink" title="附注&lt;aside&gt;"></a>附注<code>&lt;aside&gt;</code></h3><p><code>&lt;aside&gt;</code>元素并不仅仅是侧栏，它表示与它周围文本没有密切关系的内容。文章中同样可以使用<code>&lt;aside&gt;</code>元素，来说明文章的附加内容、解释说明某个观点、相关内容链接等等。</p>
+<p>当<code>&lt;aside&gt;</code>用于侧栏时，其表示整个网页的附加内容。通常的广告区域、搜索、分享链接则位于侧栏。侧栏中的<code>&lt;aside&gt;</code>元素规定了一个区域，通常是带有标题的内容。</p>
+<p><code>&lt;section&gt;</code>标签适合标记的内容区块：</p>
+<ul>
+<li>与页面主体并列显示的小内容块。</li>
+<li>独立性内容，清单、表单等。</li>
+<li>分组内容，如 CMS 系统中的文章分类区块。</li>
+<li>比较长文档的一部分，可能仅仅是为了正确规定页面大纲。</li>
+</ul>
+<p><code>&lt;div&gt;</code>标签依然是可用的，当你觉得使用其它标签都不太合适的时候。新的语义元素出现之前，我们总是这么干的！</p>
+<h3 id="页脚-lt-footer-gt"><a href="#页脚-lt-footer-gt" class="headerlink" title="页脚&lt;footer&gt;"></a>页脚<code>&lt;footer&gt;</code></h3><p>同可“包罗万象”的<code>&lt;header&gt;</code>元素不同，标准规定<code>&lt;footer</code>标签仅仅可以包含版权、来源信息、法律限制等等之类的文本或链接信息。如果想要在页脚中包含其它内容，可以使用熟悉的<code>&lt;div&gt;</code>来帮忙。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 其它内容 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 法律、版权、来源、联系信息等 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+<h3 id="主要内容-lt-main-gt"><a href="#主要内容-lt-main-gt" class="headerlink" title="主要内容&lt;main&gt;"></a>主要内容<code>&lt;main&gt;</code></h3><p>在早先的 HTML5 版本中并没有规定页面主体的标签，相关的书中经常会说：除去头部、尾部、侧栏等其它部分，剩下的自然是主体部分。</p>
+<p>然而，HTML5.1 中规定了一个<code>&lt;main&gt;</code>标签来标识主体内容。<code>&lt;main&gt;</code>标签不能包含在页面其它区块元素中，通常是<code>&lt;body&gt;</code>的子标签，或者是全局<code>&lt;div&gt;</code>的子标签。<code>&lt;main&gt;</code>标签可以帮助屏幕阅读工具识别页面的主体部分，从而让访问者迅速得到有用的信息。</p>
+<h3 id="文章-lt-article-gt"><a href="#文章-lt-article-gt" class="headerlink" title="文章&lt;article&gt;"></a>文章<code>&lt;article&gt;</code></h3><p><code>&lt;article&gt;</code>表示一个完整的、自成一体的内容块。如文章或新闻报道。<code>&lt;article&gt;</code>应包含完整的标题、文章署名、发布时间、正文。当语义与表现发生冲突，例如有时需要将文章分多个页面显示，那么需要把每个页面的文章区域都用<code>&lt;article&gt;</code>标记。</p>
+<p>文章中包含插图时，使用新的语义元素<code>&lt;figure&gt;</code>标签。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>标题<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 内容 --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"插图"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">figcaption</span>&gt;</span>这是一个插图<span class="hljs-tag">&lt;/<span class="hljs-name">figcaption</span>&gt;</span> <span class="hljs-comment">&lt;!--文章中插图图像的标题--&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></code></pre>
+
+<p>上述情况下，<code>&lt;figcaption&gt;</code>包含了关于插图的详细解释，则<code>&lt;img&gt;</code>的<code>alt</code>属性可以略去。</p>
+<h2 id="图片的懒加载和预加载"><a href="#图片的懒加载和预加载" class="headerlink" title="图片的懒加载和预加载"></a>图片的懒加载和预加载</h2><ul>
+<li>预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</li>
+<li>懒加载：懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。</li>
+</ul>
+<p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">flex布局</a></h2><ul>
+<li>该布局模型的目的是提供一种更加高效的方式来对容器中的条目进行布局、对齐和分配空间。</li>
+<li>在传统的布局方式中，block 布局是把块在垂直方向从上到下依次排列的；而 inline 布局则是在水平方向来排列。</li>
+<li>弹性盒布局并没有这样内在的方向限制，可以由开发人员自由操作。</li>
+<li>试用场景：弹性布局适合于移动前端开发，在Android和ios上也完美支持。</li>
+</ul>
+<h2 id="CSS3新属性"><a href="#CSS3新属性" class="headerlink" title="CSS3新属性"></a>CSS3新属性</h2><ol>
+<li>RGBA和透明度</li>
+<li>background-image background-origin(content-box/padding-box/border-box) background-size background-repeat</li>
+<li>word-wrap（对长的不可分割单词换行）word-wrap：break-word</li>
+<li>文字阴影：text-shadow： 5px 5px 5px #FF0000;（水平阴影，垂直阴影，模糊距离，阴影颜色）</li>
+<li>font-face属性：定义自己的字体</li>
+<li>圆角（边框半径）：border-radius 属性用于创建圆角</li>
+<li>边框图片：border-image: url(border.png) 30 30 round</li>
+<li>盒阴影：box-shadow: 10px 10px 5px #888888</li>
+<li>媒体查询：定义两套css，当浏览器的尺寸变化时会采用不同的属性</li>
+</ol>
+<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ol>
+<li><p>不同浏览器的标签默认的margin和padding不一样。<code>*{margin:0;padding:0;}</code></p>
+</li>
+<li><p>IE6双边距bug：块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大。hack：display:inline;将其转化为行内属性。</p>
+</li>
+<li><p>渐进识别的方式，从总体中逐渐排除局部。首先，巧妙的使用“9”这一标记，将IE浏览器从所有情况中分离出来。接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。</p>
+<pre><code class="hljs css">&#123;
+    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#f1ee18</span>;<span class="hljs-comment">/*所有识别*/</span>
+    <span class="hljs-attribute">.background-color</span>:<span class="hljs-number">#00deff</span>\<span class="hljs-number">9</span>; <span class="hljs-comment">/*IE6、7、8识别*/</span>
+    +background-color:#a200ff;/*IE6、7识别*/
+    _<span class="hljs-selector-tag">background-color</span>:<span class="hljs-selector-id">#1e0bd1</span>;<span class="hljs-comment">/*IE6识别*/</span>
+&#125;</code></pre>
+</li>
+<li><p>设置较小高度标签（一般小于10px），在IE6，IE7中高度超出自己设置高度。hack：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。</p>
+</li>
+<li><p>IE下，可以使用获取常规属性的方法来获取自定义属性,也可以使用getAttribute()获取自定义属性；Firefox下，只能使用getAttribute()获取自定义属性。解决方法:统一通过getAttribute()获取自定义属性。</p>
+</li>
+<li><p>Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。</p>
+</li>
+<li><p>超链接访问过后hover样式就不出现了，被点击访问过的超链接样式不再具有hover和active了。解决方法是改变CSS属性的排列顺序:L-V-H-A ( love hate ): a:link {} a:visited {} a:hover {} a:active {}</p>
+</li>
+</ol>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>id选择器(#myid)</li>
+<li>类选择器(.myclassname)</li>
+<li>标签选择器(div, h1, p)</li>
+<li>相邻选择器(h1 + p)</li>
+<li>子选择器（ul &gt; li）</li>
+<li>后代选择器（li a）</li>
+<li>通配符选择器（*）</li>
+<li>属性选择器（a[rel=”external”]）</li>
+<li>伪类选择器（a:hover, li:nth-child）</li>
+<li>可继承的属性：font-size, font-family, color</li>
+<li>不可继承的样式：border, padding, margin, width, height</li>
+<li>优先级（就近原则）：!important &gt; [ id &gt; class &gt; tag ]</li>
+<li>!important 比内联优先级高</li>
+</ul>
+<h3 id="选择器算法"><a href="#选择器算法" class="headerlink" title="选择器算法"></a>选择器算法</h3><ul>
+<li>元素选择符： 1</li>
+<li>class选择符： 10</li>
+<li>id选择符：100</li>
+<li>元素标签：1000</li>
+<li>!important声明的样式优先级最高，如果冲突再进行计算。</li>
+<li>如果优先级相同，则选择最后出现的样式。</li>
+<li>**继承得到的样式的优先级最低。</li>
+</ul>
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><ul>
+<li>static（默认）：按照正常文档流进行排列；</li>
+<li>relative（相对定位）：不脱离文档流，参考自身静态位置通过 top, bottom, left, right 定位；</li>
+<li>absolute(绝对定位)：参考距其最近一个不为static的父级元素通过top, bottom, left, right 定位；</li>
+<li>fixed(固定定位)：所固定的参照对像是可视窗口。</li>
+<li>类似于优先级机制：position：absolute/fixed优先级最高，有他们在时，float不起作用，display值需要调整。float 或者absolute定位的元素，只能是块元素或表格。</li>
+<li>同时设置top和bottom会将盒子拉开</li>
+</ul>
+<h2 id="visibility"><a href="#visibility" class="headerlink" title="visibility"></a>visibility</h2><p>当一个元素的visibility属性被设置成collapse值后，对于一般的元素，它的表现跟hidden是一样的。</p>
+<ol>
+<li>chrome中，使用collapse值和使用hidden没有区别。</li>
+<li>firefox，opera和IE，使用collapse值和使用display：none没有什么区别。</li>
+</ol>
+<p>display：none 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）</p>
+<p>visibility：hidden 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）</p>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><p>浮动元素碰到包含它的边框或者浮动元素的边框停留。由于浮动元素不在文档流中，所以文档流的块框表现得就像浮动框不存在一样。浮动元素会漂浮在文档流的块框上。</p>
+<p>浮动带来的问题：</p>
+<ol>
+<li>父元素的高度无法被撑开，影响与父元素同级的元素</li>
+<li>与浮动元素同级的非浮动元素（内联元素）会跟随其后</li>
+<li>若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构。</li>
+</ol>
+<p>清除浮动的方式：</p>
+<ol>
+<li>父级div定义height</li>
+<li>最后一个浮动元素后加空div标签 并添加样式<code>clear:both</code>。</li>
+<li>包含浮动元素的父标签添加样式overflow为hidden或auto。</li>
+<li>父级div定义zoom</li>
+</ol>
+<p>浮动时<code>display:block</code></p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p><a href="https://zhuanlan.zhihu.com/p/25321647" target="_blank" rel="noopener">10 分钟理解 BFC 原理</a></p>
+<p><a href="https://juejin.im/post/5909db2fda2f60005d2093db" target="_blank" rel="noopener">[布局概念] 关于CSS-BFC深入理解</a></p>
+<h2 id="优化，提高性能"><a href="#优化，提高性能" class="headerlink" title="优化，提高性能"></a>优化，提高性能</h2><ol>
+<li>避免过度约束</li>
+<li>避免后代选择符</li>
+<li>避免链式选择符</li>
+<li>使用紧凑的语法</li>
+<li>避免不必要的命名空间</li>
+<li>避免不必要的重复</li>
+<li>最好使用表示语义的名字。一个好的类名应该是描述他是什么而不是像什么</li>
+<li>避免！important，可以选择其他选择器</li>
+<li>尽可能的精简规则，你可以合并不同类里的重复规则</li>
+</ol>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><pre><code class="hljs css">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+
+<h2 id="font-smoothing"><a href="#font-smoothing" class="headerlink" title="font-smoothing"></a>font-smoothing</h2><h2 id="手写动画需要注意什么"><a href="#手写动画需要注意什么" class="headerlink" title="手写动画需要注意什么"></a>手写动画需要注意什么</h2><p>多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms。</p>
+<h2 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h2><ol>
+<li>png是便携式网络图片（Portable Network Graphics）是一种无损数据压缩位图文件格式.优点是：压缩比高，色彩好。 大多数地方都可以用。</li>
+<li>jpg是一种针对相片使用的一种失真压缩方法，是一种破坏性的压缩，在色调及颜色平滑变化做的不错。在www上，被用来储存和传输照片的格式。</li>
+<li>gif是一种位图文件格式，以8位色重现真色彩的图像。可以实现动画效果.</li>
+<li>webp格式是谷歌在2010年推出的图片格式，压缩率只有jpg的2/3，大小比png小了45%。缺点是压缩的时间更久了，兼容性不好，目前谷歌和opera支持。</li>
+</ol>
+<h2 id="style标签"><a href="#style标签" class="headerlink" title="style标签"></a>style标签</h2><p>页面加载自上而下 当然是先加载样式。</p>
+<p>写在body标签后由于浏览器以逐行方式对HTML文档进行解析，当解析到写在尾部的样式表（外联或写在style标签）会导致浏览器停止之前的渲染，等待加载且解析样式表完成之后重新渲染，在windows的IE下可能会出现FOUC现象（即样式失效导致的页面闪烁问题）</p>
+<h2 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h2><ul>
+<li>参数是scroll时候，必会出现滚动条。</li>
+<li>参数是auto时候，子元素内容大于父元素时出现滚动条。</li>
+<li>参数是visible时候，溢出的内容出现在父元素之外。</li>
+<li>参数是hidden时候，溢出隐藏。</li>
+</ul>
+<h2 id="CSS-Sprites"><a href="#CSS-Sprites" class="headerlink" title="CSS Sprites"></a>CSS Sprites</h2><p>优点：将一个页面涉及到的所有图片都包含到一张大图中去，然后利用CSS的 background-image，background- repeat，background-position 的组合进行背景定位。利用CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能；CSS Sprites能减少图片的字节。</p>
+<p>缺点：维护难度较高，想要添加一个张图片需要对整个图片进行修改。</p>
+<h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>7 种原始类型<ul>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol</li>
+</ul>
+</li>
+<li>Object</li>
+</ul>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><p>Symbol 生成一个全局唯一的值。</p>
+<h2 id="map和set"><a href="#map和set" class="headerlink" title="map和set"></a>map和set</h2><h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p><code>Map</code>是一组键值对的结构，具有极快的查找速度。</p>
+<p>一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉。</p>
+<ul>
+<li>set(key, val): 向Map中添加新元素</li>
+<li>get(key): 通过键值查找特定的数值并返回</li>
+<li>has(key): 判断Map对象中是否有Key所对应的值，有返回true,否则返回false</li>
+<li>delete(key): 通过键值从Map中移除对应的数据</li>
+<li>clear(): 将这个Map中的所有元素删除</li>
+<li>size：返回Map对象中所包含的键值对个数</li>
+<li><code>keys()</code>：返回键名的遍历器</li>
+<li><code>values()</code>：返回键值的遍历器</li>
+<li><code>entries()</code>：返回键值对的遍历器</li>
+<li><code>forEach()</code>：使用回调函数遍历每个成员</li>
+</ul>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><code>Set</code>对象允许你存储任何类型的值，无论是原始值或者是对象引用。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p><code>Set</code> 本身是一个构造函数，用来生成<code>Set</code> 数据结构。<code>Set</code>函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。</p>
+<ul>
+<li>+0 与 -0 在存储判断唯一性的时候是恒等的，所以不重复</li>
+<li>undefined 与 undefined 是恒等的，所以不重复</li>
+<li>NaN 与 NaN 是不恒等的，但是在 Set 中认为NaN与NaN相等，所有只能存在一个，不重复。</li>
+<li><code>add(value)</code>：添加某个值，返回 Set 结构本身(可以链式调用)。</li>
+<li><code>delete(value)</code>：删除某个值，删除成功返回<code>true</code>，否则返回<code>false</code>。</li>
+<li><code>has(value)</code>：返回一个布尔值，表示该值是否为Set的成员。</li>
+<li><code>clear()</code>：清除所有成员，没有返回值。</li>
+<li><code>keys()</code>：返回键名的遍历器。</li>
+<li><code>values()</code>：返回键值的遍历器。</li>
+<li><code>entries()</code>：返回键值对的遍历器。</li>
+<li><code>forEach()</code>：使用回调函数遍历每个成员。</li>
+</ul>
+<h2 id="原型对象"><a href="#原型对象" class="headerlink" title="原型对象"></a>原型对象</h2><blockquote>
+<p>与大部分面向对象语言不同，JavaScript中并没有引入类（class）的概念，但JavaScript仍然大量地使用了对象，为了保证对象之间的联系，JavaScript引入了原型与原型链的概念。</p>
+</blockquote>
+<p><img src="image/20200303132302223.png" srcset="/img/loading.gif" alt="原型链"></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;
+
+&#125;
+
+<span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person(); <span class="hljs-comment">// 实例化对象</span>
+<span class="hljs-built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="hljs-comment">// true</span></code></pre>
+
+<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a><code>__proto__</code></h3><p>实例的原型对象</p>
+<p> <code>对象.__proto__ === 函数.prototype</code></p>
+<h3 id="原型prototype"><a href="#原型prototype" class="headerlink" title="原型prototype"></a>原型<code>prototype</code></h3><ol>
+<li><p>每一个构造函数都拥有一个prototype属性，这个属性指向一个对象，也就是原型对象。当使用这个构造函数创建实例的时候，prototype属性指向的原型对象就成为实例的原型对象。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在运动"</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(Parsen.prototype === p.__proto__); 	<span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>原型对象默认拥有一个constructor属性，指向指向它的那个构造函数（也就是说构造函数和原型对象是互相指向的关系）。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在运动"</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(Parsen.prototype.constructor === Parsen); <span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>每个对象都拥有一个隐藏的属性[[prototype]]，指向它的原型对象，这个属性可以通过 <code>Object.getPrototypeOf(obj)</code> 或 <code>obj.__proto__</code> 来访问。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在运动"</span>);
+&#125;;
+<span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> Parsen();
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getPrototypeOf(p) === p.__proto__); <span class="hljs-comment">//true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getPrototypeOf(p) === Parsen.prototype); <span class="hljs-comment">//true</span></code></pre>
+</li>
+<li><p>实际上，构造函数的prototype属性与它创建的实例对象的[[prototype]]属性指向的是同一个对象，即 <code>对象.__proto__ === 函数.prototype</code> 。</p>
+</li>
+<li><p>如上文所述，<strong>原型对象就是用来存放实例中共有的那部分属性</strong>。</p>
+</li>
+<li><p>在JavaScript中，所有的对象都是由它的原型对象继承而来，反之，所有的对象都可以作为原型对象存在。</p>
+</li>
+<li><p>访问对象的属性时，JavaScript会首先在对象自身的属性内查找，若没有找到，则会跳转到该对象的原型对象中查找。</p>
+</li>
+</ol>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><blockquote>
+<p>原型对象自身也是一个对象，它也有自己的原型对象，这样层层上溯，就形成了一个类似链表的结构，这就是<strong>原型链（prototype chain）</strong>。</p>
+<p>原型链的终点都是Object函数的prototype属性，因为在JavaScript中的对象都默认由Object()构造。Objec.prototype指向的原型对象同样拥有原型，不过它的原型是null，而null则没有原型。</p>
+</blockquote>
+<p>通过原型链实现继承</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dog</span>(<span class="hljs-params">name, color</span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.name = name
+    <span class="hljs-keyword">this</span>.color = color
+&#125;
+
+Dog.prototype.bark = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'wangwang~'</span>)
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Husky</span>(<span class="hljs-params">name, color, weight</span>) </span>&#123;
+    Dog.call(<span class="hljs-keyword">this</span>, name, color)
+    <span class="hljs-keyword">this</span>.weight = weight
+&#125;</code></pre>
+
+<p>原型对象指向<code>Object.prototype</code>，而<code>Object.prototype.__proto__</code> 没有原型</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parsen</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+Parsen.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"在运动"</span>);
+&#125;;
+
+<span class="hljs-built_in">console</span>.log(Parsen.prototype.__proto__ === <span class="hljs-built_in">Object</span>.prototype); <span class="hljs-comment">//true</span></code></pre>
+
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a><a href="https://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">promise</a></h2><ol>
+<li><p>了解 Promise 吗？</p>
+</li>
+<li><p>Promise 解决的痛点是什么？</p>
+<p>Promise 对象是 JavaScript 的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。</p>
+</li>
+<li><p>Promise 解决的痛点还有其他方法可以解决吗？如果有，请列举。</p>
+</li>
+<li><p>Promise 如何使用？</p>
+</li>
+<li><p>Promise 常用的方法有哪些？它们的作用是什么？</p>
+</li>
+<li><p>Promise 在事件循环中的执行过程是怎样的？</p>
+</li>
+<li><p>Promise 的业界实现都有哪些？</p>
+<p><strong>Q</strong> 和 <strong>bluebird</strong>，<strong>bluebird</strong> 甚至号称运行最快的类库。</p>
+</li>
+<li><p>能不能手写一个 Promise 的 polyfill。</p>
+</li>
+</ol>
+<h3 id="then"><a href="#then" class="headerlink" title="then"></a>then</h3><p><code>then</code>方法可以接受两个回调函数作为参数。第一个回调函数是<code>Promise</code>对象的状态变为<code>resolved</code>时调用，第二个回调函数是<code>Promise</code>对象的状态变为<code>rejected</code>时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受<code>Promise</code>对象传出的值作为参数。</p>
+<h3 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h3><ul>
+<li><p>指定发生错误时的回调函数。</p>
+</li>
+<li><p>Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法就是“Promise 会吃掉错误”。</p>
+</li>
+<li><p>一般来说，不要在<code>then()</code>方法里面定义 Reject 状态的回调函数（即<code>then</code>的第二个参数），总是使用<code>catch</code>方法。</p>
+</li>
+<li><p>没有报错时，会跳过catch()</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">const</span> someAsyncThing = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>;
+    resolve(x + <span class="hljs-number">2</span>);
+  &#125;);
+&#125;;
+
+someAsyncThing()
+  <span class="hljs-comment">//没有报错时会跳过</span>
+  .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"oh no"</span>, error);
+  &#125;)
+  .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"carry on"</span>);
+  &#125;);</code></pre>
+
+</li>
+</ul>
+<h3 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h3><p>ES9的标准，用于指定不管 Promise 对象最后状态如何，都会执行的操作。</p>
+<p><code>finally</code>方法的回调函数不接受任何参数，这意味着没有办法知道，前面的 Promise 状态到底是<code>fulfilled</code>还是<code>rejected</code>。这表明，<code>finally</code>方法里面的操作，应该是与状态无关的，不依赖于 Promise 的执行结果。</p>
+<p><code>finally</code>本质上是<code>then</code>方法的特例。</p>
+<pre><code class="hljs javascript">promise.finally(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+  <span class="hljs-comment">// 语句</span>
+&#125;);
+
+<span class="hljs-comment">// 等同于</span>
+promise.then(
+  result =&gt; &#123;
+    <span class="hljs-comment">// 语句</span>
+    <span class="hljs-keyword">return</span> result;
+  &#125;,
+  error =&gt; &#123;
+    <span class="hljs-comment">// 语句</span>
+    <span class="hljs-keyword">throw</span> error;
+  &#125;
+);</code></pre>
+
+<p>实现方法</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">Promise</span>.prototype.finally = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>&#123;
+  <span class="hljs-keyword">let</span> P = <span class="hljs-keyword">this</span>.constructor;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.then(
+    value  =&gt; P.resolve(callback()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> value),
+    reason =&gt; P.resolve(callback()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; <span class="hljs-keyword">throw</span> reason &#125;)
+  );
+&#125;;</code></pre>
+
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h3><ul>
+<li>将多个 Promise 实例，包装成一个新的 Promise 实例。</li>
+<li>只有每个实例的状态都变成<code>fulfilled</code>，或者其中有一个变为<code>rejected</code>，才会调用<code>Promise.all</code>方法后面的回调函数。</li>
+<li>如果作为参数的 Promise 实例，自己定义了<code>catch</code>方法，那么它一旦被<code>rejected</code>，并不会触发<code>Promise.all()</code>的<code>catch</code>方法。</li>
+</ul>
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h3><ul>
+<li>将多个 Promise 实例，包装成一个新的 Promise 实例。</li>
+<li>率先改变的 Promise 实例的返回值就传给P的回调函数。</li>
+</ul>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><ul>
+<li>ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</li>
+<li>一个状态机，封装了多个内部状态。</li>
+</ul>
+<p><code>next</code>方法返回一个对象，它的<code>value</code>属性就是当前<code>yield</code>表达式的值<code>hello</code>，<code>done</code>属性的值<code>false</code>，表示遍历还没有结束。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> * <span class="hljs-title">foo</span>(<span class="hljs-params">x, y</span>) </span>&#123; ··· &#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> *<span class="hljs-title">foo</span>(<span class="hljs-params">x, y</span>) </span>&#123; ··· &#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">foo</span>(<span class="hljs-params">x, y</span>) </span>&#123; ··· &#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span>*<span class="hljs-title">foo</span>(<span class="hljs-params">x, y</span>) </span>&#123; ··· &#125;</code></pre>
+
+<p>一般采用第三种写法<code>function* foo(x, y) { ··· }</code></p>
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><ul>
+<li>遇到<code>yield</code>表达式，就暂停执行后面的操作，并将紧跟在<code>yield</code>后面的那个表达式的值，作为返回的对象的<code>value</code>属性值。</li>
+<li>下一次调用<code>next</code>方法时，再继续往下执行，直到遇到下一个<code>yield</code>表达式。</li>
+<li>如果没有再遇到新的<code>yield</code>表达式，就一直运行到函数结束，直到<code>return</code>语句为止，并将<code>return</code>语句后面的表达式的值，作为返回的对象的<code>value</code>属性值。</li>
+<li>如果该函数没有<code>return</code>语句，则返回的对象的<code>value</code>属性值为<code>undefined</code>。</li>
+<li>只有调用<code>next</code>方法时，函数<code>f</code>才会执行。</li>
+<li><code>yield</code>表达式只能用在 Generator 函数里面，用在其他地方都会报错。</li>
+<li>由于<code>next</code>方法的参数表示上一个<code>yield</code>表达式的返回值，所以在第一次使用<code>next</code>方法时，传递参数是无效的。V8 引擎直接忽略第一次使用<code>next</code>方法时的参数，只有从第二次使用<code>next</code>方法开始，参数才是有效的。从语义上讲，第一个<code>next</code>方法用来启动遍历器对象，所以不用带有参数</li>
+</ul>
+<h3 id="for…of循环"><a href="#for…of循环" class="headerlink" title="for…of循环"></a>for…of循环</h3><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">3</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">4</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">5</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-number">6</span>;
+&#125;
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v <span class="hljs-keyword">of</span> foo()) &#123;
+  <span class="hljs-built_in">console</span>.log(v);
+&#125;
+<span class="hljs-comment">// 1 2 3 4 5</span></code></pre>
+
+<h3 id="Generator-prototype-return"><a href="#Generator-prototype-return" class="headerlink" title="Generator.prototype.return()"></a>Generator.prototype.return()</h3><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">gen</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-number">3</span>;
+&#125;
+
+<span class="hljs-keyword">var</span> g = gen();
+
+g.next()        <span class="hljs-comment">// &#123; value: 1, done: false &#125;</span>
+g.return(<span class="hljs-string">'foo'</span>) <span class="hljs-comment">// &#123; value: "foo", done: true &#125;</span>
+g.next()        <span class="hljs-comment">// &#123; value: undefined, done: true &#125;</span></code></pre>
+
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield*"></a>yield*</h3><p>在 Generator 函数内部，调用另一个 Generator 函数。</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'x'</span>;
+  <span class="hljs-keyword">yield</span>* foo();
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'y'</span>;
+&#125;
+
+<span class="hljs-comment">// 等同于</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'x'</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'a'</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'b'</span>;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'y'</span>;
+&#125;
+
+<span class="hljs-comment">// 等同于</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'x'</span>;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v <span class="hljs-keyword">of</span> foo()) &#123;
+    <span class="hljs-keyword">yield</span> v;
+  &#125;
+  <span class="hljs-keyword">yield</span> <span class="hljs-string">'y'</span>;
+&#125;
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v <span class="hljs-keyword">of</span> bar())&#123;
+  <span class="hljs-built_in">console</span>.log(v);
+&#125;
+<span class="hljs-comment">// "x"</span>
+<span class="hljs-comment">// "a"</span>
+<span class="hljs-comment">// "b"</span>
+<span class="hljs-comment">// "y"</span></code></pre>
+
+<pre><code class="hljs javascript"><span class="hljs-keyword">let</span> obj = &#123;
+  * myGeneratorMethod() &#123;
+    ···
+  &#125;
+&#125;;
+<span class="hljs-comment">//等价于</span>
+<span class="hljs-keyword">let</span> obj = &#123;
+  myGeneratorMethod: <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ···</span>
+  &#125;
+&#125;;</code></pre>
+
+<h3 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h3><p>Generator 函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）。</p>
+<p>Generator+Promise实现完美异步</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCallSettings</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// utils.ajax方法支持返回promise对象，把得到的promise return出去</span>
+  <span class="hljs-keyword">return</span> utils.ajax(&#123;
+    url: <span class="hljs-string">"/dialer/dialerSetting"</span>,
+    method: <span class="hljs-string">"GET"</span>
+  &#125;);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">dealData</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">try</span> &#123;
+    <span class="hljs-keyword">let</span> settingInfo = <span class="hljs-keyword">yield</span> getCallSettings();
+    <span class="hljs-comment">// do something……</span>
+  &#125; <span class="hljs-keyword">catch</span> (err) &#123;
+    <span class="hljs-built_in">console</span>.log(err); <span class="hljs-comment">// 接收错误</span>
+  &#125;
+&#125;
+
+<span class="hljs-keyword">let</span> it = dealData();
+<span class="hljs-keyword">let</span> promise = it.next().value; <span class="hljs-comment">// 注意，这里拿到yield出来的promise</span>
+promise.then(
+  info =&gt; &#123;
+    it.next(info); <span class="hljs-comment">// 拿到info传给yield表达式</span>
+  &#125;,
+  err =&gt; &#123;
+    it.throw(err); <span class="hljs-comment">// 抛出错误</span>
+  &#125;
+);</code></pre>
+
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async,await"></a><a href="https://es6.ruanyifeng.com/#docs/async" target="_blank" rel="noopener">async,await</a></h2><ul>
+<li><code>async</code>就是将函数返回值使用<code>Promise.resolve()</code>包裹了下，和<code>then</code>中处理返回值一样，并且<code>await</code>只能配套<code>async</code>使用</li>
+<li><code>await</code>就是<code>generator</code>加上<code>Promise</code>的语法糖，且内部实现了自动执行<code>generator</code>。</li>
+<li><code>await</code> 将异步代码改造成同步代码，如果多个异步操作没有依赖性而使用 await 会导致性能上的降低。</li>
+</ul>
+<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ul>
+<li><code>function</code>关键字与函数名之间有一个星号</li>
+<li>函数体内部使用<code>yield</code>表达式，定义不同的内部状态（<code>yield</code>在英语里的意思就是“产出”）。</li>
+</ul>
+<h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><h3 id="原型链-1"><a href="#原型链-1" class="headerlink" title="原型链"></a>原型链</h3><p><img src="image/166c2c0107fd80c7" srcset="/img/loading.gif" alt="原型链"></p>
+<p>既可以继承构造函数中的属性和方法，也可以继承原型链上的属性和方法，</p>
+<ul>
+<li>实例化子类时无法给父类传参。</li>
+<li>多个实例对引用类型的操作会被篡改。</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"张三"</span>;
+  <span class="hljs-keyword">this</span>.old = <span class="hljs-number">18</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+
+Student.prototype = <span class="hljs-keyword">new</span> Person();
+<span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Student();
+<span class="hljs-built_in">console</span>.log(s.name);</code></pre>
+
+<h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><ul>
+<li>只能继承父类的<strong>实例</strong>属性和方法，不能继承原型属性/方法</li>
+<li>无法实现复用，每个子类都有父类实例函数的副本，影响性能</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"张三"</span>;
+  <span class="hljs-keyword">this</span>.old = <span class="hljs-number">18</span>;
+&#125;
+Person.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">"在运动"</span>);
+&#125;;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Student</span>(<span class="hljs-params"></span>) </span>&#123;
+  Person.call(<span class="hljs-keyword">this</span>);
+&#125;
+
+<span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Student();
+<span class="hljs-built_in">console</span>.log(s.name);</code></pre>
+
+<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><p>缺点就是在使用子类创建实例对象时，其原型中会存在两份相同的属性/方法。</p>
+<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><ul>
+<li>原型链继承多个实例的引用类型属性指向相同，存在篡改的可能。</li>
+<li>无法传递参数</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">object</span>(<span class="hljs-params">obj</span>) </span>&#123;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+  F.prototype = obj;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();
+&#125;
+<span class="hljs-keyword">var</span> person = &#123;
+  name: <span class="hljs-string">"Nicholas"</span>,
+  friends: [<span class="hljs-string">"Shelby"</span>, <span class="hljs-string">"Court"</span>, <span class="hljs-string">"Van"</span>]
+&#125;;
+
+<span class="hljs-keyword">var</span> anotherPerson = object(person);
+anotherPerson.name = <span class="hljs-string">"Greg"</span>;
+anotherPerson.friends.push(<span class="hljs-string">"Rob"</span>);
+
+<span class="hljs-keyword">var</span> yetAnotherPerson = object(person);
+yetAnotherPerson.name = <span class="hljs-string">"Linda"</span>;
+yetAnotherPerson.friends.push(<span class="hljs-string">"Barbie"</span>);
+
+<span class="hljs-built_in">console</span>.log(person.friends);
+<span class="hljs-comment">//"Shelby,Court,Van,Rob,Barbie"</span>
+<span class="hljs-built_in">console</span>.log(person.name);</code></pre>
+
+<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><ul>
+<li>原型链继承多个实例的引用类型属性指向相同，存在篡改的可能。</li>
+<li>无法传递参数</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">object</span>(<span class="hljs-params">obj</span>) </span>&#123;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>&#123;&#125;
+  F.prototype = obj;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAnother</span>(<span class="hljs-params">original</span>) </span>&#123;
+  <span class="hljs-keyword">var</span> clone = object(original); <span class="hljs-comment">// 通过调用 object() 函数创建一个新对象</span>
+  clone.sayHi = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// 以某种方式来增强对象</span>
+    alert(<span class="hljs-string">"hi"</span>);
+  &#125;;
+  <span class="hljs-keyword">return</span> clone; <span class="hljs-comment">// 返回这个对象</span>
+&#125;
+<span class="hljs-keyword">var</span> person = &#123;
+  name: <span class="hljs-string">"Nicholas"</span>,
+  friends: [<span class="hljs-string">"Shelby"</span>, <span class="hljs-string">"Court"</span>, <span class="hljs-string">"Van"</span>]
+&#125;;
+<span class="hljs-keyword">var</span> anotherPerson = createAnother(person);
+anotherPerson.sayHi(); <span class="hljs-comment">//"hi"</span></code></pre>
+
+<h3 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h3><p><strong>这是最成熟的方法，也是现在库实现的方法</strong></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inheritPrototype</span>(<span class="hljs-params">subType, superType</span>) </span>&#123;
+  <span class="hljs-keyword">var</span> prototype = <span class="hljs-built_in">Object</span>.create(superType.prototype); <span class="hljs-comment">// 创建对象，创建父类原型的一个副本</span>
+  prototype.constructor = subType; <span class="hljs-comment">// 增强对象，弥补因重写原型而失去的默认的constructor 属性</span>
+  subType.prototype = prototype; <span class="hljs-comment">// 指定对象，将新创建的对象赋值给子类的原型</span>
+&#125;
+
+<span class="hljs-comment">// 父类初始化实例属性和原型属性</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SuperType</span>(<span class="hljs-params">name</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.name = name;
+  <span class="hljs-keyword">this</span>.colors = [<span class="hljs-string">"red"</span>, <span class="hljs-string">"blue"</span>, <span class="hljs-string">"green"</span>];
+&#125;
+SuperType.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  alert(<span class="hljs-keyword">this</span>.name);
+&#125;;
+
+<span class="hljs-comment">// 借用构造函数传递增强子类实例属性（支持传参和避免篡改）</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SubType</span>(<span class="hljs-params">name, age</span>) </span>&#123;
+  SuperType.call(<span class="hljs-keyword">this</span>, name);
+  <span class="hljs-keyword">this</span>.age = age;
+&#125;
+
+<span class="hljs-comment">// 将父类原型指向子类</span>
+inheritPrototype(SubType, SuperType);
+
+<span class="hljs-comment">// 新增子类原型属性</span>
+SubType.prototype.sayAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  alert(<span class="hljs-keyword">this</span>.age);
+&#125;;
+
+<span class="hljs-keyword">var</span> instance1 = <span class="hljs-keyword">new</span> SubType(<span class="hljs-string">"xyc"</span>, <span class="hljs-number">23</span>);
+<span class="hljs-keyword">var</span> instance2 = <span class="hljs-keyword">new</span> SubType(<span class="hljs-string">"lxy"</span>, <span class="hljs-number">23</span>);
+
+instance1.colors.push(<span class="hljs-string">"2"</span>); <span class="hljs-comment">// ["red", "blue", "green", "2"]</span>
+instance2.colors.push(<span class="hljs-string">"3"</span>); <span class="hljs-comment">// ["red", "blue", "green", "3"]</span></code></pre>
+
+<h2 id="浅拷贝深拷贝"><a href="#浅拷贝深拷贝" class="headerlink" title="浅拷贝深拷贝"></a>浅拷贝深拷贝</h2><ul>
+<li><p>浅拷贝：一般指的是把对象的第一层拷贝到一个新对象上去，比如</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">deep</span>: &#123; <span class="hljs-attr">count</span>: <span class="hljs-number">2</span> &#125; &#125;;
+<span class="hljs-comment">// var b = Object.assign(&#123;&#125;, a);</span>
+<span class="hljs-comment">// 或者</span>
+<span class="hljs-keyword">var</span> b = &#123; ...a &#125;;
+<span class="hljs-keyword">var</span> c = &#123; ...a &#125;;
+b.deep.count = <span class="hljs-number">3</span>;
+b.count = <span class="hljs-number">2</span>;
+<span class="hljs-built_in">console</span>.log(c.deep.count); <span class="hljs-comment">//3</span>
+<span class="hljs-built_in">console</span>.log(b.count); <span class="hljs-comment">//2</span>
+<span class="hljs-built_in">console</span>.log(c.count); <span class="hljs-comment">//1</span></code></pre>
+</li>
+<li><p>深拷贝：一般需要借助递归实现，如果对象的值还是个对象，要进一步的深入拷贝，完全替换掉每一个复杂类型的引用。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> deepCopy = <span class="hljs-function">(<span class="hljs-params">obj</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">var</span> ret = &#123;&#125;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> obj) &#123;
+        <span class="hljs-keyword">var</span> value = obj[key]
+        ret[key] = <span class="hljs-keyword">typeof</span> value === <span class="hljs-string">'object'</span> ? deepCopy(value) : value
+    &#125;
+    <span class="hljs-keyword">return</span> ret
+&#125;</code></pre>
+
+</li>
+</ul>
+<p>JSON.sringify 和 JSON.parse  *</p>
+<ul>
+<li>不能复制function、正则、Symbol</li>
+<li>循环引用报错</li>
+<li><strong>相同的引用会被重复复制</strong></li>
+</ul>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>JavaScript中的this可能是当年设计的时候存在着设计缺陷，在ES6中能使用<code>()=&gt;</code>这个高端的箭头函数就尽量使用箭头函数，箭头函数在其他语言中还有个高大上的名字<code>Lambda</code>表达式。</p>
+<p><strong><code>nodejs</code>环境中没有<code>window</code>对象</strong></p>
+<h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>对于this的指向，我的理解就是记住一句话，<strong>如果没有使用apply和call还有箭头函数的情况下，this指向最后一次调用它的对象，如果最后一次调用它的是函数，则在严格模式指向<code>undefined</code>非严格模式下指向全局变量<code>window</code></strong>。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+  &#125;
+&#125;;
+<span class="hljs-built_in">console</span>.log(obj.b()); <span class="hljs-comment">//2</span></code></pre>
+
+<p>上面的例子应该很清晰，因为最后一次调用<code>b</code>方法的是<code>obj</code>这个对象，而对象<code>obj</code>里面a的值为2，所以这个例子会输出2。</p>
+<p>那么我们加大一下难度看下面的例子</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+  &#125;
+&#125;;
+<span class="hljs-keyword">var</span> t = obj.b;
+<span class="hljs-built_in">console</span>.log(t());
+<span class="hljs-built_in">console</span>.log(obj.b());
+<span class="hljs-built_in">console</span>.log(t() === obj.b()); 
+<span class="hljs-built_in">console</span>.log(t === obj.b);</code></pre>
+
+<p>这个时候我们新加入一个变量<code>t</code>，将<code>b</code>方法赋值给<code>t</code>，大家思考一下这个时候函数<code>t</code>会输出什么。</p>
+<p>神奇的事情发生了</p>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(t()); <span class="hljs-comment">//1</span>
+<span class="hljs-built_in">console</span>.log(obj.b()); <span class="hljs-comment">//2</span>
+<span class="hljs-built_in">console</span>.log(t() === obj.b()); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">console</span>.log(t === obj.b); <span class="hljs-comment">//true</span></code></pre>
+
+<p>函数<code>t</code>输出的结果是1。</p>
+<p>因为这次调用方法的是函数<code>t</code>而他的对象为<code>window</code>，因为对象<code>window</code>上的<code>a</code>值为1，故<code>t</code>的最后输出结果为1。</p>
+<p>下面这个例子也同样</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fun</span>(<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+    &#125;
+    <span class="hljs-built_in">console</span>.log(fun());
+  &#125;
+&#125;;
+obj.b(); <span class="hljs-comment">//1</span></code></pre>
+
+<p>因为调用<code>fun</code>方法的是方法<code>b</code>，这时最后一次调用<code>fun</code>的不为对象，则this指向全局变量<code>window</code></p>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><ul>
+<li>箭头函数会捕获其所在上下文的 <code>this</code> 值，作为自己的 <code>this</code> 值</li>
+<li>箭头函数中没有 this 绑定，必须通过查找作用域链来决定其值，如果箭头函数被非箭头函数包含，则 this 绑定的是最近一层非箭头函数的 this，否则，this 为 <code>undefined</code>。</li>
+</ul>
+<h3 id="解决的痛点"><a href="#解决的痛点" class="headerlink" title="解决的痛点"></a>解决的痛点</h3><p>在<code>ES5</code>语法中使用this有时候会很难以预测this的指向，从而产生bug，这个问题到了现在框架时代大量通过类进行封装时变得尤为明显。如果学习过react，就会发现将父组件的函数传递给子组件使用时，this指向总是个头疼的问题。</p>
+<p>虽然使用call,apply,bind可以解决这部分痛点，但是需要额外的代码，不仅增大了工作量，而且增加了维护成本。</p>
+<h4 id="简单题目"><a href="#简单题目" class="headerlink" title="简单题目"></a>简单题目</h4><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+  &#125;
+&#125;;
+<span class="hljs-built_in">console</span>.log(obj.b()); <span class="hljs-comment">//1</span></code></pre>
+
+<p>因为b是通过箭头函数进行声明，则它的this就指向了<code>obj</code>的this，而<code>obj</code>的this就是全局变量<code>window</code></p>
+<h4 id="中等题目"><a href="#中等题目" class="headerlink" title="中等题目"></a>中等题目</h4><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> fun = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+    &#125;;
+    <span class="hljs-built_in">console</span>.log(fun());
+  &#125;,
+&#125;;
+obj.b(); <span class="hljs-comment">//2</span></code></pre>
+
+<p>因为箭头函数会找上下文的this，所以这里找到的上文就是方法<code>b</code>的this，即为对象<code>obj</code></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-keyword">var</span> fun = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+    &#125;;
+    <span class="hljs-built_in">console</span>.log(fun());
+  &#125;,
+&#125;;
+obj.b(); <span class="hljs-comment">//1</span></code></pre>
+
+<p>箭头函数是没有this的，这个时候方法<code>fun</code>就逐层寻找this，最终找到的是对象<code>obj</code>的this</p>
+<h3 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call,apply,bind"></a>call,apply,bind</h3><blockquote>
+<p>apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数</p>
+<p>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。</p>
+</blockquote>
+<ol>
+<li><p>apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。</p>
+</li>
+<li><p>call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。</p>
+</li>
+<li><p>bind除了返回是函数以外，它的参数和call一样。</p>
+</li>
+</ol>
+<h4 id="箭头函数-1"><a href="#箭头函数-1" class="headerlink" title="箭头函数"></a>箭头函数</h4><p>this是不能改变的，所以对箭头函数使用call,apply,bind是没有效果的</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> fun = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+    &#125;;
+    <span class="hljs-built_in">console</span>.log(fun.call(a));
+  &#125;,
+&#125;;
+obj.b(); <span class="hljs-comment">//2</span></code></pre>
+
+<h4 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h4><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+  a: <span class="hljs-number">2</span>,
+  b: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> fun = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a;
+    &#125;;
+    <span class="hljs-built_in">console</span>.log(fun());
+  &#125;,
+&#125;;
+<span class="hljs-keyword">var</span> obj1 = &#123;
+  a: <span class="hljs-number">3</span>,
+&#125;;
+obj.b.call(obj1); <span class="hljs-comment">//3</span></code></pre>
+
+<p>箭头函数的this虽然不能被改变，但是可以改变它上下文的this。</p>
+<h3 id="一大堆题"><a href="#一大堆题" class="headerlink" title="一大堆题"></a>一大堆题</h3><p>既然上面都讲了那么多，那么我们来看一下下面的题：</p>
+<p>不知道是哪个大神想的题目，反正就是不让人好过。┓( ´∀` )┏</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> age = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">var</span> person = &#123;
+  age: <span class="hljs-number">20</span>,
+  getAge() &#123;
+    <span class="hljs-keyword">var</span> age = <span class="hljs-number">30</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.age; <span class="hljs-comment">//20</span>
+  &#125;
+&#125;;
+<span class="hljs-built_in">console</span>.log(age, age * <span class="hljs-number">2</span>); <span class="hljs-comment">//10 20</span>
+<span class="hljs-built_in">console</span>.log(person.getAge()); <span class="hljs-comment">//20</span>
+<span class="hljs-keyword">var</span> b = person.getAge;
+<span class="hljs-built_in">console</span>.log(b()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log(person.getAge()); <span class="hljs-comment">//20</span>
+<span class="hljs-built_in">console</span>.log((<span class="hljs-number">1</span>, person.getAge)()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log((<span class="hljs-number">1</span>, person.getAge.bind(person))()); <span class="hljs-comment">//20</span>
+<span class="hljs-built_in">console</span>.log((person.getAge, person.getAge)()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log((person.getAge = person.getAge)()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log(person.getAge.call()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log(person.getAge.call(person)); <span class="hljs-comment">//20</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAge2</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.age = <span class="hljs-number">40</span>;
+  <span class="hljs-built_in">console</span>.log(person.getAge());
+&#125;
+getAge2(); <span class="hljs-comment">//20</span>
+<span class="hljs-built_in">console</span>.log(age); <span class="hljs-comment">//node环境和浏览器环境不一样，因为浏览器环境中有window对象</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAge3</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.age = <span class="hljs-number">50</span>;
+  <span class="hljs-keyword">this</span>.getAge4 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-built_in">console</span>.log(person.getAge.call(<span class="hljs-keyword">this</span>)); <span class="hljs-comment">//50</span>
+  &#125;;
+&#125;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> getAge3().getAge4());
+<span class="hljs-built_in">console</span>.log(age); <span class="hljs-comment">//10</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAge4</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.age = <span class="hljs-number">60</span>;
+  <span class="hljs-keyword">this</span>.getAge5 = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-built_in">console</span>.log(person.getAge.call(<span class="hljs-keyword">this</span>)); <span class="hljs-comment">//60</span>
+  &#125;;
+&#125;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> getAge4().getAge5()); <span class="hljs-comment">//undefined</span>
+<span class="hljs-built_in">console</span>.log(age); <span class="hljs-comment">//10</span>
+<span class="hljs-keyword">var</span> age2 = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">var</span> person2 = &#123;
+  age2: <span class="hljs-number">20</span>,
+  getAge2: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-keyword">var</span> age2 = <span class="hljs-number">30</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.age2;
+  &#125;
+&#125;;
+<span class="hljs-built_in">console</span>.log(person2.getAge2.call()); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log(person2.getAge2.call(person2)); <span class="hljs-comment">//10</span></code></pre>
+
+<h3 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h3><ul>
+<li>创建一个临时对象</li>
+<li>给临时对象绑定原型</li>
+<li>给临时对象对应属性赋值</li>
+<li>prototype对象的方法的this指向实例对象</li>
+<li>将临时对象return</li>
+<li>本质上是语法糖</li>
+</ul>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">//new做的事情</span>
+  <span class="hljs-keyword">var</span> obj = &#123;&#125;;
+  obj.__proto__ = Fun.prototype;<span class="hljs-comment">//Base为构造函数</span>
+  obj.name = <span class="hljs-string">'Damonare'</span>;
+  ...<span class="hljs-comment">//一系列赋值以及更多的事</span>
+  <span class="hljs-keyword">return</span> obj
+&#125;
+
+<span class="hljs-comment">//例子</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun1</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Damonre"</span>;
+  <span class="hljs-keyword">this</span>.age = <span class="hljs-number">21</span>;
+  <span class="hljs-keyword">this</span>.sex = <span class="hljs-string">"man"</span>;
+  <span class="hljs-keyword">this</span>.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name + <span class="hljs-keyword">this</span>.age + <span class="hljs-keyword">this</span>.sex + <span class="hljs-string">"正在跑步"</span>;
+  &#125;;
+&#125;
+<span class="hljs-comment">//可以改写为</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fun2</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">var</span> obj = &#123;&#125;;
+  obj.name = <span class="hljs-string">"Damonre"</span>;
+  obj.age = <span class="hljs-number">21</span>;
+  obj.sex = <span class="hljs-string">"man"</span>;
+  obj.__proto__ = Fun2.prototype;
+  <span class="hljs-keyword">return</span> obj;
+&#125;
+Fun2.prototype.run = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name + <span class="hljs-keyword">this</span>.age + <span class="hljs-keyword">this</span>.sex + <span class="hljs-string">"正在跑步"</span>;
+&#125;;
+<span class="hljs-built_in">console</span>.log(Fun2().run());</code></pre>
+
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p><img src="image/16a2654b0dd928ef" srcset="/img/loading.gif" alt="事件"></p>
+<pre><code class="hljs javascript">element.addEventListener(event, <span class="hljs-function"><span class="hljs-keyword">function</span>, <span class="hljs-title">useCapture</span>)</span>
+<span class="hljs-function"><span class="hljs-title">attachEvent</span>(<span class="hljs-params">event,listener</span>) //旧版本<span class="hljs-title">IE</span>，在新版本<span class="hljs-title">IE</span>中已经废除</span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>event</td>
+<td>必须。字符串，指定事件名。  <strong>注意:</strong> 不要使用 “on” 前缀。 例如，使用 “click” ,而不是使用 “onclick”。   <strong>提示：</strong> 所有 HTML DOM 事件，可以查看我们完整的 <a href="http://www.runoob.com/jsref/dom-obj-event.html" target="_blank" rel="noopener">HTML DOM Event 对象参考手册</a>。</td>
+</tr>
+<tr>
+<td>function</td>
+<td>必须。指定要事件触发时执行的函数。   当事件对象会作为第一个参数传入函数。 事件对象的类型取决于特定的事件。例如， “click” 事件属于 MouseEvent(鼠标事件) 对象。</td>
+</tr>
+<tr>
+<td>useCapture</td>
+<td>可选。布尔值，指定事件是否在捕获或冒泡阶段执行。  可能值:true - 事件句柄在捕获阶段执行（即在事件捕获阶段调用处理函数）false- false- 默认。事件句柄在冒泡阶段执行（即表示在事件冒泡的阶段调用事件处理函数）</td>
+</tr>
+</tbody></table>
+<p>对于事件代理来说，在事件捕获或者事件冒泡阶段处理并没有明显的优劣之分，但是由于事件冒泡的事件流模型被所有主流的浏览器兼容，从<strong>兼容性角度来说还是建议大家使用事件冒泡模型。</strong></p>
+<h3 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h3><ul>
+<li><strong>给子级加 event.stopPropagation( )</strong></li>
+<li><strong>在事件处理函数中返回 false</strong><ul>
+<li><code>return false</code> 不仅阻止了事件往上冒泡，而且阻止了事件本身(默认事件)。<code>event.stopPropagation()</code>则只阻止事件往上冒泡，不阻止事件本身。</li>
+</ul>
+</li>
+<li><strong>event.target==event.currentTarget，让触发事件的元素等于绑定事件的元素，也可以阻止事件冒泡；</strong></li>
+</ul>
+<h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> parent = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"parent"</span>);
+<span class="hljs-keyword">var</span> child = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"child"</span>);
+parent.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>&#123;
+    <span class="hljs-keyword">if</span>(e.target.id == <span class="hljs-string">"child"</span>)&#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"您点击了child元素"</span>)
+    &#125;
+&#125;</code></pre>
+
+<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><img src="image/lifecycle.png" srcset="/img/loading.gif" alt="image"></p>
+<ol>
+<li>实例、组件通过new Vue() 创建出来之后会初始化事件和生命周期，然后就会执行beforeCreate钩子函数，这个时候，数据还没有挂载呢，只是一个空壳，无法访问到数据和真实的dom，一般不做操作</li>
+<li>挂载数据，绑定事件等等，然后执行created函数，这个时候已经可以使用到数据，也可以更改数据,在这里更改数据不会触发updated函数，在这里可以在渲染前倒数第二次更改数据的机会，不会触发其他的钩子函数，<strong>一般可以在这里做初始数据的获取</strong>。</li>
+<li>接下来开始找实例或者组件对应的模板，编译模板为虚拟dom放入到render函数中准备渲染，然后执行beforeMount钩子函数，在这个函数中虚拟dom已经创建完成，马上就要渲染,在这里也可以更改数据，不会触发updated，在这里可以在渲染前最后一次更改数据的机会，不会触发其他的钩子函数，<strong>一般可以在这里做初始数据的获取</strong></li>
+<li>接下来开始render，渲染出真实dom，然后执行mounted钩子函数，此时，组件已经出现在页面中，数据、真实dom都已经处理好了,事件都已经挂载好了，可以在这里操作真实dom等事情…</li>
+<li>当组件或实例的数据更改之后，会立即执行beforeUpdate，然后vue的虚拟dom机制会重新构建虚拟dom与上一次的虚拟dom树利用diff算法进行对比之后重新渲染，一般不做什么事儿</li>
+<li>当更新完成后，执行updated，数据已经更改完成，dom也重新render完成，可以操作更新后的虚拟dom</li>
+<li>当经过某种途径调用$destroy方法后，立即执行<strong>beforeDestroy</strong>，一般在这里做一些善后工作，例如清除计时器、清除非指令绑定的事件等等</li>
+<li>组件的数据绑定、监听…去掉后只剩下dom空壳，这个时候，执行<strong>destroyed</strong>，在这里做善后工作也可以</li>
+</ol>
+<h2 id="双向数据绑定原理"><a href="#双向数据绑定原理" class="headerlink" title="双向数据绑定原理"></a>双向数据绑定原理</h2><p><img src="image/18491406-0f1347e1ca0cbfaa.webp" srcset="/img/loading.gif" alt="双向数据绑定"></p>
+<ul>
+<li>vue数据双向绑定是<strong>通过数据劫持结合发布者订阅者模式</strong>的方式来实现的。</li>
+<li>利用了 <strong>Object.defineProperty()</strong> 这个方法重新定义了对象获取属性值(get)和设置属性值(set)。</li>
+</ul>
+<h2 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法"></a>diff算法</h2><h2 id="异步更新，nexttick"><a href="#异步更新，nexttick" class="headerlink" title="异步更新，nexttick"></a>异步更新，nexttick</h2><h2 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h2><h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><h1 id="react"><a href="#react" class="headerlink" title="react"></a>react</h1><p><a href="https://juejin.im/post/5d5f44dae51d4561df7805b4" target="_blank" rel="noopener">2019年17道高频React面试题及详解</a></p>
+<h2 id="为什么使用框架"><a href="#为什么使用框架" class="headerlink" title="为什么使用框架"></a>为什么使用框架</h2><ol>
+<li>组件化: 其中以 React 的组件化最为彻底,甚至可以到函数级别的原子组件,高度的组件化可以是我们的工程易于维护、易于组合拓展。</li>
+<li>天然分层: JQuery 时代的代码大部分情况下是面条代码,耦合严重,现代框架不管是 MVC、MVP还是MVVM 模式都能帮助我们进行分层，代码解耦更易于读写。</li>
+<li>生态: 现在主流前端框架都自带生态,不管是数据流管理架构还是 UI 库都有成熟的解决方案。</li>
+<li>开发效率: 现代前端框架都默认自动更新DOM,而非我们手动操作,解放了开发者的手动DOM成本,提高开发效率,从根本上解决了UI 与状态同步问题.</li>
+</ol>
+<h2 id="生命周期-1"><a href="#生命周期-1" class="headerlink" title="生命周期"></a><a href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" target="_blank" rel="noopener">生命周期</a></h2><p>挂载阶段</p>
+<ul>
+<li><strong>constructor</strong>: 构造函数，最先被执行,我们通常在构造函数里初始化state对象或者给自定义方法绑定this</li>
+<li>getDerivedStateFromProps: <code>static getDerivedStateFromProps(nextProps, prevState)</code>,这是个静态方法,当我们接收到新的属性想去修改我们state，可以使用getDerivedStateFromProps</li>
+<li><strong>render</strong>: render函数是纯函数，只返回需要渲染的东西，不应该包含其它的业务逻辑,可以返回原生的DOM、React组件、Fragment、Portals、字符串和数字、Boolean和null等内容</li>
+<li><strong>componentDidMount</strong>: 组件装载之后调用，此时我们可以获取到DOM节点并操作，比如对canvas，svg的操作，服务器请求，订阅都可以写在这个里面，但是记得在componentWillUnmount中取消订阅</li>
+</ul>
+<p>更新阶段</p>
+<ul>
+<li>getDerivedStateFromProps: 此方法在更新个挂载阶段都可能会调用</li>
+<li>shouldComponentUpdate: <code>shouldComponentUpdate(nextProps, nextState)</code>,有两个参数nextProps和nextState，表示新的属性和变化之后的state，返回一个布尔值，true表示会触发重新渲染，false表示不会触发重新渲染，默认返回true,我们通常利用此生命周期来优化React程序性能</li>
+<li><strong>render</strong>: 更新阶段也会触发此生命周期</li>
+<li>getSnapshotBeforeUpdate: <code>getSnapshotBeforeUpdate(prevProps, prevState)</code>,这个方法在render之后，componentDidUpdate之前调用，有两个参数prevProps和prevState，表示之前的属性和之前的state，这个函数有一个返回值，会作为第三个参数传给componentDidUpdate，如果你不想要返回值，可以返回null，此生命周期必须与componentDidUpdate搭配使用</li>
+<li><strong>componentDidUpdate</strong>: <code>componentDidUpdate(prevProps, prevState, snapshot)</code>,该方法在getSnapshotBeforeUpdate方法之后被调用，有三个参数prevProps，prevState，snapshot，表示之前的props，之前的state，和snapshot。第三个参数是getSnapshotBeforeUpdate返回的,如果触发某些回调函数时需要用到 DOM 元素的状态，则将对比或计算的过程迁移至 getSnapshotBeforeUpdate，然后在 componentDidUpdate 中统一触发回调或更新状态。</li>
+</ul>
+<p>卸载阶段</p>
+<ul>
+<li><strong>componentWillUnmount</strong>: 当我们的组件被卸载或者销毁了就会调用，我们可以在这个函数里去清除一些定时器，取消网络请求，清理无效的DOM元素等垃圾清理工作</li>
+</ul>
+<h3 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h3><p>目前官方推荐的异步请求是在<code>componentDidmount</code>中进行.</p>
+<p>如果有特殊需求需要提前请求,也可以在特殊情况下在<code>constructor</code>中请求:</p>
+<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>优点:</p>
+<ul>
+<li>保证性能下限: 虚拟DOM可以经过diff找出最小差异,然后批量进行patch,这种操作虽然比不上手动优化,但是比起粗暴的DOM操作性能要好很多,因此虚拟DOM可以保证性能下限</li>
+<li>无需手动操作DOM: 虚拟DOM的diff和patch都是在一次更新中自动进行的,我们无需手动操作DOM,极大提高开发效率</li>
+<li>跨平台: 虚拟DOM本质上是JavaScript对象,而DOM与平台强相关,相比之下虚拟DOM可以进行更方便地跨平台操作,例如服务器渲染、移动端开发等等</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>无法进行极致优化: 在一些性能要求极高的应用中虚拟DOM无法进行针对性的极致优化,比如VScode采用直接手动操作DOM的方式进行极端的性能优化</li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>虚拟DOM本质上是JavaScript对象,是对真实DOM的抽象</li>
+<li>状态变更时，记录新树和旧树的差异</li>
+<li>最后把差异更新到真正的dom中</li>
+</ul>
+<h2 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h2><ul>
+<li><code>setState</code>只在合成事件和钩子函数中是“异步”的，在原生事件和<code>setTimeout</code> 中都是同步的。</li>
+<li><code>setState</code> 的“异步”并不是说内部由异步代码实现，其实本身执行的过程和代码都是同步的，只是合成事件和钩子函数的调用顺序在更新之前，导致在合成事件和钩子函数中没法立马拿到更新后的值，形成了所谓的“异步”，当然可以通过第二个参数 <code>setState(partialState, callback)</code> 中的<code>callback</code>拿到更新后的结果。</li>
+<li><code>setState</code> 的批量更新优化也是建立在“异步”（合成事件、钩子函数）之上的，在原生事件和setTimeout 中不会批量更新，在“异步”中如果对同一个值进行多次<code>setState</code>，<code>setState</code>的批量更新策略会对其进行覆盖，取最后一次的执行，如果是同时<code>setState</code>多个不同的值，在更新时会对其进行合并批量更新。</li>
+</ul>
+<h2 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h2><ul>
+<li>父组件向子组件通讯</li>
+<li>子组件向父组件通讯</li>
+<li>兄弟组件通信</li>
+<li>跨层级通信</li>
+<li>发布订阅模式</li>
+<li>全局状态管理工具</li>
+</ul>
+<h2 id="redux原理"><a href="#redux原理" class="headerlink" title="redux原理"></a><a href="https://github.com/Advanced-Interview-Question/front-end-interview/blob/master/docs/guide/redux.md" target="_blank" rel="noopener">redux原理</a></h2><h2 id="组件-逻辑复用"><a href="#组件-逻辑复用" class="headerlink" title="组件/逻辑复用"></a>组件/逻辑复用</h2><h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><h2 id="打包原理"><a href="#打包原理" class="headerlink" title="打包原理"></a>打包原理</h2><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a><a href="https://www.jianshu.com/p/54cc04190252" target="_blank" rel="noopener">缓存</a></h2><p><img src="image/3174701-8e74b69ad9376710" srcset="/img/loading.gif" alt="缓存"></p>
+<h3 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h3><p>必须使用 HTTPS 协议来保障安全。<strong>Service Worker 的缓存与浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的</strong>。</p>
+<h3 id="Memory-Cache"><a href="#Memory-Cache" class="headerlink" title="Memory Cache"></a>Memory Cache</h3><p>存在于内存中， <strong>一旦我们关闭 Tab 页面，内存中的缓存也就被释放了</strong>。</p>
+<h3 id="Disk-Cache"><a href="#Disk-Cache" class="headerlink" title="Disk Cache"></a>Disk Cache</h3><p>存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，<strong>比之 Memory Cache 胜在容量和存储时效性上</strong>。</p>
+<p><strong>浏览器会把哪些文件丢进内存中？哪些丢进硬盘中？</strong></p>
+<ul>
+<li>对于大文件来说，大概率是不存储在内存中的，反之优先</li>
+<li>当前系统内存使用率高的话，文件优先存储进硬盘</li>
+</ul>
+<h3 id="Push-Cache"><a href="#Push-Cache" class="headerlink" title="Push Cache"></a>Push Cache</h3><ul>
+<li><strong>它只在会话（Session）中存在，一旦会话结束就被释放，并且缓存时间也很短暂</strong></li>
+<li>在Chrome浏览器中只有5分钟左右</li>
+</ul>
+<p><strong>通常浏览器缓存策略分为两种：强缓存和协商缓存，并且缓存策略都是通过设置 HTTP Header 来实现的</strong>。</p>
+<h3 id="缓存过程"><a href="#缓存过程" class="headerlink" title="缓存过程"></a>缓存过程</h3><p>浏览器第一次向服务器发起该请求后拿到请求结果后，将请求结果和缓存标识存入浏览器缓存，<strong>浏览器对于缓存的处理是根据第一次请求资源时返回的响应头来确定的</strong>。</p>
+<p><img src="image/3174701-de3d6e025582103a.webp" srcset="/img/loading.gif" alt="img"></p>
+<ul>
+<li>浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识</li>
+<li>浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中</li>
+</ul>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><blockquote>
+<p>Cookie（复数形态Cookies），类型为「小型文本文件」，指某些网站为了辨别用户身份而储存在用户本地终端上的数据。</p>
+</blockquote>
+<h3 id="SameSite"><a href="#SameSite" class="headerlink" title="SameSite"></a><a href="https://juejin.im/post/5e718ecc6fb9a07cda098c2d" target="_blank" rel="noopener">SameSite</a></h3><h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="TCP-三次握手四次挥手"><a href="#TCP-三次握手四次挥手" class="headerlink" title="TCP 三次握手四次挥手"></a><a href="./TCP三次握手四次挥手.md">TCP 三次握手四次挥手</a></h2><h2 id="http和https"><a href="#http和https" class="headerlink" title="http和https"></a><a href="https://zhuanlan.zhihu.com/p/72616216" target="_blank" rel="noopener">http和https</a></h2><h3 id="https"><a href="#https" class="headerlink" title="https"></a>https</h3><p>用途</p>
+<ul>
+<li>建立一个信息安全通道，来保证数据传输的安全</li>
+<li>确认网站的真实性，防止钓鱼网站</li>
+</ul>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li>HTTP 是明文传输，HTTPS 通过 SSL\TLS 进行了加密</li>
+<li>HTTP 的端口号是 80，HTTPS 是 443</li>
+<li>HTTPS 需要到 CA 申请证书，一般免费证书很少，需要交费</li>
+<li>HTTPS 的连接很简单，是无状态的；HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</li>
+</ul>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul>
+<li><p><strong>1xx</strong>: 表示目前是协议处理的中间状态，还需要后续操作。</p>
+</li>
+<li><p><strong>2xx</strong>: 表示成功状态。</p>
+<p><strong>200 OK</strong>是见得最多的成功状态码。通常在响应体中放有数据。</p>
+</li>
+<li><p><strong>3xx</strong>: 重定向状态，资源位置发生变动，需要重新请求。</p>
+<p><strong>301 Moved Permanently</strong>即永久重定向，对应着<strong>302 Found</strong>，即临时重定向。</p>
+</li>
+<li><p><strong>4xx</strong>: 请求报文有误。</p>
+<p><strong>403 Forbidden</strong>: 这实际上并不是请求报文出错，而是服务器禁止访问，原因有很多，比如法律禁止、信息敏感。</p>
+<p><strong>404 Not Found</strong>: 资源未找到，表示没在服务器上找到相应的资源。</p>
+</li>
+<li><p><strong>5xx</strong>: 服务器端发生错误。</p>
+</li>
+</ul>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a><a href="https://zhuanlan.zhihu.com/p/26177815" target="_blank" rel="noopener">XSS攻击</a></h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
+<p>跨站脚本（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。</p>
+</blockquote>
+<ul>
+<li>一类是反射型XSS，又称非持久型XSS，</li>
+<li>一类是储存型XSS，也就是持久型XSS。</li>
+</ul>
+<h3 id="防范手段"><a href="#防范手段" class="headerlink" title="防范手段"></a>防范手段</h3><ul>
+<li>首先是过滤。对诸如<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;a&gt;</code>等标签进行过滤。</li>
+<li>其次是编码。像一些常见的符号，如&lt;&gt;在输入的时候要对其进行转换编码，这样做浏览器是不会对该标签进行解释执行的，同时也不影响显示效果。</li>
+<li>最后是限制。通过以上的案例我们不难发现xss攻击要能达成往往需要较长的字符串，因此对于一些可以预期的输入可以通过限制长度强制截断来进行防御。</li>
+</ul>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><h2 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h2>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/hide/">hide</a>
+                    
+                      <a class="hover-with-bg" href="/tags/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/19/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8818%E6%97%A5-%E6%91%A9%E5%B0%94%E5%BA%84%E5%9B%AD%E4%B8%8A%E6%A6%9C%EF%BC%8C%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4%E5%A4%A7%E6%B6%A8/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月18日-摩尔庄园上榜，炉石传说大涨</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "面试/面试题未整理&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
