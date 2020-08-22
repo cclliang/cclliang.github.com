@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>web开发/利用background制作拉窗帘效果 - 个人博客|沧沧凉凉的小站</title>
+  <title>游戏排行榜/2020年08月21日-英雄联盟重返榜首 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-06-02 00:00">
-                    2020年6月2日 凌晨
+                  <time datetime="2020-08-22 20:59">
+                    2020年8月22日 晚上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    394 字
+                    728 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    4
+                    9
                      分钟
                   </span>
                 
@@ -184,21 +184,332 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>往往利用CSS可以做出一些意想不到的效果，比如说下面的这个示例：</p>
-<p><img src="/image/v2-1c842c67816442adf6c8ba34c6b7411a_b.webp" srcset="/img/loading.gif" alt="img"></p>
-<p>为了演示随手做的，官网并不是这样</p>
-<p>滚动鼠标滚轮，就有一种背景图被覆盖的错觉，之所以说是错觉，并不是背景图真的被覆盖了，其实背景图所在的盒子是跟着下面的图片一起在滚动，只是图片和窗口之间相对没有移动造成的错觉。</p>
-<p>可能听起来比较复杂，但是实际上只需要一个属性就能做出这种效果，那就是<code>background-attachment: fixed;</code></p>
-<p>还是同一个案例，我们将背景图片去掉，看看效果就明白了。</p>
-<p><img src="/image/v2-0b2fa904729127861768553783f16c26_b.webp" srcset="/img/loading.gif" alt="img"></p>
-<h1 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a>background-attachment</h1><p>CSS 属性决定背景图像的位置是在视口内固定，或者随着包含它的区块滚动。</p>
-<ul>
-<li><code>fixed</code>此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。</li>
-<li><code>local</code>此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动， 并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。</li>
-<li><code>scroll</code>此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。</li>
-</ul>
-<h1 id="资料参考"><a href="#资料参考" class="headerlink" title="资料参考"></a>资料参考</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment</a></p>
-
+              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
+<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p>
+<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
+<p><strong>更新时间：目前更新时间定为晚上10点（22点）左右。</strong></p>
+<h1 id="箭头含义"><a href="#箭头含义" class="headerlink" title="箭头含义"></a>箭头含义</h1><p><code>↑</code>：相对于前一天上升几个名次。</p>
+<p><code>↓</code>：相对于前一天下降几个名次。</p>
+<p><code>↑new</code>：当天新入榜的游戏。</p>
+<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>英雄联盟+lol ↑1</td>
+<td>89022</td>
+</tr>
+<tr>
+<td>2</td>
+<td>穿越火线+cf ↓1</td>
+<td>84531</td>
+</tr>
+<tr>
+<td>3</td>
+<td>我的世界+minecraft</td>
+<td>82272</td>
+</tr>
+<tr>
+<td>4</td>
+<td>斗战神</td>
+<td>56042</td>
+</tr>
+<tr>
+<td>5</td>
+<td>坦克世界</td>
+<td>26823</td>
+</tr>
+<tr>
+<td>6</td>
+<td>最终幻想14+ff14 ↑2</td>
+<td>25432</td>
+</tr>
+<tr>
+<td>7</td>
+<td>地下城与勇士+dnf ↓1</td>
+<td>24342</td>
+</tr>
+<tr>
+<td>8</td>
+<td>绝地求生+pubg ↓1</td>
+<td>18714</td>
+</tr>
+<tr>
+<td>9</td>
+<td>梦幻西游</td>
+<td>17177</td>
+</tr>
+<tr>
+<td>10</td>
+<td>魔兽世界+wow</td>
+<td>11436</td>
+</tr>
+<tr>
+<td>11</td>
+<td>炉石传说 ↑1</td>
+<td>10551</td>
+</tr>
+<tr>
+<td>12</td>
+<td>方舟生存进化 ↑1</td>
+<td>9141</td>
+</tr>
+<tr>
+<td>13</td>
+<td>天龙八部 ↑2</td>
+<td>8648</td>
+</tr>
+<tr>
+<td>14</td>
+<td>冒险岛 ↑3</td>
+<td>7991</td>
+</tr>
+<tr>
+<td>15</td>
+<td>传奇 ↑3</td>
+<td>7430</td>
+</tr>
+<tr>
+<td>16</td>
+<td>csgo</td>
+<td>7248</td>
+</tr>
+<tr>
+<td>17</td>
+<td>龙之谷 ↓6</td>
+<td>7121</td>
+</tr>
+<tr>
+<td>18</td>
+<td>守望先锋 ↑new</td>
+<td>6659</td>
+</tr>
+<tr>
+<td>19</td>
+<td>星际战甲+warframe ↑2</td>
+<td>6362</td>
+</tr>
+<tr>
+<td>20</td>
+<td>摩尔庄园 ↓6</td>
+<td>6311</td>
+</tr>
+<tr>
+<td>21</td>
+<td>激战2 ↑3</td>
+<td>6285</td>
+</tr>
+<tr>
+<td>22</td>
+<td>刀塔2+DOTA2 ↑5</td>
+<td>6269</td>
+</tr>
+<tr>
+<td>23</td>
+<td>大话西游</td>
+<td>5846</td>
+</tr>
+<tr>
+<td>24</td>
+<td>诛仙 ↓4</td>
+<td>5827</td>
+</tr>
+<tr>
+<td>25</td>
+<td>QQ飞车 ↑5</td>
+<td>5603</td>
+</tr>
+<tr>
+<td>26</td>
+<td>枪神纪 ↑new</td>
+<td>5505</td>
+</tr>
+<tr>
+<td>27</td>
+<td>战舰世界 ↓2</td>
+<td>5372</td>
+</tr>
+<tr>
+<td>28</td>
+<td>变形金刚 ↑new</td>
+<td>5123</td>
+</tr>
+<tr>
+<td>29</td>
+<td>天涯明月刀 ↑new</td>
+<td>5076</td>
+</tr>
+<tr>
+<td>30</td>
+<td>堡垒之夜 ↓11</td>
+<td>5060</td>
+</tr>
+</tbody></table>
+<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>王者荣耀</td>
+<td>112352</td>
+</tr>
+<tr>
+<td>2</td>
+<td>迷你世界 ↑1</td>
+<td>85161</td>
+</tr>
+<tr>
+<td>3</td>
+<td>和平精英 ↓1</td>
+<td>82582</td>
+</tr>
+<tr>
+<td>4</td>
+<td>我的世界+mc</td>
+<td>81528</td>
+</tr>
+<tr>
+<td>5</td>
+<td>香肠派对</td>
+<td>53471</td>
+</tr>
+<tr>
+<td>6</td>
+<td>江南百景图</td>
+<td>43863</td>
+</tr>
+<tr>
+<td>7</td>
+<td>光遇 ↑1</td>
+<td>27694</td>
+</tr>
+<tr>
+<td>8</td>
+<td>战魂铭人 ↓1</td>
+<td>23769</td>
+</tr>
+<tr>
+<td>9</td>
+<td>明日方舟</td>
+<td>21144</td>
+</tr>
+<tr>
+<td>10</td>
+<td>第五人格 ↑1</td>
+<td>19017</td>
+</tr>
+<tr>
+<td>11</td>
+<td>球球大作战 ↑1</td>
+<td>16098</td>
+</tr>
+<tr>
+<td>12</td>
+<td>最强蜗牛 ↑2</td>
+<td>13619</td>
+</tr>
+<tr>
+<td>13</td>
+<td>浮生为卿歌 ↑9</td>
+<td>12782</td>
+</tr>
+<tr>
+<td>14</td>
+<td>妖神记 ↓1</td>
+<td>12644</td>
+</tr>
+<tr>
+<td>15</td>
+<td>明日之后</td>
+<td>12338</td>
+</tr>
+<tr>
+<td>16</td>
+<td>阴阳师</td>
+<td>10890</td>
+</tr>
+<tr>
+<td>17</td>
+<td>荒野乱斗 ↑1</td>
+<td>10766</td>
+</tr>
+<tr>
+<td>18</td>
+<td>炉石传说 ↓1</td>
+<td>10551</td>
+</tr>
+<tr>
+<td>19</td>
+<td>部落冲突 ↑1</td>
+<td>9724</td>
+</tr>
+<tr>
+<td>20</td>
+<td>欢乐斗地主 ↓1</td>
+<td>9586</td>
+</tr>
+<tr>
+<td>21</td>
+<td>崩坏3 ↓11</td>
+<td>8107</td>
+</tr>
+<tr>
+<td>22</td>
+<td>狼人杀 ↑2</td>
+<td>7787</td>
+</tr>
+<tr>
+<td>23</td>
+<td>碧蓝航线 ↓2</td>
+<td>6250</td>
+</tr>
+<tr>
+<td>24</td>
+<td>率土之滨 ↑1</td>
+<td>6148</td>
+</tr>
+<tr>
+<td>25</td>
+<td>梦幻西游手游 ↑new</td>
+<td>6096</td>
+</tr>
+<tr>
+<td>26</td>
+<td>剑与远征 ↓3</td>
+<td>5896</td>
+</tr>
+<tr>
+<td>27</td>
+<td>大话西游</td>
+<td>5846</td>
+</tr>
+<tr>
+<td>28</td>
+<td>忍者必须死3 ↑new</td>
+<td>5738</td>
+</tr>
+<tr>
+<td>29</td>
+<td>饥荒</td>
+<td>5556</td>
+</tr>
+<tr>
+<td>30</td>
+<td>灌篮高手 ↑new</td>
+<td>5214</td>
+</tr>
+</tbody></table>
+<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>
             </article>
             <hr>
             <div>
@@ -207,7 +518,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
                     
                   </div>
                 
@@ -215,11 +526,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/CSS/">CSS</a>
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
                     
-                      <a class="hover-with-bg" href="/tags/Web-%E5%BC%80%E5%8F%91/">Web 开发</a>
-                    
-                      <a class="hover-with-bg" href="/tags/HTML-CSS/">HTML+CSS</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
                     
                   </div>
                 
@@ -232,18 +541,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/03/web%E5%BC%80%E5%8F%91/GSAP%EF%BC%88GreenSock%EF%BC%89%EF%BC%9A%E6%9C%80%E5%81%A5%E5%85%A8%E7%9A%84web%E5%8A%A8%E7%94%BB%E5%BA%93%E4%B9%8B%E4%B8%80/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web开发/GSAP（GreenSock）：最健全的web动画库之一</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/06/01/web%E5%BC%80%E5%8F%91/%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6fullpage.js/">
-                        <span class="hidden-mobile">web开发/全屏滚动插件fullpage.js</span>
+                      <a href="/2020/08/21/web%E5%BC%80%E5%8F%91/%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%EF%BC%8C%E5%A4%9A%E7%AB%AF%E8%A6%86%E7%9B%96%E7%9A%84uni-app/">
+                        <span class="hidden-mobile">web开发/一次开发，多端覆盖的uni-app</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -436,7 +739,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发/利用background制作拉窗帘效果&nbsp;",
+        "游戏排行榜/2020年08月21日-英雄联盟重返榜首&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
