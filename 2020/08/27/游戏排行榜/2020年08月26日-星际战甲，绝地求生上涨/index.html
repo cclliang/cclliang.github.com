@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>web开发/再谈Nuxt.js开发中遇到的那些事 - 个人博客|沧沧凉凉的小站</title>
+  <title>游戏排行榜/2020年08月26日-星际战甲，绝地求生上涨 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-08-15 16:52">
-                    2020年8月15日 下午
+                  <time datetime="2020-08-27 21:15">
+                    2020年8月27日 晚上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    242 字
+                    722 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    2
+                    9
                      分钟
                   </span>
                 
@@ -184,21 +184,332 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近想着做一个新的个人首页，替换以前的个人首页，因为后面我接触了<code>Nuxt.js</code>，回想起服务器渲染的各种好处，决定这次试用<code>Nuxt.js</code>进行开发我的主页，毕竟做出一个网页就是给人家看的，那么服务器渲染肯定更利于爬虫爬取，虽然谷歌的爬虫已经可以爬取客户端渲染的内容。</p>
-<p><code>Nuxt.js</code>的入门介绍：<a href="/2020/06/22/web%E5%BC%80%E5%8F%91/Vue%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E7%A7%80%E9%A1%B9%E7%9B%AE%EF%BC%9ANuxt.js/" title="Vue服务器渲染优秀项目：Nuxt.js">Vue服务器渲染优秀项目：Nuxt.js</a></p>
-<h1 id="引入的插件"><a href="#引入的插件" class="headerlink" title="引入的插件"></a>引入的插件</h1><ol>
-<li>安装<code>sass</code>预处理器：</li>
-</ol>
-<pre><code class="hljs bash">npm install --save-dev node-sass sass-loader@8.0.2</code></pre>
-
-<p><code>sass-loader</code>安装后一直报错，<strong>报错时间：2020-8-16。</strong></p>
-<pre><code class="hljs bash">Module build failed (from ./node_modules/sass-loader/dist/cjs.js): Error: Missing binding</code></pre>
-
-<p>后面猜想应该是应该<code>sass-loader</code>的版本过高导致的问题，换成<code>8.0.2</code>版本就没有问题。</p>
-<ol start="2">
-<li><code>smooth-scroll</code>：平滑滚动。通过锚点跳转时，有一个平滑的过渡效果。</li>
-</ol>
-
+              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
+<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p>
+<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
+<p><strong>更新时间：目前更新时间定为晚上10点（22点）左右。</strong></p>
+<h1 id="箭头含义"><a href="#箭头含义" class="headerlink" title="箭头含义"></a>箭头含义</h1><p><code>↑</code>：相对于前一天上升几个名次。</p>
+<p><code>↓</code>：相对于前一天下降几个名次。</p>
+<p><code>↑new</code>：当天新入榜的游戏。</p>
+<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>我的世界+minecraft ↑1</td>
+<td>88737</td>
+</tr>
+<tr>
+<td>2</td>
+<td>英雄联盟+lol ↓1</td>
+<td>87705</td>
+</tr>
+<tr>
+<td>3</td>
+<td>穿越火线+cf</td>
+<td>59563</td>
+</tr>
+<tr>
+<td>4</td>
+<td>绝地求生+pubg ↑4</td>
+<td>20897</td>
+</tr>
+<tr>
+<td>5</td>
+<td>地下城与勇士+dnf ↓1</td>
+<td>20372</td>
+</tr>
+<tr>
+<td>6</td>
+<td>坦克世界 ↑1</td>
+<td>18211</td>
+</tr>
+<tr>
+<td>7</td>
+<td>梦幻西游 ↓1</td>
+<td>15281</td>
+</tr>
+<tr>
+<td>8</td>
+<td>最终幻想14+ff14 ↑1</td>
+<td>14597</td>
+</tr>
+<tr>
+<td>9</td>
+<td>战舰世界 ↓4</td>
+<td>13846</td>
+</tr>
+<tr>
+<td>10</td>
+<td>星际战甲+warframe ↑9</td>
+<td>13425</td>
+</tr>
+<tr>
+<td>11</td>
+<td>魔兽世界+wow ↓1</td>
+<td>11659</td>
+</tr>
+<tr>
+<td>12</td>
+<td>csgo ↓1</td>
+<td>11355</td>
+</tr>
+<tr>
+<td>13</td>
+<td>刀塔2+DOTA2 ↓1</td>
+<td>11090</td>
+</tr>
+<tr>
+<td>14</td>
+<td>天龙八部 ↓1</td>
+<td>10100</td>
+</tr>
+<tr>
+<td>15</td>
+<td>方舟生存进化 ↑1</td>
+<td>9056</td>
+</tr>
+<tr>
+<td>16</td>
+<td>炉石传说 ↓1</td>
+<td>8630</td>
+</tr>
+<tr>
+<td>17</td>
+<td>守望先锋</td>
+<td>8202</td>
+</tr>
+<tr>
+<td>18</td>
+<td>冒险岛</td>
+<td>7362</td>
+</tr>
+<tr>
+<td>19</td>
+<td>传奇 ↑1</td>
+<td>7303</td>
+</tr>
+<tr>
+<td>20</td>
+<td>斗战神 ↓6</td>
+<td>6815</td>
+</tr>
+<tr>
+<td>21</td>
+<td>诛仙 ↑1</td>
+<td>6155</td>
+</tr>
+<tr>
+<td>22</td>
+<td>300英雄 ↑new</td>
+<td>5965</td>
+</tr>
+<tr>
+<td>23</td>
+<td>大话西游 ↓2</td>
+<td>5962</td>
+</tr>
+<tr>
+<td>24</td>
+<td>龙之谷</td>
+<td>5929</td>
+</tr>
+<tr>
+<td>25</td>
+<td>变形金刚</td>
+<td>5818</td>
+</tr>
+<tr>
+<td>26</td>
+<td>逆水寒 ↓3</td>
+<td>5718</td>
+</tr>
+<tr>
+<td>27</td>
+<td>激战2 ↓1</td>
+<td>5408</td>
+</tr>
+<tr>
+<td>28</td>
+<td>EVE ↑2</td>
+<td>5008</td>
+</tr>
+<tr>
+<td>29</td>
+<td>QQ飞车 ↓1</td>
+<td>4794</td>
+</tr>
+<tr>
+<td>30</td>
+<td>天涯明月刀 ↑new</td>
+<td>4640</td>
+</tr>
+</tbody></table>
+<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
+<thead>
+<tr>
+<th>名次</th>
+<th>百度搜索关键词</th>
+<th>百度指数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>王者荣耀</td>
+<td>112856</td>
+</tr>
+<tr>
+<td>2</td>
+<td>迷你世界 ↑1</td>
+<td>103202</td>
+</tr>
+<tr>
+<td>3</td>
+<td>我的世界+mc ↓1</td>
+<td>88423</td>
+</tr>
+<tr>
+<td>4</td>
+<td>和平精英</td>
+<td>77734</td>
+</tr>
+<tr>
+<td>5</td>
+<td>香肠派对 ↑1</td>
+<td>43274</td>
+</tr>
+<tr>
+<td>6</td>
+<td>江南百景图 ↑1</td>
+<td>31253</td>
+</tr>
+<tr>
+<td>7</td>
+<td>明日方舟 ↓2</td>
+<td>29362</td>
+</tr>
+<tr>
+<td>8</td>
+<td>光遇</td>
+<td>21678</td>
+</tr>
+<tr>
+<td>9</td>
+<td>阴阳师 ↑2</td>
+<td>18144</td>
+</tr>
+<tr>
+<td>10</td>
+<td>第五人格</td>
+<td>17836</td>
+</tr>
+<tr>
+<td>11</td>
+<td>球球大作战 ↓2</td>
+<td>17507</td>
+</tr>
+<tr>
+<td>12</td>
+<td>浮生为卿歌 ↑4</td>
+<td>14703</td>
+</tr>
+<tr>
+<td>13</td>
+<td>妖神记 ↑1</td>
+<td>14308</td>
+</tr>
+<tr>
+<td>14</td>
+<td>最强蜗牛 ↓1</td>
+<td>13487</td>
+</tr>
+<tr>
+<td>15</td>
+<td>明日之后</td>
+<td>12027</td>
+</tr>
+<tr>
+<td>16</td>
+<td>战魂铭人 ↓4</td>
+<td>11992</td>
+</tr>
+<tr>
+<td>17</td>
+<td>荒野乱斗</td>
+<td>10278</td>
+</tr>
+<tr>
+<td>18</td>
+<td>欢乐斗地主</td>
+<td>9978</td>
+</tr>
+<tr>
+<td>19</td>
+<td>部落冲突</td>
+<td>9464</td>
+</tr>
+<tr>
+<td>20</td>
+<td>炉石传说</td>
+<td>8630</td>
+</tr>
+<tr>
+<td>21</td>
+<td>狼人杀</td>
+<td>7682</td>
+</tr>
+<tr>
+<td>22</td>
+<td>崩坏3</td>
+<td>6841</td>
+</tr>
+<tr>
+<td>23</td>
+<td>率土之滨</td>
+<td>6308</td>
+</tr>
+<tr>
+<td>24</td>
+<td>大话西游</td>
+<td>5962</td>
+</tr>
+<tr>
+<td>25</td>
+<td>饥荒 ↑3</td>
+<td>5440</td>
+</tr>
+<tr>
+<td>26</td>
+<td>碧蓝航线 ↑1</td>
+<td>5216</td>
+</tr>
+<tr>
+<td>27</td>
+<td>梦幻西游手游 ↑new</td>
+<td>4928</td>
+</tr>
+<tr>
+<td>28</td>
+<td>灌篮高手 ↑2</td>
+<td>4855</td>
+</tr>
+<tr>
+<td>29</td>
+<td>剑与远征 ↓3</td>
+<td>4794</td>
+</tr>
+<tr>
+<td>30</td>
+<td>火影忍者手游 ↑new</td>
+<td>4634</td>
+</tr>
+</tbody></table>
+<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>
             </article>
             <hr>
             <div>
@@ -207,7 +518,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
                     
                   </div>
                 
@@ -215,11 +526,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/hide/">hide</a>
+                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
                     
-                      <a class="hover-with-bg" href="/tags/HTML5/">HTML5</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
                     
                   </div>
                 
@@ -232,18 +541,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/16/%E9%9D%A2%E8%AF%95/JavaScript%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">面试/JavaScript的变量提升</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/14/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8813%E6%97%A5-%E6%B5%AE%E7%94%9F%E4%B8%BA%E5%8D%BF%E6%AD%8C%E6%8E%92%E5%90%8D%E5%A4%A7%E6%B6%A8%EF%BC%8C%E9%98%B4%E9%98%B3%E5%B8%88%E4%B8%8A%E6%A6%9C/">
-                        <span class="hidden-mobile">游戏排行榜/2020年08月13日-浮生为卿歌排名大涨，阴阳师上榜</span>
+                      <a href="/2020/08/26/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8825%E6%97%A5-%E6%88%98%E8%88%B0%E4%B8%96%E7%95%8C%E5%A4%A7%E6%B6%A8/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月25日-战舰世界大涨</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -436,7 +739,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "web开发/再谈Nuxt.js开发中遇到的那些事&nbsp;",
+        "游戏排行榜/2020年08月26日-星际战甲，绝地求生上涨&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
