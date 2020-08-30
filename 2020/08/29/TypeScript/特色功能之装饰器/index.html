@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-08-11 23:25">
-                    2020年8月11日 晚上
+                  <time datetime="2020-08-29 11:59">
+                    2020年8月29日 中午
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    621 字
+                    752 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    8
+                    10
                      分钟
                   </span>
                 
@@ -184,9 +184,18 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在之前的文章中介绍了TypeScript的入门：<a href="/2020/08/11/TypeScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E9%87%8D%E8%BD%BD/" title="TypeScript数据类型，函数的声明和重载">TypeScript数据类型，函数的声明和重载</a>。</p>
-<p>以及TypeScript类和接口的使用：<a href="/2020/08/11/TypeScript/%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/" title="TypeScript类和接口的使用">TypeScript类和接口的使用</a>。</p>
-<p>所以本篇文章就来介绍一下TypeScript中最特殊的装饰器。</p>
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>TypeScript系列文章：</p>
+<ul>
+<li><a href="/2020/08/11/TypeScript/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E9%87%8D%E8%BD%BD/" title="TypeScript数据类型，函数的声明和重载">TypeScript数据类型，函数的声明和重载</a>。
+</li>
+<li><a href="/2020/08/11/TypeScript/%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/" title="TypeScript类和接口的使用">TypeScript类和接口的使用</a>。
+
+
+</li>
+</ul>
+<p>本篇文章就来介绍一下TypeScript中最特殊的装饰器，装饰器对于使用JavaScript的同学肯定非常陌生，其实我对装饰器也充满了疑问，下面是我在学习TypeScript装饰器中的一些笔记和个人理解。</p>
+<p>现在装饰器在react，vue的源码中都有应用，所以是一个非常重要的概念。</p>
+<p><strong>注意：本篇文章需要对JavaScript中的原型和原型链有一定的了解，因为很多概念都涉及到了原型和原型链，所以如果不清楚原型和原型链的话，可以看这篇文章：<a href="/2020/07/31/%E9%9D%A2%E8%AF%95/JavaScript%EF%BC%9A%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8C%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1/" title="JavaScript：原型链和原型对象">JavaScript：原型链和原型对象</a>。</strong></p>
 <h1 id="装饰器-Decorators"><a href="#装饰器-Decorators" class="headerlink" title="装饰器(Decorators)"></a>装饰器(Decorators)</h1><ul>
 <li>装饰器：装饰器是一种特殊类型的声明，它能够被附加到类声明，方法，属性或参数上，可以修改类的行为。</li>
 <li>通俗的讲装饰器就是一个方法，可以注入到类、方法、属性参数上来扩展类、属性、方法、参数的功能。</li>
@@ -209,7 +218,6 @@
 
 <h2 id="类装饰器"><a href="#类装饰器" class="headerlink" title="类装饰器"></a>类装饰器</h2><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">params:<span class="hljs-built_in">any</span></span>) </span>&#123;
     <span class="hljs-built_in">console</span>.log(params);
-    
     <span class="hljs-comment">// params为当前类</span>
 &#125;
 
@@ -218,8 +226,7 @@
     <span class="hljs-keyword">private</span> name: <span class="hljs-built_in">string</span>=<span class="hljs-string">"张三"</span>;
 &#125;</code></pre>
 
-<p>装饰器工厂</p>
-<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">value: <span class="hljs-built_in">string</span></span>) </span>&#123;
+<h3 id="装饰器工厂"><a href="#装饰器工厂" class="headerlink" title="装饰器工厂"></a>装饰器工厂</h3><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">value: <span class="hljs-built_in">string</span></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target: <span class="hljs-built_in">any</span></span>) </span>&#123;
         target.prototype.name = value;
     &#125;
@@ -237,8 +244,7 @@
 <span class="hljs-keyword">let</span> s = <span class="hljs-keyword">new</span> Student();
 <span class="hljs-built_in">console</span>.log(s.name);</code></pre>
 
-<p>修改构造函数</p>
-<pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">target: <span class="hljs-built_in">any</span></span>) </span>&#123;
+<h3 id="修改构造函数"><a href="#修改构造函数" class="headerlink" title="修改构造函数"></a>修改构造函数</h3><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">target: <span class="hljs-built_in">any</span></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> target &#123;
        name:<span class="hljs-built_in">any</span> = <span class="hljs-string">"李四"</span>
     &#125;
@@ -270,8 +276,6 @@
     name:<span class="hljs-built_in">String</span> | <span class="hljs-literal">undefined</span>;
 &#125;</code></pre>
 
-
-
 <h2 id="方法装饰器"><a href="#方法装饰器" class="headerlink" title="方法装饰器"></a>方法装饰器</h2><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logMethos</span>(<span class="hljs-params">params: <span class="hljs-built_in">any</span></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target: <span class="hljs-built_in">any</span>, methodName: <span class="hljs-built_in">any</span>, desc: <span class="hljs-built_in">any</span></span>) </span>&#123;
         <span class="hljs-keyword">let</span> oMethod = desc.value;
@@ -296,8 +300,6 @@
 
 <span class="hljs-keyword">let</span> s= <span class="hljs-keyword">new</span> Student();
 s.getData(<span class="hljs-string">"123"</span>,<span class="hljs-string">"211"</span>);</code></pre>
-
-
 
 <h2 id="参数装饰器"><a href="#参数装饰器" class="headerlink" title="参数装饰器"></a>参数装饰器</h2><pre><code class="hljs typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logParams</span>(<span class="hljs-params">params: <span class="hljs-built_in">any</span></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target: <span class="hljs-built_in">any</span>, paramsName: <span class="hljs-built_in">any</span>, paramsIndex: <span class="hljs-built_in">any</span></span>) </span>&#123;
@@ -351,9 +353,9 @@ s.getData(<span class="hljs-string">"123"</span>,<span class="hljs-string">"211"
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/12/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8811%E6%97%A5-%E6%B5%AE%E7%94%9F%E4%B8%BA%E5%8D%BF%E6%AD%8C%E7%83%AD%E5%BA%A6%E5%A4%A7%E5%B9%85%E5%BA%A6%E4%B8%8B%E6%BB%91/">
+                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/vue3.0%E5%85%A5%E9%97%A8%E5%88%9D%E4%BD%93%E9%AA%8C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">游戏排行榜/2020年08月11日-浮生为卿歌热度大幅度下滑</span>
+                        <span class="hidden-mobile">web开发/vue3.0入门初体验</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -361,8 +363,8 @@ s.getData(<span class="hljs-string">"123"</span>,<span class="hljs-string">"211"
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/11/TypeScript/%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        <span class="hidden-mobile">TypeScript/类和接口的使用</span>
+                      <a href="/2020/08/29/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8827%E6%97%A5-LOL%E9%87%8D%E8%BF%94%E6%A6%9C%E9%A6%96%EF%BC%8C%E6%88%98%E8%88%B0%E4%B8%96%E7%95%8C%E4%B8%8B%E6%BB%91/">
+                        <span class="hidden-mobile">游戏排行榜/2020年08月27日-LOL重返榜首，战舰世界下滑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
