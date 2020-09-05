@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>web开发/前端好的开源项目和第三方库整理 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-08-29 16:19">
+                    2020年8月29日 下午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    903 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    10
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p><a href="https://github.com/tobiasahlin/SpinKit" target="_blank" rel="noopener">SpinKit</a> 纯 CSS 实现加载动画的项目</p>
+<p><a href="https://github.com/sindresorhus/refined-github" target="_blank" rel="noopener">refined-github</a> 一款 GitHub 的浏览器插件，支持 Chrome 和 Firefox。这款插件给 GitHub 增加了非常多强大的功能，比如一键合并冲突修复</p>
+<p><a href="https://github.com/gka/chroma.js" target="_blank" rel="noopener">chroma.js</a> 颜色转换插件</p>
+<p><a href="https://github.com/plotly/falcon" target="_blank" rel="noopener">falcon</a> 数据库查询工具</p>
+<h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><p><a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">gitalk</a> 添加评论系统</p>
+<h1 id="用JavaScript编写桌面应用"><a href="#用JavaScript编写桌面应用" class="headerlink" title="用JavaScript编写桌面应用"></a>用JavaScript编写桌面应用</h1><h2 id="原生"><a href="#原生" class="headerlink" title="原生"></a>原生</h2><p><a href="https://github.com/electron/electron" target="_blank" rel="noopener">electron</a></p>
+<p><a href="https://github.com/nwjs/nw.js" target="_blank" rel="noopener">nw.js</a></p>
+<p><a href="https://github.com/meteor/meteor" target="_blank" rel="noopener">meteor</a></p>
+<h2 id="electron"><a href="#electron" class="headerlink" title="electron"></a>electron</h2><p><a href="https://github.com/electron-react-boilerplate/electron-react-boilerplate" target="_blank" rel="noopener"> electron-react-boilerplate</a> 使用react模板创建electron桌面项目</p>
+<p><a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener"> electron-vue</a> 使用vue模板创建electron桌面项目，缺点是该项目很久没有更新，依赖的electron的版本还在<code>2.x</code></p>
+<h1 id="瀑布流"><a href="#瀑布流" class="headerlink" title="瀑布流"></a>瀑布流</h1><h2 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h2><p><a href="https://github.com/metafizzy/isotope" target="_blank" rel="noopener">isotope</a></p>
+<p><a href="https://github.com/desandro/masonry" target="_blank" rel="noopener">masonry</a></p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><p><a href="https://github.com/jbaysolutions/vue-grid-layout" target="_blank" rel="noopener">vue-grid-layout</a></p>
+<p><a href="https://github.com/lfyfly/vue-waterfall-easy" target="_blank" rel="noopener">vue-waterfall-easy</a></p>
+<p><a href="https://github.com/starkwang/vue-virtual-collection" target="_blank" rel="noopener">vue-virtual-collection</a></p>
+<p><a href="https://github.com/MopTym/vue-waterfall" target="_blank" rel="noopener">vue-waterfall</a></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p><a href="https://picsum.photos/" target="_blank" rel="noopener">https://picsum.photos/</a> 测试用的图片</p>
+<p><a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="noopener">viewerjs</a> 一个图片展示库</p>
+<h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><p><a href="https://github.com/request/request" target="_blank" rel="noopener">request</a> </p>
+<p><a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="noopener">bluebird</a></p>
+<p><a href="https://github.com/salesforce/tough-cookie" target="_blank" rel="noopener">tough-cookie</a></p>
+<p><a href="https://github.com/websockets/ws" target="_blank" rel="noopener">ws</a> 展示爬取过程</p>
+<p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 简易版的jQuery</p>
+<p><a href="https://github.com/caolan/async" target="_blank" rel="noopener">async</a> 并发控制</p>
+<p><a href="https://github.com/puppeteer/puppeteer" target="_blank" rel="noopener">puppeteer</a> </p>
+<h1 id="后端框架"><a href="#后端框架" class="headerlink" title="后端框架"></a>后端框架</h1><p><a href="https://github.com/expressjs/express" target="_blank" rel="noopener">express</a></p>
+<p><a href="https://github.com/koajs/koa" target="_blank" rel="noopener">koa</a></p>
+<h1 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h1><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p><a href="https://github.com/coopernurse/node-pool" target="_blank" rel="noopener">node-pool</a></p>
+<h1 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h1><h2 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h2><p><a href="https://github.com/SheetJS/sheetjs" target="_blank" rel="noopener">sheetjs</a> 前端操作Excel以及类似的二维表的最佳选择之一</p>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p><a href="https://github.com/js-cookie/js-cookie" target="_blank" rel="noopener">js-cookie</a> js-cookie是一个简单的，轻量级的处理cookie的工具，有了它，操作cookie将变得非常简单</p>
+<h2 id="工具包"><a href="#工具包" class="headerlink" title="工具包"></a>工具包</h2><p><a href="https://github.com/ramda/ramda" target="_blank" rel="noopener">ramda</a> 和lodash、underscore 类似，ramda是一个函数式编程风格的JavaScript工具包，同样提供了非常多的有用的方法</p>
+<p><a href="https://github.com/validatorjs/validator.js" target="_blank" rel="noopener">validator.js</a> validator.js是一个对字符串进行数据验证和过滤的工具库，同时支持Node端和浏览器端，用来做表单验证和数据比较最好不过</p>
+<p><a href="https://github.com/addyosmani/basket.js" target="_blank" rel="noopener">basket.js</a> basket.js是一个文件缓存插件，使用本地储存 <code>localStorage</code> 缓存 <code>JavaScript</code> 文件，第一次访问页面过后会将静态文件缓存到本地，下次打开直接读取本地</p>
+<p><a href="https://github.com/jashkenas/underscore" target="_blank" rel="noopener">underscore</a> underscore和lodash类似，<a href="http://github.com/jashkenas/underscore/" target="_blank" rel="noopener">Underscore</a>是一个JavaScript实用库，提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置对象。Underscore提供了100多个函数,包括常用的: <strong>map</strong>, <strong>filter</strong>, <strong>invoke</strong> — 当然还有更多专业的辅助函数,如:函数绑定, JavaScript模板功能,创建快速索引, 强类型相等测试, 等等.</p>
+<p><a href="https://github.com/proYang/outils" target="_blank" rel="noopener">outils</a> outils是一个前端业务代码工具库，提供了<code>日期格式化</code>、<code>url参数转对象</code>、<code>浏览器类型判断</code>、<code>节流函数</code>等常用函数，文档更为本土化，能解决你很多实际开发中经常遇到的需求</p>
+<p><a href="https://github.com/lodash/lodash" target="_blank" rel="noopener">lodash</a> lodash是一个一致性、模块化、高性能的 JavaScript 实用工具库，不需要引入其他第三方依赖，定义了非常多实用且高性能的方法，不限于操作数组、集合 、日期、函数、对象、数学，而且可以统一方法的一致性。Lodash使用了一个简单的 _ 符号作为所有方法的前缀</p>
+<p><a href="https://github.com/moment/moment" target="_blank" rel="noopener">moment</a> Moment.js是一个轻量级的JavaScript时间库，它方便了日常开发中对时间的操作，提高了开发效率；提供了获取时间、设置时间、格式化时间、比较时间等功能，并且提供多地区、语言支持</p>
+<h1 id="数字操作"><a href="#数字操作" class="headerlink" title="数字操作"></a>数字操作</h1><p><a href="https://github.com/MikeMcl/bignumber.js" target="_blank" rel="noopener"> bignumber.js</a> JavaScript因为存在计算的精度问题，比如 <code>01+0.2!=0.3</code>，bignumber.js是一个用于任意精度计算的js库，经常操作金额计算的朋友不容错过界面</p>
+<h1 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h1><p><a href="https://github.com/cferdinandi/smooth-scroll" target="_blank" rel="noopener">smooth-scroll</a> 点击导航时流畅的滑到该元素</p>
+<p><a href="https://github.com/jlmakes/scrollreveal" target="_blank" rel="noopener">scrollreveal</a> 滑动到某一个元素通过动画展示</p>
+<p><a href="https://github.com/metafizzy/isotope" target="_blank" rel="noopener">isotope</a> 对案例进行排列</p>
+<p><a href="https://github.com/glidejs/glide" target="_blank" rel="noopener">glide</a> 轮播图</p>
+<p><a href="http://www.mattboldt.com/demos/typed-js/" target="_blank" rel="noopener">Typed.js</a> — 打字机效果</p>
+<p><a href="http://imakewebthings.com/waypoints/" target="_blank" rel="noopener">Waypoints.js</a> — 滚动到一个元素时候触发事件</p>
+<p><a href="https://highlightjs.org/" target="_blank" rel="noopener">Highlight.js</a> — 页面内容的语法高亮</p>
+<h2 id="页面自适应"><a href="#页面自适应" class="headerlink" title="页面自适应"></a>页面自适应</h2><p><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a> 自适应布局rem文件。</p>
+<p><a href="https://github.com/rodneyrehm/viewport-units-buggyfill" target="_blank" rel="noopener">viewport-units-buggyfill</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/web%E5%BC%80%E5%8F%91/">web开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/">游戏设计</a>
+                    
+                      <a class="hover-with-bg" href="/tags/undone/">undone</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/vue3.0%E5%85%A5%E9%97%A8%E5%88%9D%E4%BD%93%E9%AA%8C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">web开发/vue3.0入门初体验</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/29/TypeScript/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <span class="hidden-mobile">TypeScript/特色功能之装饰器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "web开发/前端好的开源项目和第三方库整理&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
