@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>web开发/Redux、React-Redux、React-sagas - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-09-05 18:28">
+                    2020年9月5日 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    964 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    13
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <p>在一个项目中，除非是小型项目，比如一个个人主页，否则都会涉及到大量的数据传递，如果单纯的用state和props进行组件中的状态管理，在遇到复杂情况时，state和props的传递就会变得很复杂，不仅是给建立项目增加了难度，也给后期维护增加了难度。</p>
+<p><img src="image/web/Bildschirmfoto-2017-12-01-um-08.53.32.png" srcset="/img/loading.gif" alt="Developing modern offline apps with ReactJS, Redux and Electron - Part 3 -  ReactJS + Redux - codecentric AG Blog"></p>
+<p>所以为了解决这个问题，就需要使用到Redux，并且Redux也是学习React的路上必不可少的一环。</p>
+<h1 id="Chrome插件推荐"><a href="#Chrome插件推荐" class="headerlink" title="Chrome插件推荐"></a>Chrome插件推荐</h1><ul>
+<li>React Developer Tools</li>
+<li>Redux DevTools 一个使用时间旅行 UI 、热加载和 reducer 错误处理器的 action 日志工具</li>
+</ul>
+<p><img src="image/web/image-20200905195056265.png" srcset="/img/loading.gif" alt="image-20200905195056265"></p>
+<p>在浏览器安装这两个插件能更好的管理和Redux中的状态，当然不装也可以。</p>
+<h1 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h1><p>引入</p>
+<pre><code class="hljs shell">npm install --save redux redux-saga react-redux</code></pre>
+
+<p><a href="https://www.redux.org.cn/" target="_blank" rel="noopener">中文文档</a>    <a href="https://redux.js.org/introduction/getting-started" target="_blank" rel="noopener">英文文档</a></p>
+<p>store.subscribe 订阅改变</p>
+<p>store.dispatch(action) 订阅方法</p>
+<p>this.state=store.getState();</p>
+<p>store.subscribe(this._handleStoreChange) //数据发生改变的时候触发 </p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>文件</p>
+<ul>
+<li>actionCreators.js 调用方法</li>
+<li>actionTypes.js 规范名称（定义常量）</li>
+<li>index.js 汇总文件</li>
+<li>reducer.js 保存数据</li>
+</ul>
+<p>index.js</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// 添加中间件</span>
+<span class="hljs-keyword">import</span> &#123;createStore, applyMiddleware, compose&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"redux"</span>;
+<span class="hljs-keyword">import</span> createSagaMiddleware <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-saga'</span>;
+
+<span class="hljs-keyword">import</span> reducer <span class="hljs-keyword">from</span> <span class="hljs-string">"./reducer"</span>;
+<span class="hljs-keyword">import</span> mySagas <span class="hljs-keyword">from</span> <span class="hljs-string">"./sagas"</span>;
+
+<span class="hljs-comment">// 引入中间件</span>
+<span class="hljs-keyword">const</span> sagaMiddleware = createSagaMiddleware();
+
+<span class="hljs-comment">// 引入浏览器插件</span>
+<span class="hljs-keyword">const</span> composeEnhancers =
+    <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> === <span class="hljs-string">'object'</span> &amp;&amp;
+    <span class="hljs-built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+        <span class="hljs-built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(&#123;&#125;) : compose;
+
+<span class="hljs-keyword">const</span> enhancer = composeEnhancers(
+    applyMiddleware(sagaMiddleware),
+);
+
+<span class="hljs-keyword">const</span> store = createStore(reducer, enhancer);
+<span class="hljs-comment">// 执行mySagas文件</span>
+sagaMiddleware.run(mySagas);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store;</code></pre>
+
+<p>actionCreators.js </p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> actionTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"./actionTypes"</span>;
+
+<span class="hljs-comment">//获取文章数据</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getArticls = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (&#123;
+    type: actionTypes.REQ_ARTICLES,
+&#125;);</code></pre>
+
+<p>reducer.js</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> actionTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"./actionTypes"</span>;
+
+<span class="hljs-keyword">const</span> defaultState = &#123;
+    <span class="hljs-comment">//数据存放</span>
+&#125;;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (state = defaultState, action) =&gt; &#123;
+    <span class="hljs-comment">//获取数据</span>
+    <span class="hljs-keyword">if</span> (action.type === actionTypes.GET_ARTICLES) &#123;
+        <span class="hljs-keyword">const</span> newState = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(state));
+        newState.articles = action.articles;
+        <span class="hljs-keyword">return</span> newState;
+    &#125;
+    <span class="hljs-keyword">return</span> state;
+&#125;</code></pre>
+
+<h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="Redux-thunk"><a href="#Redux-thunk" class="headerlink" title="Redux-thunk"></a>Redux-thunk</h2><p>安装</p>
+<pre><code class="hljs shell">yarn add redux-thunk</code></pre>
+
+<p>redux-thunk中间件可以让action创建函数不仅仅返回一个action对象，也可以是返回一个函数。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch</span>)=&gt;</span>&#123;
+    
+&#125;</code></pre>
+
+<h2 id="Redux-saga（大型项目）"><a href="#Redux-saga（大型项目）" class="headerlink" title="Redux-saga（大型项目）"></a>Redux-saga（大型项目）</h2><p>安装</p>
+<pre><code class="hljs shell">yarn add redux-saga</code></pre>
+
+<p>redux-saga是一个用于管理redux应用异步操作的中间件，redux-saga通过创建sagas将所有异步操作逻辑收集在一个地方集中处理，可以用来代替redux-thunk中间件。</p>
+<p>sagas.js</p>
+<ol>
+<li>sagas是通过generator函数来创建的</li>
+<li>sagas监听发起的action，然后决定基于这个action来做什么</li>
+<li>在redux-saga中，所有的任务都通过用yield Effects来完成</li>
+<li>redux-saga 为各项任务提供了各种Effects创建器，让我们可以用同步的方式来写异步代码</li>
+</ol>
+<p>put</p>
+<p>集成</p>
+<pre><code class="hljs js"><span class="hljs-comment">// 添加中间件</span>
+<span class="hljs-keyword">import</span> &#123;createStore, applyMiddleware, compose&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"redux"</span>;
+<span class="hljs-keyword">import</span> createSagaMiddleware <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-saga'</span>;
+
+<span class="hljs-keyword">import</span> reducer <span class="hljs-keyword">from</span> <span class="hljs-string">"./reducer"</span>;
+<span class="hljs-keyword">import</span> mySagas <span class="hljs-keyword">from</span> <span class="hljs-string">"./sagas"</span>;
+
+<span class="hljs-keyword">const</span> sagaMiddleware = createSagaMiddleware();
+
+<span class="hljs-keyword">const</span> composeEnhancers =
+    <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> === <span class="hljs-string">'object'</span> &amp;&amp;
+    <span class="hljs-built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+        <span class="hljs-built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(&#123;&#125;) : compose; 
+
+<span class="hljs-keyword">const</span> enhancer = composeEnhancers(
+    applyMiddleware(sagaMiddleware),
+);
+
+<span class="hljs-keyword">const</span> store = createStore(reducer, enhancer);
+<span class="hljs-comment">//执行mySagas文件</span>
+sagaMiddleware.run(mySagas);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store;</code></pre>
+
+<p>sagas.js</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;put, takeEvery&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"redux-saga/effects"</span>;
+<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> actionTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"./actionTypes"</span>;
+<span class="hljs-keyword">import</span> &#123;getArticleTitle, getMassageDataTop, getHeaderImg&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"../server/api"</span>;
+
+<span class="hljs-comment">//方法</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">getArticls</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">yield</span> getArticleTitle();
+    <span class="hljs-keyword">if</span> (result.success_code === <span class="hljs-number">200</span>) &#123;
+        <span class="hljs-keyword">const</span> articles = result.data;
+        <span class="hljs-keyword">yield</span> put(&#123;
+            type: actionTypes.GET_ARTICLES,
+            articles
+        &#125;);
+    &#125;
+&#125;
+
+<span class="hljs-comment">//存放方法名称</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mySagas</span>(<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">yield</span> takeEvery(actionTypes.REQ_ARTICLES, getArticls);
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> mySagas;</code></pre>
+
+<h2 id="React-redux"><a href="#React-redux" class="headerlink" title="React-redux"></a>React-redux</h2><p>安装</p>
+<pre><code class="hljs shell">yarn add react-redux</code></pre>
+
+<p>避免Redux中store全局化，把store直接集成到React应用的顶层props里面，方便各个子组件能访问到顶层props</p>
+<pre><code class="hljs jsx"><span class="hljs-keyword">let</span> app =
+    &lt;Provider store=&#123;store&#125;&gt;
+        &lt;App/&gt;
+    &lt;<span class="hljs-regexp">/Provider&gt;;</span></code></pre>
+
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>将顶层组件包裹在Provider组件之中所有组件就处于react-redux的控制之下了，store作为参数放到Provider组件中，方便其中所有子组件调用</p>
+<h3 id="connect方法"><a href="#connect方法" class="headerlink" title="connect方法"></a>connect方法</h3><pre><code class="hljs jsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> connect(mapStateToProps, <span class="hljs-literal">null</span>)(App);</code></pre>
+
+<p><strong>mapStateToProps</strong></p>
+<p>把state映射到props中去，意思就是把Redux中的数据映射到React中的props中去</p>
+<pre><code class="hljs jsx"><span class="hljs-keyword">const</span> mapStateToProps = <span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">return</span> &#123;
+        
+    &#125;
+&#125;</code></pre>
+
+<p><strong>mapDispatchToProps</strong> 派发</p>
+<p>把各种dispatch也变成了props，在组件中可以直接使用避免了手动去用store.subscribe订阅render函数以达到更新页面的目的</p>
+<pre><code class="hljs jsx"><span class="hljs-keyword">const</span> mapDispatchToProps = <span class="hljs-function">(<span class="hljs-params">dispatch</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">return</span> &#123;
+        
+    &#125;
+&#125;</code></pre>
+
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/React/">React</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/undone/">undone</a>
+                    
+                      <a class="hover-with-bg" href="/tags/React/">React</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/05/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">web开发/前端自动化测试</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/05/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8804%E6%97%A5-%E4%B8%8D%E6%98%8E%E5%8E%9F%E5%9B%A0%E5%AF%BC%E8%87%B4%E6%8E%92%E8%A1%8C%E6%A6%9C%E4%B8%8A%E6%9F%90%E4%BA%9B%E6%B8%B8%E6%88%8F%E7%83%AD%E5%BA%A6%E5%A4%A7%E5%87%8F%20-%20%E5%89%AF%E6%9C%AC/">
+                        <span class="hidden-mobile">游戏排行榜/2020年09月04日-不明原因导致排行榜上某些游戏热度大减 - 副本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "web开发/Redux、React-Redux、React-sagas&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
