@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    525 字
+                    843 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    9
                      分钟
                   </span>
                 
@@ -189,11 +189,36 @@
 <p><a href="https://composition-api.vuejs.org/zh/" target="_blank" rel="noopener">vue3 composition-api文档</a></p>
 <p>vue3的代码几乎使用TypeScript进行了重写，所以学习vue3之前建议学一下TypeScript，毕竟现在的前端复杂程度逐渐提高。</p>
 <p>JavaScript是作为脚本语言被设计出来的，脚本语言的一大特点就是上手非常的简单，但是随着前后端分离，前端项目的需求越来越多，JavaScript做中大型项目应用时会有非常大的弊端，其中最大的弊端就是JavaScript是弱类型的语言，可能会因此产生非常多的BUG，而这个时候TypeScript自然而然就诞生了。</p>
+<h2 id="Composition-api"><a href="#Composition-api" class="headerlink" title="Composition-api"></a>Composition-api</h2><p>说到Vue3就不得不说到composition-api，在Vue2中，提供大量的钩子函数，也就是有一定的模板，这模板对于新手来讲可能是好事，因为它规定了你的组件方法只能写在<code>methods</code>中，你的状态只能写在<code>data</code>中。</p>
+<p>虽然这样对初学者来说非常方便，但是如果一旦一个组件中业务逻辑复杂，例如下图中的左边的图示，即Vue2使用的Options-api，图中相同的颜色对应的就是一种功能，可以看到为了实现一种功能，我们所写的代码是非常分散的。</p>
+<p>如果组件逻辑复杂，代码量多，我们添加新代码不光要不停的上下滑动，而且在后期代码维护中，阅读起来也变得十分的困难。</p>
+<p>而在Composition-api中，我们可以把实现一种功能的代码写在一起，甚至还可以把它们单独抽取在一个文件中，因为在其它文件中也可以引用Composition-api的生命周期函数。这将极大的提高代码的可维护性。</p>
+<p><img src="image/web/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png" srcset="/img/loading.gif" alt="file explorer (comparison)"></p>
 <h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2><p>vue3.0更换了响应式的原理，在vue2.0是<strong>通过数据劫持结合发布者-订阅者模式实现的</strong>，具体可以看<a href="/2020/08/17/%E9%9D%A2%E8%AF%95/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" title="面试&#x2F;手动实现Vue双向绑定">面试&#x2F;手动实现Vue双向绑定</a>。</p>
 <p><a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">深入响应式</a>。</p>
 <p>而vue3.0是通过<strong>代理(Proxy)</strong>实现的双向绑定。</p>
 <h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p>vue设计之初就参考了Angular和React，可以说vue是站在这两个巨人的肩膀上发展起来的，我对React的了解不多，但是去年有一件刷爆了前端的事情就是React Hooks的发布，虽然国内用react的公司远远没有使用vue的公司多，但是你经常浏览掘金等类似的网站，那么肯定对React Hooks这个名词不陌生。</p>
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>vue3.0的生命周期的名称几乎全部修改了，其中添加了一个最重要的生命周期：<code>setup()</code>，它的执行时间是在<code>beforeCreate()</code>和<code>created()</code>之间执行。</p>
+<ul>
+<li><p>beforeCreate -&gt; setup</p>
+</li>
+<li><p>created -&gt; setup</p>
+</li>
+<li><p>beforeMount -&gt; onBeforeMount</p>
+</li>
+<li><p>mounted -&gt; onMounted</p>
+</li>
+<li><p>beforeUpdate -&gt; onBeforeUpdate</p>
+</li>
+<li><p>updated -&gt; onUpdated</p>
+</li>
+<li><p>beforeDestroy -&gt; onBeforeUnmount</p>
+</li>
+<li><p>destroyed -&gt; onUnmounted</p>
+</li>
+<li><p>errorCaptured -&gt; onErrorCaptured</p>
+</li>
+</ul>
 <h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><h2 id="setup"><a href="#setup" class="headerlink" title="setup()"></a>setup()</h2><p>灵魂函数，作为vue3.0最重要的函数。</p>
 
             </article>
