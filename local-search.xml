@@ -477,6 +477,33 @@
   
   
   <entry>
+    <title>Nodejs/为什么要学习Nodejs</title>
+    <link href="/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/"/>
+    <url>/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着前端的深度和广度日益提高，如果光会用一个Vue，可能自己就限制了自己以后的发展，因为现在哪个前端不会用一个框架。</p><p>前端的入门并不难，但是大公司或者高薪一点的前端开发，往往不能只会用一个框架，大部分还需要知道一些原理上的东西，而目前的前端框架包括很多第三方库，都大量的使用到了Nodejs。</p><p>所以Nodejs是前端进阶必不可少的一环，很多人可能会认为Nodejs和前端没有什么关系，那是后端的东西，因为现在可以用Nodejs作为后端。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nodejs</tag>
+      
+      <tag>undone</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript/数组自带的一些方法</title>
     <link href="/2020/08/29/JavaScript/%E6%95%B0%E7%BB%84%E8%87%AA%E5%B8%A6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
     <url>/2020/08/29/JavaScript/%E6%95%B0%E7%BB%84%E8%87%AA%E5%B8%A6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/</url>
@@ -496,33 +523,6 @@
       <tag>游戏设计</tag>
       
       <tag>undone</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Nodejs/为什么要学习Nodejs</title>
-    <link href="/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/"/>
-    <url>/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/</url>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着前端的深度和广度日益提高，如果光会用一个Vue，可能自己就限制了自己以后的发展，因为现在哪个前端不会用一个框架。</p><p>前端的入门并不难，但是大公司或者高薪一点的前端开发，往往不能只会用一个框架，大部分还需要知道一些原理上的东西，而目前的前端框架包括很多第三方库，都大量的使用到了Nodejs。</p><p>所以Nodejs是前端进阶必不可少的一环，很多人可能会认为Nodejs和前端没有什么关系，那是后端的东西，因为现在可以用Nodejs作为后端。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Nodejs</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>undone</tag>
-      
-      <tag>Nodejs</tag>
       
     </tags>
     
@@ -2122,11 +2122,11 @@
   
   
   <entry>
-    <title>游戏排行榜/2020年07月24日-征途全新版本上线，热度暴涨</title>
-    <link href="/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8824%E6%97%A5-%E5%BE%81%E9%80%94%E5%85%A8%E6%96%B0%E7%89%88%E6%9C%AC%E4%B8%8A%E7%BA%BF%EF%BC%8C%E7%83%AD%E5%BA%A6%E6%9A%B4%E6%B6%A8/"/>
-    <url>/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8824%E6%97%A5-%E5%BE%81%E9%80%94%E5%85%A8%E6%96%B0%E7%89%88%E6%9C%AC%E4%B8%8A%E7%BA%BF%EF%BC%8C%E7%83%AD%E5%BA%A6%E6%9A%B4%E6%B6%A8/</url>
+    <title>游戏排行榜/2020年07月23日-万灵启源上线</title>
+    <link href="/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8823%E6%97%A5-%E4%B8%87%E7%81%B5%E5%90%AF%E6%BA%90%E4%B8%8A%E7%BA%BF/"/>
+    <url>/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8823%E6%97%A5-%E4%B8%87%E7%81%B5%E5%90%AF%E6%BA%90%E4%B8%8A%E7%BA%BF/</url>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p><p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p><p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p><h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>英雄联盟+lol</td><td>106032</td></tr><tr><td>2</td><td>穿越火线+cf</td><td>105740</td></tr><tr><td>3</td><td>我的世界+minecraft</td><td>70030</td></tr><tr><td>4</td><td>征途 ↑8</td><td>63355</td></tr><tr><td>5</td><td>坦克世界</td><td>20844</td></tr><tr><td>6</td><td>地下城与勇士+dnf</td><td>19677</td></tr><tr><td>7</td><td>绝地求生+pubg</td><td>17544</td></tr><tr><td>8</td><td>冒险岛 ↑1</td><td>16462</td></tr><tr><td>9</td><td>梦幻西游 ↑1</td><td>14542</td></tr><tr><td>10</td><td>最终幻想14+ff14 ↓2</td><td>14087</td></tr><tr><td>11</td><td>炉石传说</td><td>13081</td></tr><tr><td>12</td><td>csgo ↑3</td><td>12404</td></tr><tr><td>13</td><td>刀塔2+DOTA2 ↑1</td><td>12021</td></tr><tr><td>14</td><td>魔兽世界+wow ↓1</td><td>11007</td></tr><tr><td>15</td><td>天龙八部 ↑1</td><td>10254</td></tr><tr><td>16</td><td>QQ飞车 ↓12</td><td>9535</td></tr><tr><td>17</td><td>传奇 ↑2</td><td>8512</td></tr><tr><td>18</td><td>激战2 ↑4</td><td>7912</td></tr><tr><td>19</td><td>方舟生存进化 ↑2</td><td>7386</td></tr><tr><td>20</td><td>守望先锋 ↑3</td><td>7090</td></tr><tr><td>21</td><td>龙之谷 ↓4</td><td>6614</td></tr><tr><td>22</td><td>大话西游 ↑3</td><td>6229</td></tr><tr><td>23</td><td>枪神纪 ↑new</td><td>6149</td></tr><tr><td>24</td><td>变形金刚 ↑3</td><td>6007</td></tr><tr><td>25</td><td>逆水寒 ↓1</td><td>5799</td></tr><tr><td>26</td><td>诛仙 ↓8</td><td>5591</td></tr><tr><td>27</td><td>星际战甲+warframe ↓1</td><td>5401</td></tr><tr><td>28</td><td>战舰世界 ↑2</td><td>4651</td></tr><tr><td>29</td><td>龙族 ↑new</td><td>4646</td></tr><tr><td>30</td><td>EVE ↓1</td><td>4577</td></tr></tbody></table><h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>王者荣耀</td><td>103767</td></tr><tr><td>2</td><td>和平精英</td><td>99865</td></tr><tr><td>3</td><td>我的世界+mc</td><td>73949</td></tr><tr><td>4</td><td>迷你世界</td><td>68974</td></tr><tr><td>5</td><td>江南百景图</td><td>53962</td></tr><tr><td>6</td><td>香肠派对 ↑1</td><td>30022</td></tr><tr><td>7</td><td>光遇 ↑1</td><td>27932</td></tr><tr><td>8</td><td>第五人格 ↑2</td><td>19049</td></tr><tr><td>9</td><td>球球大作战 ↑2</td><td>16520</td></tr><tr><td>10</td><td>最强蜗牛 ↑4</td><td>16079</td></tr><tr><td>11</td><td>阴阳师 ↑1</td><td>14905</td></tr><tr><td>12</td><td>荒野乱斗 ↑4</td><td>13488</td></tr><tr><td>13</td><td>炉石传说 ↑2</td><td>13081</td></tr><tr><td>14</td><td>妖神记 ↓1</td><td>13035</td></tr><tr><td>15</td><td>万灵启源 ↓6</td><td>12270</td></tr><tr><td>16</td><td>一梦江湖 ↑new</td><td>10627</td></tr><tr><td>17</td><td>明日之后</td><td>10392</td></tr><tr><td>18</td><td>部落冲突</td><td>9612</td></tr><tr><td>19</td><td>欢乐斗地主 ↑1</td><td>8280</td></tr><tr><td>20</td><td>崩坏3 ↑1</td><td>7899</td></tr><tr><td>21</td><td>碧蓝航线 ↓2</td><td>7379</td></tr><tr><td>22</td><td>奇迹暖暖 ↑new</td><td>6769</td></tr><tr><td>23</td><td>狼人杀</td><td>6600</td></tr><tr><td>24</td><td>饥荒 ↑2</td><td>6496</td></tr><tr><td>25</td><td>大话西游</td><td>6229</td></tr><tr><td>26</td><td>灌篮高手 ↓2</td><td>6009</td></tr><tr><td>27</td><td>剑与远征</td><td>5492</td></tr><tr><td>28</td><td>恋与制作人 ↓6</td><td>5264</td></tr><tr><td>29</td><td>率土之滨</td><td>5182</td></tr><tr><td>30</td><td>火影忍者手游 ↓2</td><td>5065</td></tr></tbody></table><h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p><p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p><p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p><p>今日新增手游关键词：<strong>万灵启源，全球行动</strong>。</p><h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>英雄联盟+lol ↑1</td><td>133901</td></tr><tr><td>2</td><td>穿越火线+cf ↓1</td><td>103025</td></tr><tr><td>3</td><td>我的世界+minecraft</td><td>74150</td></tr><tr><td>4</td><td>QQ飞车 ↑10</td><td>36170</td></tr><tr><td>5</td><td>坦克世界</td><td>21682</td></tr><tr><td>6</td><td>地下城与勇士+dnf</td><td>20139</td></tr><tr><td>7</td><td>绝地求生+pubg ↓3</td><td>19530</td></tr><tr><td>8</td><td>最终幻想14+ff14 ↓1</td><td>17155</td></tr><tr><td>9</td><td>冒险岛 ↑1</td><td>15316</td></tr><tr><td>10</td><td>梦幻西游 ↓1</td><td>14178</td></tr><tr><td>11</td><td>炉石传说 ↓3</td><td>13765</td></tr><tr><td>12</td><td>征途 ↑5</td><td>12645</td></tr><tr><td>13</td><td>魔兽世界+wow ↓1</td><td>12512</td></tr><tr><td>14</td><td>刀塔2+DOTA2 ↓1</td><td>11143</td></tr><tr><td>15</td><td>csgo</td><td>10635</td></tr><tr><td>16</td><td>天龙八部</td><td>10187</td></tr><tr><td>17</td><td>龙之谷 ↓6</td><td>9827</td></tr><tr><td>18</td><td>诛仙 ↑7</td><td>8521</td></tr><tr><td>19</td><td>传奇</td><td>8182</td></tr><tr><td>20</td><td>古剑奇谭ol+古剑奇谭网络版 ↑8</td><td>7477</td></tr><tr><td>21</td><td>方舟生存进化 ↓3</td><td>7455</td></tr><tr><td>22</td><td>激战2 ↑1</td><td>7059</td></tr><tr><td>23</td><td>守望先锋 ↓3</td><td>6808</td></tr><tr><td>24</td><td>逆水寒</td><td>6692</td></tr><tr><td>25</td><td>大话西游 ↓3</td><td>6059</td></tr><tr><td>26</td><td>星际战甲+warframe ↓5</td><td>5615</td></tr><tr><td>27</td><td>变形金刚 ↓1</td><td>5502</td></tr><tr><td>28</td><td>跑跑卡丁车 ↑new</td><td>4815</td></tr><tr><td>29</td><td>EVE ↓2</td><td>4707</td></tr><tr><td>30</td><td>战舰世界 ↑new</td><td>4624</td></tr></tbody></table><h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>王者荣耀</td><td>105303</td></tr><tr><td>2</td><td>和平精英 ↑1</td><td>82588</td></tr><tr><td>3</td><td>我的世界+mc ↓1</td><td>73705</td></tr><tr><td>4</td><td>迷你世界</td><td>68599</td></tr><tr><td>5</td><td>江南百景图</td><td>58823</td></tr><tr><td>6</td><td>QQ飞车手游 ↑13</td><td>34880</td></tr><tr><td>7</td><td>香肠派对 ↓1</td><td>30177</td></tr><tr><td>8</td><td>光遇 ↓1</td><td>29149</td></tr><tr><td>9</td><td>万灵启源 ↑new</td><td>24107</td></tr><tr><td>10</td><td>第五人格 ↓1</td><td>19371</td></tr><tr><td>11</td><td>球球大作战 ↓1</td><td>16635</td></tr><tr><td>12</td><td>阴阳师 ↓4</td><td>15426</td></tr><tr><td>13</td><td>妖神记 ↓1</td><td>14697</td></tr><tr><td>14</td><td>最强蜗牛 ↓1</td><td>14693</td></tr><tr><td>15</td><td>炉石传说 ↓4</td><td>13765</td></tr><tr><td>16</td><td>荒野乱斗 ↓2</td><td>12972</td></tr><tr><td>17</td><td>明日之后 ↓2</td><td>11014</td></tr><tr><td>18</td><td>部落冲突 ↓2</td><td>9340</td></tr><tr><td>19</td><td>碧蓝航线 ↑6</td><td>9205</td></tr><tr><td>20</td><td>欢乐斗地主 ↓3</td><td>8121</td></tr><tr><td>21</td><td>崩坏3 ↓3</td><td>7426</td></tr><tr><td>22</td><td>恋与制作人 ↑6</td><td>7290</td></tr><tr><td>23</td><td>狼人杀 ↓3</td><td>6521</td></tr><tr><td>24</td><td>灌篮高手 ↓3</td><td>6333</td></tr><tr><td>25</td><td>大话西游 ↓2</td><td>6059</td></tr><tr><td>26</td><td>饥荒 ↓4</td><td>6053</td></tr><tr><td>27</td><td>剑与远征 ↓3</td><td>5571</td></tr><tr><td>28</td><td>火影忍者手游 ↓2</td><td>5470</td></tr><tr><td>29</td><td>率土之滨 ↓2</td><td>5303</td></tr><tr><td>30</td><td>开心消消乐 ↓1</td><td>5115</td></tr></tbody></table><h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>]]></content>
     
     
     <categories>
@@ -2151,11 +2151,11 @@
   
   
   <entry>
-    <title>游戏排行榜/2020年07月23日-万灵启源上线</title>
-    <link href="/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8823%E6%97%A5-%E4%B8%87%E7%81%B5%E5%90%AF%E6%BA%90%E4%B8%8A%E7%BA%BF/"/>
-    <url>/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8823%E6%97%A5-%E4%B8%87%E7%81%B5%E5%90%AF%E6%BA%90%E4%B8%8A%E7%BA%BF/</url>
+    <title>游戏排行榜/2020年07月24日-征途全新版本上线，热度暴涨</title>
+    <link href="/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8824%E6%97%A5-%E5%BE%81%E9%80%94%E5%85%A8%E6%96%B0%E7%89%88%E6%9C%AC%E4%B8%8A%E7%BA%BF%EF%BC%8C%E7%83%AD%E5%BA%A6%E6%9A%B4%E6%B6%A8/"/>
+    <url>/2020/07/24/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B407%E6%9C%8824%E6%97%A5-%E5%BE%81%E9%80%94%E5%85%A8%E6%96%B0%E7%89%88%E6%9C%AC%E4%B8%8A%E7%BA%BF%EF%BC%8C%E7%83%AD%E5%BA%A6%E6%9A%B4%E6%B6%A8/</url>
     
-    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p><p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p><p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p><p>今日新增手游关键词：<strong>万灵启源，全球行动</strong>。</p><h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>英雄联盟+lol ↑1</td><td>133901</td></tr><tr><td>2</td><td>穿越火线+cf ↓1</td><td>103025</td></tr><tr><td>3</td><td>我的世界+minecraft</td><td>74150</td></tr><tr><td>4</td><td>QQ飞车 ↑10</td><td>36170</td></tr><tr><td>5</td><td>坦克世界</td><td>21682</td></tr><tr><td>6</td><td>地下城与勇士+dnf</td><td>20139</td></tr><tr><td>7</td><td>绝地求生+pubg ↓3</td><td>19530</td></tr><tr><td>8</td><td>最终幻想14+ff14 ↓1</td><td>17155</td></tr><tr><td>9</td><td>冒险岛 ↑1</td><td>15316</td></tr><tr><td>10</td><td>梦幻西游 ↓1</td><td>14178</td></tr><tr><td>11</td><td>炉石传说 ↓3</td><td>13765</td></tr><tr><td>12</td><td>征途 ↑5</td><td>12645</td></tr><tr><td>13</td><td>魔兽世界+wow ↓1</td><td>12512</td></tr><tr><td>14</td><td>刀塔2+DOTA2 ↓1</td><td>11143</td></tr><tr><td>15</td><td>csgo</td><td>10635</td></tr><tr><td>16</td><td>天龙八部</td><td>10187</td></tr><tr><td>17</td><td>龙之谷 ↓6</td><td>9827</td></tr><tr><td>18</td><td>诛仙 ↑7</td><td>8521</td></tr><tr><td>19</td><td>传奇</td><td>8182</td></tr><tr><td>20</td><td>古剑奇谭ol+古剑奇谭网络版 ↑8</td><td>7477</td></tr><tr><td>21</td><td>方舟生存进化 ↓3</td><td>7455</td></tr><tr><td>22</td><td>激战2 ↑1</td><td>7059</td></tr><tr><td>23</td><td>守望先锋 ↓3</td><td>6808</td></tr><tr><td>24</td><td>逆水寒</td><td>6692</td></tr><tr><td>25</td><td>大话西游 ↓3</td><td>6059</td></tr><tr><td>26</td><td>星际战甲+warframe ↓5</td><td>5615</td></tr><tr><td>27</td><td>变形金刚 ↓1</td><td>5502</td></tr><tr><td>28</td><td>跑跑卡丁车 ↑new</td><td>4815</td></tr><tr><td>29</td><td>EVE ↓2</td><td>4707</td></tr><tr><td>30</td><td>战舰世界 ↑new</td><td>4624</td></tr></tbody></table><h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>王者荣耀</td><td>105303</td></tr><tr><td>2</td><td>和平精英 ↑1</td><td>82588</td></tr><tr><td>3</td><td>我的世界+mc ↓1</td><td>73705</td></tr><tr><td>4</td><td>迷你世界</td><td>68599</td></tr><tr><td>5</td><td>江南百景图</td><td>58823</td></tr><tr><td>6</td><td>QQ飞车手游 ↑13</td><td>34880</td></tr><tr><td>7</td><td>香肠派对 ↓1</td><td>30177</td></tr><tr><td>8</td><td>光遇 ↓1</td><td>29149</td></tr><tr><td>9</td><td>万灵启源 ↑new</td><td>24107</td></tr><tr><td>10</td><td>第五人格 ↓1</td><td>19371</td></tr><tr><td>11</td><td>球球大作战 ↓1</td><td>16635</td></tr><tr><td>12</td><td>阴阳师 ↓4</td><td>15426</td></tr><tr><td>13</td><td>妖神记 ↓1</td><td>14697</td></tr><tr><td>14</td><td>最强蜗牛 ↓1</td><td>14693</td></tr><tr><td>15</td><td>炉石传说 ↓4</td><td>13765</td></tr><tr><td>16</td><td>荒野乱斗 ↓2</td><td>12972</td></tr><tr><td>17</td><td>明日之后 ↓2</td><td>11014</td></tr><tr><td>18</td><td>部落冲突 ↓2</td><td>9340</td></tr><tr><td>19</td><td>碧蓝航线 ↑6</td><td>9205</td></tr><tr><td>20</td><td>欢乐斗地主 ↓3</td><td>8121</td></tr><tr><td>21</td><td>崩坏3 ↓3</td><td>7426</td></tr><tr><td>22</td><td>恋与制作人 ↑6</td><td>7290</td></tr><tr><td>23</td><td>狼人杀 ↓3</td><td>6521</td></tr><tr><td>24</td><td>灌篮高手 ↓3</td><td>6333</td></tr><tr><td>25</td><td>大话西游 ↓2</td><td>6059</td></tr><tr><td>26</td><td>饥荒 ↓4</td><td>6053</td></tr><tr><td>27</td><td>剑与远征 ↓3</td><td>5571</td></tr><tr><td>28</td><td>火影忍者手游 ↓2</td><td>5470</td></tr><tr><td>29</td><td>率土之滨 ↓2</td><td>5303</td></tr><tr><td>30</td><td>开心消消乐 ↓1</td><td>5115</td></tr></tbody></table><h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p><p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p><p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p><h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>英雄联盟+lol</td><td>106032</td></tr><tr><td>2</td><td>穿越火线+cf</td><td>105740</td></tr><tr><td>3</td><td>我的世界+minecraft</td><td>70030</td></tr><tr><td>4</td><td>征途 ↑8</td><td>63355</td></tr><tr><td>5</td><td>坦克世界</td><td>20844</td></tr><tr><td>6</td><td>地下城与勇士+dnf</td><td>19677</td></tr><tr><td>7</td><td>绝地求生+pubg</td><td>17544</td></tr><tr><td>8</td><td>冒险岛 ↑1</td><td>16462</td></tr><tr><td>9</td><td>梦幻西游 ↑1</td><td>14542</td></tr><tr><td>10</td><td>最终幻想14+ff14 ↓2</td><td>14087</td></tr><tr><td>11</td><td>炉石传说</td><td>13081</td></tr><tr><td>12</td><td>csgo ↑3</td><td>12404</td></tr><tr><td>13</td><td>刀塔2+DOTA2 ↑1</td><td>12021</td></tr><tr><td>14</td><td>魔兽世界+wow ↓1</td><td>11007</td></tr><tr><td>15</td><td>天龙八部 ↑1</td><td>10254</td></tr><tr><td>16</td><td>QQ飞车 ↓12</td><td>9535</td></tr><tr><td>17</td><td>传奇 ↑2</td><td>8512</td></tr><tr><td>18</td><td>激战2 ↑4</td><td>7912</td></tr><tr><td>19</td><td>方舟生存进化 ↑2</td><td>7386</td></tr><tr><td>20</td><td>守望先锋 ↑3</td><td>7090</td></tr><tr><td>21</td><td>龙之谷 ↓4</td><td>6614</td></tr><tr><td>22</td><td>大话西游 ↑3</td><td>6229</td></tr><tr><td>23</td><td>枪神纪 ↑new</td><td>6149</td></tr><tr><td>24</td><td>变形金刚 ↑3</td><td>6007</td></tr><tr><td>25</td><td>逆水寒 ↓1</td><td>5799</td></tr><tr><td>26</td><td>诛仙 ↓8</td><td>5591</td></tr><tr><td>27</td><td>星际战甲+warframe ↓1</td><td>5401</td></tr><tr><td>28</td><td>战舰世界 ↑2</td><td>4651</td></tr><tr><td>29</td><td>龙族 ↑new</td><td>4646</td></tr><tr><td>30</td><td>EVE ↓1</td><td>4577</td></tr></tbody></table><h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>王者荣耀</td><td>103767</td></tr><tr><td>2</td><td>和平精英</td><td>99865</td></tr><tr><td>3</td><td>我的世界+mc</td><td>73949</td></tr><tr><td>4</td><td>迷你世界</td><td>68974</td></tr><tr><td>5</td><td>江南百景图</td><td>53962</td></tr><tr><td>6</td><td>香肠派对 ↑1</td><td>30022</td></tr><tr><td>7</td><td>光遇 ↑1</td><td>27932</td></tr><tr><td>8</td><td>第五人格 ↑2</td><td>19049</td></tr><tr><td>9</td><td>球球大作战 ↑2</td><td>16520</td></tr><tr><td>10</td><td>最强蜗牛 ↑4</td><td>16079</td></tr><tr><td>11</td><td>阴阳师 ↑1</td><td>14905</td></tr><tr><td>12</td><td>荒野乱斗 ↑4</td><td>13488</td></tr><tr><td>13</td><td>炉石传说 ↑2</td><td>13081</td></tr><tr><td>14</td><td>妖神记 ↓1</td><td>13035</td></tr><tr><td>15</td><td>万灵启源 ↓6</td><td>12270</td></tr><tr><td>16</td><td>一梦江湖 ↑new</td><td>10627</td></tr><tr><td>17</td><td>明日之后</td><td>10392</td></tr><tr><td>18</td><td>部落冲突</td><td>9612</td></tr><tr><td>19</td><td>欢乐斗地主 ↑1</td><td>8280</td></tr><tr><td>20</td><td>崩坏3 ↑1</td><td>7899</td></tr><tr><td>21</td><td>碧蓝航线 ↓2</td><td>7379</td></tr><tr><td>22</td><td>奇迹暖暖 ↑new</td><td>6769</td></tr><tr><td>23</td><td>狼人杀</td><td>6600</td></tr><tr><td>24</td><td>饥荒 ↑2</td><td>6496</td></tr><tr><td>25</td><td>大话西游</td><td>6229</td></tr><tr><td>26</td><td>灌篮高手 ↓2</td><td>6009</td></tr><tr><td>27</td><td>剑与远征</td><td>5492</td></tr><tr><td>28</td><td>恋与制作人 ↓6</td><td>5264</td></tr><tr><td>29</td><td>率土之滨</td><td>5182</td></tr><tr><td>30</td><td>火影忍者手游 ↓2</td><td>5065</td></tr></tbody></table><h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>]]></content>
     
     
     <categories>
@@ -3619,9 +3619,9 @@
     
     <tags>
       
-      <tag>HTML5</tag>
-      
       <tag>网页设计</tag>
+      
+      <tag>HTML5</tag>
       
     </tags>
     
@@ -3700,9 +3700,9 @@
     
     <tags>
       
-      <tag>集成开发环境</tag>
-      
       <tag>C++</tag>
+      
+      <tag>集成开发环境</tag>
       
     </tags>
     
