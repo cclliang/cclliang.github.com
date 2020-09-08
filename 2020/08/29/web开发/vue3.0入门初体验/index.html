@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    843 字
+                    1.7k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    9
+                    18
                      分钟
                   </span>
                 
@@ -187,18 +187,51 @@
               <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着时间的推移，vue3.0的正式发布已经快要来临，在新版的vue的脚手架工具中，已经可以直接进行创建vue3.0的项目模板。</p>
 <p>既然vue3.0发布在即，那么学习vue3.0也是当下的一个重中之重的事情，虽然vue3.0的生态还不是那么的完善，不过取代vue2.0也是早晚的事情。</p>
 <p><a href="https://composition-api.vuejs.org/zh/" target="_blank" rel="noopener">vue3 composition-api文档</a></p>
-<p>vue3的代码几乎使用TypeScript进行了重写，所以学习vue3之前建议学一下TypeScript，毕竟现在的前端复杂程度逐渐提高。</p>
-<p>JavaScript是作为脚本语言被设计出来的，脚本语言的一大特点就是上手非常的简单，但是随着前后端分离，前端项目的需求越来越多，JavaScript做中大型项目应用时会有非常大的弊端，其中最大的弊端就是JavaScript是弱类型的语言，可能会因此产生非常多的BUG，而这个时候TypeScript自然而然就诞生了。</p>
-<h2 id="Composition-api"><a href="#Composition-api" class="headerlink" title="Composition-api"></a>Composition-api</h2><p>说到Vue3就不得不说到composition-api，在Vue2中，提供大量的钩子函数，也就是有一定的模板，这模板对于新手来讲可能是好事，因为它规定了你的组件方法只能写在<code>methods</code>中，你的状态只能写在<code>data</code>中。</p>
+<p>vue3的代码几乎使用TypeScript进行了重写，所以学习vue3之前建议学一下TypeScript，毕竟现在的前端复杂程度逐渐提高，而TypeScript非常适合写中大型项目。</p>
+<p>JavaScript是作为脚本语言被设计出来的，脚本语言的一大特点就是上手非常的简单，但是随着前后端分离，前端项目的需求越来越多。</p>
+<p>JavaScript做中大型项目应用时会有非常大的弊端，其中最大的弊端就是JavaScript是弱类型的语言，可能会因此产生非常多的BUG，而这个时候TypeScript自然而然就诞生了，TypeScript强大的类型推断可以提前帮我们发现代码潜在的风险。</p>
+<p>几乎大部分前端程序员用过TypeScript后，都会说出两个字“真香”。</p>
+<h2 id="Composition-api"><a href="#Composition-api" class="headerlink" title="Composition-api"></a>Composition-api</h2><p>说到Vue3就不得不说到composition-api，在Vue2中，提供大量的钩子函数，也就是说编写代码要按照一定的模板，比如数据就只能放在<code>data()</code>中，而方法只能放在<code>methods</code>中，按照模板编写代码对于新手来讲可能是好事，但是一旦项目变大，维护起来就显得很困难。</p>
+<p>下图的左边图示，即Vue2使用的Options-api，图中相同的颜色对应是组件的一种功能，可以看到为了实现一种功能，我们所写的代码是非常分散的。</p>
 <p>虽然这样对初学者来说非常方便，但是如果一旦一个组件中业务逻辑复杂，例如下图中的左边的图示，即Vue2使用的Options-api，图中相同的颜色对应的就是一种功能，可以看到为了实现一种功能，我们所写的代码是非常分散的。</p>
-<p>如果组件逻辑复杂，代码量多，我们添加新代码不光要不停的上下滑动，而且在后期代码维护中，阅读起来也变得十分的困难。</p>
-<p>而在Composition-api中，我们可以把实现一种功能的代码写在一起，甚至还可以把它们单独抽取在一个文件中，因为在其它文件中也可以引用Composition-api的生命周期函数。这将极大的提高代码的可维护性。</p>
+<p>如果组件逻辑复杂，代码量多，我们添加新代码不光要不停的上下滑动，而且在后期代码维护中，阅读起来也变得十分的困难，因为实现一种功能的代码并没有集中在一起。</p>
 <p><img src="image/web/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png" srcset="/img/loading.gif" alt="file explorer (comparison)"></p>
+<p>而在Composition-api中，我们可以把实现一种功能的代码写在一起，甚至还可以把它们单独抽取在一个<code>js</code>文件或者一个函数中。</p>
+<p>在<code>js</code>文件中也可以引用Composition-api的生命周期函数。这将极大的提高代码的可维护性。</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; onMounted, ref, Ref &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">count</span>(<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">let</span> count: Ref&lt;number&gt; = ref(<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">const</span> changeCount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    count.value += <span class="hljs-number">2</span>;
+  &#125;;
+  onMounted(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"就算不在组件模板中，也可以调用生命周期函数"</span>);
+  &#125;);
+  <span class="hljs-keyword">return</span> &#123;count, changeCount&#125;;
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  name: <span class="hljs-string">"App"</span>,
+  setup() &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-comment">// 通过展开语法，可以直接返回count, changeCount</span>
+      ...count()
+    &#125;;
+  &#125;
+&#125;;</code></pre>
+
+<h1 id="Vue2-x存在的问题"><a href="#Vue2-x存在的问题" class="headerlink" title="Vue2.x存在的问题"></a>Vue2.x存在的问题</h1><h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><p>mixin，官方翻译叫做“混入”，也就是将组件中通用的属性和方法抽离出来，在其它的组件中进行引入<a href="https://cn.vuejs.org/v2/guide/mixins.html" target="_blank" rel="noopener">混入— Vue.js</a>。</p>
+<p>也许很多人都没有使用过混入，虽然这种方式给编写组件时带来了极大的方便，但却也大大的提高了代码的维护难度，或许你自己写的代码，使用了很多混入，几周或者几个月后再次看这些代码，你可能并不知道代码中的一些属性和方法从什么地方进行调用。</p>
+<p>而且不同的mixin中，命名空间还可能发生冲突。</p>
+<h2 id="HOC"><a href="#HOC" class="headerlink" title="HOC"></a>HOC</h2><h2 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h2><h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>this这个问题，不管是1年，2年甚至10年的JavaScript使用经验，都有可能在这个地方翻车，虽然ES6时代来临后，this混乱的问题大大的改善了，但是还是不够，关于this，可以看这篇文章：<a href="/2020/05/07/%E9%9D%A2%E8%AF%95/JavaScript%EF%BC%9A%E5%85%85%E6%BB%A1%E7%8E%84%E5%AD%A6%E7%9A%84this%E6%8C%87%E5%90%91%EF%BC%8C%E7%9C%9F%E7%9A%84%E6%9C%89%E7%82%B9%E9%9A%BE/" title="JavaScript：充满玄学的this指向，真的有点难">JavaScript：充满玄学的this指向，真的有点难</a>。</p>
+<p>而在Vue3中，因为几乎所有的代码都写在<code>setup()</code>这个方法中，所以就不需要再通过<code>this.</code>语法来进行调用。</p>
+<p>而在Vue2.x时代，我们在<code>script</code>标签中，调用<code>data()</code>，<code>computed</code>，<code>methods</code>等一系列钩子中的属性和方法，都要通过<code>this.</code>语法进行调用。</p>
 <h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2><p>vue3.0更换了响应式的原理，在vue2.0是<strong>通过数据劫持结合发布者-订阅者模式实现的</strong>，具体可以看<a href="/2020/08/17/%E9%9D%A2%E8%AF%95/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0Vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" title="面试&#x2F;手动实现Vue双向绑定">面试&#x2F;手动实现Vue双向绑定</a>。</p>
 <p><a href="https://cn.vuejs.org/v2/guide/reactivity.html" target="_blank" rel="noopener">深入响应式</a>。</p>
-<p>而vue3.0是通过<strong>代理(Proxy)</strong>实现的双向绑定。</p>
-<h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p>vue设计之初就参考了Angular和React，可以说vue是站在这两个巨人的肩膀上发展起来的，我对React的了解不多，但是去年有一件刷爆了前端的事情就是React Hooks的发布，虽然国内用react的公司远远没有使用vue的公司多，但是你经常浏览掘金等类似的网站，那么肯定对React Hooks这个名词不陌生。</p>
-<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>vue3.0的生命周期的名称几乎全部修改了，其中添加了一个最重要的生命周期：<code>setup()</code>，它的执行时间是在<code>beforeCreate()</code>和<code>created()</code>之间执行。</p>
+<p>而vue3.0是通过<strong>代理(Proxy)</strong>实现的双向绑定，简单的说，在Vue2.x中，如果一个对象添加了一个新属性，在界面上是不会发生改变的，而在Vue3中，界面就会发生改变。</p>
+<h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p>Vue设计之初就参考了Angular和React，可以说vue是站在这两个巨人的肩膀上发展起来的，我对React的了解不多，但是去年有一件刷爆了前端的事情就是React Hooks的发布，虽然国内用react的公司远远没有使用vue的公司多，但是你经常浏览掘金等类似的网站，那么肯定对React Hooks这个名词不陌生。</p>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>vue3.0的生命周期的名称几乎全部修改了，其中添加了一个最重要的生命周期：<code>setup()</code>，它的执行时间是在<code>beforeCreate()</code>和<code>created()</code>之间执行。</p>
 <ul>
 <li><p>beforeCreate -&gt; setup</p>
 </li>
@@ -220,6 +253,9 @@
 </li>
 </ul>
 <h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><h2 id="setup"><a href="#setup" class="headerlink" title="setup()"></a>setup()</h2><p>灵魂函数，作为vue3.0最重要的函数。</p>
+<h2 id="reactive和ref"><a href="#reactive和ref" class="headerlink" title="reactive和ref"></a>reactive和ref</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h1><p>关于vite，可以看这里：<a href="/2020/09/06/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E6%96%B0%E5%B7%A5%E5%85%B7%EF%BC%9Avite/" title="前端开发环境下的新工具：vite">前端开发环境下的新工具：vite</a></p>
+<p>目前vite暂时只支持Vue3，vite这玩意实在是太厉害了，估计再过一段时间，Vue会在前端开发中占据一席之地，就目前来说，vite没有什么明显的缺点。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>因为Vue3的正式版还没有发布，现在已经到了9月。对于成熟的企业项目，还是不推荐使用Vue3，因为Vue3生态还没有那么的成熟，很多第三方库也还没有兼容Vue3，比如Vue非常火的组件库Element UI，顺便一说ElementUI从5月开始就没有更新过了，虽然在8月份更新了一下文档。</p>
 
             </article>
             <hr>
@@ -252,9 +288,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/Vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6/">
+                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%A5%BD%E7%9A%84%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%92%8C%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%95%B4%E7%90%86/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">web开发/Vue动态组件和异步组件</span>
+                        <span class="hidden-mobile">web开发/前端好的开源项目和第三方库整理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -262,8 +298,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%A5%BD%E7%9A%84%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%92%8C%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%95%B4%E7%90%86/">
-                        <span class="hidden-mobile">web开发/前端好的开源项目和第三方库整理</span>
+                      <a href="/2020/08/29/TypeScript/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <span class="hidden-mobile">TypeScript/特色功能之装饰器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
