@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>游戏排行榜/2020年09月07日-英雄联盟热度大涨 - 副本 - 个人博客|沧沧凉凉的小站</title>
+  <title>web开发/vue实现多页面的方式：vue-router - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-09-08 22:32">
-                    2020年9月8日 晚上
+                  <time datetime="2020-08-29 16:19">
+                    2020年8月29日 下午
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    732 字
+                    51 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    9
+                    1
                      分钟
                   </span>
                 
@@ -184,332 +184,8 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p>
-<p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p>
-<p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p>
-<p><strong>更新时间：目前更新时间定为晚上10点（22点）左右。</strong></p>
-<h1 id="箭头含义"><a href="#箭头含义" class="headerlink" title="箭头含义"></a>箭头含义</h1><p><code>↑</code>：相对于前一天上升几个名次。</p>
-<p><code>↓</code>：相对于前一天下降几个名次。</p>
-<p><code>↑new</code>：当天新入榜的游戏。</p>
-<h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table>
-<thead>
-<tr>
-<th>名次</th>
-<th>百度搜索关键词</th>
-<th>百度指数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>英雄联盟+lol</td>
-<td>85658</td>
-</tr>
-<tr>
-<td>2</td>
-<td>穿越火线+cf ↑1</td>
-<td>29998</td>
-</tr>
-<tr>
-<td>3</td>
-<td>我的世界+minecraft ↓1</td>
-<td>29974</td>
-</tr>
-<tr>
-<td>4</td>
-<td>坦克世界</td>
-<td>28457</td>
-</tr>
-<tr>
-<td>5</td>
-<td>地下城与勇士+dnf</td>
-<td>18580</td>
-</tr>
-<tr>
-<td>6</td>
-<td>梦幻西游 ↑1</td>
-<td>16718</td>
-</tr>
-<tr>
-<td>7</td>
-<td>魔兽世界+wow ↑2</td>
-<td>13608</td>
-</tr>
-<tr>
-<td>8</td>
-<td>绝地求生+pubg ↓2</td>
-<td>12325</td>
-</tr>
-<tr>
-<td>9</td>
-<td>刀塔2+DOTA2 ↑6</td>
-<td>11542</td>
-</tr>
-<tr>
-<td>10</td>
-<td>最终幻想14+ff14</td>
-<td>11410</td>
-</tr>
-<tr>
-<td>11</td>
-<td>征途 ↓3</td>
-<td>9651</td>
-</tr>
-<tr>
-<td>12</td>
-<td>天龙八部</td>
-<td>9517</td>
-</tr>
-<tr>
-<td>13</td>
-<td>csgo ↓2</td>
-<td>9165</td>
-</tr>
-<tr>
-<td>14</td>
-<td>传奇 ↓1</td>
-<td>8595</td>
-</tr>
-<tr>
-<td>15</td>
-<td>炉石传说 ↑1</td>
-<td>8061</td>
-</tr>
-<tr>
-<td>16</td>
-<td>星际战甲+warframe ↑1</td>
-<td>6864</td>
-</tr>
-<tr>
-<td>17</td>
-<td>冒险岛 ↑3</td>
-<td>6561</td>
-</tr>
-<tr>
-<td>18</td>
-<td>诛仙 ↑1</td>
-<td>6238</td>
-</tr>
-<tr>
-<td>19</td>
-<td>方舟生存进化 ↓5</td>
-<td>5016</td>
-</tr>
-<tr>
-<td>20</td>
-<td>摩尔庄园 ↑5</td>
-<td>4996</td>
-</tr>
-<tr>
-<td>21</td>
-<td>守望先锋 ↓3</td>
-<td>4966</td>
-</tr>
-<tr>
-<td>22</td>
-<td>EVE ↑7</td>
-<td>4895</td>
-</tr>
-<tr>
-<td>23</td>
-<td>大话西游 ↓1</td>
-<td>4882</td>
-</tr>
-<tr>
-<td>24</td>
-<td>逆水寒 ↑4</td>
-<td>4843</td>
-</tr>
-<tr>
-<td>25</td>
-<td>激战2 ↑2</td>
-<td>4770</td>
-</tr>
-<tr>
-<td>26</td>
-<td>战舰世界 ↓3</td>
-<td>4402</td>
-</tr>
-<tr>
-<td>27</td>
-<td>剑网3+剑侠情缘三 ↑new</td>
-<td>4312</td>
-</tr>
-<tr>
-<td>28</td>
-<td>天涯明月刀 ↑new</td>
-<td>3855</td>
-</tr>
-<tr>
-<td>29</td>
-<td>变形金刚 ↓8</td>
-<td>3717</td>
-</tr>
-<tr>
-<td>30</td>
-<td>apex+apex英雄 ↑new</td>
-<td>3692</td>
-</tr>
-</tbody></table>
-<h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table>
-<thead>
-<tr>
-<th>名次</th>
-<th>百度搜索关键词</th>
-<th>百度指数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>王者荣耀</td>
-<td>66978</td>
-</tr>
-<tr>
-<td>2</td>
-<td>和平精英</td>
-<td>34704</td>
-</tr>
-<tr>
-<td>3</td>
-<td>我的世界+mc</td>
-<td>30178</td>
-</tr>
-<tr>
-<td>4</td>
-<td>迷你世界</td>
-<td>22130</td>
-</tr>
-<tr>
-<td>5</td>
-<td>江南百景图 ↑1</td>
-<td>20293</td>
-</tr>
-<tr>
-<td>6</td>
-<td>阴阳师 ↑4</td>
-<td>14009</td>
-</tr>
-<tr>
-<td>7</td>
-<td>明日方舟 ↑1</td>
-<td>12523</td>
-</tr>
-<tr>
-<td>8</td>
-<td>香肠派对 ↓3</td>
-<td>11788</td>
-</tr>
-<tr>
-<td>9</td>
-<td>光遇 ↓2</td>
-<td>11641</td>
-</tr>
-<tr>
-<td>10</td>
-<td>最强蜗牛 ↑3</td>
-<td>8797</td>
-</tr>
-<tr>
-<td>11</td>
-<td>妖神记 ↑1</td>
-<td>8457</td>
-</tr>
-<tr>
-<td>12</td>
-<td>第五人格 ↓3</td>
-<td>8269</td>
-</tr>
-<tr>
-<td>13</td>
-<td>炉石传说 ↑5</td>
-<td>8061</td>
-</tr>
-<tr>
-<td>14</td>
-<td>欢乐斗地主 ↑3</td>
-<td>7755</td>
-</tr>
-<tr>
-<td>15</td>
-<td>荒野乱斗</td>
-<td>6295</td>
-</tr>
-<tr>
-<td>16</td>
-<td>球球大作战 ↓5</td>
-<td>6048</td>
-</tr>
-<tr>
-<td>17</td>
-<td>明日之后 ↓3</td>
-<td>5672</td>
-</tr>
-<tr>
-<td>18</td>
-<td>部落冲突 ↓2</td>
-<td>5666</td>
-</tr>
-<tr>
-<td>19</td>
-<td>崩坏3 ↑2</td>
-<td>5260</td>
-</tr>
-<tr>
-<td>20</td>
-<td>狼人杀</td>
-<td>5203</td>
-</tr>
-<tr>
-<td>21</td>
-<td>率土之滨 ↑3</td>
-<td>5158</td>
-</tr>
-<tr>
-<td>22</td>
-<td>大话西游</td>
-<td>4882</td>
-</tr>
-<tr>
-<td>23</td>
-<td>梦幻西游手游 ↑5</td>
-<td>4400</td>
-</tr>
-<tr>
-<td>24</td>
-<td>碧蓝航线 ↓1</td>
-<td>4301</td>
-</tr>
-<tr>
-<td>25</td>
-<td>剑与远征 ↑new</td>
-<td>4151</td>
-</tr>
-<tr>
-<td>26</td>
-<td>饥荒 ↓7</td>
-<td>4080</td>
-</tr>
-<tr>
-<td>27</td>
-<td>开心消消乐 ↑3</td>
-<td>3837</td>
-</tr>
-<tr>
-<td>28</td>
-<td>灌篮高手 ↓2</td>
-<td>3769</td>
-</tr>
-<tr>
-<td>29</td>
-<td>火影忍者手游 ↓4</td>
-<td>3298</td>
-</tr>
-<tr>
-<td>30</td>
-<td>问道 ↑new</td>
-<td>3150</td>
-</tr>
-</tbody></table>
-<h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>
+              <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p>因为Vue是单页面应用，所以如果Vue项目有多个页面需要展示，就需要使用到vue-router。</p>
+<h1 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h1><h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><h2 id="hashrouter"><a href="#hashrouter" class="headerlink" title="hashrouter"></a>hashrouter</h2><h1 id="动态路由和嵌套路由"><a href="#动态路由和嵌套路由" class="headerlink" title="动态路由和嵌套路由"></a>动态路由和嵌套路由</h1><h1 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h1>
             </article>
             <hr>
             <div>
@@ -518,7 +194,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">游戏排行榜</a>
+                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
                     
                   </div>
                 
@@ -526,9 +202,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
+                      <a class="hover-with-bg" href="/tags/undone/">undone</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+                      <a class="hover-with-bg" href="/tags/web%E5%BC%80%E5%8F%91/">web开发</a>
                     
                   </div>
                 
@@ -541,12 +217,18 @@
                   <div class="post-prev col-6">
                     
                     
+                      <a href="/2020/08/29/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%A5%BD%E7%9A%84%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%92%8C%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%95%B4%E7%90%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">web开发/前端好的开源项目和第三方库整理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/09/07/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8806%E6%97%A5-%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F%E7%83%AD%E5%BA%A6%E5%A4%A7%E6%B6%A8/">
-                        <span class="hidden-mobile">游戏排行榜/2020年09月06日-英雄联盟热度大涨</span>
+                      <a href="/2020/08/29/TypeScript/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <span class="hidden-mobile">TypeScript/特色功能之装饰器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -739,7 +421,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "游戏排行榜/2020年09月07日-英雄联盟热度大涨 - 副本&nbsp;",
+        "web开发/vue实现多页面的方式：vue-router&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
