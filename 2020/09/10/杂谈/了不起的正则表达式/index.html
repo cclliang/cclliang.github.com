@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="沧沧凉凉的个人博客，本人是一个前端爱好者，记录平时学习路上遇到的一些困难，同时也是一个游戏爱好者，奈何近期没有出现能提起兴趣的游戏，更是一个科技爱好者，偶尔会分享一些自己觉得有用的知识。博客主要经营：前端知识，游戏排行榜。">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
+  <meta name="baidu-site-verification" content="aibPQPjuXd" />
+  <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
+  <title>杂谈/了不起的正则表达式 - 个人博客|沧沧凉凉的小站</title>
+  <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 40vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>沧沧凉凉</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/china-5151605_1920.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-09-10 20:39">
+                    2020年9月10日 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    16
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>如果要验证一段字符串是否符合规定的格式，就要用到正则表达式。</p>
+<p>比如前端经常做的手机号格式验证，邮箱格式验证，这些都能是正则表达式来搞定，不过这种常用的正则随便一搜，就能搜出一堆，根本不需要自己去写。</p>
+<p>但是，如果要使用爬虫抓取，请求拦截等等，这些正则表达式一般都是要根据具体情况进行判断，一般来说都找不到人家编写好的，所以这个时候就需要学习正则。</p>
+<h2 id="1-1-正则表达式是什么"><a href="#1-1-正则表达式是什么" class="headerlink" title="1.1 正则表达式是什么"></a>1.1 正则表达式是什么</h2><blockquote>
+<p>正则表达式（英语：Regular Expression，常简写为regex、regexp或RE），又称正则表示式、正则表示法、规则表达式、常规表示法，是计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表达式通常被用来检索、替换那些符合某个模式的文本。</p>
+</blockquote>
+<p>也就是说，只要需要检索、替换文本中有规律的字符，就需要用到正则表达式。</p>
+<h1 id="2-入门"><a href="#2-入门" class="headerlink" title="2. 入门"></a>2. 入门</h1><h2 id="2-1-字符组"><a href="#2-1-字符组" class="headerlink" title="2.1 字符组"></a>2.1 字符组</h2><p><strong>字符组</strong>（<code>[]</code>）允许匹配一组可能出现的字符。</p>
+<p>例如：<code>[Pp]ython</code>，可以匹配Python和python。</p>
+<h2 id="2-2-区间"><a href="#2-2-区间" class="headerlink" title="2.2 区间"></a>2.2 区间</h2><p>在字符组中，使用连字符<code>-</code>，表示区间。</p>
+<p>比如<code>[0123456789]</code>可以简写为<code>[0-9]</code>，而匹配<code>a-z</code>的字符可以写成<code>[a-z]</code>。</p>
+<h2 id="2-3-转义字符"><a href="#2-3-转义字符" class="headerlink" title="2.3 转义字符"></a>2.3 转义字符</h2><p>如果要在区间中匹配<code>-</code>字符，就需要使用转义字符<code>\</code>，例如<code>[\-]</code>。</p>
+<h2 id="2-4-取反"><a href="#2-4-取反" class="headerlink" title="2.4 取反"></a>2.4 取反</h2><p>在字符组中，如果匹配不包含数字的字符组，就需要用到取反符号<code>^</code>，即：<code>[^0-9]</code>。</p>
+<h2 id="2-5-快捷匹配"><a href="#2-5-快捷匹配" class="headerlink" title="2.5 快捷匹配"></a>2.5 快捷匹配</h2><p>学会了上面的内容后，如果要匹配数字就需要使用<code>[0-9]</code>，匹配字母就需要使用[A-Za-z]，其实还有更简单的方法可以进行匹配。</p>
+<p>正则表达式中有下面的一些快捷方式。</p>
+<table>
+<thead>
+<tr>
+<th>实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>匹配除 “<code>\n</code>” 之外的任何单个字符。要匹配包括 ‘<code>\n</code>’ 在内的任何字符，请使用象 ‘<code>[.\n]</code>’ 的模式。</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>匹配一个字符零次或一次，另一个作用是非贪婪模式</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>匹配1次或多次</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>匹配0次或多次</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>匹配一个长度为<code>0</code>的子串</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配一个数字字符。等价于 <code>[0-9]</code>。</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配一个非数字字符。等价于 <code>[^0-9]</code>。</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 <code>[\f\n\r\t\v]</code>。</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任何非空白字符。等价于 <code>[^\f\n\r\t\v]</code>。</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>匹配包括下划线的任何单词字符。等价于’<code>[A-Za-z0-9_]</code>’。</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>匹配任何非单词字符。等价于 ‘<code>[^A-Za-z0-9_]</code>‘。</td>
+</tr>
+</tbody></table>
+<h2 id="2-6-开始和结束"><a href="#2-6-开始和结束" class="headerlink" title="2.6 开始和结束"></a>2.6 开始和结束</h2><p>正则表达式中 <code>^</code>指定的是一个字符串的开始，<code>$</code>指定的是一个字符串的结束。</p>
+<p>例如：<code>^python$</code>，匹配的即为以p开头，n结尾的字符串。</p>
+<p><strong>注意：在字符组<code>[]</code>中使用<code>^</code>是取反的操作，不要混淆。</strong></p>
+<h2 id="2-7-重复"><a href="#2-7-重复" class="headerlink" title="2.7 重复"></a>2.7 重复</h2><p>上面的<code>+</code>和<code>*</code>虽然也可以匹配多次，但是不能具体指定匹配多少次，比如手机号11位数字，就需要使用到重复匹配符<code>{}</code>。</p>
+<p>在一个字符组后加上<code>{N}</code> 就可以表示在它之前的字符组出现<code>N</code>次。</p>
+<p>例如：<code>/d{11}</code>，表示匹配11位数字。</p>
+<p><code>\d{3,4}</code> 既可以匹配<code>3</code>个数字也可以匹配<code>4</code>个数字，不过当有<code>4</code>个数字的时候，优先匹配的是<code>4</code>个数字，这是因为正则表达式默认是<strong>贪婪模式</strong>，即尽可能的匹配更多字符，而要使用<strong>非贪婪模式</strong>，我们要在*<em>表达式后面加上 <code>?</code>号<code>\d{3,4}?</code> *</em>。</p>
+<p>如果写成<code>\d{1,}</code>表示匹配一个和无数个。</p>
+<h1 id="3-进阶"><a href="#3-进阶" class="headerlink" title="3. 进阶"></a>3. 进阶</h1><h2 id="3-1-分组"><a href="#3-1-分组" class="headerlink" title="3.1 分组"></a>3.1 分组</h2><p>如果要捕获数据，就需要使用分组<code>()</code>。</p>
+<h2 id="3-2-或者"><a href="#3-2-或者" class="headerlink" title="3.2 或者"></a>3.2 或者</h2><p>在分组中，还可以使用或者符号：<code>|</code>。</p>
+<p>例如要提取文件的后缀名：<code>(.jpg|.gif|.jpeg|.png)</code>。</p>
+<h2 id="3-3-非捕获分组"><a href="#3-3-非捕获分组" class="headerlink" title="3.3 非捕获分组"></a>3.3 非捕获分组</h2><p>如果不需要捕获数据，但是又需要使用分组的某些功能，就可以使用到<code>(?:表达式)</code>。</p>
+<h2 id="3-4-分组的回溯引用"><a href="#3-4-分组的回溯引用" class="headerlink" title="3.4 分组的回溯引用"></a>3.4 分组的回溯引用</h2><p>使用<code>\N</code>可以引用编号为<code>N</code>的分组。</p>
+<p>例如<code>(\w)(\w)\2\1</code>，可以匹配到abba，alla这种样式的词。</p>
+<h2 id="3-5-正向先行断言"><a href="#3-5-正向先行断言" class="headerlink" title="3.5 正向先行断言"></a>3.5 正向先行断言</h2><p><code>(?=表达式)</code>，指在某个位置向右看，<strong>表示所在位置右侧必须能匹配<code>表达式</code>。</strong></p>
+<h2 id="3-6-反向先行断言"><a href="#3-6-反向先行断言" class="headerlink" title="3.6 反向先行断言"></a>3.6 反向先行断言</h2><p><code>(?!表达式)</code>的作用是<strong>保证右边不能出现某字符。</strong></p>
+<h2 id="3-7-正向后行断言"><a href="#3-7-正向后行断言" class="headerlink" title="3.7 正向后行断言"></a>3.7 正向后行断言</h2><p><code>(?&lt;=表达式)</code>，指在某个位置向左看，<strong>表示所在位置左侧必须能匹配表达式</strong>。</p>
+<h2 id="3-8-反向后行断言"><a href="#3-8-反向后行断言" class="headerlink" title="3.8 反向后行断言"></a>3.8 反向后行断言</h2><p><code>(?&lt;!表达式)</code>，指在某个位置向左看，表示所在位置左侧不能匹配表达式。</p>
+<p><strong>即正向必须匹配某值，反向为不能匹配某值，先行为向右看，而后行为向左看。</strong></p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><p>可以看到正则表达式其实学起来还是很简单的，但是真的要根据实际情况编写出正确的正则表达式，还需要大量的练习，不然很容易就会造成漏匹配，或者多匹配的情况。</p>
+<h1 id="5-网站推荐"><a href="#5-网站推荐" class="headerlink" title="5. 网站推荐"></a>5. 网站推荐</h1><p><a href="https://regexr-cn.com/" target="_blank" rel="noopener">正则在线验证</a>：一个在线验证正则表达式是否能按照所想进行匹配的网站。</p>
+<p><a href="https://codejiaonang.com/#/course/regex_chapter1/0/0" target="_blank" rel="noopener">正则表达式在线测试</a>：一个正则表达式学习网站，上面一边讲解一边留下练习题，非常值得一学。</p>
+<p><a href="https://github.com/any86/any-rule" target="_blank" rel="noopener">常用的正则规则</a>：工作中经常会用到的一些正则表达式，基本上已经是最优正则，推荐常见的正则比如验证身份证，手机号等直接使用已经被总结的正则，不要自己去手写，当然大神除外。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/10/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8809%E6%97%A5-%E5%86%92%E9%99%A9%E5%B2%9B%E3%80%81%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4%E3%80%81%E6%91%A9%E5%B0%94%E5%BA%84%E5%9B%AD%E5%A4%A7%E5%B9%85%E4%B8%8A%E5%8D%87/">
+                        <span class="hidden-mobile">游戏排行榜/2020年09月09日-冒险岛、炉石传说、摩尔庄园大幅上升</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
+
+  <script type="text/javascript">
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
+      new Valine({
+        el: "#vcomments",
+        app_id: "gVAMLyDCRqLt5gl5jh7mkSsi-gzGzoHsz",
+        app_key: "9hOzF8AiRn8aiWVVdrjq55Is",
+        placeholder: "欢迎将您的想法告诉我",
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
+        pageSize: "10",
+        lang: "zh-CN",
+        highlight: true,
+        recordIP: false,
+        serverURLs: "",
+      });
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!--<div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>-->
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "杂谈/了不起的正则表达式&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
