@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>Nodejs/express入门体验 - 个人博客|沧沧凉凉的小站</title>
+  <title>JavaScript/使用正则表达式 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -134,8 +134,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-08-29 16:19">
-                    2020年8月29日 下午
+                  <time datetime="2020-09-10 20:39">
+                    2020年9月10日 晚上
                   </time>
                 </div>
               
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    0 字
+                    450 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    1
+                    4
                      分钟
                   </span>
                 
@@ -184,7 +184,14 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前有一篇文章讲了正则表达式的类型以及正则表达式的用法：<a href="/2020/09/10/%E6%9D%82%E8%B0%88/%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="了不起的正则表达式">了不起的正则表达式</a>。</p>
+<p>本篇文章就来讲一讲JavaScript中，怎么使用正则表达式。</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>exec：一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回 null）。<br>test：一个在字符串中测试是否匹配的RegExp方法，它返回 true 或 false。<br>match：一个在字符串中执行查找匹配的String方法，它返回一个数组，在未匹配到时会返回 null。<br>matchAll：一个在字符串中执行查找所有匹配的String方法，它返回一个迭代器（iterator）。<br>search：一个在字符串中测试匹配的String方法，它返回匹配到的位置索引，或者在失败时返回-1。<br>replace：一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。<br>split：一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的 String 方法。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>正则到用时方恨少，平时就可以多练习，因为正则表达式在很多时候都非常有用，比如匹配URL，抓取网页中的一些信息。</p>
+<p>尤其是在爬虫领域，正则表达式几乎无所不能，可以抓取你想要的任何页面上的信息。</p>
+<p>当然是用爬虫需要谨慎，如果不让抓取的网页，那就别去抓取了，如果要强制抓取，可能会受到一些制裁，严重的甚至还会有牢狱之灾。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">正则表达式MDN</a></p>
+
             </article>
             <hr>
             <div>
@@ -193,7 +200,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Nodejs/">Nodejs</a>
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
                     
                   </div>
                 
@@ -201,9 +208,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Nodejs/">Nodejs</a>
-                    
-                      <a class="hover-with-bg" href="/tags/undone/">undone</a>
+                      <a class="hover-with-bg" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
                     
                   </div>
                 
@@ -216,9 +221,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/30/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8828%E6%97%A5-%E6%BF%80%E6%88%982%EF%BC%8C%E5%89%91%E7%BD%913%E8%BE%83%E5%A4%A7%E5%B9%85%E5%BA%A6%E4%B8%8A%E6%B6%A8/">
+                      <a href="/2020/09/10/%E6%9D%82%E8%B0%88/%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">游戏排行榜/2020年08月28日-激战2，剑网3较大幅度上涨</span>
+                        <span class="hidden-mobile">杂谈/了不起的正则表达式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -226,8 +231,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/29/JavaScript/%E6%95%B0%E7%BB%84%E8%87%AA%E5%B8%A6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/">
-                        <span class="hidden-mobile">JavaScript/数组自带的一些方法</span>
+                      <a href="/2020/09/10/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8809%E6%97%A5-%E5%86%92%E9%99%A9%E5%B2%9B%E3%80%81%E7%82%89%E7%9F%B3%E4%BC%A0%E8%AF%B4%E3%80%81%E6%91%A9%E5%B0%94%E5%BA%84%E5%9B%AD%E5%A4%A7%E5%B9%85%E4%B8%8A%E5%8D%87/">
+                        <span class="hidden-mobile">游戏排行榜/2020年09月09日-冒险岛、炉石传说、摩尔庄园大幅上升</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -420,7 +425,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Nodejs/express入门体验&nbsp;",
+        "JavaScript/使用正则表达式&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
