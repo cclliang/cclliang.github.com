@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    349 字
+                    345 字
                   </span>
                 
 
@@ -192,41 +192,35 @@
 <p>4、全局安装两个库：</p>
 <pre><code class="hljs bash">npm install nodemon ts-node -g</code></pre>
 
-<p>5、在根目录下创建<code>tsconfig.json</code>：这里的文件直接使用了<code>Vue</code>的规则。</p>
+<p>5、在根目录下创建<code>tsconfig.json</code>。</p>
 <pre><code class="hljs json">&#123;
   <span class="hljs-attr">"compilerOptions"</span>: &#123;
-    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"esnext"</span>,
-    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"esnext"</span>,
+    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"CommonJS"</span>,
+    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"ES2015"</span>,
+    <span class="hljs-attr">"noImplicitAny"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"strictNullChecks"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"strict"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"jsx"</span>: <span class="hljs-string">"preserve"</span>,
-    <span class="hljs-attr">"importHelpers"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"moduleResolution"</span>: <span class="hljs-string">"node"</span>,
-    <span class="hljs-attr">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"skipLibCheck"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"esModuleInterop"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"allowSyntheticDefaultImports"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"baseUrl"</span>: <span class="hljs-string">"."</span>,
-    <span class="hljs-attr">"paths"</span>: &#123;
-      <span class="hljs-attr">"@/*"</span>: [
-        <span class="hljs-string">"src/*"</span>
-      ]
-    &#125;,
+    <span class="hljs-attr">"alwaysStrict"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"noImplicitReturns"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"noImplicitThis"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"pretty"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"listFiles"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"listEmittedFiles"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"lib"</span>: [
-      <span class="hljs-string">"esnext"</span>,
-      <span class="hljs-string">"dom"</span>,
-      <span class="hljs-string">"dom.iterable"</span>,
-      <span class="hljs-string">"scripthost"</span>
+      <span class="hljs-string">"ESNext"</span>
+    ],
+    <span class="hljs-attr">"typeRoots"</span>: [
+      <span class="hljs-string">"./node_modules/@types"</span>
     ]
   &#125;,
   <span class="hljs-attr">"include"</span>: [
-    <span class="hljs-string">"src/**/*.ts"</span>,
-    <span class="hljs-string">"src/**/*.tsx"</span>,
-    <span class="hljs-string">"tests/**/*.ts"</span>,
-    <span class="hljs-string">"tests/**/*.tsx"</span>
+    <span class="hljs-string">"./**/*"</span>
   ],
   <span class="hljs-attr">"exclude"</span>: [
-    <span class="hljs-string">"node_modules"</span>
+    <span class="hljs-string">"node_modules"</span>,
+    <span class="hljs-string">"**/*.spec.ts"</span>,
+    <span class="hljs-string">"*.js"</span>
   ]
 &#125;</code></pre>
 
@@ -244,6 +238,9 @@
 &#125;,</code></pre>
 
 <p>然后使用<code>npm run start</code>，就可以开始愉快的使用TypeScript编写Node项目了，同时还支持热更新，你每次修改代码时会自动帮你重启项目。</p>
+<p>8、如果要使用Node的库，需要引入：</p>
+<pre><code class="hljs bash">npm i @types/node --save-dev</code></pre>
+
 
             </article>
             <hr>
