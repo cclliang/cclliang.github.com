@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Nodejs/使用TypeScript来编写Nodejs</title>
+    <link href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Nodejs/"/>
+    <url>/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Nodejs/</url>
+    
+    <content type="html"><![CDATA[<p>对于TypeScript就不用再多说了，我已经在很多文章中都提到了TypeScript，现在我是能使用TypeScript就尽量使用TypeScript，因为TypeScript已经是一种趋势，一种必然。</p><p>最近在学习Nodejs，就想着使用TypeScript来编写Node相关的东西。</p><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>1、新建一个项目文件夹，并且在文件夹中创建一个<code>src</code>文件夹，在其下面创建一个<code>app.ts</code>文件。</p><p>2、回到项目文件夹根目录，运行<code>npm init --yes</code>，直接生成<code>package.json</code>文件，也可以不加<code>yes</code>，手动填写项目的信息。</p><p>3、运行<code>npm i typescript --save-dev</code>。</p><p>4、全局安装两个库：</p><pre><code class="hljs bash">npm install nodemon ts-node -g</code></pre><p>5、在根目录下创建<code>tsconfig.json</code>：这里的文件直接使用了<code>Vue</code>的规则。</p><pre><code class="hljs json">&#123;  <span class="hljs-attr">"compilerOptions"</span>: &#123;    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"esnext"</span>,    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"esnext"</span>,    <span class="hljs-attr">"strict"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"jsx"</span>: <span class="hljs-string">"preserve"</span>,    <span class="hljs-attr">"importHelpers"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"moduleResolution"</span>: <span class="hljs-string">"node"</span>,    <span class="hljs-attr">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"skipLibCheck"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"esModuleInterop"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"allowSyntheticDefaultImports"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"baseUrl"</span>: <span class="hljs-string">"."</span>,    <span class="hljs-attr">"paths"</span>: &#123;      <span class="hljs-attr">"@/*"</span>: [        <span class="hljs-string">"src/*"</span>      ]    &#125;,    <span class="hljs-attr">"lib"</span>: [      <span class="hljs-string">"esnext"</span>,      <span class="hljs-string">"dom"</span>,      <span class="hljs-string">"dom.iterable"</span>,      <span class="hljs-string">"scripthost"</span>    ]  &#125;,  <span class="hljs-attr">"include"</span>: [    <span class="hljs-string">"src/**/*.ts"</span>,    <span class="hljs-string">"src/**/*.tsx"</span>,    <span class="hljs-string">"tests/**/*.ts"</span>,    <span class="hljs-string">"tests/**/*.tsx"</span>  ],  <span class="hljs-attr">"exclude"</span>: [    <span class="hljs-string">"node_modules"</span>  ]&#125;</code></pre><p>6、项目结构</p><pre><code class="hljs bash">│  package-lock.json│  package.json│  tsconfig.json│└─src        app.ts</code></pre><p>7、最后一步，在<code>package.json</code>文件scripts中，添加<code>&quot;start&quot;: &quot;nodemon  -e  ts,tsx  --exec ts-node  src/app.ts&quot;,</code>：</p><pre><code class="hljs json">"scripts": &#123;  "start": "nodemon  -e  ts,tsx  --exec ts-node  src/app.ts",&#125;,</code></pre><p>然后使用<code>npm run start</code>，就可以开始愉快的使用TypeScript编写Node项目了，同时还支持热更新，你每次修改代码时会自动帮你重启项目。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>TypeScript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nodejs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>游戏排行榜/2020年09月11日-激战2新上榜，香肠派对上涨</title>
     <link href="/2020/09/12/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8811%E6%97%A5-%E6%BF%80%E6%88%982%E6%96%B0%E4%B8%8A%E6%A6%9C%EF%BC%8C%E9%A6%99%E8%82%A0%E6%B4%BE%E5%AF%B9%E4%B8%8A%E6%B6%A8/"/>
     <url>/2020/09/12/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8811%E6%97%A5-%E6%BF%80%E6%88%982%E6%96%B0%E4%B8%8A%E6%A6%9C%EF%BC%8C%E9%A6%99%E8%82%A0%E6%B4%BE%E5%AF%B9%E4%B8%8A%E6%B6%A8/</url>
