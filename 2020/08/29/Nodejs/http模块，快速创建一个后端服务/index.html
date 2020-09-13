@@ -19,7 +19,7 @@
   <meta name="keywords" content="前端开发,Blog,个人博客网站,博客,html5游戏,JavaScript,JavaScript动画,HTML5,CSS,css3,css3动画,Vue,vuejs,React,reactjs,游戏排行榜,VPS,Linux">
   <meta name="baidu-site-verification" content="aibPQPjuXd" />
   <meta name="google-site-verification" content="2DBVdRMoLMKd9hWPK1TLbao2uPhUNQy4an0NUuBZ7CY" />
-  <title>Nodejs/02、fs模块，文件读取操作 - 个人博客|沧沧凉凉的小站</title>
+  <title>Nodejs/http模块，快速创建一个后端服务 - 个人博客|沧沧凉凉的小站</title>
   <script data-ad-client="ca-pub-4693483469397315" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    0 字
+                    824 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    1
+                    9
                      分钟
                   </span>
                 
@@ -184,7 +184,54 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              
+              <h1 id="前文"><a href="#前文" class="headerlink" title="前文"></a>前文</h1><ol>
+<li><a href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/" title="使用TypeScript来编写Node项目">使用TypeScript来编写Node项目</a></li>
+<li><a href="/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/" title="为什么要学习Nodejs">为什么要学习Nodejs</a>
+
+</li>
+</ol>
+<p>注：文章中的代码全部使用TypeScript进行编写。</p>
+<h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>使用Nodejs的项目一般情况下都是想要创建一个服务端，就目前来说，一般大公司都专门有自己的Node服务端，而小公司一般都用的是PHP和Java作为服务端，毕竟会Node的人数远远少于会Java和会PHP的人数，而且Java和PHP在服务端已经经历了那么多年的沉淀，其稳定性也不是Node服务端能够比拟的。</p>
+<p>但即使是这样，Node依然是一个前端进阶路上必须经历的一个阶段，因为学习Node不光可以加深对后端的了解，同时因为可以使用JavaScript写服务端，所以自己也可以做一些全栈项目。</p>
+<p>其实因为Node因为擅长处理高并发，而且创建简单，其实在国外已经有非常多的服务端使用Node进行编写。</p>
+<h1 id="创建一个简单的服务端"><a href="#创建一个简单的服务端" class="headerlink" title="创建一个简单的服务端"></a>创建一个简单的服务端</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><p><code>response</code>：为服务端给客户端的响应，如果客户端发起了请求，服务端需要传递某些信息给客户端，都是要通过<code>response</code>下面的方法。</p>
+<p>使用Node创建一个简单的服务端是非常轻松的事情：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; createServer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"http"</span>;
+
+createServer(<span class="hljs-function">(<span class="hljs-params">(request, response</span>) =&gt;</span> &#123;
+  <span class="hljs-comment">/* 设置响应头，状态码200，文件类型html，字符集是 utf-8 */</span>
+  response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html;charset=utf-8"</span>&#125;); <span class="hljs-comment">// 请求头</span>
+  <span class="hljs-comment">/* 写入信息 */</span>
+  response.write(<span class="hljs-string">"Hello Node"</span>);
+  response.end(); <span class="hljs-comment">// 结束相应</span>
+&#125;)).listen(<span class="hljs-number">3000</span>); <span class="hljs-comment">// 监听3000端口</span></code></pre>
+
+<p>然后启动服务器，<code>npm run start</code>。</p>
+<p><strong>注意：如果报错的话，还请查看<a href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/" title="使用TypeScript来编写Node项目">使用TypeScript来编写Node项目</a>。</strong></p>
+<p>通过浏览器访问<code>localhost:3000</code>，我们应该可以看到下面的界面：</p>
+<p><img src="image/web/image-20200913220410406.png" srcset="/img/loading.gif" alt="image-20200913220410406"></p>
+<p>好的，到这一步，一个简单的服务端就已经搭建完成了，是不是非常的简单。</p>
+<p>在当前界面打开开发者调试工具：</p>
+<p><img src="image/web/image-20200913222058175.png" srcset="/img/loading.gif" alt="image-20200913222058175"></p>
+<p>可以看到，上面设置的响应头，在图中勾出来的位置有所提现。</p>
+<p><strong>注意：如果不设置<code>response.end()</code>则浏览器会进入假死状态，如果不设置<code>charset=utf-8</code>，在响应信息中输入中文，会出现乱码的情况，大家可以自行尝试一下。</strong></p>
+<h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><p><code>request</code>：请求，服务端接受客户端发送过来的请求信息，包含了很多信息，我们首先需要了解的是<code>request.url</code>。</p>
+<p>即客户端请求的<code>url</code>地址。</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; createServer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"http"</span>;
+
+createServer(<span class="hljs-function">(<span class="hljs-params">(request, response</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">console</span>.log(request.url);
+  response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html;charset=utf-8"</span>&#125;); 
+  response.end(); <span class="hljs-comment">// 结束相应</span>
+&#125;)).listen(<span class="hljs-number">3000</span>); <span class="hljs-comment">// 监听3000端口</span></code></pre>
+
+<p>启动服务端，我们在地址栏中输入<code>localhost:3000/hello</code>，控制台会打印出两个参数。</p>
+<pre><code class="hljs bash">/hello <span class="hljs-comment"># localhost:3000后所带的Url</span>
+/favicon.ico <span class="hljs-comment"># 默认请求图标文件，即浏览器标签栏中左边的小图标</span></code></pre>
+
+<p>因为浏览器直接请求默认是<code>get</code>请求，众所周知<code>get</code>请求是可以通过<code>?name=xxx&amp;age=xxx</code>的这种形式传递参数的，那么我们怎么获取传递过来的这些参数呢？</p>
+<p>除了自己拆分外，还有种更简单的方法就是使用Nodejs自带的<strong>url模块</strong>。</p>
+<h2 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h2>
             </article>
             <hr>
             <div>
@@ -216,9 +263,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/30/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B408%E6%9C%8828%E6%97%A5-%E6%BF%80%E6%88%982%EF%BC%8C%E5%89%91%E7%BD%913%E8%BE%83%E5%A4%A7%E5%B9%85%E5%BA%A6%E4%B8%8A%E6%B6%A8/">
+                      <a href="/2020/08/29/Nodejs/fs%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">游戏排行榜/2020年08月28日-激战2，剑网3较大幅度上涨</span>
+                        <span class="hidden-mobile">Nodejs/fs模块，文件读取操作</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -226,8 +273,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/29/Nodejs/01%E3%80%81http%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/">
-                        <span class="hidden-mobile">Nodejs/01、http模块，快速创建一个后端服务</span>
+                      <a href="/2020/08/29/TypeScript/%E7%89%B9%E8%89%B2%E5%8A%9F%E8%83%BD%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/">
+                        <span class="hidden-mobile">TypeScript/特色功能之装饰器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -420,7 +467,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Nodejs/02、fs模块，文件读取操作&nbsp;",
+        "Nodejs/http模块，快速创建一个后端服务&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

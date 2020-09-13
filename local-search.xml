@@ -4,9 +4,63 @@
   
   
   <entry>
-    <title>Nodejs/使用TypeScript来编写Nodejs</title>
-    <link href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Nodejs/"/>
-    <url>/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Nodejs/</url>
+    <title>游戏排行榜/2020年09月12日-我的世界热度超越英雄联盟</title>
+    <link href="/2020/09/13/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8812%E6%97%A5-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%83%AD%E5%BA%A6%E8%B6%85%E8%B6%8A%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F/"/>
+    <url>/2020/09/13/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/2020%E5%B9%B409%E6%9C%8812%E6%97%A5-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E7%83%AD%E5%BA%A6%E8%B6%85%E8%B6%8A%E8%8B%B1%E9%9B%84%E8%81%94%E7%9B%9F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>现在的游戏市场很奇怪，奇怪到你根本找不到一个靠谱的游戏排行榜单，在百度上面搜索“游戏排行榜”，会发现搜索出来的大部分页面的游戏榜单几乎都是软广告。根本没有听过或者身边根本没有人玩的游戏还会排到排行榜首位。</p><p>而我自身无聊的时候就喜欢看看这些游戏排行榜，所以我决定通过百度指数，拟出一份比较有参考价值的游戏榜单，该榜单尽量做到每天更新。</p><p><strong>由于本排行榜的游戏收集有限，所以有些游戏可能存在百度指数很高，但是没有出现在排行榜中的情况，如果有的话可以在评论里面告诉我，我会添加新的关键词。</strong></p><p><strong>更新时间：目前更新时间定为晚上10点（22点）左右。</strong></p><h1 id="箭头含义"><a href="#箭头含义" class="headerlink" title="箭头含义"></a>箭头含义</h1><p><code>↑</code>：相对于前一天上升几个名次。</p><p><code>↓</code>：相对于前一天下降几个名次。</p><p><code>↑new</code>：当天新入榜的游戏。</p><h1 id="网络游戏PC端"><a href="#网络游戏PC端" class="headerlink" title="网络游戏PC端"></a>网络游戏PC端</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>我的世界+minecraft ↑1</td><td>78979</td></tr><tr><td>2</td><td>英雄联盟+lol ↓1</td><td>64936</td></tr><tr><td>3</td><td>穿越火线+cf</td><td>47794</td></tr><tr><td>4</td><td>地下城与勇士+dnf</td><td>19262</td></tr><tr><td>5</td><td>绝地求生+pubg ↑3</td><td>18137</td></tr><tr><td>6</td><td>坦克世界</td><td>17016</td></tr><tr><td>7</td><td>梦幻西游 ↓2</td><td>14425</td></tr><tr><td>8</td><td>魔兽世界+wow ↓1</td><td>12588</td></tr><tr><td>9</td><td>csgo ↑3</td><td>11879</td></tr><tr><td>10</td><td>最终幻想14+ff14 ↓1</td><td>11220</td></tr><tr><td>11</td><td>方舟生存进化 ↑9</td><td>10529</td></tr><tr><td>12</td><td>天龙八部 ↑1</td><td>10328</td></tr><tr><td>13</td><td>炉石传说 ↓2</td><td>10143</td></tr><tr><td>14</td><td>刀塔2+DOTA2 ↓4</td><td>9356</td></tr><tr><td>15</td><td>星际战甲+warframe ↓1</td><td>8082</td></tr><tr><td>16</td><td>冒险岛</td><td>8074</td></tr><tr><td>17</td><td>诛仙 ↑2</td><td>7177</td></tr><tr><td>18</td><td>摩尔庄园 ↓3</td><td>7087</td></tr><tr><td>19</td><td>传奇 ↑2</td><td>6960</td></tr><tr><td>20</td><td>守望先锋 ↑3</td><td>6893</td></tr><tr><td>21</td><td>征途 ↓4</td><td>6739</td></tr><tr><td>22</td><td>变形金刚 ↑7</td><td>6051</td></tr><tr><td>23</td><td>战舰世界 ↓1</td><td>5787</td></tr><tr><td>24</td><td>大话西游</td><td>5618</td></tr><tr><td>25</td><td>QQ飞车 ↑1</td><td>5429</td></tr><tr><td>26</td><td>激战2 ↓8</td><td>5141</td></tr><tr><td>27</td><td>龙族 ↑3</td><td>4962</td></tr><tr><td>28</td><td>龙之谷 ↓3</td><td>4746</td></tr><tr><td>29</td><td>EVE ↓1</td><td>4541</td></tr><tr><td>30</td><td>使命召唤16+cod16 ↑new</td><td>4349</td></tr></tbody></table><h1 id="手机游戏"><a href="#手机游戏" class="headerlink" title="手机游戏"></a>手机游戏</h1><table><thead><tr><th>名次</th><th>百度搜索关键词</th><th>百度指数</th></tr></thead><tbody><tr><td>1</td><td>王者荣耀</td><td>120648</td></tr><tr><td>2</td><td>和平精英</td><td>82338</td></tr><tr><td>3</td><td>我的世界+mc</td><td>78314</td></tr><tr><td>4</td><td>迷你世界</td><td>68290</td></tr><tr><td>5</td><td>香肠派对</td><td>43467</td></tr><tr><td>6</td><td>光遇 ↑1</td><td>21632</td></tr><tr><td>7</td><td>阴阳师 ↑2</td><td>19996</td></tr><tr><td>8</td><td>明日方舟</td><td>18977</td></tr><tr><td>9</td><td>第五人格 ↑1</td><td>18657</td></tr><tr><td>10</td><td>江南百景图 ↓4</td><td>17244</td></tr><tr><td>11</td><td>球球大作战 ↑4</td><td>16260</td></tr><tr><td>12</td><td>明日之后 ↑6</td><td>11589</td></tr><tr><td>13</td><td>最强蜗牛 ↓2</td><td>11230</td></tr><tr><td>14</td><td>荒野乱斗 ↑5</td><td>10962</td></tr><tr><td>15</td><td>部落冲突 ↑2</td><td>10885</td></tr><tr><td>16</td><td>妖神记 ↓2</td><td>10844</td></tr><tr><td>17</td><td>炉石传说 ↓5</td><td>10143</td></tr><tr><td>18</td><td>狼人杀 ↑3</td><td>9257</td></tr><tr><td>19</td><td>不朽之旅 ↓6</td><td>8650</td></tr><tr><td>20</td><td>饥荒 ↑6</td><td>7874</td></tr><tr><td>21</td><td>欢乐斗地主 ↓5</td><td>7854</td></tr><tr><td>22</td><td>崩坏3 ↓2</td><td>7844</td></tr><tr><td>23</td><td>碧蓝航线 ↑1</td><td>7178</td></tr><tr><td>24</td><td>率土之滨 ↓2</td><td>5837</td></tr><tr><td>25</td><td>大话西游 ↓2</td><td>5618</td></tr><tr><td>26</td><td>火影忍者手游 ↑4</td><td>4833</td></tr><tr><td>27</td><td>灌篮高手 ↑1</td><td>4690</td></tr><tr><td>28</td><td>开心消消乐 ↓1</td><td>4605</td></tr><tr><td>29</td><td>梦幻西游手游 ↓4</td><td>4313</td></tr><tr><td>30</td><td>王牌高校 ↑new</td><td>3973</td></tr></tbody></table><h1 id="更多榜单"><a href="#更多榜单" class="headerlink" title="更多榜单"></a><a href="https://www.cclliang.com/categories/%E6%B8%B8%E6%88%8F%E6%8E%92%E8%A1%8C%E6%A6%9C/">更多榜单</a></h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>游戏排行榜</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>排行榜</tag>
+      
+      <tag>游戏</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nodejs/express入门体验</title>
+    <link href="/2020/09/13/Nodejs/express%E5%85%A5%E9%97%A8%E4%BD%93%E9%AA%8C/"/>
+    <url>/2020/09/13/Nodejs/express%E5%85%A5%E9%97%A8%E4%BD%93%E9%AA%8C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="系列"><a href="#系列" class="headerlink" title="系列"></a>系列</h1><ol><li></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nodejs</tag>
+      
+      <tag>undone</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nodejs/使用TypeScript来编写Node项目</title>
+    <link href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/"/>
+    <url>/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/</url>
     
     <content type="html"><![CDATA[<p>对于TypeScript就不用再多说了，我已经在很多文章中都提到了TypeScript，现在我是能使用TypeScript就尽量使用TypeScript，因为TypeScript已经是一种趋势，一种必然。</p><p>最近在学习Nodejs，就想着使用TypeScript来编写Node相关的东西。</p><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>1、新建一个项目文件夹，并且在文件夹中创建一个<code>src</code>文件夹，在其下面创建一个<code>app.ts</code>文件。</p><p>2、回到项目文件夹根目录，运行<code>npm init --yes</code>，直接生成<code>package.json</code>文件，也可以不加<code>yes</code>，手动填写项目的信息。</p><p>3、运行<code>npm i typescript --save-dev</code>。</p><p>4、全局安装两个库：</p><pre><code class="hljs bash">npm install nodemon ts-node -g</code></pre><p>5、在根目录下创建<code>tsconfig.json</code>。</p><pre><code class="hljs json">&#123;  <span class="hljs-attr">"compilerOptions"</span>: &#123;    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"CommonJS"</span>,    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"ES2015"</span>,    <span class="hljs-attr">"noImplicitAny"</span>: <span class="hljs-literal">false</span>,    <span class="hljs-attr">"strictNullChecks"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"strict"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"alwaysStrict"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">false</span>,    <span class="hljs-attr">"noImplicitReturns"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"noImplicitThis"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"pretty"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"listFiles"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"listEmittedFiles"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"lib"</span>: [      <span class="hljs-string">"ESNext"</span>    ],    <span class="hljs-attr">"typeRoots"</span>: [      <span class="hljs-string">"./node_modules/@types"</span>    ]  &#125;,  <span class="hljs-attr">"include"</span>: [    <span class="hljs-string">"./**/*"</span>  ],  <span class="hljs-attr">"exclude"</span>: [    <span class="hljs-string">"node_modules"</span>,    <span class="hljs-string">"**/*.spec.ts"</span>,    <span class="hljs-string">"*.js"</span>  ]&#125;</code></pre><p>6、项目结构</p><pre><code class="hljs bash">│  package-lock.json│  package.json│  tsconfig.json│└─src        app.ts</code></pre><p>7、最后一步，在<code>package.json</code>文件scripts中，添加<code>&quot;start&quot;: &quot;nodemon  -e  ts,tsx  --exec ts-node  src/app.ts&quot;,</code>：</p><pre><code class="hljs json">"scripts": &#123;  "start": "nodemon  -e  ts,tsx  --exec ts-node  src/app.ts",&#125;,</code></pre><p>然后使用<code>npm run start</code>，就可以开始愉快的使用TypeScript编写Node项目了，同时还支持热更新，你每次修改代码时会自动帮你重启项目。</p><p>8、如果要使用Node的库，需要引入：</p><pre><code class="hljs bash">npm i @types/node --save-dev</code></pre>]]></content>
     
@@ -48,6 +102,8 @@
       <tag>排行榜</tag>
       
       <tag>游戏</tag>
+      
+      <tag>hide</tag>
       
     </tags>
     
@@ -722,60 +778,6 @@
   
   
   <entry>
-    <title>Nodejs/02、fs模块，文件读取操作</title>
-    <link href="/2020/08/29/Nodejs/02%E3%80%81fs%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C/"/>
-    <url>/2020/08/29/Nodejs/02%E3%80%81fs%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>Nodejs</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Nodejs</tag>
-      
-      <tag>undone</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Nodejs/01、http模块，快速创建一个后端服务</title>
-    <link href="/2020/08/29/Nodejs/01%E3%80%81http%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/"/>
-    <url>/2020/08/29/Nodejs/01%E3%80%81http%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>Nodejs</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Nodejs</tag>
-      
-      <tag>undone</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>JavaScript/数组自带的一些方法</title>
     <link href="/2020/08/29/JavaScript/%E6%95%B0%E7%BB%84%E8%87%AA%E5%B8%A6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
     <url>/2020/08/29/JavaScript/%E6%95%B0%E7%BB%84%E8%87%AA%E5%B8%A6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/</url>
@@ -806,33 +808,6 @@
     <title>Nodejs/cookie解析器和序列化器：cookie</title>
     <link href="/2020/08/29/Nodejs/cookie%E8%A7%A3%E6%9E%90%E5%99%A8%E5%92%8C%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%EF%BC%9Acookie/"/>
     <url>/2020/08/29/Nodejs/cookie%E8%A7%A3%E6%9E%90%E5%99%A8%E5%92%8C%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%EF%BC%9Acookie/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>Nodejs</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Nodejs</tag>
-      
-      <tag>undone</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Nodejs/express入门体验</title>
-    <link href="/2020/08/29/Nodejs/express%E5%85%A5%E9%97%A8%E4%BD%93%E9%AA%8C/"/>
-    <url>/2020/08/29/Nodejs/express%E5%85%A5%E9%97%A8%E4%BD%93%E9%AA%8C/</url>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -1009,6 +984,60 @@
     <tags>
       
       <tag>游戏设计</tag>
+      
+      <tag>undone</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nodejs/fs模块，文件读取操作</title>
+    <link href="/2020/08/29/Nodejs/fs%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C/"/>
+    <url>/2020/08/29/Nodejs/fs%E6%A8%A1%E5%9D%97%EF%BC%8C%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nodejs</tag>
+      
+      <tag>undone</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nodejs/http模块，快速创建一个后端服务</title>
+    <link href="/2020/08/29/Nodejs/http%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/"/>
+    <url>/2020/08/29/Nodejs/http%E6%A8%A1%E5%9D%97%EF%BC%8C%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前文"><a href="#前文" class="headerlink" title="前文"></a>前文</h1><ol><li><a href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/" title="使用TypeScript来编写Node项目">使用TypeScript来编写Node项目</a></li><li><a href="/2020/08/29/Nodejs/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0Nodejs/" title="为什么要学习Nodejs">为什么要学习Nodejs</a></li></ol><p>注：文章中的代码全部使用TypeScript进行编写。</p><h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><p>使用Nodejs的项目一般情况下都是想要创建一个服务端，就目前来说，一般大公司都专门有自己的Node服务端，而小公司一般都用的是PHP和Java作为服务端，毕竟会Node的人数远远少于会Java和会PHP的人数，而且Java和PHP在服务端已经经历了那么多年的沉淀，其稳定性也不是Node服务端能够比拟的。</p><p>但即使是这样，Node依然是一个前端进阶路上必须经历的一个阶段，因为学习Node不光可以加深对后端的了解，同时因为可以使用JavaScript写服务端，所以自己也可以做一些全栈项目。</p><p>其实因为Node因为擅长处理高并发，而且创建简单，其实在国外已经有非常多的服务端使用Node进行编写。</p><h1 id="创建一个简单的服务端"><a href="#创建一个简单的服务端" class="headerlink" title="创建一个简单的服务端"></a>创建一个简单的服务端</h1><h2 id="response"><a href="#response" class="headerlink" title="response"></a>response</h2><p><code>response</code>：为服务端给客户端的响应，如果客户端发起了请求，服务端需要传递某些信息给客户端，都是要通过<code>response</code>下面的方法。</p><p>使用Node创建一个简单的服务端是非常轻松的事情：</p><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; createServer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"http"</span>;createServer(<span class="hljs-function">(<span class="hljs-params">(request, response</span>) =&gt;</span> &#123;  <span class="hljs-comment">/* 设置响应头，状态码200，文件类型html，字符集是 utf-8 */</span>  response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html;charset=utf-8"</span>&#125;); <span class="hljs-comment">// 请求头</span>  <span class="hljs-comment">/* 写入信息 */</span>  response.write(<span class="hljs-string">"Hello Node"</span>);  response.end(); <span class="hljs-comment">// 结束相应</span>&#125;)).listen(<span class="hljs-number">3000</span>); <span class="hljs-comment">// 监听3000端口</span></code></pre><p>然后启动服务器，<code>npm run start</code>。</p><p><strong>注意：如果报错的话，还请查看<a href="/2020/09/13/Nodejs/%E4%BD%BF%E7%94%A8TypeScript%E6%9D%A5%E7%BC%96%E5%86%99Node%E9%A1%B9%E7%9B%AE/" title="使用TypeScript来编写Node项目">使用TypeScript来编写Node项目</a>。</strong></p><p>通过浏览器访问<code>localhost:3000</code>，我们应该可以看到下面的界面：</p><p><img src="image/web/image-20200913220410406.png" srcset="/img/loading.gif" alt="image-20200913220410406"></p><p>好的，到这一步，一个简单的服务端就已经搭建完成了，是不是非常的简单。</p><p>在当前界面打开开发者调试工具：</p><p><img src="image/web/image-20200913222058175.png" srcset="/img/loading.gif" alt="image-20200913222058175"></p><p>可以看到，上面设置的响应头，在图中勾出来的位置有所提现。</p><p><strong>注意：如果不设置<code>response.end()</code>则浏览器会进入假死状态，如果不设置<code>charset=utf-8</code>，在响应信息中输入中文，会出现乱码的情况，大家可以自行尝试一下。</strong></p><h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><p><code>request</code>：请求，服务端接受客户端发送过来的请求信息，包含了很多信息，我们首先需要了解的是<code>request.url</code>。</p><p>即客户端请求的<code>url</code>地址。</p><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; createServer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"http"</span>;createServer(<span class="hljs-function">(<span class="hljs-params">(request, response</span>) =&gt;</span> &#123;  <span class="hljs-built_in">console</span>.log(request.url);  response.writeHead(<span class="hljs-number">200</span>, &#123;<span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"text/html;charset=utf-8"</span>&#125;);   response.end(); <span class="hljs-comment">// 结束相应</span>&#125;)).listen(<span class="hljs-number">3000</span>); <span class="hljs-comment">// 监听3000端口</span></code></pre><p>启动服务端，我们在地址栏中输入<code>localhost:3000/hello</code>，控制台会打印出两个参数。</p><pre><code class="hljs bash">/hello <span class="hljs-comment"># localhost:3000后所带的Url</span>/favicon.ico <span class="hljs-comment"># 默认请求图标文件，即浏览器标签栏中左边的小图标</span></code></pre><p>因为浏览器直接请求默认是<code>get</code>请求，众所周知<code>get</code>请求是可以通过<code>?name=xxx&amp;age=xxx</code>的这种形式传递参数的，那么我们怎么获取传递过来的这些参数呢？</p><p>除了自己拆分外，还有种更简单的方法就是使用Nodejs自带的<strong>url模块</strong>。</p><h2 id="url模块"><a href="#url模块" class="headerlink" title="url模块"></a>url模块</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Nodejs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Nodejs</tag>
       
       <tag>undone</tag>
       
